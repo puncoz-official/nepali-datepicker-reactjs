@@ -9,6 +9,7 @@
   "scripts": {
     "test": "jest --config jestconfig.json",
     "build": "rollup -c",
+    "build-example": "cd ./examples && yarn && yarn build",
     "watch": "rollup -c --watch",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.tsx\"",
     "lint": "tslint -p tsconfig.json",
