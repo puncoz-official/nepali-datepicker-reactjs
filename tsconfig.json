@@ -1,17 +1,35 @@
 {
   "compilerOptions": {
-    "module":      "commonjs",
-    "target":      "es5",
-    "sourceMap":   true,
-    "declaration": true,
-    "outDir":      "lib",
-    "strict":      true
+    "outDir":                           "dist",
+    "module":                           "esnext",
+    "target":                           "es5",
+    "lib":                              [
+      "es6",
+      "dom",
+      "es2016",
+      "es2017"
+    ],
+    "sourceMap":                        true,
+    "allowJs":                          false,
+    "jsx":                              "react",
+    "declaration":                      true,
+    "moduleResolution":                 "node",
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns":                true,
+    "noImplicitThis":                   true,
+    "noImplicitAny":                    true,
+    "strictNullChecks":                 true,
+    "suppressImplicitAnyIndexErrors":   true,
+    "noUnusedLocals":                   true,
+    "noUnusedParameters":               true,
+    "strict":                           true
   },
   "include":         [
     "src"
   ],
   "exclude":         [
     "node_modules",
-    "**/__tests__/*"
+    "**/__tests__/*",
+    "dist"
   ]
 }
