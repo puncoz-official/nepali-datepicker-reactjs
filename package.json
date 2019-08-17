@@ -1,6 +1,6 @@
 {
   "name": "nepali-datepicker-reactjs",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Nepali Datepicker (Bikram Sambat) as a ReactJS component",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
