@@ -10,12 +10,12 @@
     "test": "jest --config jestconfig.json",
     "build": "rollup -c",
     "watch": "rollup -c --watch",
-    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.tsx\"",
     "lint": "tslint -p tsconfig.json",
-    "prepare": "npm run build",
-    "prepublishOnly": "npm test && npm run lint",
-    "preversion": "npm run lint",
-    "version": "npm run format && git add -A src",
+    "prepare": "yarn build",
+    "prepublishOnly": "yarn test && yarn lint",
+    "preversion": "yarn lint",
+    "version": "yarn format && git add -a src",
     "postversion": "git push && git push --tags"
   },
   "repository": {
@@ -37,13 +37,10 @@
   "devDependencies": {
     "@types/jest": "^24.0.17",
     "@types/react": "^16.9.2",
-    "@types/react-dom": "^16.8.5",
     "@types/react-test-renderer": "^16.9.0",
     "jest": "^24.9.0",
     "prettier": "^1.18.2",
     "react": "^16.9.0",
-    "react-dom": "^16.9.0",
-    "react-scripts-ts": "^4.0.8",
     "react-test-renderer": "^16.9.0",
     "rollup": "^1.19.4",
     "rollup-plugin-commonjs": "^10.0.2",
@@ -61,5 +58,6 @@
   },
   "files": [
     "dist/**/*"
-  ]
+  ],
+  "dependencies": {}
 }

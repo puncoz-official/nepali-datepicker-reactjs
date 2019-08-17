@@ -1,15 +1,13 @@
-import * as React from 'react'
+import React, { Component } from "react"
 
-export type Props = { name: string }
+interface IProps {
+    name: string
+}
 
-export default class Datepicker extends React.Component<Props> {
-    render() {
+export default class DatePicker extends Component<IProps> {
+    public render() {
         const { name } = this.props
 
-        return (
-            <div style={{ color: 'red' }}>
-                Hello {name}!
-            </div>
-        )
+        return <div style={{ color: "red" }}>Hello {name}!</div>
     }
 }

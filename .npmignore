@@ -1,5 +1,8 @@
+.idea
+examples
 src
-tsconfig.json
-tslint.json
 .prettierrc
 jestconfig.json
+rollup.config.js
+tsconfig.json
+tslint.json

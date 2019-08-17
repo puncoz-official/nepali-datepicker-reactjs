@@ -1,9 +1,10 @@
 import React      from "react"
 import { render } from "react-dom"
-import DatePicker from "./../../dist/index.es"
 
 const App = () => (
-    <DatePicker name={"Ram"}/>
+    <div>
+        Hello World!
+    </div>
 )
 
 render(<App/>, document.getElementById("root"))
