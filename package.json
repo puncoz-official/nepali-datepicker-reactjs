@@ -33,7 +33,7 @@
   "bugs": {
     "url": "https://github.com/puncoz-official/nepali-datepicker-reactjs/issues"
   },
-  "homepage": "https://github.com/puncoz-official/nepali-datepicker-reactjs#readme",
+  "homepage": "https://puncoz-official.github.io/nepali-datepicker-reactjs",
   "devDependencies": {
     "@types/jest": "^24.0.17",
     "@types/react": "^16.9.2",
