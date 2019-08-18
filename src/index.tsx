@@ -9,7 +9,7 @@ const NepaliDatePicker: FC<DatePickerOptions> = () => {
 
     return (
         <>
-            <input type="text" ref={dateInputField}/>
+            <input type="text" ref={dateInputField} />
         </>
     )
 }
