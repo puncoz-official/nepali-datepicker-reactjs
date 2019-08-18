@@ -11,6 +11,7 @@
   "author": "Puncoz Nepal <info@puncoz.com>",
   "license": "MIT",
   "dependencies": {
+    "nepali-datepicker-reactjs": "file:./../",
     "react": "^16.9.0",
     "react-dom": "^16.9.0"
   },
