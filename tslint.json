@@ -2,5 +2,11 @@
   "extends": [
     "tslint:recommended",
     "tslint-config-prettier"
-  ]
+  ],
+  "rules":   {
+    "interface-name": [
+      false,
+      "never-prefix"
+    ]
+  }
 }

@@ -7,10 +7,10 @@
   "jsnext:main": "dist/index.es.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "test": "jest --config jestconfig.json",
+    "test": "jest --config jestconfig.json -u",
     "build": "rollup -c",
     "build-example": "cd ./examples && yarn && yarn build",
-    "watch": "rollup -c --watch",
+    "start": "rollup -c --watch | yarn --cwd ./examples start",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.tsx\"",
     "lint": "tslint -p tsconfig.json",
     "prepare": "yarn build",

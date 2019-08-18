@@ -1,13 +1,17 @@
-import React, { Component } from "react"
+import React, { FC, useRef } from "react"
 
-interface IProps {
+interface DatePickerOptions {
     name: string
 }
 
-export default class DatePicker extends Component<IProps> {
-    public render() {
-        const { name } = this.props
+const NepaliDatePicker: FC<DatePickerOptions> = () => {
+    const dateInputField = useRef<HTMLInputElement>(null)
 
-        return <div style={{ color: "red" }}>Hello {name}!</div>
-    }
+    return (
+        <>
+            <input type="text" ref={dateInputField}/>
+        </>
+    )
 }
+
+export default NepaliDatePicker
