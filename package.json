@@ -6,9 +6,15 @@
   "module": "dist/index.es.js",
   "jsnext:main": "dist/index.es.js",
   "types": "dist/index.d.ts",
+  "engines": {
+    "node": ">=10",
+    "npm": ">=6"
+  },
   "scripts": {
+    "clean-modules": "rimraf node_modules",
+    "clean": "rimraf dist build npm-debug.log* yarn-error.log*",
     "test": "jest --config jestconfig.json -u",
-    "build": "rollup -c",
+    "build": "yarn clean && rollup -c",
     "build-example": "cd ./examples && yarn && yarn build",
     "start": "rollup -c --watch | yarn --cwd ./examples start",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.tsx\"",
@@ -39,10 +45,12 @@
     "@types/jest": "^24.0.17",
     "@types/react": "^16.9.2",
     "@types/react-test-renderer": "^16.9.0",
+    "@types/styled-components": "^4.1.18",
     "jest": "^24.9.0",
     "prettier": "^1.18.2",
     "react": "^16.9.0",
     "react-test-renderer": "^16.9.0",
+    "rimraf": "^3.0.0",
     "rollup": "^1.19.4",
     "rollup-plugin-commonjs": "^10.0.2",
     "rollup-plugin-node-resolve": "^5.2.0",
@@ -54,11 +62,12 @@
     "typescript": "^3.5.3"
   },
   "peerDependencies": {
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0"
+    "react": "^16.9.0"
   },
   "files": [
     "dist/**/*"
   ],
-  "dependencies": {}
+  "dependencies": {
+    "styled-components": "^4.3.2"
+  }
 }

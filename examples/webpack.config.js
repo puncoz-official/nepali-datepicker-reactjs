@@ -8,7 +8,7 @@ module.exports = {
 
     output: {
         path: path.join(__dirname, "dist"),
-        filename: "bundle.js"
+        filename: "bundle.js",
     },
 
     module: {
@@ -18,13 +18,42 @@ module.exports = {
                 use: "babel-loader",
                 exclude: /node_modules/,
             },
+
+            {
+                test: /\.css?$/,
+                use: [
+                    { loader: "style-loader" },
+                    { loader: "css-loader" },
+                ],
+            },
+
+            {
+                test: /\.scss$/,
+                use: [
+                    { loader: "style-loader" },
+                    { loader: "css-loader" },
+                    { loader: "sass-loader" },
+                ],
+            },
+
+            {
+                test: /\.(jpe?g|gif|png|svg)$/i,
+                use: [
+                    {
+                        loader: "url-loader",
+                        options: {
+                            limit: 10000,
+                        },
+                    },
+                ],
+            },
         ],
     },
 
     plugins: [
         new HtmlWebpackPlugin({
             template: path.join(__dirname, "src/index.html"),
-            filename: "./index.html"
+            filename: "./index.html",
         }),
     ],
 

@@ -1,11 +1,5 @@
 import React      from "react"
 import { render } from "react-dom"
-import DatePicker from "nepali-datepicker-reactjs"
-
-const App = () => (
-    <div>
-        <DatePicker name="World"/>
-    </div>
-)
+import App        from "./app"
 
 render(<App/>, document.getElementById("root"))
