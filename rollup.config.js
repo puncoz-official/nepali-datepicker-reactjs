@@ -1,3 +1,4 @@
+import svgr       from "@svgr/rollup"
 import commonjs   from "rollup-plugin-commonjs"
 import resolve    from "rollup-plugin-node-resolve"
 import external   from "rollup-plugin-peer-deps-external"
@@ -7,7 +8,7 @@ import typescript from "rollup-plugin-typescript2"
 import pkg from "./package.json"
 
 export default {
-    input: "src/index.tsx",
+    input: "src/index.ts",
 
     output: [
         {
@@ -33,6 +34,8 @@ export default {
         postcss({
             modules: false,
         }),
+
+        svgr(),
 
         typescript({
             rollupCommonJSResolveHack: true,

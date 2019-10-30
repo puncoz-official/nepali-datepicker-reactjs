@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --mode development",
+    "start:hot": "webpack-dev-server --content-base ../dist --hot --inline",
     "build": "webpack --mode production"
   },
   "author": "Puncoz Nepal <info@puncoz.com>",
