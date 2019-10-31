@@ -1,10 +1,10 @@
 import React, { FunctionComponent } from "react"
 
 export interface IconBaseProps {
-    size?: string;
+    size?: string
     viewBoxSize?: string
-    className?: string;
-    color?: string;
+    className?: string
+    color?: string
 }
 
 const IconBase: FunctionComponent<IconBaseProps> = props => {
@@ -25,6 +25,8 @@ const IconBase: FunctionComponent<IconBaseProps> = props => {
 }
 
 IconBase.defaultProps = {
+    color: "currentColor",
+    size: "24",
     viewBoxSize: "24",
 }
 

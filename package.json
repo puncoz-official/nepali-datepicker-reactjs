@@ -15,18 +15,37 @@
     "clean-modules": "rimraf node_modules",
     "clean": "rimraf dist build npm-debug.log* yarn-error.log*",
     "build:example": "cd ./examples && yarn && yarn build",
-    "watch:example": "yarn --cwd ./examples start",
+    "start:example": "yarn --cwd ./examples start",
     "build:plugin": "yarn clean && rollup -c",
-    "watch:plugin": "rollup -c --watch",
+    "start:plugin": "rollup -c --watch",
     "build": "npm-run-all build:*",
-    "start": "npm-run-all -p watch:*",
+    "start": "npm-run-all -p start:*",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.tsx\"",
-    "lint": "tslint -p tsconfig.json",
+    "lint:ts": "tslint-config-prettier-check ./tslint.json",
+    "lint:ts:fix": "yarn format || yarn lint:ts",
+    "lint:scss": "stylelint 'src/**/*.scss' --syntax scss",
+    "lint:scss:fix": "yarn lint:scss --fix",
+    "lint": "yarn lint:ts:fix && yarn lint:scss:fix",
     "prepare": "echo 'yarn build'",
     "prepublishOnly": "yarn test && yarn lint",
     "preversion": "yarn lint",
     "version": "yarn format && git add -A src",
     "postversion": "git push && git push --tags"
+  },
+  "lint-staged": {
+    "src/**/*.{ts,tsx}": [
+      "yarn lint:ts:fix",
+      "git add"
+    ],
+    "src/**/*.scss": [
+      "yarn lint:scss:fix",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "repository": {
     "type": "git",
@@ -45,28 +64,37 @@
   },
   "homepage": "https://puncoz-official.github.io/nepali-datepicker-reactjs",
   "devDependencies": {
-    "@svgr/rollup": "^4.3.2",
-    "@types/jest": "^24.0.17",
-    "@types/react": "^16.9.2",
-    "@types/react-test-renderer": "^16.9.0",
-    "@types/styled-components": "^4.1.18",
+    "@svgr/rollup": "4.3.3",
+    "@types/jest": "24.0.21",
+    "@types/react": "16.9.11",
+    "@types/react-test-renderer": "16.9.1",
+    "@types/styled-components": "4.1.20",
+    "husky": "^3.0.9",
     "jest": "^24.9.0",
-    "node-sass": "^4.12.0",
+    "lint-staged": "^9.4.2",
+    "node-sass": "4.13.0",
     "npm-run-all": "^4.1.5",
     "prettier": "^1.18.2",
-    "react": "^16.9.0",
-    "react-test-renderer": "^16.9.0",
+    "prettier-stylelint": "^0.4.2",
+    "react": "16.11.0",
+    "react-test-renderer": "16.11.0",
     "rimraf": "^3.0.0",
-    "rollup": "^1.19.4",
-    "rollup-plugin-commonjs": "^10.0.2",
+    "rollup": "1.26.0",
+    "rollup-plugin-commonjs": "10.1.0",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-peer-deps-external": "^2.2.0",
     "rollup-plugin-postcss": "^2.0.3",
-    "rollup-plugin-typescript2": "^0.22.1",
-    "ts-jest": "^24.0.2",
-    "tslint": "^5.18.0",
+    "rollup-plugin-typescript2": "0.24.3",
+    "stylelint": "^11.1.1",
+    "stylelint-config-standard": "^19.0.0",
+    "stylelint-declaration-block-no-ignored-properties": "^2.1.0",
+    "stylelint-no-unsupported-browser-features": "^3.0.2",
+    "stylelint-order": "^3.1.1",
+    "stylelint-scss": "^3.12.0",
+    "ts-jest": "24.1.0",
+    "tslint": "5.20.0",
     "tslint-config-prettier": "^1.18.0",
-    "typescript": "^3.5.3"
+    "typescript": "3.6.4"
   },
   "peerDependencies": {
     "react": "^16.9.0"
@@ -75,6 +103,7 @@
     "dist/**/*"
   ],
   "dependencies": {
-    "styled-components": "^4.3.2"
+    "bikram-sambat-js": "^1.0.1",
+    "styled-components": "4.4.0"
   }
 }

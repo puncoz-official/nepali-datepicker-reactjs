@@ -3,28 +3,26 @@ $secondary: #fff;
 $textColor: #1b1b25;
 
 .nepali-date-picker {
-    width: 280px;
-    height: 240px;
-    border-radius: 6px;
-    box-shadow: 0 4px 8px 0 rgba($secondary, 0.5);
     background: $secondary none repeat scroll 0 0;
     border: 1px solid darken($secondary, 20%);
+    border-radius: 6px;
+    box-shadow: 0 4px 8px 0 rgba($secondary, 0.5);
     box-sizing: border-box;
+    color: $textColor;
     display: block;
-    padding: 15px;
-    position: absolute;
-    z-index: 9999;
-
-    user-select: none;
     font-family: NotoSans, serif;
     font-size: 15px;
-    font-weight: normal;
     font-style: normal;
-    font-stretch: normal;
-    line-height: 1.25em;
+    font-weight: normal;
+    height: 240px;
     letter-spacing: 0.2px;
+    line-height: 1.25em;
+    padding: 15px;
+    position: absolute;
     text-align: right;
-    color: $textColor;
+    user-select: none;
+    width: 280px;
+    z-index: 9999;
 
     .calendar-controller {
         display: flex;
@@ -34,13 +32,12 @@ $textColor: #1b1b25;
             cursor: pointer;
 
             &.icon {
-                width: 24px;
-                height: 24px;
-                object-fit: contain;
+                align-items: center;
                 color: $primary;
                 display: inline-flex;
+                height: 24px;
                 justify-content: center;
-                align-items: center;
+                width: 24px;
             }
 
             &.month, &.year {

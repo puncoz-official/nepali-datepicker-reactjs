@@ -1,7 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Component should show 'red' text 'Hello World!' 1`] = `
-<input
-  type="text"
-/>
-`;
