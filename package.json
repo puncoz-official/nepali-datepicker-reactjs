@@ -1,6 +1,6 @@
 {
   "name": "nepali-datepicker-reactjs",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Nepali Datepicker (Bikram Sambat) as a ReactJS component",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
@@ -30,7 +30,7 @@
     "prepublishOnly": "yarn test && yarn lint",
     "preversion": "yarn lint",
     "version": "yarn format && git add -A src",
-    "postversion": "git push && git push --tags"
+    "postversion": "git push upstream master && git push upstream --tags"
   },
   "lint-staged": {
     "src/**/*.{ts,tsx}": [
