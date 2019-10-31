@@ -1,26 +1,26 @@
-import React, {
-    FunctionComponent,
-    useRef,
-} from "react"
+import React, { FunctionComponent, useRef } from "react"
 import { Calender } from "./Calender"
+import { ConfigProvider } from "./Config"
 import "./NepaliDatePicker.scss"
 
 interface DatePickerOptions {
-    className: string
+    className?: string
 }
 
 const NepaliDatePicker: FunctionComponent<DatePickerOptions> = ({ className }) => {
     const dateEl = useRef<HTMLInputElement>(null)
-    const dateAd = new Date()
-    const dateBs = dateAd
+    const value = "2076-07-14"
 
     return (
-        <>
-            <input type="text" className={className} readOnly ref={dateEl}/>
-            {dateBs.getTime()}
-            <Calender/>
-        </>
+        <ConfigProvider>
+            <input type="text" className={className} readOnly ref={dateEl} value={value} />
+            <Calender value={value} />
+        </ConfigProvider>
     )
+}
+
+NepaliDatePicker.defaultProps = {
+    className: "",
 }
 
 export default NepaliDatePicker
