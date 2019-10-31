@@ -6,7 +6,7 @@ cache:
     - node_modules
 script:
   - yarn test
-  - yarn build-example
+  - yarn build:example
   - npm install codecov -g
 after_success:
   - codecov
