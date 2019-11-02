@@ -1,14 +1,13 @@
 import React, { createContext, FunctionComponent, useContext, useReducer } from "react"
-import { localeType, ParsedDate } from "./types/types"
+import { localeType } from "./types/types"
 
 export const SET_CONFIG: string = "set_config"
 
 interface ConfigState {
     currentLocale: localeType
-    selectedDate: ParsedDate
 }
 
-type ConfigValue = ParsedDate | localeType
+type ConfigValue = localeType
 
 interface SetAction {
     type: typeof SET_CONFIG
@@ -20,15 +19,6 @@ type Action = SetAction
 
 const initialState: ConfigState = {
     currentLocale: "en",
-    selectedDate: {
-        adDate: new Date(),
-        bsDay: 0,
-        bsMonth: 0,
-        bsYear: 0,
-        firstAdDayInBSMonth: new Date(),
-        numberOfDaysInBSMonth: 0,
-        weekDay: 0,
-    },
 }
 
 const reducer = (state: ConfigState = initialState, action: Action) => {

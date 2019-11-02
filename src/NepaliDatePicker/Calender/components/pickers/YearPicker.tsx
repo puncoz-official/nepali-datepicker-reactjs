@@ -1,23 +1,25 @@
 import React, { FunctionComponent, useMemo } from "react"
-import { maxBSYear, minBSYear } from "../../../../Helpers/CalenderData"
 import { range } from "../../../../Helpers/helpers"
-import { useConfig } from "../../../Config"
 import { OptionType, ParsedDate } from "../../../types/types"
 import DropDown from "../DropDown"
 
-const YearPicker: FunctionComponent = () => {
-    const { getConfig } = useConfig()
+interface YearPickerProps {
+    date: ParsedDate
+    onSelect: (year: number) => void
+}
+
+const YearPicker: FunctionComponent<YearPickerProps> = ({ date, onSelect }) => {
     const currentYear: OptionType = useMemo((): OptionType => {
-        const year = getConfig<ParsedDate>("selectedDate").bsYear
+        const year = date.bsYear
         return {
             label: year.toString(),
             value: year,
         }
-    }, [])
+    }, [date])
 
     const years: OptionType[] = useMemo(
         (): OptionType[] =>
-            range(minBSYear, maxBSYear).map(
+            range(2070, 2080).map(
                 (year: number): OptionType => ({
                     label: year.toString(),
                     value: year,
@@ -29,7 +31,7 @@ const YearPicker: FunctionComponent = () => {
     return (
         <div className="control year">
             <span className="current-year">{currentYear.label}</span>
-            <DropDown options={years} value={currentYear.value} />
+            <DropDown options={years} value={currentYear.value} onSelect={selected => onSelect(selected.value)} />
         </div>
     )
 }

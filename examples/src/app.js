@@ -1,5 +1,5 @@
 import React                from "react"
-import { NepaliDatePicker } from "nepali-datepicker-reactjs"
+import { NepaliDatePicker } from "../.."
 import "./app.scss"
 import Footer               from "./components/Footer"
 import Header               from "./components/Header"

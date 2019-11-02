@@ -21,8 +21,8 @@ export const weeks = {
     ne: ["आईत", "सोम", "मंगल", "बुध", "बिही", "शुक्र", "शनि"],
 }
 
-export const maxBSYear = 2080
-export const minBSYear = 2070
+export const maxBSYear = 2100
+export const minBSYear = 1970
 
 export const bsMonthMaxDays = [
     [30, 31],

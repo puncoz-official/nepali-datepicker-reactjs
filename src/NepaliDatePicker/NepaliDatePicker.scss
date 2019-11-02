@@ -49,4 +49,33 @@ $textColor: #1b1b25;
             }
         }
     }
+
+    td.month-day {
+        &.current {
+            opacity: 1;
+        }
+
+        &.disabled {
+            color: #7d7d7d;
+        }
+
+        &.today {
+            background: aquamarine;
+            color: #000;
+        }
+
+        &.selected {
+            background: #006d12;
+            color: #fff;
+            font-weight: bold;
+        }
+
+    }
+}
+
+.drop-down {
+    li.active {
+        background: #036313;
+        color: #fff;
+    }
 }
