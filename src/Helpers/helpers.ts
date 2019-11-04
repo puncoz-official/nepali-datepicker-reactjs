@@ -1,5 +1,5 @@
 import { BSToAD } from "bikram-sambat-js"
-import { ParsedDate } from "../NepaliDatePicker/types/types"
+import { ParsedDate, SplittedDate } from "../NepaliDatePicker/types/types"
 import { bsMonthCalculatedData, bsMonthMaxDays, minBSYear } from "./CalenderData"
 import {
     validateAdDay,
@@ -20,11 +20,7 @@ export const range = (start: number, end: number, step: number = 1): number[] =>
     return list
 }
 
-interface SplittedDate {
-    year: number
-    month: number
-    day: number
-}
+export const zeroPad = (num: number): string => `${num > 9 ? num : "0" + num}`
 
 export const splitDate = (date: string, separator: string = "-"): SplittedDate => {
     const [year, month, day] = date.split(separator)
@@ -37,7 +33,7 @@ export const splitDate = (date: string, separator: string = "-"): SplittedDate =
 }
 
 export const stitchDate = (date: SplittedDate, separator: string = "-"): string =>
-    `${date.year}${separator}${date.month}${separator}${date.day}`
+    `${date.year}${separator}${zeroPad(date.month)}${separator}${zeroPad(date.day)}`
 
 export const validateDateObject = (date: SplittedDate, type: string = "BS") => {
     const { year, month, day } = date
@@ -84,7 +80,7 @@ export const getNumberOfDaysInBSMonth = (yearMonth: { year: number; month: numbe
 }
 
 export const parseBSDate = (date: string, separator: string = "-"): ParsedDate => {
-    const { year, month, day } = splitDate(date, separator)
+    const { year, month, day }: SplittedDate = splitDate(date, separator)
 
     validateDateObject({ year, month, day })
 

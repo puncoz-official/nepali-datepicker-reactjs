@@ -13,7 +13,7 @@
   "license": "MIT",
   "dependencies": {
     "bootstrap": "4.3.1",
-    "nepali-datepicker-reactjs": "1.0.7",
+    "nepali-datepicker-reactjs": "file:./..",
     "react-dom": "16.11.0"
   },
   "devDependencies": {

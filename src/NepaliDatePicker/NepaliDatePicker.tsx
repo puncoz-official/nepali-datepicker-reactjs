@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useRef } from "react"
+import React, { FunctionComponent, useRef, useState } from "react"
 import { Calender } from "./Calender"
 import { ConfigProvider } from "./Config"
 import "./NepaliDatePicker.scss"
@@ -9,12 +9,12 @@ interface DatePickerOptions {
 
 const NepaliDatePicker: FunctionComponent<DatePickerOptions> = ({ className }) => {
     const dateEl = useRef<HTMLInputElement>(null)
-    const value = "2076-07-14"
+    const [value, setValue] = useState("2077-02-14")
 
     return (
         <ConfigProvider>
-            <input type="text" className={className} readOnly ref={dateEl} value={value} />
-            <Calender value={value} />
+            <input type="text" className={className} readOnly={true} ref={dateEl} value={value} />
+            <Calender value={value} onChange={setValue} />
         </ConfigProvider>
     )
 }
