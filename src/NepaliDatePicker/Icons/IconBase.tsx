@@ -25,8 +25,8 @@ const IconBase: FunctionComponent<IconBaseProps> = props => {
 }
 
 IconBase.defaultProps = {
-    color: "currentColor",
-    size: "24",
+    color: "#6b6b6b",
+    size: "16",
     viewBoxSize: "24",
 }
 

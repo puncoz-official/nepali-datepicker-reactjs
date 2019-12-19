@@ -21,12 +21,14 @@ const CalenderController: FunctionComponent<CalenderControllerProps> = props => 
             <span className="control icon" title="prev" onClick={onPreviousMonth}>
                 <PreviousIcon />
             </span>
-            <span className="control icon" title="today" onClick={onToday}>
-                <TodayIcon />
-            </span>
 
-            <MonthPicker date={calenderDate} onSelect={onMonthSelect} />
-            <YearPicker date={calenderDate} onSelect={onYearSelect} />
+            <div className="date-indicator">
+                <MonthPicker date={calenderDate} onSelect={onMonthSelect} />
+                <YearPicker date={calenderDate} onSelect={onYearSelect} />
+            </div>
+            <span className="control icon icon-today" title="today" onClick={onToday}>
+                <TodayIcon color="#2096f5" />
+            </span>
 
             <span className="control icon" title="next" onClick={onNextMonth}>
                 <NextIcon />

@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react"
+import React, { FunctionComponent, useLayoutEffect } from "react"
 import { OptionType } from "../../types/types"
 
 interface DropDownProps {
@@ -8,6 +8,12 @@ interface DropDownProps {
 }
 
 const DropDown: FunctionComponent<DropDownProps> = ({ options, value, onSelect }) => {
+    useLayoutEffect(() => {
+        const elem = document.querySelector(".active")
+        if (elem) {
+            elem.scrollIntoView()
+        }
+    })
     return (
         <div className="drop-down">
             <div className="option-wrapper">
@@ -16,7 +22,9 @@ const DropDown: FunctionComponent<DropDownProps> = ({ options, value, onSelect }
                         <li
                             key={index}
                             className={option.value === value ? "active" : ""}
-                            onClick={() => onSelect(option)}
+                            onClick={() => {
+                                onSelect(option)
+                            }}
                         >
                             {option.label}
                         </li>
