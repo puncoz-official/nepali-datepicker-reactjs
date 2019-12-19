@@ -1,51 +1,91 @@
-$primary: #006d12;
+$primary: #2096f5;
 $secondary: #fff;
-$textColor: #1b1b25;
+$textColor: #8c8c8c;
+$text-disabled: #d8d8d8;
 
 .nepali-date-picker {
     background: $secondary none repeat scroll 0 0;
-    border: 1px solid darken($secondary, 20%);
+    // border: 1px solid darken($secondary, 20%);
     border-radius: 6px;
-    box-shadow: 0 4px 8px 0 rgba($secondary, 0.5);
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.1);
     box-sizing: border-box;
     color: $textColor;
     display: block;
-    font-family: NotoSans, serif;
-    font-size: 15px;
+    font-family: NotoSans, sans-serif;
+    font-size: 14px;
     font-style: normal;
     font-weight: normal;
-    height: 240px;
+    height: auto;
     letter-spacing: 0.2px;
     line-height: 1.25em;
     padding: 15px;
     position: absolute;
     text-align: right;
     user-select: none;
-    width: 280px;
+    // width: 300px;
     z-index: 9999;
 
     .calendar-controller {
+        align-items: center;
         display: flex;
         justify-content: space-between;
+        position: relative;
+
+        .date-indicator{
+            display: flex;
+        }
 
         .control {
             cursor: pointer;
+            position: relative;
+            text-align: center;
 
-            &.icon {
-                align-items: center;
-                color: $primary;
-                display: inline-flex;
-                height: 24px;
-                justify-content: center;
-                width: 24px;
+            &.icon-today{
+                position: absolute;
+                right: 20px;
             }
 
-            &.month, &.year {
+            &.month,
+            &.year {
+                border: 1px solid #eee;
                 line-height: 24px;
+                width: 70px;
+                
+                .current-month, .current-year{
+                    display: block;
+                    padding: 4px;
+                }
             }
 
             &.year {
-                font-weight: bold;
+                border-left: none;
+            }
+
+            .drop-down {
+                background-color: #fff;
+                box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.1);
+                left: 0;
+                max-height: 200px;
+                overflow-y: scroll;
+                position: absolute;
+                top: 0;
+                width: 100%;
+                z-index: 100;
+
+                ul {
+                    list-style: none;
+                    margin: 0;
+                    padding: 0;
+                }
+
+                li{
+                    padding: 4px 10px;
+
+                    &.active {
+                        background: $primary;
+                        color: #fff;
+                    }
+                }
             }
         }
     }
@@ -56,26 +96,57 @@ $textColor: #1b1b25;
         }
 
         &.disabled {
-            color: #7d7d7d;
+            color: $text-disabled;
         }
 
         &.today {
-            background: aquamarine;
-            color: #000;
+            color: #4a4a4a;
+            position: relative;
+
+            &::before {
+                background-color: $primary;
+                border-radius: 50%;
+                bottom: 6px;
+                content: "";
+                height: 4px;
+                left: 50%;
+                margin: auto;
+                position: absolute;
+                transform: translateX(-50%);
+                width: 4px;
+            }
         }
 
         &.selected {
-            background: #006d12;
             color: #fff;
-            font-weight: bold;
+            position: relative;
+
+            &::after {
+                background: $primary;
+                border-radius: 50%;
+                content: "";
+                height: 35px;
+                left: 50%;
+                position: absolute;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                width: 35px;
+                z-index: -1;
+            }
+        }
+    }
+
+    table {
+        text-align: center;
+        width: 100%;
+
+        td {
+            height: 40px;
+            width: 40px;
         }
 
-    }
-}
-
-.drop-down {
-    li.active {
-        background: #036313;
-        color: #fff;
+        tr {
+            height: 36px;
+        }
     }
 }

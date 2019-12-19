@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useMemo } from "react"
+import React, { FunctionComponent, useMemo, useState } from "react"
 import { range } from "../../../../Helpers/helpers"
 import { OptionType, ParsedDate } from "../../../types/types"
 import DropDown from "../DropDown"
@@ -9,6 +9,7 @@ interface YearPickerProps {
 }
 
 const YearPicker: FunctionComponent<YearPickerProps> = ({ date, onSelect }) => {
+    const [showDropdown, setShowDropdown] = useState(false)
     const currentYear: OptionType = useMemo((): OptionType => {
         const year = date.bsYear
         return {
@@ -19,7 +20,7 @@ const YearPicker: FunctionComponent<YearPickerProps> = ({ date, onSelect }) => {
 
     const years: OptionType[] = useMemo(
         (): OptionType[] =>
-            range(2070, 2080).map(
+            range(2000, 2080).map(
                 (year: number): OptionType => ({
                     label: year.toString(),
                     value: year,
@@ -28,10 +29,17 @@ const YearPicker: FunctionComponent<YearPickerProps> = ({ date, onSelect }) => {
         [],
     )
 
+    const handleDropdownView = (selected: OptionType) => {
+        setShowDropdown(!showDropdown)
+        onSelect(selected.value)
+    }
+
     return (
         <div className="control year">
-            <span className="current-year">{currentYear.label}</span>
-            <DropDown options={years} value={currentYear.value} onSelect={selected => onSelect(selected.value)} />
+            <span className="current-year" onClick={() => setShowDropdown(!showDropdown)}>
+                {currentYear.label}
+            </span>
+            {showDropdown && <DropDown options={years} value={currentYear.value} onSelect={handleDropdownView} />}
         </div>
     )
 }

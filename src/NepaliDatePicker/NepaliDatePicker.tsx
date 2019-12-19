@@ -8,13 +8,25 @@ interface DatePickerOptions {
 }
 
 const NepaliDatePicker: FunctionComponent<DatePickerOptions> = ({ className }) => {
+    const [showCalendar, setShowCalendar] = useState(false)
     const dateEl = useRef<HTMLInputElement>(null)
     const [value, setValue] = useState("2077-02-14")
 
+    const handleOnChange = (date: string) => {
+        setValue(date)
+        // setShowCalendar(false)
+    }
     return (
         <ConfigProvider>
-            <input type="text" className={className} readOnly={true} ref={dateEl} value={value} />
-            <Calender value={value} onChange={setValue} />
+            <input
+                type="text"
+                className={className}
+                readOnly={true}
+                ref={dateEl}
+                value={value}
+                onClick={() => setShowCalendar(!showCalendar)}
+            />
+            {showCalendar && <Calender value={value} onChange={handleOnChange} />}
         </ConfigProvider>
     )
 }
