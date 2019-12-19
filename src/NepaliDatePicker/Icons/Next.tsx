@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react"
 import IconBase, { IconBaseProps } from "./IconBase"
 
-const Next: FunctionComponent<IconBaseProps> = props => {
+const Next: FunctionComponent<IconBaseProps> = (props) => {
     const rotationOrigin: number = parseInt(props.size || "24", 10) / 2
 
     return (

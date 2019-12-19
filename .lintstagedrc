@@ -1,0 +1,9 @@
+{
+  "src/**/*.{ts,tsx}": [
+    "git add"
+  ],
+  "src/**/*.scss":     [
+    "yarn lint:scss:fix",
+    "git add"
+  ]
+}

@@ -1,5 +1,5 @@
 import { BSToAD } from "bikram-sambat-js"
-import { ParsedDate, SplittedDate } from "../NepaliDatePicker/types/types"
+import { ParsedDate, SplittedDate, voidFunction } from "../NepaliDatePicker/types/types"
 import { bsMonthCalculatedData, bsMonthMaxDays, minBSYear } from "./CalenderData"
 import {
     validateAdDay,
@@ -21,6 +21,15 @@ export const range = (start: number, end: number, step: number = 1): number[] =>
 }
 
 export const zeroPad = (num: number): string => `${num > 9 ? num : "0" + num}`
+
+export const executionDelegation = (execution: voidFunction, delegatedExecution: voidFunction) => {
+    new Promise((resolve) => {
+        execution()
+        resolve()
+    }).then(() => {
+        delegatedExecution()
+    })
+}
 
 export const splitDate = (date: string, separator: string = "-"): SplittedDate => {
     const [year, month, day] = date.split(separator)

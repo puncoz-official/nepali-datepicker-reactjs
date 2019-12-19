@@ -4,7 +4,7 @@ import { useConfig } from "../../../../Config"
 
 const DayPickerHeader = () => {
     const { getConfig } = useConfig()
-    const currentLocale: string = useMemo(() => getConfig("currentLocale"), [getConfig])
+    const currentLocale: string = useMemo(() => getConfig("locale"), [getConfig])
 
     return (
         <thead>

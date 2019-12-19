@@ -2,7 +2,9 @@ import { ADToBS } from "bikram-sambat-js"
 import React, { FunctionComponent, useCallback, useMemo } from "react"
 import { minBSYear } from "../../../../../Helpers/CalenderData"
 import { getNumberOfDaysInBSMonth, range, splitDate } from "../../../../../Helpers/helpers"
-import { ParsedDate, SplittedDate } from "../../../../types/types"
+import useTrans from "../../../../../Helpers/useTrans"
+import { useConfig } from "../../../../Config"
+import { localeType, ParsedDate, SplittedDate } from "../../../../types/types"
 
 interface DayPickerBodyProps {
     selectedDate: ParsedDate
@@ -36,6 +38,9 @@ const DayPickerBody: FunctionComponent<DayPickerBodyProps> = ({ selectedDate, ca
                 : 30,
         [previousYear],
     )
+
+    const { getConfig } = useConfig()
+    const { numberTrans } = useTrans(getConfig<localeType>("locale"))
 
     const getDayInfo = useCallback(
         (weekNum, weekDayNum): DayInfo => {
@@ -80,9 +85,9 @@ const DayPickerBody: FunctionComponent<DayPickerBodyProps> = ({ selectedDate, ca
 
     return (
         <tbody>
-            {range(0, weeksInMonth).map(weekNum => (
+            {range(0, weeksInMonth).map((weekNum) => (
                 <tr key={weekNum}>
-                    {range(1, 7).map(weekDayNum => {
+                    {range(1, 7).map((weekDayNum) => {
                         const dayInfo = getDayInfo(weekNum, weekDayNum)
 
                         return (
@@ -93,7 +98,7 @@ const DayPickerBody: FunctionComponent<DayPickerBodyProps> = ({ selectedDate, ca
                                 } ${dayInfo.isSelected ? "selected" : ""}`}
                                 onClick={() => onDateSelectHandler(dayInfo)}
                             >
-                                {dayInfo.day}
+                                {numberTrans(dayInfo.day)}
                             </td>
                         )
                     })}
