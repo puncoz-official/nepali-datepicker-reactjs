@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --mode development",
     "start:hot": "webpack-dev-server --content-base ../build --hot --inline",
-    "build": "webpack --mode production"
+    "build": "webpack --config webpack.config.js --mode production"
   },
   "author": "Puncoz Nepal <info@puncoz.com>",
   "license": "MIT",
