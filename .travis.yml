@@ -7,7 +7,7 @@ cache:
 script:
 #  - yarn test
   - yarn build:example
-#  - npm install codecov -g
+  - npm install codecov -g
 after_success:
   - codecov
 deploy:
