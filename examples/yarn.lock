@@ -4067,8 +4067,10 @@ neo-async@^2.5.0, neo-async@^2.6.1:
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.1.tgz#ac27ada66167fa8849a6addd837f6b189ad2081c"
   integrity sha512-iyam8fBuCUpWeKPGpaNMetEocMt364qkCsfL9JuhjXX6dRnguRVOfk2GZaDpPjcOKiiXCPINZC1GczQ7iTq3Zw==
 
-"nepali-datepicker-reactjs@file:./..":
+nepali-datepicker-reactjs@1.1.0:
   version "1.1.0"
+  resolved "https://registry.yarnpkg.com/nepali-datepicker-reactjs/-/nepali-datepicker-reactjs-1.1.0.tgz#bfc6e67e2c79d8f0a2dbc675847f0fbad4a1c118"
+  integrity sha512-+SePJqiM0D+AtTRzqPc8zmjfPz++qyJ+razcivcVlFlsi9ZwElliUE+/a/TnZCli4fVjNnOxvv45O4ml9xGgBw==
   dependencies:
     bikram-sambat-js "1.0.1"
     nepali-number "^1.0.3"
