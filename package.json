@@ -25,6 +25,7 @@
     "webpack": "webpack --config ./webpack.config.js --progress",
     "prebuild": "yarn clean && yarn format && yarn lint",
     "build": "yarn webpack --env.NODE_ENV=production",
+    "build:example": "yarn --cwd ./examples build",
     "start:example": "yarn --cwd ./examples start",
     "start:plugin": "yarn webpack --env.NODE_ENV=development --watch",
     "start": "npm-run-all -p start:*",
