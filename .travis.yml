@@ -5,11 +5,11 @@ cache:
   directories:
     - node_modules
 script:
-#  - yarn test
+  - yarn test
   - yarn build:example
-  - npm install codecov -g
-after_success:
-  - codecov
+#  - npm install codecov -g
+#after_success:
+#  - codecov
 deploy:
   provider: pages
   skip_cleanup: true
