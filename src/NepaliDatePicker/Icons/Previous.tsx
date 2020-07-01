@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react"
 import IconBase, { IconBaseProps } from "./IconBase"
 
-const Previous: FunctionComponent<IconBaseProps> = props => (
+const Previous: FunctionComponent<IconBaseProps> = (props) => (
     <IconBase {...props}>
         <path
             fill="none"

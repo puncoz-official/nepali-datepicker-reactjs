@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react"
 import IconBase, { IconBaseProps } from "./IconBase"
 
-const Today: FunctionComponent<IconBaseProps> = props => {
+const Today: FunctionComponent<IconBaseProps> = (props) => {
     props = { ...props, viewBoxSize: "512", size: "15" }
 
     return (

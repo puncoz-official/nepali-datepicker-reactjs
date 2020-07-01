@@ -1,6 +1,8 @@
 import React, { FunctionComponent, useMemo, useState } from "react"
 import { range } from "../../../../Helpers/helpers"
-import { OptionType, ParsedDate } from "../../../types/types"
+import useTrans from "../../../../Helpers/useTrans"
+import { useConfig } from "../../../Config"
+import { localeType, OptionType, ParsedDate } from "../../../types/types"
 import DropDown from "../DropDown"
 
 interface YearPickerProps {
@@ -10,10 +12,14 @@ interface YearPickerProps {
 
 const YearPicker: FunctionComponent<YearPickerProps> = ({ date, onSelect }) => {
     const [showDropdown, setShowDropdown] = useState(false)
+    const { getConfig } = useConfig()
+    const { numberTrans } = useTrans(getConfig<localeType>("locale"))
+
     const currentYear: OptionType = useMemo((): OptionType => {
         const year = date.bsYear
+
         return {
-            label: year.toString(),
+            label: numberTrans(year),
             value: year,
         }
     }, [date])
@@ -22,7 +28,7 @@ const YearPicker: FunctionComponent<YearPickerProps> = ({ date, onSelect }) => {
         (): OptionType[] =>
             range(2000, 2080).map(
                 (year: number): OptionType => ({
-                    label: year.toString(),
+                    label: numberTrans(year),
                     value: year,
                 }),
             ),

@@ -7,7 +7,7 @@ export interface IconBaseProps {
     color?: string
 }
 
-const IconBase: FunctionComponent<IconBaseProps> = props => {
+const IconBase: FunctionComponent<IconBaseProps> = (props) => {
     const { size, viewBoxSize, ...options } = props
 
     return (

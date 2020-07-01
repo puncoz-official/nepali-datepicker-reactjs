@@ -1,30 +1,26 @@
 import { ADToBS } from "bikram-sambat-js"
 import React, { Fragment, FunctionComponent, useCallback, useEffect, useState } from "react"
-import { parseBSDate, stitchDate } from "../../Helpers/helpers"
+import { executionDelegation, parseBSDate, stitchDate } from "../../Helpers/helpers"
 import { useConfig } from "../Config"
-import { ParsedDate, parsedDateInitialValue, SplittedDate } from "../types/types"
+import { DatepickerEvents, localeType, ParsedDate, parsedDateInitialValue, SplittedDate } from "../types/types"
 import CalenderController from "./components/CalenderController"
 import DayPicker from "./components/pickers/DayPicker"
 
 interface CalenderProps {
     value: string
-    onChange: (value: string) => void
+    events: DatepickerEvents
+    locale: localeType
 }
 
-const Calender: FunctionComponent<CalenderProps> = ({ value, onChange }) => {
-    const { setConfig } = useConfig()
+const Calender: FunctionComponent<CalenderProps> = ({ value, events, locale }) => {
     const [isInitialized, setIsInitialized] = useState<boolean>(false)
     const [selectedDate, setSelectedDate] = useState<ParsedDate>(parsedDateInitialValue)
     const [calenderDate, setCalenderDate] = useState<ParsedDate>(parsedDateInitialValue)
 
-    useEffect(() => {
-        if (isInitialized) {
-            onChange(stitchDate({ year: selectedDate.bsYear, month: selectedDate.bsMonth, day: selectedDate.bsDay }))
-        }
-    }, [selectedDate, isInitialized])
+    const { setConfig } = useConfig()
 
     useEffect(() => {
-        setConfig("currentLocale", "ne")
+        setConfig("locale", locale)
         const parsedDateValue = parseBSDate(value)
 
         setSelectedDate(parsedDateValue)
@@ -32,82 +28,164 @@ const Calender: FunctionComponent<CalenderProps> = ({ value, onChange }) => {
         setIsInitialized(true)
     }, [value])
 
-    const onPreviousMonthHandler = useCallback(() => {
-        setCalenderDate(date => {
-            let year = date.bsYear
-            let month = date.bsMonth - 1
-
-            if (month < 1) {
-                month = 12
-                year--
-            }
-
-            return parseBSDate(
-                stitchDate(
-                    {
-                        day: date.bsDay,
-                        month,
-                        year,
-                    },
-                    "-",
-                ),
+    useEffect(() => {
+        if (isInitialized) {
+            events.change(
+                stitchDate({
+                    year: selectedDate.bsYear,
+                    month: selectedDate.bsMonth,
+                    day: selectedDate.bsDay,
+                }),
             )
-        })
+        }
+    }, [selectedDate, isInitialized])
+
+    const onPreviousMonthHandler = useCallback(() => {
+        executionDelegation(
+            () => {
+                setCalenderDate((date) => {
+                    let year = date.bsYear
+                    let month = date.bsMonth - 1
+
+                    if (month < 1) {
+                        month = 12
+                        year--
+                    }
+
+                    return parseBSDate(
+                        stitchDate(
+                            {
+                                day: date.bsDay,
+                                month,
+                                year,
+                            },
+                            "-",
+                        ),
+                    )
+                })
+            },
+            () => {
+                if (events.previousMonthSelect) {
+                    events.previousMonthSelect({ month: calenderDate.bsMonth, year: calenderDate.bsYear })
+                }
+            },
+        )
     }, [])
 
     const onNextMonthClickHandler = useCallback(() => {
-        setCalenderDate(date => {
-            let year = date.bsYear
-            let month = date.bsMonth + 1
+        executionDelegation(
+            () => {
+                setCalenderDate((date) => {
+                    let year = date.bsYear
+                    let month = date.bsMonth + 1
 
-            if (month > 12) {
-                month = 1
-                year++
-            }
+                    if (month > 12) {
+                        month = 1
+                        year++
+                    }
 
-            return parseBSDate(
-                stitchDate(
-                    {
-                        day: date.bsDay,
-                        month,
-                        year,
-                    },
-                    "-",
-                ),
-            )
-        })
+                    return parseBSDate(
+                        stitchDate(
+                            {
+                                day: date.bsDay,
+                                month,
+                                year,
+                            },
+                            "-",
+                        ),
+                    )
+                })
+            },
+            () => {
+                if (events.nextMonthSelect) {
+                    events.nextMonthSelect({ year: calenderDate.bsYear, month: calenderDate.bsMonth })
+                }
+            },
+        )
     }, [])
 
     const onTodayClickHandler = useCallback(() => {
         const today = parseBSDate(ADToBS(new Date()))
 
-        setCalenderDate(today)
-        setSelectedDate(today)
+        executionDelegation(
+            () => {
+                setCalenderDate(today)
+                setSelectedDate(today)
+            },
+            () => {
+                if (events.todaySelect) {
+                    events.todaySelect({ year: today.bsYear, month: today.bsMonth, day: today.bsDay })
+                }
+            },
+        )
     }, [])
 
     const onYearSelectHandler = useCallback(
-        year => {
-            setCalenderDate(parseBSDate(stitchDate({ year, month: calenderDate.bsMonth, day: calenderDate.bsDay })))
+        (year) => {
+            executionDelegation(
+                () => {
+                    setCalenderDate(
+                        parseBSDate(
+                            stitchDate({
+                                year,
+                                month: calenderDate.bsMonth,
+                                day: calenderDate.bsDay,
+                            }),
+                        ),
+                    )
+                },
+                () => {
+                    if (events.yearSelect) {
+                        events.yearSelect(year)
+                    }
+                },
+            )
         },
         [calenderDate],
     )
 
     const onMonthSelectHandler = useCallback(
-        month => {
-            setCalenderDate(parseBSDate(stitchDate({ year: calenderDate.bsYear, month, day: calenderDate.bsDay })))
+        (month) => {
+            executionDelegation(
+                () => {
+                    setCalenderDate(
+                        parseBSDate(
+                            stitchDate({
+                                year: calenderDate.bsYear,
+                                month,
+                                day: calenderDate.bsDay,
+                            }),
+                        ),
+                    )
+                },
+                () => {
+                    if (events.monthSelect) {
+                        events.monthSelect(month)
+                    }
+                },
+            )
         },
         [calenderDate],
     )
 
     const onDaySelectHandler = useCallback((date: SplittedDate) => {
-        const newDate = parseBSDate(stitchDate(date))
+        executionDelegation(
+            () => {
+                const newDate = parseBSDate(stitchDate(date))
 
-        setCalenderDate(newDate)
-        setSelectedDate(newDate)
+                setCalenderDate(newDate)
+                setSelectedDate(newDate)
+            },
+            () => {
+                if (events.daySelect) {
+                    events.daySelect(date)
+                }
+            },
+        )
     }, [])
 
     return (
-        <div className="nepali-date-picker">
+        <div className="calender">
             <div className="calendar-wrapper">
                 {isInitialized && (
                     <Fragment>
