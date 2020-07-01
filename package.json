@@ -11,9 +11,6 @@
     "node": ">=10",
     "npm": ">=6"
   },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
-  },
   "scripts": {
     "test": "jest --detectOpenHandles --forceExit --runInBand --config jestconfig.json -u",
     "test:watch": "yarn test --watch",
