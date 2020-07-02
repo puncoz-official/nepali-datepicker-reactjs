@@ -128,7 +128,11 @@ const NepaliDatePicker: FunctionComponent<Props> = (props) => {
                     className={className}
                     readOnly={true}
                     ref={dateEl}
-                    value={returnDate(date)}
+                    value={
+                        datepickerOptions.calenderLocale === "en"
+                            ? nepaliToEnglishNumber(date)
+                            : englishToNepaliNumber(date)
+                    }
                     onClick={() => setShowCalendar(!showCalendar)}
                 />
                 {showCalendar && (
