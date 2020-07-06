@@ -1,16 +1,4 @@
 language: node_js
 node_js:
-  - "v12.8.1"
-cache:
-  directories:
-    - node_modules
-script:
-  - yarn test
-  - yarn build:example
-deploy:
-  provider: pages
-  skip_cleanup: true
-  github_token: $github_token
-  local_dir: examples/build
-  on:
-    branch: master
+  - 12
+  - 10

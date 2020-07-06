@@ -1,55 +1,38 @@
 import { ADToBS } from "bikram-sambat-js"
-import { englishToNepaliNumber, nepaliToEnglishNumber } from "nepali-number"
 import React, { FunctionComponent, useCallback, useEffect, useLayoutEffect, useRef, useState } from "react"
-import { executionDelegation, stitchDate } from "../Helpers/helpers"
 import { Calender } from "./Calender"
-import { ConfigProvider } from "./Config"
-import "./NepaliDatePicker.scss"
-import { DatepickerEvents, DatepickerOptions } from "./types/types"
+import { useConfig } from "./Config"
+import { useTrans } from "./Locale"
+import { ENGLISH, INepaliDatePicker, localeType, NepaliDatepickerEvents } from "./Types"
+import { childOf, executionDelegation, stitchDate } from "./Utils/common"
 
-const defaultOptions: DatepickerOptions = {
-    closeOnSelect: true,
-    calenderLocale: "ne",
-    valueLocale: "en",
-}
+const NepaliDatePicker: FunctionComponent<INepaliDatePicker> = (props) => {
+    const { className, inputClassName, value, onChange, onSelect, options } = props
 
-type Props = {
-    className?: string
-    value: string
-    onChange?: (value: string) => void
-    onSelect?: (value: string) => void
-    options?: DatepickerOptions
-}
+    const nepaliDatePickerWrapper = useRef<HTMLDivElement>(null)
+    const nepaliDatePickerInput = useRef<HTMLInputElement>(null)
 
-const childOf = (childNode: any, parentNode: any): boolean => parentNode.contains(childNode)
-
-const NepaliDatePicker: FunctionComponent<Props> = (props) => {
-    const { className, value, onChange, onSelect, options } = props
-
-    const [showCalendar, setShowCalendar] = useState<boolean>(false)
-    const dateEl = useRef<HTMLInputElement>(null)
-    const datepicker = useRef<HTMLInputElement>(null)
     const [date, setDate] = useState<string>("")
-    const [datepickerOptions, setDatePickerOptions] = useState<DatepickerOptions>(defaultOptions)
+    const [showCalendar, setShowCalendar] = useState<boolean>(false)
 
-    const fetchDate = useCallback((val: string): string => nepaliToEnglishNumber(val), [])
+    const { setConfig, getConfig } = useConfig()
+    const { numberTrans } = useTrans(getConfig<localeType>("currentLocale"))
 
-    const returnDate = useCallback(
-        (val: string): string =>
-            datepickerOptions.valueLocale === "en" ? nepaliToEnglishNumber(val) : englishToNepaliNumber(val),
-        [datepickerOptions.valueLocale],
-    )
+    const toEnglish = useCallback((val: string): string => numberTrans(val, ENGLISH), [])
+    const returnDateValue = useCallback((val: string): string => numberTrans(val, options.valueLocale), [
+        options.valueLocale,
+    ])
 
     useEffect(() => {
-        setDate(fetchDate(!value ? ADToBS(new Date()) : value))
+        setConfig("currentLocale", options.calenderLocale)
+    }, [options.calenderLocale])
+
+    useEffect(() => {
+        setDate(toEnglish(value || ADToBS(new Date())))
     }, [value])
 
-    useEffect(() => {
-        setDatePickerOptions((prevOptions) => ({ ...prevOptions, ...options }))
-    }, [options])
-
     const handleClickOutside = useCallback((event: any) => {
-        if (datepicker.current && childOf(event.target, datepicker.current)) {
+        if (nepaliDatePickerWrapper.current && childOf(event.target, nepaliDatePickerWrapper.current)) {
             return
         }
 
@@ -67,11 +50,11 @@ const NepaliDatePicker: FunctionComponent<Props> = (props) => {
     }, [showCalendar])
 
     useLayoutEffect(() => {
-        if (showCalendar && datepicker.current) {
-            const nepaliDatePicker = datepicker.current.getBoundingClientRect()
+        if (showCalendar && nepaliDatePickerWrapper.current) {
+            const nepaliDatePicker = nepaliDatePickerWrapper.current.getBoundingClientRect()
             const screenHeight = window.innerHeight
 
-            const calender: HTMLDivElement | null = datepicker.current.querySelector(".calender")
+            const calender: HTMLDivElement | null = nepaliDatePickerWrapper.current.querySelector(".calender")
             if (calender) {
                 setTimeout(() => {
                     const calenderHeight = calender.clientHeight
@@ -93,7 +76,7 @@ const NepaliDatePicker: FunctionComponent<Props> = (props) => {
             },
             () => {
                 if (onChange) {
-                    onChange(returnDate(changedDate))
+                    onChange(returnDateValue(changedDate))
                 }
             },
         )
@@ -102,49 +85,37 @@ const NepaliDatePicker: FunctionComponent<Props> = (props) => {
     const handleOnDaySelect = useCallback((selectedDate) => {
         executionDelegation(
             () => {
-                if (datepickerOptions.closeOnSelect) {
+                if (options.closeOnSelect) {
                     setShowCalendar(false)
                 }
             },
             () => {
                 if (onSelect) {
-                    onSelect(returnDate(stitchDate(selectedDate)))
+                    onSelect(returnDateValue(stitchDate(selectedDate)))
                 }
             },
         )
     }, [])
 
-    const datepickerEvents: DatepickerEvents = {
+    const datepickerEvents: NepaliDatepickerEvents = {
         change: handleOnChange,
         daySelect: handleOnDaySelect,
         todaySelect: handleOnDaySelect,
     }
 
     return (
-        <ConfigProvider>
-            <div ref={datepicker} className="nepali-date-picker">
-                <input
-                    type="text"
-                    className={className}
-                    readOnly={true}
-                    ref={dateEl}
-                    value={
-                        datepickerOptions.calenderLocale === "en"
-                            ? nepaliToEnglishNumber(date)
-                            : englishToNepaliNumber(date)
-                    }
-                    onClick={() => setShowCalendar(!showCalendar)}
-                />
-                {showCalendar && (
-                    <Calender locale={datepickerOptions.calenderLocale} value={date} events={datepickerEvents} />
-                )}
-            </div>
-        </ConfigProvider>
+        <div ref={nepaliDatePickerWrapper} className={`nepali-date-picker ${className}`}>
+            <input
+                type='text'
+                ref={nepaliDatePickerInput}
+                className={inputClassName}
+                readOnly={true}
+                value={numberTrans(date)}
+                onClick={() => setShowCalendar((visible) => !visible)}
+            />
+            {showCalendar && date && <Calender value={date} events={datepickerEvents} />}
+        </div>
     )
-}
-
-NepaliDatePicker.defaultProps = {
-    className: "",
 }
 
 export default NepaliDatePicker

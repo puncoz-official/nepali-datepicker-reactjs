@@ -12,8 +12,8 @@ const IconBase: FunctionComponent<IconBaseProps> = (props) => {
 
     return (
         <svg
-            xmlns="http://www.w3.org/2000/svg"
-            xmlnsXlink="http://www.w3.org/1999/xlink"
+            xmlns='http://www.w3.org/2000/svg'
+            xmlnsXlink='http://www.w3.org/1999/xlink'
             width={props.size}
             height={props.size}
             {...options}

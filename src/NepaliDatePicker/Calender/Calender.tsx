@@ -1,26 +1,21 @@
 import { ADToBS } from "bikram-sambat-js"
 import React, { Fragment, FunctionComponent, useCallback, useEffect, useState } from "react"
-import { executionDelegation, parseBSDate, stitchDate } from "../../Helpers/helpers"
-import { useConfig } from "../Config"
-import { DatepickerEvents, localeType, ParsedDate, parsedDateInitialValue, SplittedDate } from "../types/types"
+import { NepaliDatepickerEvents, ParsedDate, parsedDateInitialValue, SplittedDate } from "../Types"
+import { executionDelegation, parseBSDate, stitchDate } from "../Utils/common"
 import CalenderController from "./components/CalenderController"
-import DayPicker from "./components/pickers/DayPicker"
+import { DayPicker } from "./components/DayPicker"
 
 interface CalenderProps {
     value: string
-    events: DatepickerEvents
-    locale: localeType
+    events: NepaliDatepickerEvents
 }
 
-const Calender: FunctionComponent<CalenderProps> = ({ value, events, locale }) => {
+const Calender: FunctionComponent<CalenderProps> = ({ value, events }) => {
     const [isInitialized, setIsInitialized] = useState<boolean>(false)
     const [selectedDate, setSelectedDate] = useState<ParsedDate>(parsedDateInitialValue)
     const [calenderDate, setCalenderDate] = useState<ParsedDate>(parsedDateInitialValue)
 
-    const { setConfig } = useConfig()
-
     useEffect(() => {
-        setConfig("locale", locale)
         const parsedDateValue = parseBSDate(value)
 
         setSelectedDate(parsedDateValue)
@@ -185,8 +180,8 @@ const Calender: FunctionComponent<CalenderProps> = ({ value, events, locale }) =
     }, [])
 
     return (
-        <div className="calender">
-            <div className="calendar-wrapper">
+        <div className='calender'>
+            <div className='calendar-wrapper'>
                 {isInitialized && (
                     <Fragment>
                         <CalenderController
