@@ -6,7 +6,6 @@ const useConfig = () => {
     const { state, dispatch } = useContext(ConfigContext)
 
     function setConfig(key: keyof ConfigState, value: ConfigValue) {
-        console.log(key, value)
         dispatch({
             key,
             type: SET_CONFIG,
@@ -15,7 +14,6 @@ const useConfig = () => {
     }
 
     function getConfig<T>(key: keyof ConfigState): T {
-        console.log(state, "state")
         return state[key] as any
     }
 

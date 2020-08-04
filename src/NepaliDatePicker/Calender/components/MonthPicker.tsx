@@ -14,8 +14,6 @@ const MonthPicker: FunctionComponent<MonthPickerProps> = ({ date, onSelect }) =>
     const { getConfig } = useConfig()
     const currentLocale: localeType = useMemo(() => getConfig<localeType>("currentLocale"), [getConfig])
 
-    console.log(currentLocale, "currentLocale")
-
     const currentMonth: OptionType = useMemo((): OptionType => {
         const month = date.bsMonth
 
