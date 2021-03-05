@@ -69,33 +69,39 @@ const NepaliDatePicker: FunctionComponent<INepaliDatePicker> = (props) => {
         }
     }, [showCalendar])
 
-    const handleOnChange = useCallback((changedDate: string) => {
-        executionDelegation(
-            () => {
-                setDate(changedDate)
-            },
-            () => {
-                if (onChange) {
-                    onChange(returnDateValue(changedDate))
-                }
-            },
-        )
-    }, [])
+    const handleOnChange = useCallback(
+        (changedDate: string) => {
+            executionDelegation(
+                () => {
+                    setDate(changedDate)
+                },
+                () => {
+                    if (onChange) {
+                        onChange(returnDateValue(changedDate))
+                    }
+                },
+            )
+        },
+        [onChange],
+    )
 
-    const handleOnDaySelect = useCallback((selectedDate) => {
-        executionDelegation(
-            () => {
-                if (options.closeOnSelect) {
-                    setShowCalendar(false)
-                }
-            },
-            () => {
-                if (onSelect) {
-                    onSelect(returnDateValue(stitchDate(selectedDate)))
-                }
-            },
-        )
-    }, [])
+    const handleOnDaySelect = useCallback(
+        (selectedDate) => {
+            executionDelegation(
+                () => {
+                    if (options.closeOnSelect) {
+                        setShowCalendar(false)
+                    }
+                },
+                () => {
+                    if (onSelect) {
+                        onSelect(returnDateValue(stitchDate(selectedDate)))
+                    }
+                },
+            )
+        },
+        [onSelect],
+    )
 
     const datepickerEvents: NepaliDatepickerEvents = {
         change: handleOnChange,
