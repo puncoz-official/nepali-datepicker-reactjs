@@ -7,7 +7,7 @@ const ConfigContext = createContext<{
     state: ConfigState
 }>({
     dispatch: () => null,
-    state: initialState,
+    state: initialState(),
 })
 
 export default ConfigContext

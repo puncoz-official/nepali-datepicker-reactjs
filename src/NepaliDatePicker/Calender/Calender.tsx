@@ -4,6 +4,7 @@ import { NepaliDatepickerEvents, ParsedDate, parsedDateInitialValue, SplittedDat
 import { executionDelegation, parseBSDate, stitchDate } from "../Utils/common"
 import CalenderController from "./components/CalenderController"
 import { DayPicker } from "./components/DayPicker"
+import { useConfig } from "../Config"
 
 interface CalenderProps {
     value: string
@@ -14,7 +15,7 @@ const Calender: FunctionComponent<CalenderProps> = ({ value, events }) => {
     const [isInitialized, setIsInitialized] = useState<boolean>(false)
     const [selectedDate, setSelectedDate] = useState<ParsedDate>(parsedDateInitialValue)
     const [calenderDate, setCalenderDate] = useState<ParsedDate>(parsedDateInitialValue)
-
+    const { getConfig } = useConfig()
     useEffect(() => {
         const parsedDateValue = parseBSDate(value)
 
@@ -45,6 +46,9 @@ const Calender: FunctionComponent<CalenderProps> = ({ value, events }) => {
                     if (month < 1) {
                         month = 12
                         year--
+                    }
+                    if (year < getConfig<number>("minYear") || year > getConfig<number>("maxYear")) {
+                        return date
                     }
 
                     return parseBSDate(
