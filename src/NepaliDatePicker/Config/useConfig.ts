@@ -16,7 +16,6 @@ const useConfig = () => {
     function getConfig<T>(key: keyof ConfigState): T {
         return state[key] as any
     }
-
     return { setConfig, getConfig }
 }
 

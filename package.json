@@ -50,7 +50,7 @@
         }
     },
     "peerDependencies": {
-        "react": "^16.8.0"
+        "react": "^18.2.0"
     },
     "devDependencies": {
         "@testing-library/jest-dom": "^4.2.4",
@@ -58,8 +58,8 @@
         "@testing-library/user-event": "^7.2.1",
         "@types/jest": "^25.1.4",
         "@types/node": "^12.12.38",
-        "@types/react": "^16.9.27",
-        "@types/react-dom": "^16.9.7",
+        "@types/react": "^16.9.49",
+        "@types/react-dom": "^16.9.8",
         "@typescript-eslint/eslint-plugin": "^2.26.0",
         "@typescript-eslint/parser": "^2.26.0",
         "babel-eslint": "^10.0.3",
@@ -78,12 +78,12 @@
         "husky": "^4.2.5",
         "lint-staged": "^10.2.11",
         "microbundle-crl": "^0.13.10",
-        "node-sass": "^4.14.1",
+        "node-sass": "^6.0.1",
         "npm-run-all": "^4.1.5",
         "prettier": "^2.0.4",
         "prettier-stylelint": "^0.4.2",
-        "react": "^16.13.1",
-        "react-scripts": "^3.4.1",
+        "react": "^18.2.0",
+        "react-scripts": "^5.0.1",
         "rimraf": "^3.0.2",
         "stylelint": "^13.6.1",
         "stylelint-config-standard": "^20.0.0",

@@ -15,6 +15,11 @@ export interface NepaliDatePickerOptions {
     valueLocale: localeType
 }
 
+export interface IContextProviderProps {
+    minYear?: number
+    children: React.ReactNode
+    maxYear?: number
+}
 export interface INepaliDatePicker {
     value: string
     className: HTMLAttributes<HTMLDivElement>["className"]
@@ -22,6 +27,8 @@ export interface INepaliDatePicker {
     onChange: (date: string) => void
     onSelect?: (value: string) => void
     options: NepaliDatePickerOptions
+    minYear?: number
+    maxYear?: number
 }
 
 export interface NepaliDatePickerProps {
@@ -35,6 +42,8 @@ export interface NepaliDatePickerProps {
         calenderLocale?: NepaliDatePickerOptions["calenderLocale"]
         valueLocale?: NepaliDatePickerOptions["valueLocale"]
     }
+    minYear?: INepaliDatePicker["minYear"]
+    maxYear?: INepaliDatePicker["maxYear"]
 }
 
 export interface NepaliDatepickerEvents {
