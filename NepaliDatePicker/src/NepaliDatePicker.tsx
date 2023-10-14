@@ -9,7 +9,9 @@ type Props = {
 
 const NepaliDatePicker: FunctionComponent<Props> = () => {
   return (
-    <div className="ndp-text-green-500">NepaliDatePicker</div>
+    <div className="ndp__datepicker">
+      <div className="ndp-text-green-500">NepaliDatePicker</div>
+    </div>
   )
 }
 

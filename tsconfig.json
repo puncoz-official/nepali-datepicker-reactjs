@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "rootDir": ".",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true
+  },
+  "exclude": ["node_modules", "*.d.ts"],
+  "references": [
+    {
+      "path": "NepaliDatePicker/tsconfig.json"
+    }, {
+      "path": "demo/tsconfig.json"
+    }
+  ]
+}

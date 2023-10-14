@@ -7,13 +7,7 @@
   },
   "description": "Nepali Datepicker (Bikram Sambat) as a ReactJS component",
   "keywords": [
-    "nepali date picker",
-    "nepali",
-    "datepicker",
-    "bikram",
-    "sambat",
-    "bikramsambat",
-    "calender"
+    "nepali date picker", "nepali", "datepicker", "bikram", "sambat", "bikramsambat", "calender"
   ],
   "author": {
     "name": "Puncoz Nepal",
@@ -42,8 +36,11 @@
     "dist": "yarn lib:build"
   },
   "peerDependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react": "^18",
+    "react-dom": "^18"
+  },
+  "resolutions": {
+    "eslint-plugin-prettier": "5.0.0"
   },
   "devDependencies": {
     "@types/node": "^20.8.6",
@@ -55,18 +52,14 @@
     "autoprefixer": "^10.4.16",
     "eslint": "^8.45.0",
     "eslint-config-prettier": "^9.0.0",
-    "eslint-plugin-prettier": "^5.0.1",
+    "eslint-plugin-prettier": "5.0.0",
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
     "eslint-plugin-simple-import-sort": "^10.0.0",
     "postcss": "^8.4.31",
     "prettier": "^3.0.3",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "rimraf": "^5.0.5",
     "tailwindcss": "^3.3.3",
-    "typescript": "^5.0.2",
     "vite": "^4.4.5",
     "vite-plugin-dts": "^3.6.0",
     "vite-plugin-linter": "^2.0.7",
@@ -79,11 +72,16 @@
   "exports": {
     ".": {
       "import": "./dist/nepali-datepicker.es.js",
-      "require": "./dist/nepali-datepicker.umd.js"
+      "require": "./dist/nepali-datepicker.umd.js",
+      "types": "./dist/index.d.ts"
     },
-    "./dist/nepali-datepicker.css": "./dist/style.css"
+    "./dist/style.css": {
+      "default": "./dist/style.css"
+    }
   },
   "main": "./dist/nepali-datepicker.umd.js",
   "module": "./dist/nepali-datepicker.es.js",
-  "types": "./dist/index.d.ts"
+  "types": "./dist/index.d.ts",
+  "typings": "./dist/index.d.ts",
+  "style": "./dist/style.css"
 }

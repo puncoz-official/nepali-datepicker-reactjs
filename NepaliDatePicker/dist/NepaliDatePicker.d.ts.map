@@ -1,1 +1,0 @@
-{"version":3,"file":"NepaliDatePicker.d.ts","sourceRoot":"","sources":["../src/NepaliDatePicker.tsx"],"names":[],"mappings":"AAAA,OAAO,wBAAwB,CAAA;AAC/B,OAAO,uBAAuB,CAAA;AAE9B,OAAc,EAAE,iBAAiB,EAAE,MAAM,OAAO,CAAA;AAEhD,KAAK,KAAK,GAAG;IACX,SAAS,EAAE,EAAE,CAAA;CACd,CAAA;AAED,QAAA,MAAM,gBAAgB,EAAE,iBAAiB,CAAC,KAAK,CAI9C,CAAA;AAED,eAAe,gBAAgB,CAAA"}

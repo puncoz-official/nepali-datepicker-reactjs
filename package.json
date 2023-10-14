@@ -6,17 +6,25 @@
     "node": ">=16",
     "npm": ">=6.10"
   },
+  "type": "module",
   "scripts": {
-    "preinstall": "node ./preinstall.js",
     "prepare": "husky install",
-    "lib": "yarn workspace nepali-datepicker-reactjs"
+    "lib": "yarn workspace nepali-datepicker-reactjs",
+    "demo": "yarn workspace @puncoz/demo",
+    "clean": "yarn demo clean && yarn lib clean",
+    "clean:modules": "yarn demo clean:modules && yarn lib clean:modules"
   },
   "workspaces": {
-    "packages": ["NepaliDatePicker", "demo"]
+    "packages": [
+      "NepaliDatePicker",
+      "demo"
+    ]
   },
   "devDependencies": {
     "husky": "^8.0.3",
-    "lint-staged": "^14.0.1"
+    "lint-staged": "^14.0.1",
+    "rimraf": "^5.0.5",
+    "typescript": "^5.2.2"
   },
   "husky": {
     "hooks": {
