@@ -12,7 +12,10 @@
     "lib": "yarn workspace nepali-datepicker-reactjs",
     "demo": "yarn workspace @puncoz/demo",
     "clean": "yarn demo clean && yarn lib clean",
-    "clean:modules": "yarn demo clean:modules && yarn lib clean:modules"
+    "clean:modules": "yarn demo clean:modules && yarn lib clean:modules",
+    "dev:lib": "yarn lib lib:dev",
+    "dev:demo": "yarn demo dev",
+    "build": "yarn lib dist"
   },
   "workspaces": {
     "packages": [

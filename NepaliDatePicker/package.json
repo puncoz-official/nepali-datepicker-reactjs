@@ -30,8 +30,9 @@
     "lint:fix": "eslint --fix ./src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "lint:format": "prettier --write src/**/*.{ts,tsx,css} --config ./.prettierrc",
     "lint": "yarn lint:format && yarn lint:eslint && yarn lint:type-check",
-    "lib:dev": "vite --config vite.config.ts",
+    "lib:dev": "vite build --watch --config vite.config.ts",
     "lib:build": "tsc && vite build --config vite.config.ts",
+    "tsc": "tsc",
     "predist": "yarn clean && yarn lint",
     "dist": "yarn lib:build"
   },
@@ -40,7 +41,7 @@
     "react-dom": "^18"
   },
   "resolutions": {
-    "eslint-plugin-prettier": "5.0.0"
+    "strip-ansi": "^6.0.1"
   },
   "devDependencies": {
     "@types/node": "^20.8.6",
@@ -52,7 +53,7 @@
     "autoprefixer": "^10.4.16",
     "eslint": "^8.45.0",
     "eslint-config-prettier": "^9.0.0",
-    "eslint-plugin-prettier": "5.0.0",
+    "eslint-plugin-prettier": "^5.0.1",
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
