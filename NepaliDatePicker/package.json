@@ -1,0 +1,89 @@
+{
+  "name": "nepali-datepicker-reactjs",
+  "version": "2.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/puncoz-official/nepali-datepicker-reactjs"
+  },
+  "description": "Nepali Datepicker (Bikram Sambat) as a ReactJS component",
+  "keywords": [
+    "nepali date picker",
+    "nepali",
+    "datepicker",
+    "bikram",
+    "sambat",
+    "bikramsambat",
+    "calender"
+  ],
+  "author": {
+    "name": "Puncoz Nepal",
+    "url": "https://puncoz.com"
+  },
+  "bugs": {
+    "url": "https://github.com/puncoz-official/nepali-datepicker-reactjs/issues"
+  },
+  "homepage": "https://demo.puncoz.com",
+  "license": "MIT",
+  "engines": {
+    "node": ">=16",
+    "npm": ">=6.10"
+  },
+  "scripts": {
+    "clean": "rimraf dist yarn-debug.log*, yarn-error.log*",
+    "clean:modules": "rimraf node_modules",
+    "lint:type-check": "vue-tsc --noEmit -p ./tsconfig.json",
+    "lint:eslint": "eslint ./src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "lint:fix": "eslint --fix ./src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "lint:format": "prettier --write src/**/*.{ts,tsx,css} --config ./.prettierrc",
+    "lint": "yarn lint:format && yarn lint:eslint && yarn lint:type-check",
+    "lib:dev": "vite --config vite.config.ts",
+    "lib:build": "tsc && vite build --config vite.config.ts",
+    "predist": "yarn clean && yarn lint",
+    "dist": "yarn lib:build"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.8.6",
+    "@types/react": "^18.2.15",
+    "@types/react-dom": "^18.2.7",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "@vitejs/plugin-react": "^4.0.3",
+    "autoprefixer": "^10.4.16",
+    "eslint": "^8.45.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.1",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.3",
+    "eslint-plugin-simple-import-sort": "^10.0.0",
+    "postcss": "^8.4.31",
+    "prettier": "^3.0.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "rimraf": "^5.0.5",
+    "tailwindcss": "^3.3.3",
+    "typescript": "^5.0.2",
+    "vite": "^4.4.5",
+    "vite-plugin-dts": "^3.6.0",
+    "vite-plugin-linter": "^2.0.7",
+    "vite-tsconfig-paths": "^4.2.1"
+  },
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/nepali-datepicker.es.js",
+      "require": "./dist/nepali-datepicker.umd.js"
+    },
+    "./dist/nepali-datepicker.css": "./dist/style.css"
+  },
+  "main": "./dist/nepali-datepicker.umd.js",
+  "module": "./dist/nepali-datepicker.es.js",
+  "types": "./dist/index.d.ts"
+}

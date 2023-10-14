@@ -16,11 +16,11 @@ export default defineConfig((configEnv) => ({
     react(),
     tsconfigPaths(),
     linterPlugin({
-      include: ["./NepaliDatePicker/**/*.{ts,tsx}"],
+      include: ["./src/**/*.{ts,tsx}"],
       linters: [new EsLinter(({ configEnv }))],
     }),
     dtsPlugin({
-      include: ["NepaliDatePicker/"],
+      include: ["src/"],
       insertTypesEntry: true,
     }),
   ],
@@ -30,7 +30,7 @@ export default defineConfig((configEnv) => ({
     reportCompressedSize: true,
 
     lib: {
-      entry: resolve(__dirname, "./NepaliDatePicker/index.ts"),
+      entry: resolve(__dirname, "./src/index.ts"),
       name: "NepaliDatePicker",
       formats: ["es", "umd"],
       fileName: (format) => `nepali-datepicker.${format}.js`,

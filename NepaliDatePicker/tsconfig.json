@@ -19,8 +19,8 @@
     "declarationMap": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["NepaliDatePicker/*"],
-      "#/*": ["NepaliDatePicker/@types/*"]
+      "@/*": ["src/*"],
+      "#/*": ["src/@types/*"]
     },
     "allowImportingTsExtensions": true,
     "noUnusedLocals": true,
@@ -30,8 +30,8 @@
       "node_modules/@types",
     ]
   },
-  "include": ["NepaliDatePicker/**/*.{ts,tsx}"],
-  "exclude": ["node_modules", "dist", "demo"],
+  "include": ["src/**/*.{ts,tsx}"],
+  "exclude": ["node_modules", "dist"],
   "references": [
     {
       "path": "./tsconfig.node.json"

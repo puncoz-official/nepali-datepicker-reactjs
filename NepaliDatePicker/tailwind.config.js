@@ -4,7 +4,7 @@ export default {
   darkMode: ["class", "[data-theme=\"dark\"]"],
   important: ".ndp__datepicker",
   content: [
-    "./NepaliDatePicker/**/*.tsx",
+    "./src/**/*.tsx",
   ],
   theme: {
     extend: {},
