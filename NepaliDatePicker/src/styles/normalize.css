@@ -2,17 +2,17 @@
 1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
 2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)
 */
-.ndp__datepicker *,
-.ndp__datepicker ::before,
-.ndp__datepicker ::after {
+.nepali-datepicker *,
+.nepali-datepicker ::before,
+.nepali-datepicker ::after {
   box-sizing: border-box; /* 1 */
   border-width: 0; /* 2 */
   border-style: solid; /* 2 */
   border-color: currentcolor; /* 2 */
 }
 
-.ndp__datepicker ::before,
-.ndp__datepicker ::after {
+.nepali-datepicker ::before,
+.nepali-datepicker ::after {
   --tw-content: '';
 }
 
@@ -24,7 +24,7 @@
 5. Use the user's configured `sans` font-feature-settings by default.
 6. Use the user's configured `sans` font-variation-settings by default.
 */
-.ndp__datepicker {
+.nepali-datepicker {
   line-height: 1.5;
   tab-size: 4;
   font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -36,15 +36,15 @@
 /*
 Add the correct font weight in Edge and Safari.
 */
-.ndp__datepicker b,
-.ndp__datepicker strong {
+.nepali-datepicker b,
+.nepali-datepicker strong {
   font-weight: bolder;
 }
 
 /*
 Add the correct font size in all browsers.
 */
-.ndp__datepicker small {
+.nepali-datepicker small {
   font-size: 80%;
 }
 
@@ -53,8 +53,8 @@ Add the correct font size in all browsers.
 2. Remove the margin in Firefox and Safari.
 3. Remove default padding in all browsers.
 */
-.ndp__datepicker button,
-.ndp__datepicker select {
+.nepali-datepicker button,
+.nepali-datepicker select {
   font-family: inherit; /* 1 */
   font-feature-settings: inherit; /* 1 */
   font-variation-settings: inherit; /* 1 */
@@ -71,7 +71,7 @@ Add the correct font size in all browsers.
   text-transform: none;
 }
 
-.ndp__datepicker button {
+.nepali-datepicker button {
   cursor: pointer;
 }
 
@@ -79,11 +79,11 @@ Add the correct font size in all browsers.
 1. Correct the inability to style clickable types in iOS and Safari.
 2. Remove default button styles.
 */
-.ndp__datepicker button,
-.ndp__datepicker [type='button'],
-.ndp__datepicker [type='reset'],
-.ndp__datepicker [type='submit'],
-.ndp__datepicker select {
+.nepali-datepicker button,
+.nepali-datepicker [type='button'],
+.nepali-datepicker [type='reset'],
+.nepali-datepicker [type='submit'],
+.nepali-datepicker select {
   background-color: transparent; /* 2 */
   background-image: none; /* 2 */
 }
@@ -91,33 +91,33 @@ Add the correct font size in all browsers.
 /*
 Use the modern Firefox focus style for all focusable elements.
 */
-.ndp__datepicker :-moz-focusring {
+.nepali-datepicker :-moz-focusring {
   outline: auto;
 }
 
 /*
 Removes the default spacing and border for appropriate elements.
 */
-.ndp__datepicker p {
+.nepali-datepicker p {
   margin: 0;
 }
 
 /*
 Set the default cursor for buttons.
 */
-.ndp__datepicker button,
-.ndp__datepicker [role="button"] {
+.nepali-datepicker button,
+.nepali-datepicker [role="button"] {
   cursor: pointer;
 }
 
 /*
 Make sure disabled buttons don't get the pointer cursor.
 */
-.ndp__datepicker :disabled {
+.nepali-datepicker :disabled {
   cursor: default;
 }
 
 /* Make elements with the HTML hidden attribute stay hidden by default */
-.ndp__datepicker [hidden] {
+.nepali-datepicker [hidden] {
   display: none;
 }

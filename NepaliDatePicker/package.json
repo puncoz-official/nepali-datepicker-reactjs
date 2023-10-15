@@ -7,7 +7,13 @@
   },
   "description": "Nepali Datepicker (Bikram Sambat) as a ReactJS component",
   "keywords": [
-    "nepali date picker", "nepali", "datepicker", "bikram", "sambat", "bikramsambat", "calender"
+    "nepali date picker",
+    "nepali",
+    "datepicker",
+    "bikram",
+    "sambat",
+    "bikramsambat",
+    "calender"
   ],
   "author": {
     "name": "Puncoz Nepal",
@@ -28,9 +34,8 @@
     "lint:type-check": "vue-tsc --noEmit -p ./tsconfig.json",
     "lint:eslint": "eslint ./src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "lint:fix": "eslint --fix ./src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "lint:format": "prettier --write src/**/*.{ts,tsx,css} --config ./.prettierrc",
-    "lint": "yarn lint:format && yarn lint:eslint && yarn lint:type-check",
-    "lib:dev": "vite build --watch --config vite.config.ts",
+    "lint": "yarn lint:eslint && yarn lint:type-check",
+    "lib:dev": "NODE_ENV=development vite build --watch --config vite.config.ts",
     "lib:build": "tsc && vite build --config vite.config.ts",
     "tsc": "tsc",
     "predist": "yarn clean && yarn lint",
@@ -41,9 +46,10 @@
     "react-dom": "^18"
   },
   "resolutions": {
-    "strip-ansi": "^6.0.1"
+    "strip-ansi": "^7.1.0"
   },
   "devDependencies": {
+    "@floating-ui/react": "^0.26.1",
     "@types/node": "^20.8.6",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
@@ -52,14 +58,12 @@
     "@vitejs/plugin-react": "^4.0.3",
     "autoprefixer": "^10.4.16",
     "eslint": "^8.45.0",
-    "eslint-config-prettier": "^9.0.0",
-    "eslint-plugin-prettier": "^5.0.1",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
     "eslint-plugin-simple-import-sort": "^10.0.0",
     "postcss": "^8.4.31",
-    "prettier": "^3.0.3",
     "tailwindcss": "^3.3.3",
     "vite": "^4.4.5",
     "vite-plugin-dts": "^3.6.0",

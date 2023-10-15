@@ -61,7 +61,7 @@ const RootLayout: FunctionComponent<Props> = ({ children }) => (
           <li>
             <a href="https://github.com/puncoz-official/nepali-datepicker-reactjs"
                className="hover:underline hover:text-blue-500 transition-all duration-200 ease-out
-                        flex justify-center gap-2 items-center">
+                        inline-flex justify-center gap-2 items-center">
               <IoLogoGithub className="w-4 h-4" />
               Github
             </a>

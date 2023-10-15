@@ -6,7 +6,6 @@
     "node": ">=16",
     "npm": ">=6.10"
   },
-  "type": "module",
   "scripts": {
     "prepare": "husky install",
     "lib": "yarn workspace nepali-datepicker-reactjs",
