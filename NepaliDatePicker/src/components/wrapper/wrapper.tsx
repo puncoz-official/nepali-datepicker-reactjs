@@ -1,53 +1,50 @@
-import {
-  autoUpdate,
-  FloatingFocusManager,
-  useClick,
-  useDismiss,
-  useFloating,
-  useId,
-  useInteractions,
-  useRole,
-} from "@floating-ui/react"
-import React, { FunctionComponent, ReactNode, useState } from "react"
+import React, { FunctionComponent, useEffect } from "react"
 
-import { useData } from "@/components"
+import { Calendar, DateInput, useData } from "@/components"
+import FloatingContainer from "@/components/wrapper/floating-container.tsx"
+import { Theme, Types } from "#/Data.ts"
+import { INepaliDatePicker } from "#/NepaliDatePicker.ts"
 
-type Props = {
-  input: ReactNode
-  calendar: ReactNode
+interface Props extends INepaliDatePicker {
 }
-const Wrapper: FunctionComponent<Props> = (props) => {
-  const { state } = useData()
-  const [isOpen, setOpen] = useState<boolean>(false)
 
-  const { refs, context, floatingStyles } = useFloating({
-    open: isOpen,
-    onOpenChange: setOpen,
-    middleware: [],
-    whileElementsMounted: autoUpdate,
-  })
+const Wrapper: FunctionComponent<Props> = ({ ...props }) => {
+  const { state, setData } = useData()
 
-  const click = useClick(context)
-  const dismiss = useDismiss(context)
-  const role = useRole(context)
+  useEffect(() => {
+    setData({ type: Types.SET_VALUE, value: props.value || "" })
+  }, [props.value])
 
-  const { getReferenceProps, getFloatingProps } = useInteractions([click, dismiss, role])
+  useEffect(() => {
+    setData({
+      type: Types.SET_CLASSES,
+      classNames: {
+        wrapper: props.wrapperClassName,
+        input: props.className,
+      },
+    })
+  }, [props.className, props.wrapperClassName])
 
-  const id = useId()
+  useEffect(() => {
+    setData({
+      type: Types.SET_THEME,
+      theme: props.dark ? Theme.DARK : Theme.LIGHT,
+    })
+  }, [props.dark])
+
+  useEffect(() => {
+    setData({
+      type: Types.SET_EVENTS,
+      events: {
+        onChange: props.onChange || undefined,
+        onSelect: props.onSelect || undefined,
+      },
+    })
+  }, [props.onChange, props.onSelect])
 
   return (
     <div className={`nepali-datepicker ${state.classNames.wrapper || ""}`} data-theme={state.theme}>
-      <div ref={refs.setReference} {...getReferenceProps()}>
-        {props.input}
-      </div>
-
-      {isOpen && (
-        <FloatingFocusManager context={context} modal={false}>
-          <div ref={refs.setFloating} style={floatingStyles} aria-labelledby={id} {...getFloatingProps()}>
-            {props.calendar}
-          </div>
-        </FloatingFocusManager>
-      )}
+      <FloatingContainer input={<DateInput {...props} />} calendar={<Calendar />} />
     </div>
   )
 }

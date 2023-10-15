@@ -1,0 +1,1 @@
+{"version":3,"file":"floating-container.d.ts","sourceRoot":"","sources":["../../../../src/components/wrapper/floating-container.tsx"],"names":[],"mappings":"AAUA,OAAc,EAAE,iBAAiB,EAAE,SAAS,EAAY,MAAM,OAAO,CAAA;AAErE,KAAK,KAAK,GAAG;IACX,KAAK,EAAE,SAAS,CAAA;IAChB,QAAQ,EAAE,SAAS,CAAA;CACpB,CAAA;AACD,QAAA,MAAM,iBAAiB,EAAE,iBAAiB,CAAC,KAAK,CAiC/C,CAAA;AAED,eAAe,iBAAiB,CAAA"}

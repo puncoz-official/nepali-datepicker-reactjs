@@ -1,17 +1,16 @@
 import { HTMLProps } from "react"
 
-import { ClassName } from "#/Common.ts"
-import { Locale } from "#/Locale.ts"
+import { IData, Language } from "#/Data.ts"
 
 export interface NepaliDatePickerOptions {
-  calendarLocale: Locale
-  valueLocale: Locale
+  calendarLocale: Language
+  valueLocale: Language
 }
 
 export interface INepaliDatePicker extends HTMLProps<HTMLInputElement> {
-  value?: string
-  className?: ClassName
-  wrapperClassName?: ClassName
+  value?: IData["value"]
+  className?: IData["classNames"]["input"]
+  wrapperClassName?: IData["classNames"]["wrapper"]
   dark?: boolean
   onChange?: () => void
   onSelect?: () => void

@@ -1,42 +1,22 @@
-import React, { createContext, FunctionComponent, ReactNode, useReducer } from "react"
+import React, { createContext, Dispatch, FunctionComponent, ReactNode, useReducer } from "react"
 
+import { DataReducer, DataState } from "@/components/data/reducer.ts"
 import { DataAction, IData } from "#/Data.ts"
-import { INepaliDatePicker } from "#/NepaliDatePicker.ts"
 
-import { DataReducer, DataStore } from "./store.ts"
-
-interface Context {
-  dispatch: (action: DataAction) => void
+export const DataContext = createContext<{
   state: IData
-}
-
-export const DataContext = createContext<Context>({
+  dispatch: Dispatch<DataAction>
+}>({
+  state: DataState,
   dispatch: () => null,
-  state: DataStore(),
 })
 
-interface Props extends INepaliDatePicker {
+type Props = {
   children: ReactNode
 }
 
-export const DataProvider: FunctionComponent<Props> = ({ children, ...props }) => {
-  const [state, dispatch] = useReducer(
-    DataReducer,
-    DataStore({
-      classNames: {
-        wrapper: props.wrapperClassName,
-        input: props.className,
-      },
-      theme: props.dark ? "dark" : "light",
-      value: props.value || "",
-      onChange: props.onChange,
-      onSelect: props.onSelect,
-      locale: {
-        calendar: "ne",
-        value: "ne",
-      },
-    }),
-  )
+export const DataProvider: FunctionComponent<Props> = ({ children }) => {
+  const [state, dispatch] = useReducer(DataReducer, DataState)
 
   return (
     <DataContext.Provider value={{ state, dispatch }}>

@@ -1,13 +1,14 @@
-import React, { FunctionComponent, HTMLProps } from "react"
+import React, { FunctionComponent } from "react"
 
 import { useData } from "@/components"
 import { omitKeys } from "@/utils"
+import { INepaliDatePickerKeys } from "#/NepaliDatePicker.ts"
 
-interface Props extends HTMLProps<HTMLInputElement> {
+interface Props {
 }
 
 const DateInput: FunctionComponent<Props> = (props) => {
-  const inputProps = omitKeys(["type", "readOnly"], props)
+  const inputProps = omitKeys([...INepaliDatePickerKeys, "type", "readOnly"], props)
   const { state } = useData()
 
   return (

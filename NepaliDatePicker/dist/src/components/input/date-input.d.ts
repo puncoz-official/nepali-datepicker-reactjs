@@ -1,5 +1,5 @@
-import { FunctionComponent, HTMLProps } from "react";
-interface Props extends HTMLProps<HTMLInputElement> {
+import { FunctionComponent } from "react";
+interface Props {
 }
 declare const DateInput: FunctionComponent<Props>;
 export default DateInput;

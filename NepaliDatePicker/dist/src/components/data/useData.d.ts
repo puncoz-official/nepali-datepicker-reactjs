@@ -1,6 +1,6 @@
-import { DataTypes, IData } from '../../@types/Data.ts';
+import { DataAction } from '../../@types/Data.ts';
 export declare const useData: () => {
-    setData: (key: keyof IData, value: DataTypes) => void;
-    state: IData;
+    setData: (action: DataAction) => void;
+    state: import('../../@types/Data.ts').IData;
 };
 //# sourceMappingURL=useData.d.ts.map
