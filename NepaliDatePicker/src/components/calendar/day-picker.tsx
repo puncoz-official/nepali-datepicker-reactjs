@@ -22,7 +22,8 @@ const DayPicker: FunctionComponent = () => {
                   ` : `
                     hover:ndp-bg-gray-200 dark:hover:ndp-bg-slate-900
                   `}
-                `}>
+                `}
+                title={numberTrans(weekDayNum * (weekNum + 1))}>
               {numberTrans(weekDayNum * (weekNum + 1))}
               {weekNum === 3 && weekDayNum === 5 && (
                 <div className={`

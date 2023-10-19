@@ -1,10 +1,11 @@
 import React, { FunctionComponent } from "react"
 
-import NextBtn from "@/components/calendar/next-btn.tsx"
-
+import ClearBtn from "./clear-btn.tsx"
 import DayPicker from "./day-picker.tsx"
 import MonthPicker from "./month-picker.tsx"
+import NextBtn from "./next-btn.tsx"
 import PreviousBtn from "./previous-btn.tsx"
+import TodayBtn from "./today-btn.tsx"
 import WeekDays from "./week-days.tsx"
 import YearPicker from "./year-picker.tsx"
 
@@ -31,10 +32,9 @@ const Calendar: FunctionComponent = () => {
         <DayPicker />
       </table>
 
-      <div className="">
-        <button>Today</button>
-
-        <button>Clear</button>
+      <div className="ndp-flex ndp-justify-between ndp-border-t ndp-border-gray-100 dark:ndp-border-gray-700 ndp-pt-2">
+        <TodayBtn />
+        <ClearBtn />
       </div>
     </div>
   )

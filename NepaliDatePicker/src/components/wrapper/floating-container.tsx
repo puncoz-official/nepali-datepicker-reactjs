@@ -1,14 +1,21 @@
 import {
+  arrow,
   autoUpdate,
+  FloatingArrow,
   FloatingFocusManager,
+  offset,
   useClick,
   useDismiss,
   useFloating,
   useId,
   useInteractions,
   useRole,
+  useTransitionStyles,
 } from "@floating-ui/react"
-import React, { FunctionComponent, ReactNode, useState } from "react"
+import React, { FunctionComponent, ReactNode, useRef, useState } from "react"
+
+const ARROW_HEIGHT = 7
+const GAP = 2
 
 type Props = {
   input: ReactNode
@@ -17,11 +24,42 @@ type Props = {
 const FloatingContainer: FunctionComponent<Props> = (props) => {
   const [isOpen, setOpen] = useState<boolean>(true)
 
-  const { refs, context, floatingStyles } = useFloating({
+  const arrowRef = useRef(null)
+
+  const {
+    refs,
+    context,
+    floatingStyles,
+    middlewareData,
+  } = useFloating({
     open: isOpen,
     onOpenChange: setOpen,
-    middleware: [],
+    middleware: [
+      arrow({
+        element: arrowRef,
+      }),
+      offset(ARROW_HEIGHT + GAP),
+    ],
     whileElementsMounted: autoUpdate,
+  })
+
+  const arrowX = middlewareData.arrow?.x ?? 0
+  const arrowY = middlewareData.arrow?.y ?? 0
+  const transformX = arrowX + ARROW_HEIGHT / 2
+  const transformY = arrowY + ARROW_HEIGHT
+
+  const { isMounted, styles: transitionStyles } = useTransitionStyles(context, {
+    initial: {
+      transform: "scale(0)",
+    },
+    common: ({ side }) => ({
+      transformOrigin: {
+        top: `${transformX}px calc(100% + ${ARROW_HEIGHT}px)`,
+        bottom: `${transformX}px ${-ARROW_HEIGHT}px`,
+        left: `calc(100% + ${ARROW_HEIGHT}px) ${transformY}px`,
+        right: `${-ARROW_HEIGHT}px ${transformY}px`,
+      }[side],
+    }),
   })
 
   const click = useClick(context)
@@ -40,9 +78,18 @@ const FloatingContainer: FunctionComponent<Props> = (props) => {
 
       {isOpen && (
         <FloatingFocusManager context={context} modal={false}>
-          <div ref={refs.setFloating} style={floatingStyles} aria-labelledby={id} {...getFloatingProps()}>
-            {props.calendar}
-          </div>
+          {isMounted ? (
+            <div ref={refs.setFloating} style={floatingStyles} aria-labelledby={id} {...getFloatingProps()}>
+              <div style={transitionStyles}>
+                <FloatingArrow ref={arrowRef}
+                               context={context}
+                               className={`
+                                  ndp-fill-white dark:ndp-fill-slate-800
+                               `} />
+                {props.calendar}
+              </div>
+            </div>
+          ) : <div />}
         </FloatingFocusManager>
       )}
     </>

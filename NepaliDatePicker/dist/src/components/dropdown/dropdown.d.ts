@@ -8,7 +8,9 @@ type Props = {
     options: Option[];
     value: number;
     onSelect: (selected: Option) => void;
+    title: string;
     className?: ClassName;
+    dropdownClass?: ClassName;
 };
 declare const DropDown: FunctionComponent<Props>;
 export default DropDown;

@@ -1,12 +1,14 @@
 import React, { FunctionComponent } from "react"
 
-import { LeftArrow } from "@/components"
+import { LeftArrow, NavBtn, useTrans } from "@/components"
 
-const PreviousBtn: FunctionComponent =() => {
+const PreviousBtn: FunctionComponent = () => {
+  const { trans } = useTrans()
+
   return (
-    <button>
-      <LeftArrow className="ndp-w-5 ndp-h-5"/>
-    </button>
+    <NavBtn title={trans("labels.previous")}>
+      <LeftArrow className="ndp-w-5 ndp-h-5" />
+    </NavBtn>
   )
 }
 

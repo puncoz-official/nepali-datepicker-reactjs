@@ -24,9 +24,12 @@
       "sat": "Sat"
     },
     "labels": {
-      "previous": "Previous",
-      "next": "Next",
-      "today": "Today"
+      "previous": "Previous Month",
+      "next": "Next Month",
+      "today": "Today",
+      "select-year": "Select Year",
+      "select-month": "Select Month",
+      "clear": "Clear"
     }
   },
   "ne": {
@@ -54,9 +57,12 @@
       "sat": "शनि"
     },
     "labels": {
-      "previous": "अघिल्लो",
-      "next": "अर्को",
-      "today": "आज"
+      "previous": "अघिल्लो महिना",
+      "next": "अर्को महिना",
+      "today": "आज",
+      "select-year": "वर्ष छान्नुहोस्",
+      "select-month": "महिना छान्नुहोस्",
+      "clear": "मेटाउनुहोस्"
     }
   }
 }

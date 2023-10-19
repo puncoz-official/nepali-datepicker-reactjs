@@ -22,7 +22,9 @@ const MonthPicker: FunctionComponent = () => {
     <DropDown options={monthList}
               value={6}
               onSelect={handleOnSelect}
-              className="ndp-border" />
+              className="ndp-border ndp-rounded-r-sm ndp-w-20 ndp-justify-center"
+              dropdownClass="ndp-rounded-r-sm ndp-rounded-bl-sm"
+              title={trans("labels.select-month")} />
   )
 }
 

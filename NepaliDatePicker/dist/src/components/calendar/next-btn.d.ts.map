@@ -1,1 +1,1 @@
-{"version":3,"file":"next-btn.d.ts","sourceRoot":"","sources":["../../../../src/components/calendar/next-btn.tsx"],"names":[],"mappings":"AAAA,OAAc,EAAE,iBAAiB,EAAE,MAAM,OAAO,CAAA;AAIhD,QAAA,MAAM,OAAO,EAAE,iBAMd,CAAA;AAED,eAAe,OAAO,CAAA"}
+{"version":3,"file":"next-btn.d.ts","sourceRoot":"","sources":["../../../../src/components/calendar/next-btn.tsx"],"names":[],"mappings":"AAAA,OAAc,EAAE,iBAAiB,EAAE,MAAM,OAAO,CAAA;AAIhD,QAAA,MAAM,OAAO,EAAE,iBAQd,CAAA;AAED,eAAe,OAAO,CAAA"}

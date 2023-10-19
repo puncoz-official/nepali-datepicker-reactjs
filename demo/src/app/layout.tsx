@@ -28,7 +28,7 @@ const RootLayout: FunctionComponent<Props> = ({ children }) => (
                     dark:bg-slate-900 bg-gray-50 text-slate-600 dark:text-white/80"
         suppressHydrationWarning={true}>
   <ThemeProvider>
-    <div className="container mx-auto">
+    <div className="container mx-auto px-6 sm:p-0">
       <div className="fixed top-4 right-4">
         <ThemeButton className="" />
       </div>

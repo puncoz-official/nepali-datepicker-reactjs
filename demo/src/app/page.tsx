@@ -10,14 +10,14 @@ export default function Home() {
   const [dateNepali, setDateNepali] = useState<string>("2077-03-15")
 
   return (
-    <main className="flex gap-4">
-      <div className="w-1/2">
+    <main className="flex flex-col gap-4 sm:flex-row">
+      <div className="w-full sm:w-1/2">
         <label className="mb-2 inline-block">Date</label>
         <NepaliDatePicker className="block w-full py-2 px-3"
                           value={dateEnglish} />
       </div>
 
-      <div className="w-1/2">
+      <div className="w-full sm:w-1/2">
         <label className="mb-2 inline-block">मिति</label>
         <NepaliDatePicker dark={theme === "dark"}
                           value={dateNepali} />

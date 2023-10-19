@@ -18,7 +18,8 @@ const WeekDays: FunctionComponent = () => {
       <tr className="ndp-border-0">
         {weekList.map((weekDay) => (
           <td key={weekDay.value}
-              className="ndp-border-0 ndp-h-10 ndp-w-10">
+              className="ndp-border-0 ndp-h-10 ndp-w-10"
+              title={weekDay.label}>
             {weekDay.label}
           </td>
         ))}
