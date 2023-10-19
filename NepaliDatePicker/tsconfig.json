@@ -33,7 +33,7 @@
       "node_modules/@types",
     ]
   },
-  "include": ["**/*.ts", "**/*.tsx"],
+  "include": ["**/*.ts", "**/*.tsx", "./src/translations.json"],
   "exclude": ["node_modules", "dist"],
   "references": [
     {

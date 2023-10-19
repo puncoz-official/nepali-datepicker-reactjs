@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useEffect } from "react"
+import React, { CSSProperties, FunctionComponent, useEffect } from "react"
 
 import { Calendar, DateInput, useData } from "@/components"
 import FloatingContainer from "@/components/wrapper/floating-container.tsx"
@@ -42,8 +42,25 @@ const Wrapper: FunctionComponent<Props> = ({ ...props }) => {
     })
   }, [props.onChange, props.onSelect])
 
+  useEffect(() => {
+    setData({
+      type: Types.SET_OPTIONS,
+      options: {
+        colors: {
+          primary: props.options?.colors?.primary || state.options.colors.primary,
+          secondary: props.options?.colors?.secondary || state.options.colors.secondary,
+        },
+      },
+    })
+  }, [props.options])
+
   return (
-    <div className={`nepali-datepicker ${state.classNames.wrapper || ""}`} data-theme={state.theme}>
+    <div className={`nepali-datepicker ${state.classNames.wrapper || ""}`}
+         data-theme={state.theme}
+         style={{
+           "--ndp-primary": state.options.colors.primary,
+           "--ndp-secondary": state.options.colors.secondary,
+         } as CSSProperties}>
       <FloatingContainer input={<DateInput {...props} />} calendar={<Calendar />} />
     </div>
   )

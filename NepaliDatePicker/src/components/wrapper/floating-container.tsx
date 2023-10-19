@@ -15,7 +15,7 @@ type Props = {
   calendar: ReactNode
 }
 const FloatingContainer: FunctionComponent<Props> = (props) => {
-  const [isOpen, setOpen] = useState<boolean>(false)
+  const [isOpen, setOpen] = useState<boolean>(true)
 
   const { refs, context, floatingStyles } = useFloating({
     open: isOpen,

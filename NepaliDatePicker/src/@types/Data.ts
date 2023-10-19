@@ -25,6 +25,18 @@ export interface Locale {
   value: Language
 }
 
+export interface Options {
+  colors: {
+    primary: string
+    secondary: string
+  }
+}
+
+export interface Config {
+  maxYear: number
+  minYear: number
+  currentLocale: Language
+}
 
 export interface IData {
   classNames: ClassNames
@@ -32,6 +44,8 @@ export interface IData {
   value: string
   events: Events
   locale: Locale
+  options: Options
+  config: Config
 }
 
 export enum Types {
@@ -39,6 +53,7 @@ export enum Types {
   SET_CLASSES = "SET_CLASSES",
   SET_THEME = "SET_THEME",
   SET_EVENTS = "SET_EVENTS",
+  SET_OPTIONS = "SET_OPTIONS",
 }
 
 export type DataAction =
@@ -46,3 +61,4 @@ export type DataAction =
   | { type: Types.SET_CLASSES, classNames: ClassNames }
   | { type: Types.SET_THEME, theme: Theme }
   | { type: Types.SET_EVENTS, events: Events }
+  | { type: Types.SET_OPTIONS, options: Options }

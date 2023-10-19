@@ -1,3 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    .nepali-datepicker {
+        font-family: 'Noto Sans Devanagari', sans-serif;
+    }
+
+    .nepali-datepicker .hover-transition {
+        @apply ndp-transition-all ndp-duration-200 ndp-ease-in-out
+    }
+
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    .nepali-datepicker .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* Hide scrollbar for IE, Edge and Firefox */
+    .nepali-datepicker .no-scrollbar {
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+    }
+}

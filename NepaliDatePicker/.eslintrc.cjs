@@ -24,6 +24,12 @@ module.exports = {
     "camelcase": "error",
     "no-duplicate-imports": "error",
     "jsx-a11y/accessible-emoji": "off",
+    'jsx-a11y/no-noninteractive-element-to-interactive-role': [
+      'error',
+      {
+        li: ['button'],
+      },
+    ],
     "react-refresh/only-export-components": ["warn", { allowConstantExport: true }],
     "@typescript-eslint/ban-ts-comment": "off",
     "@typescript-eslint/no-explicit-any": "off",

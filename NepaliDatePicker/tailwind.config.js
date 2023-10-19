@@ -7,7 +7,12 @@ export default {
     "./src/**/*.tsx",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        primary: "var(--ndp-primary)",
+        secondary: "var(--ndp-secondary)",
+      },
+    },
   },
   corePlugins: {
     preflight: false,

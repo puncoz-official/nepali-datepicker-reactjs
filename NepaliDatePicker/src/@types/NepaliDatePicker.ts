@@ -1,10 +1,12 @@
 import { HTMLProps } from "react"
 
-import { IData, Language } from "#/Data.ts"
+import { IData } from "#/Data.ts"
 
 export interface NepaliDatePickerOptions {
-  calendarLocale: Language
-  valueLocale: Language
+  colors?: {
+    primary?: IData["options"]["colors"]["primary"]
+    secondary?: IData["options"]["colors"]["secondary"]
+  }
 }
 
 export interface INepaliDatePicker extends HTMLProps<HTMLInputElement> {
