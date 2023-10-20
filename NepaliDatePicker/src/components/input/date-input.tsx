@@ -1,15 +1,17 @@
 import React, { FunctionComponent } from "react"
 
-import { useData } from "@/components"
-import { omitKeys } from "@/utils"
+import { useCommon, useData, useTrans } from "@/hooks"
 import { INepaliDatePickerKeys } from "#/NepaliDatePicker.ts"
 
 interface Props {
 }
 
 const DateInput: FunctionComponent<Props> = (props) => {
-  const inputProps = omitKeys([...INepaliDatePickerKeys, "type", "readOnly"], props)
   const { state } = useData()
+  const { numberTrans } = useTrans()
+  const { omitKeys } = useCommon()
+
+  const inputProps = omitKeys([...INepaliDatePickerKeys, "type", "readOnly"], props)
 
   return (
     <input type="text"
@@ -27,7 +29,7 @@ const DateInput: FunctionComponent<Props> = (props) => {
                 focus:ndp-ring-blue-500 dark:focus:ndp-ring-blue-500
              `}
            readOnly={true}
-           value={state.value}
+           value={numberTrans(state.value)}
            {...inputProps} />
   )
 }

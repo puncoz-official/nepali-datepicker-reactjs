@@ -7,6 +7,7 @@ export interface NepaliDatePickerOptions {
     primary?: IData["options"]["colors"]["primary"]
     secondary?: IData["options"]["colors"]["secondary"]
   }
+  dateSeparator?: IData["options"]["dateSeparator"]
 }
 
 export interface INepaliDatePicker extends HTMLProps<HTMLInputElement> {

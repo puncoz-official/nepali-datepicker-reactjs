@@ -1,5 +1,7 @@
 import { DataAction, IData, Language, Theme, Types } from "#/Data.ts"
 
+import { bsMonthCalculatedData, bsMonthMaxDays } from "./calendar-data"
+
 export const DataState: IData = {
   classNames: {
     wrapper: "",
@@ -20,11 +22,18 @@ export const DataState: IData = {
       primary: "#2096f5",
       secondary: "#fff",
     },
+    dateSeparator: "-",
+    currentLocale: Language.NEPALI,
   },
-  config: {
-    maxYear: 2100,
-    minYear: 1970,
-    currentLocale: Language.NEPALI
+  calendarData: {
+    minBsYear: 1970,
+    maxBsYear: 2100,
+    bsMonthMaxDays,
+    bsMonthCalculatedData,
+  },
+  date: {
+    calendar: undefined,
+    selected: undefined,
   },
 }
 
@@ -47,6 +56,14 @@ export const DataReducer = (state: IData = DataState, action: DataAction) => {
 
   if (action.type === Types.SET_OPTIONS) {
     return { ...state, options: action.options }
+  }
+
+  if (action.type === Types.SET_CALENDAR_DATE) {
+    return { ...state, date: { ...state.date, calendar: action.date } }
+  }
+
+  if (action.type === Types.SET_SELECTED_DATE) {
+    return { ...state, date: { ...state.date, selected: action.date } }
   }
 
   return state

@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from "react"
 
-import { ActionBtn, TodayIcon, useTrans } from "@/components"
+import { ActionBtn, TodayIcon } from "@/components"
+import { useTrans } from "@/hooks"
 
 const TodayBtn: FunctionComponent = () => {
   const { trans, numberTrans } = useTrans()

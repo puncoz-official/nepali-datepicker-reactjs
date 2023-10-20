@@ -1,1 +1,1 @@
-export { default as useTrans } from "./useTrans.ts"
+export { default as translations } from "./translations.ts"

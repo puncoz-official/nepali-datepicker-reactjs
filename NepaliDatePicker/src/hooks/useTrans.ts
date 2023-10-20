@@ -1,25 +1,24 @@
 import { englishToNepaliNumber, nepaliToEnglishNumber } from "nepali-number"
 
-import { useData } from "@/components"
-import { getObject } from "@/utils"
+import { translations } from "@/components"
 import { Language } from "#/Data.ts"
 
-import translations from "./translations.ts"
+import { useCommon } from "./useCommon.ts"
+import { useData } from "./useData.ts"
 
-const useTrans = () => {
+export const useTrans = () => {
   const { state } = useData()
+  const { getObject } = useCommon()
 
   return {
     trans: (key: string, locale?: Language) => {
-      return getObject<string>(translations[locale || state.config.currentLocale], key, key)
+      return getObject<string>(translations[locale || state.options.currentLocale], key, key)
     },
 
     numberTrans: (num: number | string, locale?: Language) => {
-      return Language.ENGLISH === `${locale || state.config.currentLocale}`
+      return Language.ENGLISH === `${locale || state.options.currentLocale}`
         ? nepaliToEnglishNumber(num as string)
         : englishToNepaliNumber(num)
     },
   }
 }
-
-export default useTrans

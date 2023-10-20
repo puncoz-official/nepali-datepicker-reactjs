@@ -1,11 +1,12 @@
 import React, { FunctionComponent, useCallback, useMemo } from "react"
 
-import { useTrans } from "@/components"
 import { DropDown, Option } from "@/components/dropdown"
+import { useData, useTrans } from "@/hooks"
 import { Months } from "#/Translations.ts"
 
 const MonthPicker: FunctionComponent = () => {
   const { trans } = useTrans()
+  const { state } = useData()
 
   const monthList = useMemo<Option[]>(() => {
     return Months.map((month, index) => ({
@@ -20,7 +21,7 @@ const MonthPicker: FunctionComponent = () => {
 
   return (
     <DropDown options={monthList}
-              value={6}
+              value={(state.date.calendar?.bsMonth || 1) - 1}
               onSelect={handleOnSelect}
               className="ndp-border ndp-rounded-r-sm ndp-w-20 ndp-justify-center"
               dropdownClass="ndp-rounded-r-sm ndp-rounded-bl-sm"

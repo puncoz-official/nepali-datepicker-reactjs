@@ -1,6 +1,7 @@
 import React, { FunctionComponent, useMemo } from "react"
 
-import { Option, useTrans } from "@/components"
+import { Option } from "@/components"
+import { useTrans } from "@/hooks"
 import { Weeks } from "#/Translations.ts"
 
 const WeekDays: FunctionComponent = () => {

@@ -10,6 +10,11 @@ export enum Language {
   NEPALI = "ne"
 }
 
+export enum DateType {
+  BS = "bs",
+  AD = "ad"
+}
+
 export interface ClassNames {
   wrapper: ClassName
   input: ClassName
@@ -30,12 +35,36 @@ export interface Options {
     primary: string
     secondary: string
   }
+  dateSeparator: string
+  currentLocale: Language
 }
 
-export interface Config {
-  maxYear: number
-  minYear: number
-  currentLocale: Language
+export interface CalendarData {
+  minBsYear: number
+  maxBsYear: number
+  bsMonthMaxDays: number[][]
+  bsMonthCalculatedData: number[][]
+}
+
+export interface SplitDate {
+  year: number
+  month: number
+  day: number
+}
+
+export interface ParsedDate {
+  bsYear: number
+  bsMonth: number
+  bsDay: number
+  weekDay: number
+  adDate: Date
+  numberOfDaysInBsMonth: number
+  firstAdDayInBsMonth: Date
+}
+
+export interface DateObject {
+  calendar?: ParsedDate
+  selected?: ParsedDate
 }
 
 export interface IData {
@@ -45,7 +74,8 @@ export interface IData {
   events: Events
   locale: Locale
   options: Options
-  config: Config
+  calendarData: CalendarData
+  date: DateObject
 }
 
 export enum Types {
@@ -54,6 +84,8 @@ export enum Types {
   SET_THEME = "SET_THEME",
   SET_EVENTS = "SET_EVENTS",
   SET_OPTIONS = "SET_OPTIONS",
+  SET_CALENDAR_DATE = "SET_CALENDAR_DATE",
+  SET_SELECTED_DATE = "SET_SELECTED_DATE",
 }
 
 export type DataAction =
@@ -62,3 +94,5 @@ export type DataAction =
   | { type: Types.SET_THEME, theme: Theme }
   | { type: Types.SET_EVENTS, events: Events }
   | { type: Types.SET_OPTIONS, options: Options }
+  | { type: Types.SET_CALENDAR_DATE, date?: ParsedDate }
+  | { type: Types.SET_SELECTED_DATE, date?: ParsedDate }

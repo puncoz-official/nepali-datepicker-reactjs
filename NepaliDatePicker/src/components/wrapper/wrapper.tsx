@@ -1,7 +1,9 @@
+import { ADToBS } from "bikram-sambat-js"
 import React, { CSSProperties, FunctionComponent, useEffect } from "react"
 
-import { Calendar, DateInput, useData } from "@/components"
+import { Calendar, DateInput } from "@/components"
 import FloatingContainer from "@/components/wrapper/floating-container.tsx"
+import { useData, useDateUtils } from "@/hooks"
 import { Theme, Types } from "#/Data.ts"
 import { INepaliDatePicker } from "#/NepaliDatePicker.ts"
 
@@ -10,9 +12,15 @@ interface Props extends INepaliDatePicker {
 
 const Wrapper: FunctionComponent<Props> = ({ ...props }) => {
   const { state, setData } = useData()
+  const { parseBsDate } = useDateUtils()
 
   useEffect(() => {
     setData({ type: Types.SET_VALUE, value: props.value || "" })
+
+    const selectedDate = props.value ? parseBsDate(props.value) : undefined
+    const calendarDate = parseBsDate(props.value || ADToBS(new Date()))
+    setData({ type: Types.SET_CALENDAR_DATE, date: calendarDate })
+    setData({ type: Types.SET_SELECTED_DATE, date: selectedDate })
   }, [props.value])
 
   useEffect(() => {
@@ -50,6 +58,8 @@ const Wrapper: FunctionComponent<Props> = ({ ...props }) => {
           primary: props.options?.colors?.primary || state.options.colors.primary,
           secondary: props.options?.colors?.secondary || state.options.colors.secondary,
         },
+        dateSeparator: props.options?.dateSeparator || state.options.dateSeparator,
+        currentLocale: state.options.currentLocale,
       },
     })
   }, [props.options])

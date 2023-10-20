@@ -1110,6 +1110,11 @@ balanced-match@^1.0.0:
   resolved "https://registry.yarnpkg.com/balanced-match/-/balanced-match-1.0.2.tgz#e83e3a7e3f300b34cb9d87f615fa0cbf357690ee"
   integrity sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==
 
+bikram-sambat-js@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/bikram-sambat-js/-/bikram-sambat-js-1.0.1.tgz#5299de4613767537a23a6e5a7840bb4292e760c8"
+  integrity sha512-d1hdHN0F2BdlJYzT866/FTHX7G+rsJ5AKggJlch4lU1kL7o6AVnbaeJ9JrEUusRwAM4vQhXmCEtPRRCrdnuPRA==
+
 binary-extensions@^2.0.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/binary-extensions/-/binary-extensions-2.2.0.tgz#75f502eeaf9ffde42fc98829645be4ea76bd9e2d"

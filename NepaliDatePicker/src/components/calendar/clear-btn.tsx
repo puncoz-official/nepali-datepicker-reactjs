@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from "react"
 
-import { ActionBtn, CrossIcon, useTrans } from "@/components"
+import { ActionBtn, CrossIcon } from "@/components"
+import { useTrans } from "@/hooks"
 
 const ClearBtn: FunctionComponent = () => {
   const { trans } = useTrans()
