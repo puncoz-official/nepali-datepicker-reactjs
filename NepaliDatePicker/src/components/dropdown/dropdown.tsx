@@ -1,6 +1,7 @@
 import React, { FunctionComponent, useCallback, useMemo, useState } from "react"
 
 import { ActionBtn } from "@/components"
+import { useData } from "@/hooks"
 import { ClassName } from "#/Common.ts"
 
 export interface Option {
@@ -17,6 +18,8 @@ type Props = {
   dropdownClass?: ClassName
 }
 const DropDown: FunctionComponent<Props> = ({ options, onSelect, value, title, className, dropdownClass }) => {
+  const { state } = useData()
+
   const [show, setShow] = useState(false)
 
   const selected = useMemo<Option>(() => {
@@ -33,7 +36,9 @@ const DropDown: FunctionComponent<Props> = ({ options, onSelect, value, title, c
   }, [onSelect])
 
   return (
-    <div className="ndp-relative">
+    <div className={state.options.classNames.dropDownWrapper || `
+      ndp__dropdown-wrapper ndp-relative
+    `}>
       <ActionBtn onClick={toggleDropdown}
                  onKeyDown={toggleDropdown}
                  className={className}
@@ -43,11 +48,14 @@ const DropDown: FunctionComponent<Props> = ({ options, onSelect, value, title, c
 
       {show && (
         <ul className={`
-          ndp-max-h-[12rem] ndp-shadow ndp-overflow-y-auto no-scrollbar
-          ndp-absolute ndp-w-full
-          ndp-bg-white dark:ndp-bg-slate-900
-          ndp-top-0 ndp-z-10
-          ndp-border ndp-border-gray-300 dark:ndp-border-gray-600
+          ${state.options.classNames.dropDown || `
+            ndp__dropdown
+            ndp-max-h-[12rem] ndp-shadow ndp-overflow-y-auto no-scrollbar
+            ndp-absolute ndp-w-full
+            ndp-bg-white dark:ndp-bg-slate-900
+            ndp-top-0 ndp-z-10
+            ndp-border ndp-border-gray-300 dark:ndp-border-gray-600
+          `}
           ${dropdownClass || ""}
         `}>
           {options.map((option) => (
@@ -56,12 +64,15 @@ const DropDown: FunctionComponent<Props> = ({ options, onSelect, value, title, c
                 onKeyDown={() => handleOnSelect(option)}
                 role="button"
                 className={`
-                  ndp-px-3 ndp-py-1.5 ndp-text-sm hover-transition
-                  ${option.value === value ? `
-                    ndp-bg-primary ndp-text-secondary
-                  ` : `
+                  ${state.options.classNames.dropDownItem || `
+                    ndp__dropdown-item
+                    ndp-px-3 ndp-py-1.5 ndp-text-sm hover-transition
                     hover:ndp-bg-gray-200 dark:hover:ndp-bg-slate-800
                   `}
+                  ${option.value === value && (state.options.classNames.dropDownItemActive || `
+                    ndp__dropdown-item-active
+                    ndp-bg-primary ndp-text-secondary
+                  `)}
                 `}>
               {option.label}
             </li>

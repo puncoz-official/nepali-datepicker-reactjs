@@ -35,8 +35,11 @@ const NextBtn: FunctionComponent = () => {
   return (
     <NavBtn title={trans("labels.next")}
             onClick={() => handleOnClick()}
-            onKeyDown={() => handleOnClick()}>
-      <RightArrow className="ndp-w-5 ndp-h-5" />
+            onKeyDown={() => handleOnClick()}
+            className={state.options.classNames.nextBtn || `ndp__nav_button-next`}>
+      <RightArrow className={state.options.classNames.navBtnIcon || `
+        ndp__nav_btn_icon ndp-w-5 ndp-h-5
+      `} />
     </NavBtn>
   )
 }

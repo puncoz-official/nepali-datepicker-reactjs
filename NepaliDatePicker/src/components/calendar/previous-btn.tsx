@@ -35,8 +35,9 @@ const PreviousBtn: FunctionComponent = () => {
   return (
     <NavBtn title={trans("labels.previous")}
             onClick={() => handleOnClick()}
-            onKeyDown={() => handleOnClick()}>
-      <LeftArrow className="ndp-w-5 ndp-h-5" />
+            onKeyDown={() => handleOnClick()}
+            className={state.options.classNames.previousBtn || `ndp__nav_button-previous`}>
+      <LeftArrow className={state.options.classNames.navBtnIcon || "ndp__nav_btn_icon ndp-w-5 ndp-h-5"} />
     </NavBtn>
   )
 }

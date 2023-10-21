@@ -12,11 +12,11 @@ export const useTrans = () => {
 
   return {
     trans: (key: string, locale?: Language) => {
-      return getObject<string>(translations[locale || state.options.currentLocale], key, key)
+      return getObject<string>(translations[locale || state.locale.calendar], key, key)
     },
 
     numberTrans: (num: number | string, locale?: Language) => {
-      return Language.ENGLISH === `${locale || state.options.currentLocale}`
+      return Language.ENGLISH === `${locale || state.locale.calendar}`
         ? nepaliToEnglishNumber(num as string)
         : englishToNepaliNumber(num)
     },

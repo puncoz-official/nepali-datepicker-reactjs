@@ -15,11 +15,6 @@ export enum DateType {
   AD = "ad"
 }
 
-export interface ClassNames {
-  wrapper: ClassName
-  input: ClassName
-}
-
 export interface Events {
   onChange: (date: string) => void
   onSelect: (date: string) => void
@@ -30,14 +25,59 @@ export interface Locale {
   value: Language
 }
 
+export interface ClassNames {
+  wrapper?: ClassName
+  input?: ClassName
+
+  calendar?: ClassName
+  calendarHeader?: ClassName
+  calendarBody?: ClassName
+  calendarFooter?: ClassName
+
+  navBtn?: ClassName
+  actionBtn?: ClassName
+  navBtnIcon?: ClassName
+  previousBtn?: ClassName
+  nextBtn?: ClassName
+
+  dropDownWrapper?: ClassName
+  dropDown?: ClassName
+  dropDownItem?: ClassName
+  dropDownItemActive?: ClassName
+
+  yearMonthPicker?: ClassName
+  yearPicker?: ClassName
+  yearPickerDropDown?: ClassName
+  monthPicker?: ClassName
+  monthPickerDropDown?: ClassName
+
+  weekDaysTr?: ClassName
+  weekDaysTd?: ClassName
+
+  dayPickerTr?: ClassName
+  dayPickerTd?: ClassName
+  dayPickerDay?: ClassName
+  dayPickerDaySelected?: ClassName
+  dayPickerDayOtherMonth?: ClassName
+  dayPickerToday?: ClassName
+
+  todayBtn?: ClassName
+  todayBtnIcon?: ClassName
+  todayBtnText?: ClassName
+
+  clearBtn?: ClassName
+  clearBtnIcon?: ClassName
+  clearBtnText?: ClassName
+}
+
 export interface Options {
+  classNames: ClassNames
+  theme: Theme
   colors: {
     primary: string
     secondary: string
   }
   dateSeparator: string
-  currentLocale: Language
-  valueLocale: Language
   closeOnSelect: boolean
 }
 
@@ -71,23 +111,23 @@ export interface DateObject {
 }
 
 export interface IData {
-  classNames: ClassNames
-  theme: Theme
-  value: string
-  events: Events
   isCalendarOpen: boolean
+  calendarData: CalendarData
+  events: Events
   locale: Locale
   options: Options
-  calendarData: CalendarData
   date: DateObject
 }
 
 export enum Types {
   SET_CALENDAR_OPEN = "SET_CALENDAR_OPEN",
-  SET_VALUE = "SET_VALUE",
   SET_CLASSES = "SET_CLASSES",
   SET_THEME = "SET_THEME",
   SET_EVENTS = "SET_EVENTS",
+  SET_LOCALE = "SET_LOCALE",
+  SET_COLORS = "SET_COLORS",
+  SET_SEPARATOR = "SET_SEPARATOR",
+  SET_CLOSE_ON_SELECT = "SET_CLOSE_ON_SELECT",
   SET_OPTIONS = "SET_OPTIONS",
   SET_CALENDAR_DATE = "SET_CALENDAR_DATE",
   SET_SELECTED_DATE = "SET_SELECTED_DATE",
@@ -95,10 +135,13 @@ export enum Types {
 
 export type DataAction =
   | { type: Types.SET_CALENDAR_OPEN, isOpen: boolean }
-  | { type: Types.SET_VALUE, value: string }
   | { type: Types.SET_CLASSES, classNames: ClassNames }
   | { type: Types.SET_THEME, theme: Theme }
   | { type: Types.SET_EVENTS, events: Events }
+  | { type: Types.SET_LOCALE, locale: Locale }
+  | { type: Types.SET_COLORS, colors: Options["colors"] }
+  | { type: Types.SET_SEPARATOR, separator: Options["dateSeparator"] }
+  | { type: Types.SET_CLOSE_ON_SELECT, closeOnSelect: Options["closeOnSelect"] }
   | { type: Types.SET_OPTIONS, options: Options }
   | { type: Types.SET_CALENDAR_DATE, date?: ParsedDate }
   | { type: Types.SET_SELECTED_DATE, date?: ParsedDate }

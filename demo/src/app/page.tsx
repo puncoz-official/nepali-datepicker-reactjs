@@ -6,8 +6,12 @@ import React, { useContext, useState } from "react"
 
 export default function Home() {
   const { theme } = useContext(ThemeContext)
-  const [dateEnglish, setDateEnglish] = useState<string>("2080-03-20")
-  const [dateNepali, setDateNepali] = useState<string>("2081-01-15")
+  const [dateEnglish, setDateEnglish] = useState<string>("2081-01-15")
+  const [dateNepali, setDateNepali] = useState<string>("२०८०-०३-२०")
+
+  const handleOnSelect = (data: any) => {
+    console.log(data, "data on select")
+  }
 
   return (
     <main className="flex flex-col gap-4 sm:flex-row">
@@ -16,12 +20,22 @@ export default function Home() {
         <NepaliDatePicker dark={theme === "dark"}
                           value={dateEnglish}
                           placeholder={"Select date"}
+                          onChange={setDateEnglish}
+                          onSelect={handleOnSelect}
+                          className="w-full text-black"
                           options={{
+                            classNames: {
+                              wrapper: "bg-green",
+                            },
+                            colors: {
+                              primary: "#ef4444",
+                              secondary: "#450a0a",
+                            },
                             locale: "en",
+                            valueLocale: "en",
                             closeOnSelect: false,
                             dateSeparator: "-",
-                          }}
-                          onChange={setDateEnglish} />
+                          }} />
 
         <div>
           Value: {dateEnglish}
@@ -34,6 +48,8 @@ export default function Home() {
                           value={dateNepali}
                           onChange={setDateNepali}
                           options={{
+                            locale: "ne",
+                            valueLocale: "ne",
                             closeOnSelect: true,
                           }} />
         <div>

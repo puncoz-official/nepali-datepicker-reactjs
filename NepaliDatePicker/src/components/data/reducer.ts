@@ -3,29 +3,23 @@ import { DataAction, IData, Language, Theme, Types } from "#/Data.ts"
 import { bsMonthCalculatedData, bsMonthMaxDays } from "./calendar-data"
 
 export const DataState: IData = {
-  classNames: {
-    wrapper: "",
-    input: "",
-  },
-  theme: Theme.LIGHT,
-  value: "",
+  isCalendarOpen: false,
   events: {
     onChange: (date: string) => date,
     onSelect: (date: string) => date,
   },
   locale: {
     calendar: Language.NEPALI,
-    value: Language.NEPALI,
+    value: Language.ENGLISH,
   },
-  isCalendarOpen: false,
   options: {
+    theme: Theme.LIGHT,
+    classNames: {},
     colors: {
       primary: "#2096f5",
       secondary: "#fff",
     },
     dateSeparator: "-",
-    currentLocale: Language.NEPALI,
-    valueLocale: Language.ENGLISH,
     closeOnSelect: true,
   },
   calendarData: {
@@ -45,20 +39,32 @@ export const DataReducer = (state: IData = DataState, action: DataAction) => {
     return { ...state, isCalendarOpen: action.isOpen }
   }
 
-  if (action.type === Types.SET_VALUE) {
-    return { ...state, value: action.value }
-  }
-
   if (action.type === Types.SET_CLASSES) {
-    return { ...state, classNames: action.classNames }
+    return { ...state, options: { ...state.options, classNames: { ...state.options.classNames, ...action.classNames } } }
   }
 
   if (action.type === Types.SET_THEME) {
-    return { ...state, theme: action.theme }
+    return { ...state, options: { ...state.options, theme: action.theme } }
   }
 
   if (action.type === Types.SET_EVENTS) {
     return { ...state, events: action.events }
+  }
+
+  if (action.type === Types.SET_LOCALE) {
+    return { ...state, locale: { ...state.locale, ...action.locale } }
+  }
+
+  if (action.type === Types.SET_COLORS) {
+    return { ...state, options: { ...state.options, colors: { ...state.options.colors, ...action.colors } } }
+  }
+
+  if (action.type === Types.SET_SEPARATOR) {
+    return { ...state, options: { ...state.options, dateSeparator: action.separator } }
+  }
+
+  if (action.type === Types.SET_CLOSE_ON_SELECT) {
+    return { ...state, options: { ...state.options, closeOnSelect: action.closeOnSelect } }
   }
 
   if (action.type === Types.SET_OPTIONS) {

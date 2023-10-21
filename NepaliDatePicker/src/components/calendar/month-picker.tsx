@@ -20,7 +20,7 @@ const MonthPicker: FunctionComponent = () => {
       label: trans(`months.${month}`),
       value: index,
     }))
-  }, [state.options.currentLocale])
+  }, [state.locale.calendar])
 
   const handleOnSelect = useCallback((month: number) => {
     const date = dateUtils.stitchDate({
@@ -35,8 +35,12 @@ const MonthPicker: FunctionComponent = () => {
     <DropDown options={monthList}
               value={(state.date.calendar?.bsMonth || 1) - 1}
               onSelect={handleOnSelect}
-              className="ndp-border ndp-rounded-r-sm ndp-w-20 ndp-justify-center"
-              dropdownClass="ndp-rounded-r-sm ndp-rounded-bl-sm"
+              className={state.options.classNames.monthPicker || `
+                ndp__month_picker ndp-border ndp-rounded-r-sm ndp-w-20 ndp-justify-center
+              `}
+              dropdownClass={state.options.classNames.monthPickerDropDown || `
+                ndp__month_picker-dropdown ndp-rounded-r-sm ndp-rounded-bl-sm
+              `}
               title={trans("labels.select-month")} />
   )
 }

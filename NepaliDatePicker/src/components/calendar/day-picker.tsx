@@ -92,37 +92,42 @@ const DayPicker: FunctionComponent = () => {
   return (
     <tbody>
       {range(0, weeksInMonth).map((weekNum) => (
-        <tr key={weekNum} className="ndp-border-0">
+        <tr key={weekNum} className={state.options.classNames.dayPickerTr || `ndp__day_picker-tr ndp-border-0`}>
           {range(1, 7).map((weekDayNum) => {
             const dayInfo = getDayInfo(weekNum, weekDayNum)
 
             return (
               <td key={weekDayNum}
-                  className={`ndp-border-0`}
+                  className={state.options.classNames.dayPickerTd || `ndp__day_picker-td ndp-border-0`}
                   title={numberTrans(dayInfo.day)}>
                 <button className={`
-                  ndp-rounded-full ndp-h-9 ndp-w-9
-                  ndp-relative ndp-cursor-pointer hover-transition
-                  ${dayInfo.isSelected ? `
-                    ndp-bg-primary ndp-text-secondary
-                    hover:ndp-opacity-80
-                  ` : `
+                  ${state.options.classNames.dayPickerDay || `
+                    ndp__day_picker-day
+                    ndp-rounded-full ndp-h-9 ndp-w-9
+                    ndp-relative ndp-cursor-pointer hover-transition
                     hover:ndp-bg-gray-200 dark:hover:ndp-bg-slate-900
                   `}
+                  ${dayInfo.isSelected && (state.options.classNames.dayPickerDaySelected || `
+                    ndp__day_picker-day-selected
+                    ndp-bg-primary ndp-text-secondary
+                    hover:ndp-opacity-80
+                  `)}
 
-                  ${!dayInfo.isCurrentMonth && `
+                  ${!dayInfo.isCurrentMonth && (state.options.classNames.dayPickerDayOtherMonth || `
+                    ndp__day_picker-day-other_month
                     ndp-text-gray-200 dark:ndp-text-slate-700
                     hover:ndp-bg-transparent dark:hover:ndp-bg-transparent
                     ndp-cursor-not-allowed ndp-select-none
-                  `}
+                  `)}
                 `}
                         onClick={() => handleOnDaySelect(dayInfo)}
                         onKeyDown={() => handleOnDaySelect(dayInfo)}>
                   {numberTrans(dayInfo.day)}
 
                   {dayInfo.isToday && (
-                    <div className={`
-                      ndp-content-[""] ndp-w-1 ndp-h-1 ndp-bg-primary ndp-rounded-full
+                    <span className={state.options.classNames.dayPickerToday || `
+                      ndp__day_picker-today
+                      ndp-inline-block ndp-content-[""] ndp-w-1 ndp-h-1 ndp-bg-primary ndp-rounded-full
                       ndp-absolute ndp-left-[50%] ndp-bottom-1 -ndp-translate-x-[50%]
                     `} />
                   )}

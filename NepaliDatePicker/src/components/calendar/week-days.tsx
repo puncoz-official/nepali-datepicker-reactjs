@@ -13,14 +13,14 @@ const WeekDays: FunctionComponent = () => {
       label: trans(`weeks.${week}`),
       value: index,
     }))
-  }, [state.options.currentLocale])
+  }, [state.locale.calendar])
 
   return (
     <thead>
-      <tr className="ndp-border-0">
+      <tr className={state.options.classNames.weekDaysTr || `ndp__weekdays-tr ndp-border-0`}>
         {weekList.map((weekDay) => (
           <td key={weekDay.value}
-              className="ndp-border-0 ndp-h-10 ndp-w-10"
+              className={state.options.classNames.weekDaysTd || `ndp__weekdays-td ndp-border-0 ndp-h-10 ndp-w-10`}
               title={weekDay.label}>
             {weekDay.label}
           </td>

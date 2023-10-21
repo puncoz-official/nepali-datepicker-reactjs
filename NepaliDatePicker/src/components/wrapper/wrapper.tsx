@@ -1,11 +1,13 @@
 import { ADToBS } from "bikram-sambat-js"
-import React, { CSSProperties, FunctionComponent, useEffect, useState } from "react"
+import { nepaliToEnglishNumber } from "nepali-number"
+import React, { CSSProperties, FunctionComponent, useEffect } from "react"
 
 import { Calendar, DateInput } from "@/components"
-import FloatingContainer from "@/components/wrapper/floating-container.tsx"
 import { useData, useDateUtils } from "@/hooks"
 import { Language, Theme, Types } from "#/Data.ts"
 import { INepaliDatePicker } from "#/NepaliDatePicker.ts"
+
+import FloatingContainer from "./floating-container.tsx"
 
 interface Props extends INepaliDatePicker {
 }
@@ -14,17 +16,15 @@ const Wrapper: FunctionComponent<Props> = ({ ...props }) => {
   const { state, setData } = useData()
   const { parseBsDate } = useDateUtils()
 
-  const [initialized, setInitialized] = useState(false)
-
   useEffect(() => {
     setData({
       type: Types.SET_CLASSES,
       classNames: {
-        wrapper: props.wrapperClassName,
-        input: props.className,
+        input: props.className || state.options.classNames.input,
+        ...props.options?.classNames,
       },
     })
-  }, [props.className, props.wrapperClassName])
+  }, [props.className, props.options?.classNames])
 
   useEffect(() => {
     setData({
@@ -45,35 +45,47 @@ const Wrapper: FunctionComponent<Props> = ({ ...props }) => {
 
   useEffect(() => {
     setData({
-      type: Types.SET_OPTIONS,
-      options: {
-        colors: {
-          primary: props.options?.colors?.primary || state.options.colors.primary,
-          secondary: props.options?.colors?.secondary || state.options.colors.secondary,
-        },
-        dateSeparator: props.options?.dateSeparator || state.options.dateSeparator,
-        currentLocale: (props.options?.locale || state.options.currentLocale) as Language,
-        valueLocale: (props.options?.valueLocale || state.options.valueLocale) as Language,
-        closeOnSelect: typeof props.options?.closeOnSelect === "undefined" ? state.options.closeOnSelect : props.options?.closeOnSelect,
+      type: Types.SET_LOCALE,
+      locale: {
+        calendar: (props.options?.locale || state.locale.calendar) as Language,
+        value: (props.options?.valueLocale || state.locale.value) as Language,
       },
     })
-    setInitialized(true)
-  }, [props.options])
+  }, [props.options?.locale, props.options?.valueLocale])
 
   useEffect(() => {
-    if (initialized) {
-      setData({ type: Types.SET_VALUE, value: props.value || "" })
+    setData({
+      type: Types.SET_COLORS,
+      colors: { ...state.options.colors, ...props.options?.colors },
+    })
+  }, [props.options?.colors])
 
-      const selectedDate = props.value ? parseBsDate(props.value) : undefined
-      const calendarDate = parseBsDate(props.value || ADToBS(new Date()))
-      setData({ type: Types.SET_CALENDAR_DATE, date: calendarDate })
-      setData({ type: Types.SET_SELECTED_DATE, date: selectedDate })
-    }
-  }, [initialized, props.value])
+  useEffect(() => {
+    setData({
+      type: Types.SET_SEPARATOR,
+      separator: props.options?.dateSeparator || state.options.dateSeparator,
+    })
+  }, [props.options?.dateSeparator])
+
+  useEffect(() => {
+    setData({
+      type: Types.SET_CLOSE_ON_SELECT,
+      closeOnSelect: typeof props.options?.closeOnSelect === "undefined" ? state.options.closeOnSelect : props.options?.closeOnSelect,
+    })
+  }, [props.options?.closeOnSelect])
+
+  useEffect(() => {
+    const value = nepaliToEnglishNumber(props.value || "")
+    const selectedDate = value ? parseBsDate(value) : undefined
+    const calendarDate = parseBsDate(value || ADToBS(new Date()))
+
+    setData({ type: Types.SET_CALENDAR_DATE, date: calendarDate })
+    setData({ type: Types.SET_SELECTED_DATE, date: selectedDate })
+  }, [props.value])
 
   return (
-    <div className={`nepali-datepicker ${state.classNames.wrapper || ""}`}
-         data-theme={state.theme}
+    <div className={`nepali-datepicker ${state.options.classNames.wrapper || ""}`}
+         data-theme={state.options.theme}
          style={{
            "--ndp-primary": state.options.colors.primary,
            "--ndp-secondary": state.options.colors.secondary,

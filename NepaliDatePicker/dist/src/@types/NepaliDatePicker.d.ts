@@ -1,6 +1,7 @@
 import { HTMLProps } from "react";
 import { IData } from './Data.ts';
 export interface NepaliDatePickerOptions {
+    classNames?: Omit<IData["options"]["classNames"], "input">;
     colors?: {
         primary?: IData["options"]["colors"]["primary"];
         secondary?: IData["options"]["colors"]["secondary"];
@@ -11,10 +12,9 @@ export interface NepaliDatePickerOptions {
     closeOnSelect?: IData["options"]["closeOnSelect"];
 }
 export interface INepaliDatePicker extends Omit<HTMLProps<HTMLInputElement>, "onChange" | "onSelect"> {
-    value?: IData["value"];
-    className?: IData["classNames"]["input"];
-    wrapperClassName?: IData["classNames"]["wrapper"];
     dark?: boolean;
+    value?: string;
+    className?: IData["options"]["classNames"]["input"];
     onChange?: IData["events"]["onChange"];
     onSelect?: IData["events"]["onSelect"];
     options?: NepaliDatePickerOptions;

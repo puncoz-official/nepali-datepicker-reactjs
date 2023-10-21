@@ -22,12 +22,14 @@ const TodayBtn: FunctionComponent = () => {
   }, [today, state.events.onChange, state.options.closeOnSelect])
 
   return (
-    <ActionBtn className="ndp-font-medium ndp-border hover:ndp-text-primary ndp-group"
+    <ActionBtn className={state.options.classNames.todayBtn || `
+                ndp__today_btn ndp-font-medium ndp-border hover:ndp-text-primary ndp-group
+              `}
                title={trans("labels.today")}
                onClick={() => handleOnClick()}
                onKeyDown={() => handleOnClick()}>
       <TodayIcon date={numberTrans(zeroPad(today.bsDay))} />
-      <span className="ndp-ml-2">
+      <span className={state.options.classNames.todayBtnText || `ndp__today_btn-text ndp-ml-2`}>
         {trans("labels.today")}
       </span>
     </ActionBtn>
