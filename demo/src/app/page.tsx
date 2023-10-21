@@ -18,6 +18,7 @@ export default function Home() {
                           placeholder={"Select date"}
                           options={{
                             locale: "en",
+                            closeOnSelect: false,
                           }}
                           onChange={setDateEnglish} />
       </div>
@@ -26,7 +27,10 @@ export default function Home() {
         <label className="mb-2 inline-block">मिति</label>
         <NepaliDatePicker dark={theme === "dark"}
                           value={dateNepali}
-                          onChange={setDateNepali} />
+                          onChange={setDateNepali}
+                          options={{
+                            closeOnSelect: true,
+                          }} />
       </div>
     </main>
   )

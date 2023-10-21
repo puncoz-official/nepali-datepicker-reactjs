@@ -61,7 +61,7 @@ const Wrapper: FunctionComponent<Props> = ({ ...props }) => {
         dateSeparator: props.options?.dateSeparator || state.options.dateSeparator,
         currentLocale: (props.options?.locale || state.options.currentLocale) as Language,
         valueLocale: (props.options?.valueLocale || state.options.valueLocale) as Language,
-        closeOnSelect: props.options?.closeOnSelect || state.options.closeOnSelect,
+        closeOnSelect: typeof props.options?.closeOnSelect === "undefined" ? state.options.closeOnSelect : props.options?.closeOnSelect,
       },
     })
   }, [props.options])
