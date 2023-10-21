@@ -5,8 +5,9 @@ import { useData } from "./useData.ts"
 export const useDateValidator = () => {
   const { state } = useData()
   const validateInputDate = (date: string, separator?: string): void => {
-    const dateSeparator = separator || state.options.dateSeparator
+    const dateSeparator = (separator || state.options.dateSeparator).replace(/[[\]{}()*+!<=:?./\\^$|#\s,]/g, "\\$&")
     const datePattern = `^[0-9]{4}${dateSeparator}(0?[1-9]|1[0-2])${dateSeparator}(0?[1-9]|[1-2][0-9]|3[0-2])$`
+    console.log(datePattern)
     const regex = new RegExp(datePattern)
 
     if (!date.match(regex)) {

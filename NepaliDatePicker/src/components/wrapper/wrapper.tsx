@@ -1,5 +1,5 @@
 import { ADToBS } from "bikram-sambat-js"
-import React, { CSSProperties, FunctionComponent, useEffect } from "react"
+import React, { CSSProperties, FunctionComponent, useEffect, useState } from "react"
 
 import { Calendar, DateInput } from "@/components"
 import FloatingContainer from "@/components/wrapper/floating-container.tsx"
@@ -14,14 +14,7 @@ const Wrapper: FunctionComponent<Props> = ({ ...props }) => {
   const { state, setData } = useData()
   const { parseBsDate } = useDateUtils()
 
-  useEffect(() => {
-    setData({ type: Types.SET_VALUE, value: props.value || "" })
-
-    const selectedDate = props.value ? parseBsDate(props.value) : undefined
-    const calendarDate = parseBsDate(props.value || ADToBS(new Date()))
-    setData({ type: Types.SET_CALENDAR_DATE, date: calendarDate })
-    setData({ type: Types.SET_SELECTED_DATE, date: selectedDate })
-  }, [props.value])
+  const [initialized, setInitialized] = useState(false)
 
   useEffect(() => {
     setData({
@@ -64,7 +57,19 @@ const Wrapper: FunctionComponent<Props> = ({ ...props }) => {
         closeOnSelect: typeof props.options?.closeOnSelect === "undefined" ? state.options.closeOnSelect : props.options?.closeOnSelect,
       },
     })
+    setInitialized(true)
   }, [props.options])
+
+  useEffect(() => {
+    if (initialized) {
+      setData({ type: Types.SET_VALUE, value: props.value || "" })
+
+      const selectedDate = props.value ? parseBsDate(props.value) : undefined
+      const calendarDate = parseBsDate(props.value || ADToBS(new Date()))
+      setData({ type: Types.SET_CALENDAR_DATE, date: calendarDate })
+      setData({ type: Types.SET_SELECTED_DATE, date: selectedDate })
+    }
+  }, [initialized, props.value])
 
   return (
     <div className={`nepali-datepicker ${state.classNames.wrapper || ""}`}

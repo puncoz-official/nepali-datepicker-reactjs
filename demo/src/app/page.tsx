@@ -6,7 +6,7 @@ import React, { useContext, useState } from "react"
 
 export default function Home() {
   const { theme } = useContext(ThemeContext)
-  const [dateEnglish, setDateEnglish] = useState<string>("")
+  const [dateEnglish, setDateEnglish] = useState<string>("2080-03-20")
   const [dateNepali, setDateNepali] = useState<string>("2081-01-15")
 
   return (
@@ -19,8 +19,13 @@ export default function Home() {
                           options={{
                             locale: "en",
                             closeOnSelect: false,
+                            dateSeparator: "-",
                           }}
                           onChange={setDateEnglish} />
+
+        <div>
+          Value: {dateEnglish}
+        </div>
       </div>
 
       <div className="w-full sm:w-1/2">
@@ -31,6 +36,9 @@ export default function Home() {
                           options={{
                             closeOnSelect: true,
                           }} />
+        <div>
+          Value: {dateNepali}
+        </div>
       </div>
     </main>
   )
