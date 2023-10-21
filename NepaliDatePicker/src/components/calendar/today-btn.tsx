@@ -14,12 +14,21 @@ const TodayBtn: FunctionComponent = () => {
   const today = useMemo(() => dateUtils.parseBsDate(ADToBS(new Date())), [])
 
   const handleOnClick = useCallback(() => {
-    state.events.onChange(today.dateString)
+    state.events.onSelect({
+      day: today.bsDay,
+      month: today.bsMonth,
+      year: today.bsYear,
+      isToday: true,
+      isCurrentMonth: true,
+      isSelected: true,
+      dateString: today.dateString,
+    })
+    state.events.onChange(numberTrans(today.dateString, state.locale.value))
 
     if (state.options.closeOnSelect) {
       setData({ type: Types.SET_CALENDAR_OPEN, isOpen: false })
     }
-  }, [today, state.events.onChange, state.options.closeOnSelect])
+  }, [today, state.events.onChange, state.options.closeOnSelect, state.locale.value])
 
   return (
     <ActionBtn className={state.options.classNames.todayBtn || `

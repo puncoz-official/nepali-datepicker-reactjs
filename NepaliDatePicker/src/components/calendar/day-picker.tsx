@@ -2,16 +2,7 @@ import { ADToBS } from "bikram-sambat-js"
 import React, { FunctionComponent, useCallback, useMemo } from "react"
 
 import { useCommon, useData, useDateUtils, useTrans } from "@/hooks"
-import { ParsedDate, Types } from "#/Data.ts"
-
-interface DayInfo {
-  day: number
-  month: number
-  year: number
-  isCurrentMonth: boolean
-  isToday: boolean
-  isSelected: boolean
-}
+import { DayInfo, ParsedDate, Types } from "#/Data.ts"
 
 const DayPicker: FunctionComponent = () => {
   const { numberTrans } = useTrans()
@@ -68,7 +59,9 @@ const DayPicker: FunctionComponent = () => {
       ? selectedDate?.bsDay === day && selectedDate?.bsMonth === month && selectedDate?.bsYear === year
       : false
 
-    return { day, month, year, isCurrentMonth, isToday, isSelected }
+    const dateString = dateUtils.stitchDate({ year, month, day })
+
+    return { day, month, year, isCurrentMonth, isToday, isSelected, dateString }
   }, [calendarDate, selectedDate, daysInPreviousMonth])
 
   const handleOnDaySelect = useCallback((dayInfo: DayInfo) => {
@@ -81,13 +74,13 @@ const DayPicker: FunctionComponent = () => {
       month: dayInfo.month,
       day: dayInfo.day,
     })
-    state.events.onSelect(date)
-    state.events.onChange(date)
+    state.events.onSelect(dayInfo)
+    state.events.onChange(numberTrans(date, state.locale.value))
 
     if (state.options.closeOnSelect) {
       setData({ type: Types.SET_CALENDAR_OPEN, isOpen: false })
     }
-  }, [state.events.onSelect, state.events.onChange, state.options.closeOnSelect])
+  }, [state.events.onSelect, state.events.onChange, state.options.closeOnSelect, state.locale.value])
 
   return (
     <tbody>

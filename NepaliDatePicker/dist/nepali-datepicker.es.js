@@ -1578,8 +1578,8 @@ const we = () => {
     const k = a.bsMonth, w = a.bsYear;
     let b = !0;
     y <= 0 ? (y = f + y, b = !1) : y > a.numberOfDaysInBsMonth && (y -= a.numberOfDaysInBsMonth, b = !1);
-    const C = o.splitDate(Ne(/* @__PURE__ */ new Date())), T = b ? C.day === y && C.month === k && C.year === w : !1, x = b ? (s == null ? void 0 : s.bsDay) === y && (s == null ? void 0 : s.bsMonth) === k && (s == null ? void 0 : s.bsYear) === w : !1;
-    return { day: y, month: k, year: w, isCurrentMonth: b, isToday: T, isSelected: x };
+    const C = o.splitDate(Ne(/* @__PURE__ */ new Date())), T = b ? C.day === y && C.month === k && C.year === w : !1, x = b ? (s == null ? void 0 : s.bsDay) === y && (s == null ? void 0 : s.bsMonth) === k && (s == null ? void 0 : s.bsYear) === w : !1, j = o.stitchDate({ year: w, month: k, day: y });
+    return { day: y, month: k, year: w, isCurrentMonth: b, isToday: T, isSelected: x, dateString: j };
   }, [a, s, f]), m = ge((d) => {
     if (!d.isCurrentMonth)
       return;
@@ -1588,8 +1588,8 @@ const we = () => {
       month: d.month,
       day: d.day
     });
-    n.events.onSelect(v), n.events.onChange(v), n.options.closeOnSelect && r({ type: K.SET_CALENDAR_OPEN, isOpen: !1 });
-  }, [n.events.onSelect, n.events.onChange, n.options.closeOnSelect]);
+    n.events.onSelect(d), n.events.onChange(e(v, n.locale.value)), n.options.closeOnSelect && r({ type: K.SET_CALENDAR_OPEN, isOpen: !1 });
+  }, [n.events.onSelect, n.events.onChange, n.options.closeOnSelect, n.locale.value]);
   return /* @__PURE__ */ N.jsxDEV("tbody", { children: t(0, c).map((d) => /* @__PURE__ */ N.jsxDEV("tr", { className: n.options.classNames.dayPickerTr || "ndp__day_picker-tr ndp-border-0", children: t(1, 7).map((v) => {
     const y = p(d, v);
     return /* @__PURE__ */ N.jsxDEV(
@@ -1630,7 +1630,7 @@ const we = () => {
                       ndp-absolute ndp-left-[50%] ndp-bottom-1 -ndp-translate-x-[50%]
                     ` }, void 0, !1, {
                 fileName: "/Users/puncoz/Workspace/web/projects/nepali-datepicker-reactjs/NepaliDatePicker/src/components/calendar/day-picker.tsx",
-                lineNumber: 128,
+                lineNumber: 121,
                 columnNumber: 21
               }, globalThis)
             ]
@@ -1639,7 +1639,7 @@ const we = () => {
           !0,
           {
             fileName: "/Users/puncoz/Workspace/web/projects/nepali-datepicker-reactjs/NepaliDatePicker/src/components/calendar/day-picker.tsx",
-            lineNumber: 103,
+            lineNumber: 96,
             columnNumber: 17
           },
           globalThis
@@ -1649,18 +1649,18 @@ const we = () => {
       !1,
       {
         fileName: "/Users/puncoz/Workspace/web/projects/nepali-datepicker-reactjs/NepaliDatePicker/src/components/calendar/day-picker.tsx",
-        lineNumber: 100,
+        lineNumber: 93,
         columnNumber: 15
       },
       globalThis
     );
   }) }, d, !1, {
     fileName: "/Users/puncoz/Workspace/web/projects/nepali-datepicker-reactjs/NepaliDatePicker/src/components/calendar/day-picker.tsx",
-    lineNumber: 95,
+    lineNumber: 88,
     columnNumber: 9
   }, globalThis)) }, void 0, !1, {
     fileName: "/Users/puncoz/Workspace/web/projects/nepali-datepicker-reactjs/NepaliDatePicker/src/components/calendar/day-picker.tsx",
-    lineNumber: 93,
+    lineNumber: 86,
     columnNumber: 5
   }, globalThis);
 }, Tn = ({ options: e, onSelect: t, value: n, title: r, className: o, dropdownClass: a }) => {
@@ -1850,8 +1850,16 @@ const we = () => {
   );
 }, Br = () => {
   const { trans: e, numberTrans: t } = we(), n = Oe(), { zeroPad: r } = Ye(), { state: o, setData: a } = oe(), s = se(() => n.parseBsDate(Ne(/* @__PURE__ */ new Date())), []), c = ge(() => {
-    o.events.onChange(s.dateString), o.options.closeOnSelect && a({ type: K.SET_CALENDAR_OPEN, isOpen: !1 });
-  }, [s, o.events.onChange, o.options.closeOnSelect]);
+    o.events.onSelect({
+      day: s.bsDay,
+      month: s.bsMonth,
+      year: s.bsYear,
+      isToday: !0,
+      isCurrentMonth: !0,
+      isSelected: !0,
+      dateString: s.dateString
+    }), o.events.onChange(t(s.dateString, o.locale.value)), o.options.closeOnSelect && a({ type: K.SET_CALENDAR_OPEN, isOpen: !1 });
+  }, [s, o.events.onChange, o.options.closeOnSelect, o.locale.value]);
   return /* @__PURE__ */ N.jsxDEV(
     Ct,
     {
@@ -1864,12 +1872,12 @@ const we = () => {
       children: [
         /* @__PURE__ */ N.jsxDEV(qr, { date: t(r(s.bsDay)) }, void 0, !1, {
           fileName: "/Users/puncoz/Workspace/web/projects/nepali-datepicker-reactjs/NepaliDatePicker/src/components/calendar/today-btn.tsx",
-          lineNumber: 31,
+          lineNumber: 40,
           columnNumber: 7
         }, globalThis),
         /* @__PURE__ */ N.jsxDEV("span", { className: o.options.classNames.todayBtnText || "ndp__today_btn-text ndp-ml-2", children: e("labels.today") }, void 0, !1, {
           fileName: "/Users/puncoz/Workspace/web/projects/nepali-datepicker-reactjs/NepaliDatePicker/src/components/calendar/today-btn.tsx",
-          lineNumber: 32,
+          lineNumber: 41,
           columnNumber: 7
         }, globalThis)
       ]
@@ -1878,7 +1886,7 @@ const we = () => {
     !0,
     {
       fileName: "/Users/puncoz/Workspace/web/projects/nepali-datepicker-reactjs/NepaliDatePicker/src/components/calendar/today-btn.tsx",
-      lineNumber: 25,
+      lineNumber: 34,
       columnNumber: 5
     },
     globalThis

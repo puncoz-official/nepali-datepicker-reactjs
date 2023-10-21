@@ -1,4 +1,4 @@
-import { DataAction, IData, Language, Theme, Types } from "#/Data.ts"
+import { DataAction, DayInfo, IData, Language, Theme, Types } from "#/Data.ts"
 
 import { bsMonthCalculatedData, bsMonthMaxDays } from "./calendar-data"
 
@@ -6,7 +6,7 @@ export const DataState: IData = {
   isCalendarOpen: false,
   events: {
     onChange: (date: string) => date,
-    onSelect: (date: string) => date,
+    onSelect: (dayInfo: DayInfo) => dayInfo,
   },
   locale: {
     calendar: Language.NEPALI,

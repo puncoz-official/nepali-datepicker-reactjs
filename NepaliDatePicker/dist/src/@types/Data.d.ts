@@ -11,9 +11,18 @@ export declare enum DateType {
     BS = "bs",
     AD = "ad"
 }
+export interface DayInfo {
+    day: number;
+    month: number;
+    year: number;
+    dateString: string;
+    isCurrentMonth: boolean;
+    isToday: boolean;
+    isSelected: boolean;
+}
 export interface Events {
     onChange: (date: string) => void;
-    onSelect: (date: string) => void;
+    onSelect: (dayInfo: DayInfo) => void;
 }
 export interface Locale {
     calendar: Language;
