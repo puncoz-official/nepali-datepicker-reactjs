@@ -2,14 +2,19 @@ import React, { FunctionComponent, useCallback } from "react"
 
 import { ActionBtn, CrossIcon } from "@/components"
 import { useData, useTrans } from "@/hooks"
+import { Types } from "#/Data.ts"
 
 const ClearBtn: FunctionComponent = () => {
   const { trans } = useTrans()
-  const { state } = useData()
+  const { state, setData } = useData()
 
   const handleOnClick = useCallback(() => {
     state.events.onChange("")
-  }, [state.events.onChange])
+
+    if (state.options.closeOnSelect) {
+      setData({ type: Types.SET_CALENDAR_OPEN, isOpen: false })
+    }
+  }, [state.events.onChange, state.options.closeOnSelect])
 
   if (!state.date.selected) {
     return null

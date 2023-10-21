@@ -12,7 +12,10 @@ import {
   useRole,
   useTransitionStyles,
 } from "@floating-ui/react"
-import React, { FunctionComponent, ReactNode, useRef, useState } from "react"
+import React, { FunctionComponent, ReactNode, useRef } from "react"
+
+import { useData } from "@/hooks"
+import { Types } from "#/Data.ts"
 
 const ARROW_HEIGHT = 7
 const GAP = 2
@@ -22,7 +25,7 @@ type Props = {
   calendar: ReactNode
 }
 const FloatingContainer: FunctionComponent<Props> = (props) => {
-  const [isOpen, setOpen] = useState<boolean>(true)
+  const { state, setData } = useData()
 
   const arrowRef = useRef(null)
 
@@ -32,8 +35,10 @@ const FloatingContainer: FunctionComponent<Props> = (props) => {
     floatingStyles,
     middlewareData,
   } = useFloating({
-    open: isOpen,
-    onOpenChange: setOpen,
+    open: state.isCalendarOpen,
+    onOpenChange: (isOpen) => {
+      setData({ type: Types.SET_CALENDAR_OPEN, isOpen })
+    },
     middleware: [
       arrow({
         element: arrowRef,
@@ -76,7 +81,7 @@ const FloatingContainer: FunctionComponent<Props> = (props) => {
         {props.input}
       </div>
 
-      {isOpen && (
+      {state.isCalendarOpen && (
         <FloatingFocusManager context={context} modal={false}>
           {isMounted ? (
             <div ref={refs.setFloating} style={floatingStyles} aria-labelledby={id} {...getFloatingProps()}>

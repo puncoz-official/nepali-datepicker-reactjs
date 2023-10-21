@@ -2,7 +2,7 @@ import { ADToBS } from "bikram-sambat-js"
 import React, { FunctionComponent, useCallback, useMemo } from "react"
 
 import { useCommon, useData, useDateUtils, useTrans } from "@/hooks"
-import { ParsedDate } from "#/Data.ts"
+import { ParsedDate, Types } from "#/Data.ts"
 
 interface DayInfo {
   day: number
@@ -16,7 +16,7 @@ interface DayInfo {
 const DayPicker: FunctionComponent = () => {
   const { numberTrans } = useTrans()
   const { range } = useCommon()
-  const { state } = useData()
+  const { state, setData } = useData()
   const dateUtils = useDateUtils()
 
   const calendarDate = useMemo<ParsedDate>(() => {
@@ -83,7 +83,11 @@ const DayPicker: FunctionComponent = () => {
     })
     state.events.onSelect(date)
     state.events.onChange(date)
-  }, [state.events.onSelect, state.events.onChange])
+
+    if (state.options.closeOnSelect) {
+      setData({ type: Types.SET_CALENDAR_OPEN, isOpen: false })
+    }
+  }, [state.events.onSelect, state.events.onChange, state.options.closeOnSelect])
 
   return (
     <tbody>

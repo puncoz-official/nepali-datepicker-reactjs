@@ -10,6 +10,7 @@ export interface NepaliDatePickerOptions {
   dateSeparator?: IData["options"]["dateSeparator"]
   locale?: "en" | "ne"
   valueLocale?: "en" | "ne"
+  closeOnSelect?: IData["options"]["closeOnSelect"]
 }
 
 export interface INepaliDatePicker extends Omit<HTMLProps<HTMLInputElement>, "onChange" | "onSelect"> {

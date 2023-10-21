@@ -38,6 +38,7 @@ export interface Options {
   dateSeparator: string
   currentLocale: Language
   valueLocale: Language
+  closeOnSelect: boolean
 }
 
 export interface CalendarData {
@@ -74,6 +75,7 @@ export interface IData {
   theme: Theme
   value: string
   events: Events
+  isCalendarOpen: boolean
   locale: Locale
   options: Options
   calendarData: CalendarData
@@ -81,6 +83,7 @@ export interface IData {
 }
 
 export enum Types {
+  SET_CALENDAR_OPEN = "SET_CALENDAR_OPEN",
   SET_VALUE = "SET_VALUE",
   SET_CLASSES = "SET_CLASSES",
   SET_THEME = "SET_THEME",
@@ -91,6 +94,7 @@ export enum Types {
 }
 
 export type DataAction =
+  | { type: Types.SET_CALENDAR_OPEN, isOpen: boolean }
   | { type: Types.SET_VALUE, value: string }
   | { type: Types.SET_CLASSES, classNames: ClassNames }
   | { type: Types.SET_THEME, theme: Theme }

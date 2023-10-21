@@ -1,6 +1,6 @@
 import * as g from "react";
-import wr, { useContext as Er, useCallback as ve, useMemo as ae, useState as En, createContext as Dr, useReducer as xr, useLayoutEffect as Dn, useEffect as je, useRef as xn } from "react";
-import * as Nr from "react-dom";
+import yr, { useContext as wr, useCallback as ve, useMemo as ae, useState as Er, createContext as Dr, useReducer as Nr, useLayoutEffect as En, useEffect as je, useRef as Dn } from "react";
+import * as xr from "react-dom";
 var kt = { exports: {} }, tt = {};
 /**
  * @license React
@@ -32,54 +32,54 @@ var nt = {};
 var Qt;
 function Tr() {
   return Qt || (Qt = 1, process.env.NODE_ENV !== "production" && function() {
-    var e = wr, t = Symbol.for("react.element"), n = Symbol.for("react.portal"), r = Symbol.for("react.fragment"), o = Symbol.for("react.strict_mode"), a = Symbol.for("react.profiler"), s = Symbol.for("react.provider"), c = Symbol.for("react.context"), u = Symbol.for("react.forward_ref"), l = Symbol.for("react.suspense"), p = Symbol.for("react.suspense_list"), f = Symbol.for("react.memo"), m = Symbol.for("react.lazy"), d = Symbol.for("react.offscreen"), h = Symbol.iterator, D = "@@iterator";
+    var e = yr, t = Symbol.for("react.element"), n = Symbol.for("react.portal"), r = Symbol.for("react.fragment"), o = Symbol.for("react.strict_mode"), a = Symbol.for("react.profiler"), s = Symbol.for("react.provider"), c = Symbol.for("react.context"), u = Symbol.for("react.forward_ref"), l = Symbol.for("react.suspense"), p = Symbol.for("react.suspense_list"), f = Symbol.for("react.memo"), h = Symbol.for("react.lazy"), d = Symbol.for("react.offscreen"), v = Symbol.iterator, y = "@@iterator";
     function k(i) {
       if (i === null || typeof i != "object")
         return null;
-      var b = h && i[h] || i[D];
-      return typeof b == "function" ? b : null;
+      var m = v && i[v] || i[y];
+      return typeof m == "function" ? m : null;
     }
-    var y = e.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
-    function v(i) {
+    var w = e.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+    function b(i) {
       {
-        for (var b = arguments.length, w = new Array(b > 1 ? b - 1 : 0), T = 1; T < b; T++)
-          w[T - 1] = arguments[T];
-        C("error", i, w);
+        for (var m = arguments.length, E = new Array(m > 1 ? m - 1 : 0), T = 1; T < m; T++)
+          E[T - 1] = arguments[T];
+        C("error", i, E);
       }
     }
-    function C(i, b, w) {
+    function C(i, m, E) {
       {
-        var T = y.ReactDebugCurrentFrame, W = T.getStackAddendum();
-        W !== "" && (b += "%s", w = w.concat([W]));
-        var q = w.map(function(B) {
+        var T = w.ReactDebugCurrentFrame, W = T.getStackAddendum();
+        W !== "" && (m += "%s", E = E.concat([W]));
+        var q = E.map(function(B) {
           return String(B);
         });
-        q.unshift("Warning: " + b), Function.prototype.apply.call(console[i], console, q);
+        q.unshift("Warning: " + m), Function.prototype.apply.call(console[i], console, q);
       }
     }
-    var S = !1, N = !1, A = !1, E = !1, K = !1, G;
+    var S = !1, x = !1, P = !1, D = !1, K = !1, G;
     G = Symbol.for("react.module.reference");
     function X(i) {
-      return !!(typeof i == "string" || typeof i == "function" || i === r || i === a || K || i === o || i === l || i === p || E || i === d || S || N || A || typeof i == "object" && i !== null && (i.$$typeof === m || i.$$typeof === f || i.$$typeof === s || i.$$typeof === c || i.$$typeof === u || // This needs to include all possible module reference object
+      return !!(typeof i == "string" || typeof i == "function" || i === r || i === a || K || i === o || i === l || i === p || D || i === d || S || x || P || typeof i == "object" && i !== null && (i.$$typeof === h || i.$$typeof === f || i.$$typeof === s || i.$$typeof === c || i.$$typeof === u || // This needs to include all possible module reference object
       // types supported by any Flight configuration anywhere since
       // we don't know which Flight build this will end up being used
       // with.
       i.$$typeof === G || i.getModuleId !== void 0));
     }
-    function R(i, b, w) {
+    function R(i, m, E) {
       var T = i.displayName;
       if (T)
         return T;
-      var W = b.displayName || b.name || "";
-      return W !== "" ? w + "(" + W + ")" : w;
+      var W = m.displayName || m.name || "";
+      return W !== "" ? E + "(" + W + ")" : E;
     }
-    function Z(i) {
+    function Q(i) {
       return i.displayName || "Context";
     }
     function $(i) {
       if (i == null)
         return null;
-      if (typeof i.tag == "number" && v("Received an unexpected object in getComponentNameFromType(). This is likely a bug in React. Please file an issue."), typeof i == "function")
+      if (typeof i.tag == "number" && b("Received an unexpected object in getComponentNameFromType(). This is likely a bug in React. Please file an issue."), typeof i == "function")
         return i.displayName || i.name || null;
       if (typeof i == "string")
         return i;
@@ -100,17 +100,17 @@ function Tr() {
       if (typeof i == "object")
         switch (i.$$typeof) {
           case c:
-            var b = i;
-            return Z(b) + ".Consumer";
+            var m = i;
+            return Q(m) + ".Consumer";
           case s:
-            var w = i;
-            return Z(w._context) + ".Provider";
+            var E = i;
+            return Q(E._context) + ".Provider";
           case u:
             return R(i, i.render, "ForwardRef");
           case f:
             var T = i.displayName || null;
             return T !== null ? T : $(i.type) || "Memo";
-          case m: {
+          case h: {
             var W = i, q = W._payload, B = W._init;
             try {
               return $(B(q));
@@ -121,14 +121,14 @@ function Tr() {
         }
       return null;
     }
-    var _ = Object.assign, J = 0, U, j, V, Y, P, ce, L;
+    var _ = Object.assign, J = 0, U, j, V, Y, A, le, I;
     function M() {
     }
     M.__reactDisabledLog = !0;
     function O() {
       {
         if (J === 0) {
-          U = console.log, j = console.info, V = console.warn, Y = console.error, P = console.group, ce = console.groupCollapsed, L = console.groupEnd;
+          U = console.log, j = console.info, V = console.warn, Y = console.error, A = console.group, le = console.groupCollapsed, I = console.groupEnd;
           var i = {
             configurable: !0,
             enumerable: !0,
@@ -170,21 +170,21 @@ function Tr() {
               value: Y
             }),
             group: _({}, i, {
-              value: P
+              value: A
             }),
             groupCollapsed: _({}, i, {
-              value: ce
+              value: le
             }),
             groupEnd: _({}, i, {
-              value: L
+              value: I
             })
           });
         }
-        J < 0 && v("disabledDepth fell below zero. This is a bug in React. Please file an issue.");
+        J < 0 && b("disabledDepth fell below zero. This is a bug in React. Please file an issue.");
       }
     }
-    var z = y.ReactCurrentDispatcher, H;
-    function Q(i, b, w) {
+    var z = w.ReactCurrentDispatcher, H;
+    function ee(i, m, E) {
       {
         if (H === void 0)
           try {
@@ -199,16 +199,16 @@ function Tr() {
     }
     var pe = !1, ke;
     {
-      var Qn = typeof WeakMap == "function" ? WeakMap : Map;
-      ke = new Qn();
+      var Zn = typeof WeakMap == "function" ? WeakMap : Map;
+      ke = new Zn();
     }
-    function Vt(i, b) {
+    function Vt(i, m) {
       if (!i || pe)
         return "";
       {
-        var w = ke.get(i);
-        if (w !== void 0)
-          return w;
+        var E = ke.get(i);
+        if (E !== void 0)
+          return E;
       }
       var T;
       pe = !0;
@@ -217,7 +217,7 @@ function Tr() {
       var q;
       q = z.current, z.current = null, O();
       try {
-        if (b) {
+        if (m) {
           var B = function() {
             throw Error();
           };
@@ -250,103 +250,103 @@ function Tr() {
         }
       } catch (ge) {
         if (ge && T && typeof ge.stack == "string") {
-          for (var I = ge.stack.split(`
+          for (var L = ge.stack.split(`
 `), oe = T.stack.split(`
-`), ee = I.length - 1, te = oe.length - 1; ee >= 1 && te >= 0 && I[ee] !== oe[te]; )
-            te--;
-          for (; ee >= 1 && te >= 0; ee--, te--)
-            if (I[ee] !== oe[te]) {
-              if (ee !== 1 || te !== 1)
+`), te = L.length - 1, ne = oe.length - 1; te >= 1 && ne >= 0 && L[te] !== oe[ne]; )
+            ne--;
+          for (; te >= 1 && ne >= 0; te--, ne--)
+            if (L[te] !== oe[ne]) {
+              if (te !== 1 || ne !== 1)
                 do
-                  if (ee--, te--, te < 0 || I[ee] !== oe[te]) {
+                  if (te--, ne--, ne < 0 || L[te] !== oe[ne]) {
                     var me = `
-` + I[ee].replace(" at new ", " at ");
+` + L[te].replace(" at new ", " at ");
                     return i.displayName && me.includes("<anonymous>") && (me = me.replace("<anonymous>", i.displayName)), typeof i == "function" && ke.set(i, me), me;
                   }
-                while (ee >= 1 && te >= 0);
+                while (te >= 1 && ne >= 0);
               break;
             }
         }
       } finally {
         pe = !1, z.current = q, F(), Error.prepareStackTrace = W;
       }
-      var Ie = i ? i.displayName || i.name : "", Jt = Ie ? Q(Ie) : "";
+      var Le = i ? i.displayName || i.name : "", Jt = Le ? ee(Le) : "";
       return typeof i == "function" && ke.set(i, Jt), Jt;
     }
-    function er(i, b, w) {
+    function Qn(i, m, E) {
       return Vt(i, !1);
     }
-    function tr(i) {
-      var b = i.prototype;
-      return !!(b && b.isReactComponent);
+    function er(i) {
+      var m = i.prototype;
+      return !!(m && m.isReactComponent);
     }
-    function Ze(i, b, w) {
+    function Ze(i, m, E) {
       if (i == null)
         return "";
       if (typeof i == "function")
-        return Vt(i, tr(i));
+        return Vt(i, er(i));
       if (typeof i == "string")
-        return Q(i);
+        return ee(i);
       switch (i) {
         case l:
-          return Q("Suspense");
+          return ee("Suspense");
         case p:
-          return Q("SuspenseList");
+          return ee("SuspenseList");
       }
       if (typeof i == "object")
         switch (i.$$typeof) {
           case u:
-            return er(i.render);
+            return Qn(i.render);
           case f:
-            return Ze(i.type, b, w);
-          case m: {
+            return Ze(i.type, m, E);
+          case h: {
             var T = i, W = T._payload, q = T._init;
             try {
-              return Ze(q(W), b, w);
+              return Ze(q(W), m, E);
             } catch {
             }
           }
         }
       return "";
     }
-    var Qe = Object.prototype.hasOwnProperty, Ft = {}, Wt = y.ReactDebugCurrentFrame;
+    var Qe = Object.prototype.hasOwnProperty, Ft = {}, Wt = w.ReactDebugCurrentFrame;
     function et(i) {
       if (i) {
-        var b = i._owner, w = Ze(i.type, i._source, b ? b.type : null);
-        Wt.setExtraStackFrame(w);
+        var m = i._owner, E = Ze(i.type, i._source, m ? m.type : null);
+        Wt.setExtraStackFrame(E);
       } else
         Wt.setExtraStackFrame(null);
     }
-    function nr(i, b, w, T, W) {
+    function tr(i, m, E, T, W) {
       {
         var q = Function.call.bind(Qe);
         for (var B in i)
           if (q(i, B)) {
-            var I = void 0;
+            var L = void 0;
             try {
               if (typeof i[B] != "function") {
-                var oe = Error((T || "React class") + ": " + w + " type `" + B + "` is invalid; it must be a function, usually from the `prop-types` package, but received `" + typeof i[B] + "`.This often happens because of typos such as `PropTypes.function` instead of `PropTypes.func`.");
+                var oe = Error((T || "React class") + ": " + E + " type `" + B + "` is invalid; it must be a function, usually from the `prop-types` package, but received `" + typeof i[B] + "`.This often happens because of typos such as `PropTypes.function` instead of `PropTypes.func`.");
                 throw oe.name = "Invariant Violation", oe;
               }
-              I = i[B](b, B, T, w, null, "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED");
-            } catch (ee) {
-              I = ee;
+              L = i[B](m, B, T, E, null, "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED");
+            } catch (te) {
+              L = te;
             }
-            I && !(I instanceof Error) && (et(W), v("%s: type specification of %s `%s` is invalid; the type checker function must return `null` or an `Error` but returned a %s. You may have forgotten to pass an argument to the type checker creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and shape all require an argument).", T || "React class", w, B, typeof I), et(null)), I instanceof Error && !(I.message in Ft) && (Ft[I.message] = !0, et(W), v("Failed %s type: %s", w, I.message), et(null));
+            L && !(L instanceof Error) && (et(W), b("%s: type specification of %s `%s` is invalid; the type checker function must return `null` or an `Error` but returned a %s. You may have forgotten to pass an argument to the type checker creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and shape all require an argument).", T || "React class", E, B, typeof L), et(null)), L instanceof Error && !(L.message in Ft) && (Ft[L.message] = !0, et(W), b("Failed %s type: %s", E, L.message), et(null));
           }
       }
     }
-    var rr = Array.isArray;
+    var nr = Array.isArray;
     function ht(i) {
-      return rr(i);
+      return nr(i);
     }
-    function or(i) {
+    function rr(i) {
       {
-        var b = typeof Symbol == "function" && Symbol.toStringTag, w = b && i[Symbol.toStringTag] || i.constructor.name || "Object";
-        return w;
+        var m = typeof Symbol == "function" && Symbol.toStringTag, E = m && i[Symbol.toStringTag] || i.constructor.name || "Object";
+        return E;
       }
     }
-    function ar(i) {
+    function or(i) {
       try {
         return Ut(i), !1;
       } catch {
@@ -357,112 +357,112 @@ function Tr() {
       return "" + i;
     }
     function Yt(i) {
-      if (ar(i))
-        return v("The provided key is an unsupported type %s. This value must be coerced to a string before before using it here.", or(i)), Ut(i);
+      if (or(i))
+        return b("The provided key is an unsupported type %s. This value must be coerced to a string before before using it here.", rr(i)), Ut(i);
     }
-    var Ke = y.ReactCurrentOwner, sr = {
+    var Ke = w.ReactCurrentOwner, ar = {
       key: !0,
       ref: !0,
       __self: !0,
       __source: !0
     }, $t, zt, bt;
     bt = {};
-    function ir(i) {
+    function sr(i) {
       if (Qe.call(i, "ref")) {
-        var b = Object.getOwnPropertyDescriptor(i, "ref").get;
-        if (b && b.isReactWarning)
+        var m = Object.getOwnPropertyDescriptor(i, "ref").get;
+        if (m && m.isReactWarning)
           return !1;
       }
       return i.ref !== void 0;
     }
-    function cr(i) {
+    function ir(i) {
       if (Qe.call(i, "key")) {
-        var b = Object.getOwnPropertyDescriptor(i, "key").get;
-        if (b && b.isReactWarning)
+        var m = Object.getOwnPropertyDescriptor(i, "key").get;
+        if (m && m.isReactWarning)
           return !1;
       }
       return i.key !== void 0;
     }
-    function lr(i, b) {
-      if (typeof i.ref == "string" && Ke.current && b && Ke.current.stateNode !== b) {
-        var w = $(Ke.current.type);
-        bt[w] || (v('Component "%s" contains the string ref "%s". Support for string refs will be removed in a future major release. This case cannot be automatically converted to an arrow function. We ask you to manually fix this case by using useRef() or createRef() instead. Learn more about using refs safely here: https://reactjs.org/link/strict-mode-string-ref', $(Ke.current.type), i.ref), bt[w] = !0);
+    function cr(i, m) {
+      if (typeof i.ref == "string" && Ke.current && m && Ke.current.stateNode !== m) {
+        var E = $(Ke.current.type);
+        bt[E] || (b('Component "%s" contains the string ref "%s". Support for string refs will be removed in a future major release. This case cannot be automatically converted to an arrow function. We ask you to manually fix this case by using useRef() or createRef() instead. Learn more about using refs safely here: https://reactjs.org/link/strict-mode-string-ref', $(Ke.current.type), i.ref), bt[E] = !0);
       }
     }
-    function ur(i, b) {
+    function lr(i, m) {
       {
-        var w = function() {
-          $t || ($t = !0, v("%s: `key` is not a prop. Trying to access it will result in `undefined` being returned. If you need to access the same value within the child component, you should pass it as a different prop. (https://reactjs.org/link/special-props)", b));
+        var E = function() {
+          $t || ($t = !0, b("%s: `key` is not a prop. Trying to access it will result in `undefined` being returned. If you need to access the same value within the child component, you should pass it as a different prop. (https://reactjs.org/link/special-props)", m));
         };
-        w.isReactWarning = !0, Object.defineProperty(i, "key", {
-          get: w,
+        E.isReactWarning = !0, Object.defineProperty(i, "key", {
+          get: E,
           configurable: !0
         });
       }
     }
-    function dr(i, b) {
+    function ur(i, m) {
       {
-        var w = function() {
-          zt || (zt = !0, v("%s: `ref` is not a prop. Trying to access it will result in `undefined` being returned. If you need to access the same value within the child component, you should pass it as a different prop. (https://reactjs.org/link/special-props)", b));
+        var E = function() {
+          zt || (zt = !0, b("%s: `ref` is not a prop. Trying to access it will result in `undefined` being returned. If you need to access the same value within the child component, you should pass it as a different prop. (https://reactjs.org/link/special-props)", m));
         };
-        w.isReactWarning = !0, Object.defineProperty(i, "ref", {
-          get: w,
+        E.isReactWarning = !0, Object.defineProperty(i, "ref", {
+          get: E,
           configurable: !0
         });
       }
     }
-    var fr = function(i, b, w, T, W, q, B) {
-      var I = {
+    var dr = function(i, m, E, T, W, q, B) {
+      var L = {
         // This tag allows us to uniquely identify this as a React Element
         $$typeof: t,
         // Built-in properties that belong on the element
         type: i,
-        key: b,
-        ref: w,
+        key: m,
+        ref: E,
         props: B,
         // Record the component responsible for creating this element.
         _owner: q
       };
-      return I._store = {}, Object.defineProperty(I._store, "validated", {
+      return L._store = {}, Object.defineProperty(L._store, "validated", {
         configurable: !1,
         enumerable: !1,
         writable: !0,
         value: !1
-      }), Object.defineProperty(I, "_self", {
+      }), Object.defineProperty(L, "_self", {
         configurable: !1,
         enumerable: !1,
         writable: !1,
         value: T
-      }), Object.defineProperty(I, "_source", {
+      }), Object.defineProperty(L, "_source", {
         configurable: !1,
         enumerable: !1,
         writable: !1,
         value: W
-      }), Object.freeze && (Object.freeze(I.props), Object.freeze(I)), I;
+      }), Object.freeze && (Object.freeze(L.props), Object.freeze(L)), L;
     };
-    function pr(i, b, w, T, W) {
+    function fr(i, m, E, T, W) {
       {
-        var q, B = {}, I = null, oe = null;
-        w !== void 0 && (Yt(w), I = "" + w), cr(b) && (Yt(b.key), I = "" + b.key), ir(b) && (oe = b.ref, lr(b, W));
-        for (q in b)
-          Qe.call(b, q) && !sr.hasOwnProperty(q) && (B[q] = b[q]);
+        var q, B = {}, L = null, oe = null;
+        E !== void 0 && (Yt(E), L = "" + E), ir(m) && (Yt(m.key), L = "" + m.key), sr(m) && (oe = m.ref, cr(m, W));
+        for (q in m)
+          Qe.call(m, q) && !ar.hasOwnProperty(q) && (B[q] = m[q]);
         if (i && i.defaultProps) {
-          var ee = i.defaultProps;
-          for (q in ee)
-            B[q] === void 0 && (B[q] = ee[q]);
+          var te = i.defaultProps;
+          for (q in te)
+            B[q] === void 0 && (B[q] = te[q]);
         }
-        if (I || oe) {
-          var te = typeof i == "function" ? i.displayName || i.name || "Unknown" : i;
-          I && ur(B, te), oe && dr(B, te);
+        if (L || oe) {
+          var ne = typeof i == "function" ? i.displayName || i.name || "Unknown" : i;
+          L && lr(B, ne), oe && ur(B, ne);
         }
-        return fr(i, I, oe, W, T, Ke.current, B);
+        return dr(i, L, oe, W, T, Ke.current, B);
       }
     }
-    var vt = y.ReactCurrentOwner, Kt = y.ReactDebugCurrentFrame;
+    var vt = w.ReactCurrentOwner, Kt = w.ReactDebugCurrentFrame;
     function Me(i) {
       if (i) {
-        var b = i._owner, w = Ze(i.type, i._source, b ? b.type : null);
-        Kt.setExtraStackFrame(w);
+        var m = i._owner, E = Ze(i.type, i._source, m ? m.type : null);
+        Kt.setExtraStackFrame(E);
       } else
         Kt.setExtraStackFrame(null);
     }
@@ -483,51 +483,51 @@ Check the render method of \`` + i + "`.";
         return "";
       }
     }
-    function mr(i) {
+    function pr(i) {
       {
         if (i !== void 0) {
-          var b = i.fileName.replace(/^.*[\\\/]/, ""), w = i.lineNumber;
+          var m = i.fileName.replace(/^.*[\\\/]/, ""), E = i.lineNumber;
           return `
 
-Check your code at ` + b + ":" + w + ".";
+Check your code at ` + m + ":" + E + ".";
         }
         return "";
       }
     }
     var qt = {};
-    function hr(i) {
+    function mr(i) {
       {
-        var b = Ht();
-        if (!b) {
-          var w = typeof i == "string" ? i : i.displayName || i.name;
-          w && (b = `
+        var m = Ht();
+        if (!m) {
+          var E = typeof i == "string" ? i : i.displayName || i.name;
+          E && (m = `
 
-Check the top-level render call using <` + w + ">.");
+Check the top-level render call using <` + E + ">.");
         }
-        return b;
+        return m;
       }
     }
-    function Gt(i, b) {
+    function Gt(i, m) {
       {
         if (!i._store || i._store.validated || i.key != null)
           return;
         i._store.validated = !0;
-        var w = hr(b);
-        if (qt[w])
+        var E = mr(m);
+        if (qt[E])
           return;
-        qt[w] = !0;
+        qt[E] = !0;
         var T = "";
-        i && i._owner && i._owner !== vt.current && (T = " It was passed a child from " + $(i._owner.type) + "."), Me(i), v('Each child in a list should have a unique "key" prop.%s%s See https://reactjs.org/link/warning-keys for more information.', w, T), Me(null);
+        i && i._owner && i._owner !== vt.current && (T = " It was passed a child from " + $(i._owner.type) + "."), Me(i), b('Each child in a list should have a unique "key" prop.%s%s See https://reactjs.org/link/warning-keys for more information.', E, T), Me(null);
       }
     }
-    function Xt(i, b) {
+    function Xt(i, m) {
       {
         if (typeof i != "object")
           return;
         if (ht(i))
-          for (var w = 0; w < i.length; w++) {
-            var T = i[w];
-            yt(T) && Gt(T, b);
+          for (var E = 0; E < i.length; E++) {
+            var T = i[E];
+            yt(T) && Gt(T, m);
           }
         else if (yt(i))
           i._store && (i._store.validated = !0);
@@ -535,86 +535,86 @@ Check the top-level render call using <` + w + ">.");
           var W = k(i);
           if (typeof W == "function" && W !== i.entries)
             for (var q = W.call(i), B; !(B = q.next()).done; )
-              yt(B.value) && Gt(B.value, b);
+              yt(B.value) && Gt(B.value, m);
         }
+      }
+    }
+    function hr(i) {
+      {
+        var m = i.type;
+        if (m == null || typeof m == "string")
+          return;
+        var E;
+        if (typeof m == "function")
+          E = m.propTypes;
+        else if (typeof m == "object" && (m.$$typeof === u || // Note: Memo only checks outer props here.
+        // Inner props are checked in the reconciler.
+        m.$$typeof === f))
+          E = m.propTypes;
+        else
+          return;
+        if (E) {
+          var T = $(m);
+          tr(E, i.props, "prop", T, i);
+        } else if (m.PropTypes !== void 0 && !gt) {
+          gt = !0;
+          var W = $(m);
+          b("Component %s declared `PropTypes` instead of `propTypes`. Did you misspell the property assignment?", W || "Unknown");
+        }
+        typeof m.getDefaultProps == "function" && !m.getDefaultProps.isReactClassApproved && b("getDefaultProps is only used on classic React.createClass definitions. Use a static property named `defaultProps` instead.");
       }
     }
     function br(i) {
       {
-        var b = i.type;
-        if (b == null || typeof b == "string")
-          return;
-        var w;
-        if (typeof b == "function")
-          w = b.propTypes;
-        else if (typeof b == "object" && (b.$$typeof === u || // Note: Memo only checks outer props here.
-        // Inner props are checked in the reconciler.
-        b.$$typeof === f))
-          w = b.propTypes;
-        else
-          return;
-        if (w) {
-          var T = $(b);
-          nr(w, i.props, "prop", T, i);
-        } else if (b.PropTypes !== void 0 && !gt) {
-          gt = !0;
-          var W = $(b);
-          v("Component %s declared `PropTypes` instead of `propTypes`. Did you misspell the property assignment?", W || "Unknown");
-        }
-        typeof b.getDefaultProps == "function" && !b.getDefaultProps.isReactClassApproved && v("getDefaultProps is only used on classic React.createClass definitions. Use a static property named `defaultProps` instead.");
-      }
-    }
-    function vr(i) {
-      {
-        for (var b = Object.keys(i.props), w = 0; w < b.length; w++) {
-          var T = b[w];
+        for (var m = Object.keys(i.props), E = 0; E < m.length; E++) {
+          var T = m[E];
           if (T !== "children" && T !== "key") {
-            Me(i), v("Invalid prop `%s` supplied to `React.Fragment`. React.Fragment can only have `key` and `children` props.", T), Me(null);
+            Me(i), b("Invalid prop `%s` supplied to `React.Fragment`. React.Fragment can only have `key` and `children` props.", T), Me(null);
             break;
           }
         }
-        i.ref !== null && (Me(i), v("Invalid attribute `ref` supplied to `React.Fragment`."), Me(null));
+        i.ref !== null && (Me(i), b("Invalid attribute `ref` supplied to `React.Fragment`."), Me(null));
       }
     }
-    function gr(i, b, w, T, W, q) {
+    function vr(i, m, E, T, W, q) {
       {
         var B = X(i);
         if (!B) {
-          var I = "";
-          (i === void 0 || typeof i == "object" && i !== null && Object.keys(i).length === 0) && (I += " You likely forgot to export your component from the file it's defined in, or you might have mixed up default and named imports.");
-          var oe = mr(W);
-          oe ? I += oe : I += Ht();
-          var ee;
-          i === null ? ee = "null" : ht(i) ? ee = "array" : i !== void 0 && i.$$typeof === t ? (ee = "<" + ($(i.type) || "Unknown") + " />", I = " Did you accidentally export a JSX literal instead of a component?") : ee = typeof i, v("React.jsx: type is invalid -- expected a string (for built-in components) or a class/function (for composite components) but got: %s.%s", ee, I);
+          var L = "";
+          (i === void 0 || typeof i == "object" && i !== null && Object.keys(i).length === 0) && (L += " You likely forgot to export your component from the file it's defined in, or you might have mixed up default and named imports.");
+          var oe = pr(W);
+          oe ? L += oe : L += Ht();
+          var te;
+          i === null ? te = "null" : ht(i) ? te = "array" : i !== void 0 && i.$$typeof === t ? (te = "<" + ($(i.type) || "Unknown") + " />", L = " Did you accidentally export a JSX literal instead of a component?") : te = typeof i, b("React.jsx: type is invalid -- expected a string (for built-in components) or a class/function (for composite components) but got: %s.%s", te, L);
         }
-        var te = pr(i, b, w, W, q);
-        if (te == null)
-          return te;
+        var ne = fr(i, m, E, W, q);
+        if (ne == null)
+          return ne;
         if (B) {
-          var me = b.children;
+          var me = m.children;
           if (me !== void 0)
             if (T)
               if (ht(me)) {
-                for (var Ie = 0; Ie < me.length; Ie++)
-                  Xt(me[Ie], i);
+                for (var Le = 0; Le < me.length; Le++)
+                  Xt(me[Le], i);
                 Object.freeze && Object.freeze(me);
               } else
-                v("React.jsx: Static children should always be an array. You are likely explicitly calling React.jsxs or React.jsxDEV. Use the Babel transform instead.");
+                b("React.jsx: Static children should always be an array. You are likely explicitly calling React.jsxs or React.jsxDEV. Use the Babel transform instead.");
             else
               Xt(me, i);
         }
-        return i === r ? vr(te) : br(te), te;
+        return i === r ? br(ne) : hr(ne), ne;
       }
     }
-    var yr = gr;
-    nt.Fragment = r, nt.jsxDEV = yr;
+    var gr = vr;
+    nt.Fragment = r, nt.jsxDEV = gr;
   }()), nt;
 }
 process.env.NODE_ENV === "production" ? kt.exports = kr() : kt.exports = Tr();
-var x = kt.exports;
+var N = kt.exports;
 const Ct = (e) => {
   const { children: t, className: n, type: r = "button", ...o } = e;
-  return /* @__PURE__ */ x.jsxDEV(
+  return /* @__PURE__ */ N.jsxDEV(
     "button",
     {
       className: `
@@ -642,7 +642,7 @@ const Ct = (e) => {
   );
 }, Nn = (e) => {
   const { children: t, className: n, type: r = "button", ...o } = e;
-  return /* @__PURE__ */ x.jsxDEV(
+  return /* @__PURE__ */ N.jsxDEV(
     "button",
     {
       className: `
@@ -683,8 +683,8 @@ const Ct = (e) => {
   for (let u = o; u <= a; u += s)
     c.push(u);
   return c;
-}, zeroPad: (o, a = 2) => String(o).padStart(a, "0") }), fe = () => {
-  const { state: e, dispatch: t } = Er(Rn);
+}, zeroPad: (o, a = 2) => String(o).padStart(a, "0") }), ce = () => {
+  const { state: e, dispatch: t } = wr(Sn);
   return { setData: (r) => {
     t(r);
   }, state: e };
@@ -1305,7 +1305,7 @@ var ie = {
         throw new RangeError("BS day should be in range of 1 to 32");
     }, e;
   }()
-), kn = (
+), xn = (
   /** @class */
   function() {
     function e(t, n) {
@@ -1383,13 +1383,13 @@ var ie = {
     }, e;
   }()
 ), en = function(e) {
-  return new kn().setDate(e, "BS").toAD();
+  return new xn().setDate(e, "BS").toAD();
 }, De = function(e) {
-  return new kn().setDate(e, "AD").toBS();
-}, it = /* @__PURE__ */ ((e) => (e.LIGHT = "light", e.DARK = "dark", e))(it || {}), Ue = /* @__PURE__ */ ((e) => (e.ENGLISH = "en", e.NEPALI = "ne", e))(Ue || {}), Tt = /* @__PURE__ */ ((e) => (e.BS = "bs", e.AD = "ad", e))(Tt || {}), re = /* @__PURE__ */ ((e) => (e.SET_VALUE = "SET_VALUE", e.SET_CLASSES = "SET_CLASSES", e.SET_THEME = "SET_THEME", e.SET_EVENTS = "SET_EVENTS", e.SET_OPTIONS = "SET_OPTIONS", e.SET_CALENDAR_DATE = "SET_CALENDAR_DATE", e.SET_SELECTED_DATE = "SET_SELECTED_DATE", e))(re || {});
+  return new xn().setDate(e, "AD").toBS();
+}, it = /* @__PURE__ */ ((e) => (e.LIGHT = "light", e.DARK = "dark", e))(it || {}), Ue = /* @__PURE__ */ ((e) => (e.ENGLISH = "en", e.NEPALI = "ne", e))(Ue || {}), Tt = /* @__PURE__ */ ((e) => (e.BS = "bs", e.AD = "ad", e))(Tt || {}), Z = /* @__PURE__ */ ((e) => (e.SET_CALENDAR_OPEN = "SET_CALENDAR_OPEN", e.SET_VALUE = "SET_VALUE", e.SET_CLASSES = "SET_CLASSES", e.SET_THEME = "SET_THEME", e.SET_EVENTS = "SET_EVENTS", e.SET_OPTIONS = "SET_OPTIONS", e.SET_CALENDAR_DATE = "SET_CALENDAR_DATE", e.SET_SELECTED_DATE = "SET_SELECTED_DATE", e))(Z || {});
 const Sr = () => {
-  const { state: e } = fe(), t = (l, p) => {
-    const f = p || e.options.dateSeparator, m = `^[0-9]{4}${f}(0?[1-9]|1[0-2])${f}(0?[1-9]|[1-2][0-9]|3[0-2])$`, d = new RegExp(m);
+  const { state: e } = ce(), t = (l, p) => {
+    const f = p || e.options.dateSeparator, h = `^[0-9]{4}${f}(0?[1-9]|1[0-2])${f}(0?[1-9]|[1-2][0-9]|3[0-2])$`, d = new RegExp(h);
     if (!l.match(d))
       throw new TypeError(`${l} is invalid date format.`);
   }, n = (l) => {
@@ -1403,9 +1403,9 @@ const Sr = () => {
     if (l < 1 || l > 32)
       throw new RangeError("BS day should be in range of 1 to 32");
   }, a = (l) => {
-    const p = e.calendarData.minBsYear, f = e.calendarData.maxBsYear, m = p - 57, d = f - 57;
-    if (l < m || l > d)
-      throw new RangeError(`Date between ${m} AD (${p} BS) to ${d} AD (${f} BS) is only supported.`);
+    const p = e.calendarData.minBsYear, f = e.calendarData.maxBsYear, h = p - 57, d = f - 57;
+    if (l < h || l > d)
+      throw new RangeError(`Date between ${h} AD (${p} BS) to ${d} AD (${f} BS) is only supported.`);
   }, s = (l) => {
     if (l < 1 || l > 12)
       throw new RangeError("AD month should be in range of 1 to 12");
@@ -1416,12 +1416,12 @@ const Sr = () => {
   return {
     validateInputDate: t,
     validateDateObject: (l, p = Tt.BS) => {
-      const { year: f, month: m, day: d } = l;
+      const { year: f, month: h, day: d } = l;
       if (p === Tt.BS) {
-        n(f), r(m), o(d);
+        n(f), r(h), o(d);
         return;
       }
-      a(f), s(m), c(d);
+      a(f), s(h), c(d);
     },
     validateBsYear: n,
     validateAdYear: a,
@@ -1431,7 +1431,7 @@ const Sr = () => {
     validateAdDay: c
   };
 }, _e = () => {
-  const e = Sr(), t = ze(), { state: n } = fe(), r = (c, u) => {
+  const e = Sr(), t = ze(), { state: n } = ce(), r = (c, u) => {
     e.validateInputDate(c, u);
     const [l, p, f] = c.split(u || n.options.dateSeparator);
     return {
@@ -1446,11 +1446,11 @@ const Sr = () => {
     e.validateBsYear(c), e.validateBsMonth(u);
     let l = 0;
     const p = c + 1 - n.calendarData.minBsYear;
-    return n.calendarData.bsMonthCalculatedData[u - 1].reduce((m, d, h) => {
-      if (d === 0 || m !== 0)
-        return m;
-      const D = h % 2;
-      return l += d, p > l ? m : c === 2085 && u === 5 || c === 2088 && u === 5 ? n.calendarData.bsMonthMaxDays[u - 1][D] - 2 : n.calendarData.bsMonthMaxDays[u - 1][D];
+    return n.calendarData.bsMonthCalculatedData[u - 1].reduce((h, d, v) => {
+      if (d === 0 || h !== 0)
+        return h;
+      const y = v % 2;
+      return l += d, p > l ? h : c === 2085 && u === 5 || c === 2088 && u === 5 ? n.calendarData.bsMonthMaxDays[u - 1][y] - 2 : n.calendarData.bsMonthMaxDays[u - 1][y];
     }, 0);
   };
   return {
@@ -1459,22 +1459,22 @@ const Sr = () => {
     parseBsDate: (c, u) => {
       const { year: l, month: p, day: f } = r(c, u);
       e.validateDateObject({ year: l, month: p, day: f });
-      const m = o({ year: l, month: p, day: 1 }), d = en(m), h = new Date(d), D = a(l, p), k = new Date(en(c));
+      const h = o({ year: l, month: p, day: 1 }), d = en(h), v = new Date(d), y = a(l, p), k = new Date(en(c));
       return {
         bsDay: f,
         bsMonth: p,
         bsYear: l,
         weekDay: k.getDay(),
         adDate: k,
-        firstAdDayInBsMonth: h,
-        numberOfDaysInBsMonth: D,
+        firstAdDayInBsMonth: v,
+        numberOfDaysInBsMonth: y,
         dateString: c
       };
     },
     getNumberOfDaysInBSMonth: a
   };
 };
-var Tn = (
+var kn = (
   /** @class */
   function() {
     function e(t) {
@@ -1521,36 +1521,36 @@ var Tn = (
     }, e;
   }()
 ), Rr = function(e) {
-  return new Tn().setNumber(e).toNepali();
+  return new kn().setNumber(e).toNepali();
 }, jr = function(e) {
-  return new Tn().setNumber(e).toEnglish();
+  return new kn().setNumber(e).toEnglish();
 };
 const ye = () => {
-  const { state: e } = fe(), { getObject: t } = ze();
+  const { state: e } = ce(), { getObject: t } = ze();
   return {
     trans: (n, r) => t(Qr[r || e.options.currentLocale], n, n),
     numberTrans: (n, r) => Ue.ENGLISH === `${r || e.options.currentLocale}` ? jr(n) : Rr(n)
   };
 }, Cr = () => {
-  const { trans: e } = ye(), { state: t } = fe(), n = ve(() => {
-    t.events.onChange("");
-  }, [t.events.onChange]);
-  return t.date.selected ? /* @__PURE__ */ x.jsxDEV(
+  const { trans: e } = ye(), { state: t, setData: n } = ce(), r = ve(() => {
+    t.events.onChange(""), t.options.closeOnSelect && n({ type: Z.SET_CALENDAR_OPEN, isOpen: !1 });
+  }, [t.events.onChange, t.options.closeOnSelect]);
+  return t.date.selected ? /* @__PURE__ */ N.jsxDEV(
     Ct,
     {
       className: "ndp-font-medium ndp-border hover:ndp-text-red-500",
       title: e("labels.clear"),
-      onClick: () => n(),
-      onKeyDown: () => n(),
+      onClick: () => r(),
+      onKeyDown: () => r(),
       children: [
-        /* @__PURE__ */ x.jsxDEV(zr, { className: "ndp-w-4 ndp-h-4" }, void 0, !1, {
+        /* @__PURE__ */ N.jsxDEV(zr, { className: "ndp-w-4 ndp-h-4" }, void 0, !1, {
           fileName: "/Users/puncoz/Workspace/web/projects/nepali-datepicker-reactjs/NepaliDatePicker/src/components/calendar/clear-btn.tsx",
-          lineNumber: 23,
+          lineNumber: 28,
           columnNumber: 7
         }, globalThis),
-        /* @__PURE__ */ x.jsxDEV("span", { className: "ndp-ml-2", children: e("labels.clear") }, void 0, !1, {
+        /* @__PURE__ */ N.jsxDEV("span", { className: "ndp-ml-2", children: e("labels.clear") }, void 0, !1, {
           fileName: "/Users/puncoz/Workspace/web/projects/nepali-datepicker-reactjs/NepaliDatePicker/src/components/calendar/clear-btn.tsx",
-          lineNumber: 24,
+          lineNumber: 29,
           columnNumber: 7
         }, globalThis)
       ]
@@ -1559,65 +1559,65 @@ const ye = () => {
     !0,
     {
       fileName: "/Users/puncoz/Workspace/web/projects/nepali-datepicker-reactjs/NepaliDatePicker/src/components/calendar/clear-btn.tsx",
-      lineNumber: 19,
+      lineNumber: 24,
       columnNumber: 5
     },
     globalThis
   ) : null;
 }, Pr = () => {
-  const { numberTrans: e } = ye(), { range: t } = ze(), { state: n } = fe(), r = _e(), o = ae(() => n.date.calendar || r.parseBsDate(De(/* @__PURE__ */ new Date())), [n.date.calendar]), a = ae(() => n.date.selected, [n.date.selected]), s = ae(() => Math.ceil((o.firstAdDayInBsMonth.getDay() + o.numberOfDaysInBsMonth) / 7) - 1, [o]), c = ae(() => o.bsMonth - 1 === 0 ? 12 : o.bsMonth - 1, [o]), u = ae(() => c === 12 ? o.bsYear - 1 : o.bsYear, [c, o]), l = ae(() => u >= n.calendarData.minBsYear ? r.getNumberOfDaysInBSMonth(u, c) : 30, [u, c]), p = ve((m, d) => {
-    let h = m * 7 + d - o.firstAdDayInBsMonth.getDay();
-    const D = o.bsMonth, k = o.bsYear;
-    let y = !0;
-    h <= 0 ? (h = l + h, y = !1) : h > o.numberOfDaysInBsMonth && (h -= o.numberOfDaysInBsMonth, y = !1);
-    const v = r.splitDate(De(/* @__PURE__ */ new Date())), C = y ? v.day === h && v.month === D && v.year === k : !1, S = y ? (a == null ? void 0 : a.bsDay) === h && (a == null ? void 0 : a.bsMonth) === D && (a == null ? void 0 : a.bsYear) === k : !1;
-    return { day: h, month: D, year: k, isCurrentMonth: y, isToday: C, isSelected: S };
-  }, [o, a, l]), f = ve((m) => {
-    if (!m.isCurrentMonth)
+  const { numberTrans: e } = ye(), { range: t } = ze(), { state: n, setData: r } = ce(), o = _e(), a = ae(() => n.date.calendar || o.parseBsDate(De(/* @__PURE__ */ new Date())), [n.date.calendar]), s = ae(() => n.date.selected, [n.date.selected]), c = ae(() => Math.ceil((a.firstAdDayInBsMonth.getDay() + a.numberOfDaysInBsMonth) / 7) - 1, [a]), u = ae(() => a.bsMonth - 1 === 0 ? 12 : a.bsMonth - 1, [a]), l = ae(() => u === 12 ? a.bsYear - 1 : a.bsYear, [u, a]), p = ae(() => l >= n.calendarData.minBsYear ? o.getNumberOfDaysInBSMonth(l, u) : 30, [l, u]), f = ve((d, v) => {
+    let y = d * 7 + v - a.firstAdDayInBsMonth.getDay();
+    const k = a.bsMonth, w = a.bsYear;
+    let b = !0;
+    y <= 0 ? (y = p + y, b = !1) : y > a.numberOfDaysInBsMonth && (y -= a.numberOfDaysInBsMonth, b = !1);
+    const C = o.splitDate(De(/* @__PURE__ */ new Date())), S = b ? C.day === y && C.month === k && C.year === w : !1, x = b ? (s == null ? void 0 : s.bsDay) === y && (s == null ? void 0 : s.bsMonth) === k && (s == null ? void 0 : s.bsYear) === w : !1;
+    return { day: y, month: k, year: w, isCurrentMonth: b, isToday: S, isSelected: x };
+  }, [a, s, p]), h = ve((d) => {
+    if (!d.isCurrentMonth)
       return;
-    const d = r.stitchDate({
-      year: m.year,
-      month: m.month,
-      day: m.day
+    const v = o.stitchDate({
+      year: d.year,
+      month: d.month,
+      day: d.day
     });
-    n.events.onSelect(d), n.events.onChange(d);
-  }, [n.events.onSelect, n.events.onChange]);
-  return /* @__PURE__ */ x.jsxDEV("tbody", { children: t(0, s).map((m) => /* @__PURE__ */ x.jsxDEV("tr", { className: "ndp-border-0", children: t(1, 7).map((d) => {
-    const h = p(m, d);
-    return /* @__PURE__ */ x.jsxDEV(
+    n.events.onSelect(v), n.events.onChange(v), n.options.closeOnSelect && r({ type: Z.SET_CALENDAR_OPEN, isOpen: !1 });
+  }, [n.events.onSelect, n.events.onChange, n.options.closeOnSelect]);
+  return /* @__PURE__ */ N.jsxDEV("tbody", { children: t(0, c).map((d) => /* @__PURE__ */ N.jsxDEV("tr", { className: "ndp-border-0", children: t(1, 7).map((v) => {
+    const y = f(d, v);
+    return /* @__PURE__ */ N.jsxDEV(
       "td",
       {
         className: "ndp-border-0",
-        title: e(h.day),
-        children: /* @__PURE__ */ x.jsxDEV(
+        title: e(y.day),
+        children: /* @__PURE__ */ N.jsxDEV(
           "button",
           {
             className: `
                   ndp-rounded-full ndp-h-9 ndp-w-9
                   ndp-relative ndp-cursor-pointer hover-transition
-                  ${h.isSelected ? `
+                  ${y.isSelected ? `
                     ndp-bg-primary ndp-text-secondary
                     hover:ndp-opacity-80
                   ` : `
                     hover:ndp-bg-gray-200 dark:hover:ndp-bg-slate-900
                   `}
 
-                  ${!h.isCurrentMonth && `
+                  ${!y.isCurrentMonth && `
                     ndp-text-gray-200 dark:ndp-text-slate-700
                     hover:ndp-bg-transparent dark:hover:ndp-bg-transparent
                     ndp-cursor-not-allowed ndp-select-none
                   `}
                 `,
-            onClick: () => f(h),
-            onKeyDown: () => f(h),
+            onClick: () => h(y),
+            onKeyDown: () => h(y),
             children: [
-              e(h.day),
-              h.isToday && /* @__PURE__ */ x.jsxDEV("div", { className: `
+              e(y.day),
+              y.isToday && /* @__PURE__ */ N.jsxDEV("div", { className: `
                       ndp-content-[""] ndp-w-1 ndp-h-1 ndp-bg-primary ndp-rounded-full
                       ndp-absolute ndp-left-[50%] ndp-bottom-1 -ndp-translate-x-[50%]
                     ` }, void 0, !1, {
                 fileName: "/Users/puncoz/Workspace/web/projects/nepali-datepicker-reactjs/NepaliDatePicker/src/components/calendar/day-picker.tsx",
-                lineNumber: 120,
+                lineNumber: 124,
                 columnNumber: 21
               }, globalThis)
             ]
@@ -1626,38 +1626,38 @@ const ye = () => {
           !0,
           {
             fileName: "/Users/puncoz/Workspace/web/projects/nepali-datepicker-reactjs/NepaliDatePicker/src/components/calendar/day-picker.tsx",
-            lineNumber: 99,
+            lineNumber: 103,
             columnNumber: 17
           },
           globalThis
         )
       },
-      d,
+      v,
       !1,
       {
         fileName: "/Users/puncoz/Workspace/web/projects/nepali-datepicker-reactjs/NepaliDatePicker/src/components/calendar/day-picker.tsx",
-        lineNumber: 96,
+        lineNumber: 100,
         columnNumber: 15
       },
       globalThis
     );
-  }) }, m, !1, {
+  }) }, d, !1, {
     fileName: "/Users/puncoz/Workspace/web/projects/nepali-datepicker-reactjs/NepaliDatePicker/src/components/calendar/day-picker.tsx",
-    lineNumber: 91,
+    lineNumber: 95,
     columnNumber: 9
   }, globalThis)) }, void 0, !1, {
     fileName: "/Users/puncoz/Workspace/web/projects/nepali-datepicker-reactjs/NepaliDatePicker/src/components/calendar/day-picker.tsx",
-    lineNumber: 89,
+    lineNumber: 93,
     columnNumber: 5
   }, globalThis);
-}, Sn = ({ options: e, onSelect: t, value: n, title: r, className: o, dropdownClass: a }) => {
-  const [s, c] = En(!1), u = ae(() => e.find((f) => f.value === n), [n]), l = ve(() => {
+}, Tn = ({ options: e, onSelect: t, value: n, title: r, className: o, dropdownClass: a }) => {
+  const [s, c] = Er(!1), u = ae(() => e.find((f) => f.value === n), [n]), l = ve(() => {
     c((f) => !f);
   }, []), p = ve((f) => {
     c(!1), t(f.value);
   }, [t]);
-  return /* @__PURE__ */ x.jsxDEV("div", { className: "ndp-relative", children: [
-    /* @__PURE__ */ x.jsxDEV(
+  return /* @__PURE__ */ N.jsxDEV("div", { className: "ndp-relative", children: [
+    /* @__PURE__ */ N.jsxDEV(
       Ct,
       {
         onClick: l,
@@ -1675,14 +1675,14 @@ const ye = () => {
       },
       globalThis
     ),
-    s && /* @__PURE__ */ x.jsxDEV("ul", { className: `
+    s && /* @__PURE__ */ N.jsxDEV("ul", { className: `
           ndp-max-h-[12rem] ndp-shadow ndp-overflow-y-auto no-scrollbar
           ndp-absolute ndp-w-full
           ndp-bg-white dark:ndp-bg-slate-900
           ndp-top-0 ndp-z-10
           ndp-border ndp-border-gray-300 dark:ndp-border-gray-600
           ${a || ""}
-        `, children: e.map((f) => /* @__PURE__ */ x.jsxDEV(
+        `, children: e.map((f) => /* @__PURE__ */ N.jsxDEV(
       "li",
       {
         onClick: () => p(f),
@@ -1731,7 +1731,7 @@ const ye = () => {
   "chaitra"
 ], Or = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"], _r = () => {
   var c;
-  const { trans: e } = ye(), { state: t, setData: n } = fe(), r = _e(), o = ae(() => t.date.calendar || r.parseBsDate(De(/* @__PURE__ */ new Date())), [t.date.calendar]), a = ae(() => Ar.map((u, l) => ({
+  const { trans: e } = ye(), { state: t, setData: n } = ce(), r = _e(), o = ae(() => t.date.calendar || r.parseBsDate(De(/* @__PURE__ */ new Date())), [t.date.calendar]), a = ae(() => Ar.map((u, l) => ({
     label: e(`months.${u}`),
     value: l
   })), [t.options.currentLocale]), s = ve((u) => {
@@ -1740,10 +1740,10 @@ const ye = () => {
       month: u + 1,
       day: 1
     });
-    n({ type: re.SET_CALENDAR_DATE, date: r.parseBsDate(l) });
+    n({ type: Z.SET_CALENDAR_DATE, date: r.parseBsDate(l) });
   }, [o]);
-  return /* @__PURE__ */ x.jsxDEV(
-    Sn,
+  return /* @__PURE__ */ N.jsxDEV(
+    Tn,
     {
       options: a,
       value: (((c = t.date.calendar) == null ? void 0 : c.bsMonth) || 1) - 1,
@@ -1762,20 +1762,20 @@ const ye = () => {
     globalThis
   );
 }, Mr = () => {
-  const { trans: e } = ye(), { state: t, setData: n } = fe(), r = _e(), o = ae(() => t.date.calendar || r.parseBsDate(De(/* @__PURE__ */ new Date())), [t.date.calendar]), a = ve(() => {
+  const { trans: e } = ye(), { state: t, setData: n } = ce(), r = _e(), o = ae(() => t.date.calendar || r.parseBsDate(De(/* @__PURE__ */ new Date())), [t.date.calendar]), a = ve(() => {
     let s = o.bsYear, c = o.bsMonth + 1;
     if (c > 12 && (c = 1, s++), s < t.calendarData.minBsYear || s > t.calendarData.maxBsYear)
       return;
     const u = r.stitchDate({ year: s, month: c, day: 1 });
-    n({ type: re.SET_CALENDAR_DATE, date: r.parseBsDate(u) });
+    n({ type: Z.SET_CALENDAR_DATE, date: r.parseBsDate(u) });
   }, [o]);
-  return /* @__PURE__ */ x.jsxDEV(
+  return /* @__PURE__ */ N.jsxDEV(
     Nn,
     {
       title: e("labels.next"),
       onClick: () => a(),
       onKeyDown: () => a(),
-      children: /* @__PURE__ */ x.jsxDEV(Hr, { className: "ndp-w-5 ndp-h-5" }, void 0, !1, {
+      children: /* @__PURE__ */ N.jsxDEV(Hr, { className: "ndp-w-5 ndp-h-5" }, void 0, !1, {
         fileName: "/Users/puncoz/Workspace/web/projects/nepali-datepicker-reactjs/NepaliDatePicker/src/components/calendar/next-btn.tsx",
         lineNumber: 39,
         columnNumber: 7
@@ -1790,21 +1790,21 @@ const ye = () => {
     },
     globalThis
   );
-}, Ir = () => {
-  const { trans: e } = ye(), { state: t, setData: n } = fe(), r = _e(), o = ae(() => t.date.calendar || r.parseBsDate(De(/* @__PURE__ */ new Date())), [t.date.calendar]), a = ve(() => {
+}, Lr = () => {
+  const { trans: e } = ye(), { state: t, setData: n } = ce(), r = _e(), o = ae(() => t.date.calendar || r.parseBsDate(De(/* @__PURE__ */ new Date())), [t.date.calendar]), a = ve(() => {
     let s = o.bsYear, c = o.bsMonth - 1;
     if (c === 0 && (c = 12, s--), s < t.calendarData.minBsYear || s > t.calendarData.maxBsYear)
       return;
     const u = r.stitchDate({ year: s, month: c, day: 1 });
-    n({ type: re.SET_CALENDAR_DATE, date: r.parseBsDate(u) });
+    n({ type: Z.SET_CALENDAR_DATE, date: r.parseBsDate(u) });
   }, [o]);
-  return /* @__PURE__ */ x.jsxDEV(
+  return /* @__PURE__ */ N.jsxDEV(
     Nn,
     {
       title: e("labels.previous"),
       onClick: () => a(),
       onKeyDown: () => a(),
-      children: /* @__PURE__ */ x.jsxDEV(Kr, { className: "ndp-w-5 ndp-h-5" }, void 0, !1, {
+      children: /* @__PURE__ */ N.jsxDEV(Kr, { className: "ndp-w-5 ndp-h-5" }, void 0, !1, {
         fileName: "/Users/puncoz/Workspace/web/projects/nepali-datepicker-reactjs/NepaliDatePicker/src/components/calendar/previous-btn.tsx",
         lineNumber: 39,
         columnNumber: 7
@@ -1819,26 +1819,26 @@ const ye = () => {
     },
     globalThis
   );
-}, Lr = () => {
-  const { trans: e, numberTrans: t } = ye(), n = _e(), { zeroPad: r } = ze(), { state: o } = fe(), a = ae(() => n.parseBsDate(De(/* @__PURE__ */ new Date())), []), s = ve(() => {
-    o.events.onChange(a.dateString);
-  }, [a, o.events.onChange]);
-  return /* @__PURE__ */ x.jsxDEV(
+}, Ir = () => {
+  const { trans: e, numberTrans: t } = ye(), n = _e(), { zeroPad: r } = ze(), { state: o, setData: a } = ce(), s = ae(() => n.parseBsDate(De(/* @__PURE__ */ new Date())), []), c = ve(() => {
+    o.events.onChange(s.dateString), o.options.closeOnSelect && a({ type: Z.SET_CALENDAR_OPEN, isOpen: !1 });
+  }, [s, o.events.onChange, o.options.closeOnSelect]);
+  return /* @__PURE__ */ N.jsxDEV(
     Ct,
     {
       className: "ndp-font-medium ndp-border hover:ndp-text-primary ndp-group",
       title: e("labels.today"),
-      onClick: () => s(),
-      onKeyDown: () => s(),
+      onClick: () => c(),
+      onKeyDown: () => c(),
       children: [
-        /* @__PURE__ */ x.jsxDEV(qr, { date: t(r(a.bsDay)) }, void 0, !1, {
+        /* @__PURE__ */ N.jsxDEV(qr, { date: t(r(s.bsDay)) }, void 0, !1, {
           fileName: "/Users/puncoz/Workspace/web/projects/nepali-datepicker-reactjs/NepaliDatePicker/src/components/calendar/today-btn.tsx",
-          lineNumber: 24,
+          lineNumber: 29,
           columnNumber: 7
         }, globalThis),
-        /* @__PURE__ */ x.jsxDEV("span", { className: "ndp-ml-2", children: e("labels.today") }, void 0, !1, {
+        /* @__PURE__ */ N.jsxDEV("span", { className: "ndp-ml-2", children: e("labels.today") }, void 0, !1, {
           fileName: "/Users/puncoz/Workspace/web/projects/nepali-datepicker-reactjs/NepaliDatePicker/src/components/calendar/today-btn.tsx",
-          lineNumber: 25,
+          lineNumber: 30,
           columnNumber: 7
         }, globalThis)
       ]
@@ -1847,17 +1847,17 @@ const ye = () => {
     !0,
     {
       fileName: "/Users/puncoz/Workspace/web/projects/nepali-datepicker-reactjs/NepaliDatePicker/src/components/calendar/today-btn.tsx",
-      lineNumber: 20,
+      lineNumber: 25,
       columnNumber: 5
     },
     globalThis
   );
 }, Br = () => {
-  const { trans: e } = ye(), { state: t } = fe(), n = ae(() => Or.map((r, o) => ({
+  const { trans: e } = ye(), { state: t } = ce(), n = ae(() => Or.map((r, o) => ({
     label: e(`weeks.${r}`),
     value: o
   })), [t.options.currentLocale]);
-  return /* @__PURE__ */ x.jsxDEV("thead", { children: /* @__PURE__ */ x.jsxDEV("tr", { className: "ndp-border-0", children: n.map((r) => /* @__PURE__ */ x.jsxDEV(
+  return /* @__PURE__ */ N.jsxDEV("thead", { children: /* @__PURE__ */ N.jsxDEV("tr", { className: "ndp-border-0", children: n.map((r) => /* @__PURE__ */ N.jsxDEV(
     "td",
     {
       className: "ndp-border-0 ndp-h-10 ndp-w-10",
@@ -1883,7 +1883,7 @@ const ye = () => {
   }, globalThis);
 }, Vr = () => {
   var l;
-  const { state: e, setData: t } = fe(), { numberTrans: n, trans: r } = ye(), { range: o } = ze(), a = _e(), s = ae(() => e.date.calendar || a.parseBsDate(De(/* @__PURE__ */ new Date())), [e.date.calendar]), c = ae(() => o(e.calendarData.minBsYear, e.calendarData.maxBsYear).reverse().map((p) => ({
+  const { state: e, setData: t } = ce(), { numberTrans: n, trans: r } = ye(), { range: o } = ze(), a = _e(), s = ae(() => e.date.calendar || a.parseBsDate(De(/* @__PURE__ */ new Date())), [e.date.calendar]), c = ae(() => o(e.calendarData.minBsYear, e.calendarData.maxBsYear).reverse().map((p) => ({
     label: n(p),
     value: p
   })), [e.options.currentLocale]), u = ve((p) => {
@@ -1892,10 +1892,10 @@ const ye = () => {
       month: s.bsMonth,
       day: 1
     });
-    t({ type: re.SET_CALENDAR_DATE, date: a.parseBsDate(f) });
+    t({ type: Z.SET_CALENDAR_DATE, date: a.parseBsDate(f) });
   }, [s]);
-  return /* @__PURE__ */ x.jsxDEV(
-    Sn,
+  return /* @__PURE__ */ N.jsxDEV(
+    Tn,
     {
       options: c,
       value: ((l = e.date.calendar) == null ? void 0 : l.bsYear) || 0,
@@ -1913,26 +1913,26 @@ const ye = () => {
     },
     globalThis
   );
-}, Fr = () => /* @__PURE__ */ x.jsxDEV("div", { className: `
+}, Fr = () => /* @__PURE__ */ N.jsxDEV("div", { className: `
       ndp-bg-white dark:ndp-bg-slate-800
       ndp-rounded ndp-shadow ndp-box-border
       ndp-text-slate-700 dark:ndp-text-white/80 ndp-text-sm ndp-font-normal
       ndp-leading-tight -ndp-tracking-tight
       ndp-p-4
     `, children: [
-  /* @__PURE__ */ x.jsxDEV("div", { className: "ndp-flex ndp-items-center ndp-justify-between", children: [
-    /* @__PURE__ */ x.jsxDEV(Ir, {}, void 0, !1, {
+  /* @__PURE__ */ N.jsxDEV("div", { className: "ndp-flex ndp-items-center ndp-justify-between", children: [
+    /* @__PURE__ */ N.jsxDEV(Lr, {}, void 0, !1, {
       fileName: "/Users/puncoz/Workspace/web/projects/nepali-datepicker-reactjs/NepaliDatePicker/src/components/calendar/calendar.tsx",
       lineNumber: 22,
       columnNumber: 9
     }, globalThis),
-    /* @__PURE__ */ x.jsxDEV("div", { className: "ndp-flex", children: [
-      /* @__PURE__ */ x.jsxDEV(Vr, {}, void 0, !1, {
+    /* @__PURE__ */ N.jsxDEV("div", { className: "ndp-flex", children: [
+      /* @__PURE__ */ N.jsxDEV(Vr, {}, void 0, !1, {
         fileName: "/Users/puncoz/Workspace/web/projects/nepali-datepicker-reactjs/NepaliDatePicker/src/components/calendar/calendar.tsx",
         lineNumber: 24,
         columnNumber: 11
       }, globalThis),
-      /* @__PURE__ */ x.jsxDEV(_r, {}, void 0, !1, {
+      /* @__PURE__ */ N.jsxDEV(_r, {}, void 0, !1, {
         fileName: "/Users/puncoz/Workspace/web/projects/nepali-datepicker-reactjs/NepaliDatePicker/src/components/calendar/calendar.tsx",
         lineNumber: 25,
         columnNumber: 11
@@ -1942,7 +1942,7 @@ const ye = () => {
       lineNumber: 23,
       columnNumber: 9
     }, globalThis),
-    /* @__PURE__ */ x.jsxDEV(Mr, {}, void 0, !1, {
+    /* @__PURE__ */ N.jsxDEV(Mr, {}, void 0, !1, {
       fileName: "/Users/puncoz/Workspace/web/projects/nepali-datepicker-reactjs/NepaliDatePicker/src/components/calendar/calendar.tsx",
       lineNumber: 27,
       columnNumber: 9
@@ -1952,13 +1952,13 @@ const ye = () => {
     lineNumber: 21,
     columnNumber: 7
   }, globalThis),
-  /* @__PURE__ */ x.jsxDEV("table", { className: "ndp-text-center ndp-w-full ndp-border-0", children: [
-    /* @__PURE__ */ x.jsxDEV(Br, {}, void 0, !1, {
+  /* @__PURE__ */ N.jsxDEV("table", { className: "ndp-text-center ndp-w-full ndp-border-0", children: [
+    /* @__PURE__ */ N.jsxDEV(Br, {}, void 0, !1, {
       fileName: "/Users/puncoz/Workspace/web/projects/nepali-datepicker-reactjs/NepaliDatePicker/src/components/calendar/calendar.tsx",
       lineNumber: 31,
       columnNumber: 9
     }, globalThis),
-    /* @__PURE__ */ x.jsxDEV(Pr, {}, void 0, !1, {
+    /* @__PURE__ */ N.jsxDEV(Pr, {}, void 0, !1, {
       fileName: "/Users/puncoz/Workspace/web/projects/nepali-datepicker-reactjs/NepaliDatePicker/src/components/calendar/calendar.tsx",
       lineNumber: 32,
       columnNumber: 9
@@ -1968,13 +1968,13 @@ const ye = () => {
     lineNumber: 30,
     columnNumber: 7
   }, globalThis),
-  /* @__PURE__ */ x.jsxDEV("div", { className: "ndp-flex ndp-justify-between ndp-border-t ndp-border-gray-100 dark:ndp-border-gray-700 ndp-pt-2", children: [
-    /* @__PURE__ */ x.jsxDEV(Lr, {}, void 0, !1, {
+  /* @__PURE__ */ N.jsxDEV("div", { className: "ndp-flex ndp-justify-between ndp-border-t ndp-border-gray-100 dark:ndp-border-gray-700 ndp-pt-2", children: [
+    /* @__PURE__ */ N.jsxDEV(Ir, {}, void 0, !1, {
       fileName: "/Users/puncoz/Workspace/web/projects/nepali-datepicker-reactjs/NepaliDatePicker/src/components/calendar/calendar.tsx",
       lineNumber: 36,
       columnNumber: 9
     }, globalThis),
-    /* @__PURE__ */ x.jsxDEV(Cr, {}, void 0, !1, {
+    /* @__PURE__ */ N.jsxDEV(Cr, {}, void 0, !1, {
       fileName: "/Users/puncoz/Workspace/web/projects/nepali-datepicker-reactjs/NepaliDatePicker/src/components/calendar/calendar.tsx",
       lineNumber: 37,
       columnNumber: 9
@@ -2029,6 +2029,7 @@ const ye = () => {
     calendar: Ue.NEPALI,
     value: Ue.NEPALI
   },
+  isCalendarOpen: !1,
   options: {
     colors: {
       primary: "#2096f5",
@@ -2036,7 +2037,8 @@ const ye = () => {
     },
     dateSeparator: "-",
     currentLocale: Ue.NEPALI,
-    valueLocale: Ue.ENGLISH
+    valueLocale: Ue.ENGLISH,
+    closeOnSelect: !0
   },
   calendarData: {
     minBsYear: 1970,
@@ -2048,17 +2050,17 @@ const ye = () => {
     calendar: void 0,
     selected: void 0
   }
-}, Yr = (e = Pt, t) => t.type === re.SET_VALUE ? { ...e, value: t.value } : t.type === re.SET_CLASSES ? { ...e, classNames: t.classNames } : t.type === re.SET_THEME ? { ...e, theme: t.theme } : t.type === re.SET_EVENTS ? { ...e, events: t.events } : t.type === re.SET_OPTIONS ? { ...e, options: t.options } : t.type === re.SET_CALENDAR_DATE ? { ...e, date: { ...e.date, calendar: t.date } } : t.type === re.SET_SELECTED_DATE ? { ...e, date: { ...e.date, selected: t.date } } : e, Rn = Dr({
+}, Yr = (e = Pt, t) => t.type === Z.SET_CALENDAR_OPEN ? { ...e, isCalendarOpen: t.isOpen } : t.type === Z.SET_VALUE ? { ...e, value: t.value } : t.type === Z.SET_CLASSES ? { ...e, classNames: t.classNames } : t.type === Z.SET_THEME ? { ...e, theme: t.theme } : t.type === Z.SET_EVENTS ? { ...e, events: t.events } : t.type === Z.SET_OPTIONS ? { ...e, options: t.options } : t.type === Z.SET_CALENDAR_DATE ? { ...e, date: { ...e.date, calendar: t.date } } : t.type === Z.SET_SELECTED_DATE ? { ...e, date: { ...e.date, selected: t.date } } : e, Sn = Dr({
   state: Pt,
   dispatch: () => null
 }), $r = ({ children: e }) => {
-  const [t, n] = xr(Yr, Pt);
-  return /* @__PURE__ */ x.jsxDEV(Rn.Provider, { value: { state: t, dispatch: n }, children: e }, void 0, !1, {
+  const [t, n] = Nr(Yr, Pt);
+  return /* @__PURE__ */ N.jsxDEV(Sn.Provider, { value: { state: t, dispatch: n }, children: e }, void 0, !1, {
     fileName: "/Users/puncoz/Workspace/web/projects/nepali-datepicker-reactjs/NepaliDatePicker/src/components/data/provider.tsx",
     lineNumber: 22,
     columnNumber: 5
   }, globalThis);
-}, zr = ({ className: e }) => /* @__PURE__ */ x.jsxDEV(
+}, zr = ({ className: e }) => /* @__PURE__ */ N.jsxDEV(
   "svg",
   {
     xmlns: "http://www.w3.org/2000/svg",
@@ -2067,7 +2069,7 @@ const ye = () => {
     strokeWidth: "1.5",
     stroke: "currentColor",
     className: e || "",
-    children: /* @__PURE__ */ x.jsxDEV("path", { strokeLinecap: "round", strokeLinejoin: "round", d: "M6 18L18 6M6 6l12 12" }, void 0, !1, {
+    children: /* @__PURE__ */ N.jsxDEV("path", { strokeLinecap: "round", strokeLinejoin: "round", d: "M6 18L18 6M6 6l12 12" }, void 0, !1, {
       fileName: "/Users/puncoz/Workspace/web/projects/nepali-datepicker-reactjs/NepaliDatePicker/src/components/icons/cross-icon.tsx",
       lineNumber: 15,
       columnNumber: 5
@@ -2081,7 +2083,7 @@ const ye = () => {
     columnNumber: 3
   },
   globalThis
-), Kr = ({ className: e }) => /* @__PURE__ */ x.jsxDEV(
+), Kr = ({ className: e }) => /* @__PURE__ */ N.jsxDEV(
   "svg",
   {
     xmlns: "http://www.w3.org/2000/svg",
@@ -2090,7 +2092,7 @@ const ye = () => {
     strokeWidth: "1.5",
     stroke: "currentColor",
     className: e || "",
-    children: /* @__PURE__ */ x.jsxDEV("path", { strokeLinecap: "round", strokeLinejoin: "round", d: "M15.75 19.5L8.25 12l7.5-7.5" }, void 0, !1, {
+    children: /* @__PURE__ */ N.jsxDEV("path", { strokeLinecap: "round", strokeLinejoin: "round", d: "M15.75 19.5L8.25 12l7.5-7.5" }, void 0, !1, {
       fileName: "/Users/puncoz/Workspace/web/projects/nepali-datepicker-reactjs/NepaliDatePicker/src/components/icons/left-arrow.tsx",
       lineNumber: 15,
       columnNumber: 5
@@ -2104,7 +2106,7 @@ const ye = () => {
     columnNumber: 3
   },
   globalThis
-), Hr = ({ className: e }) => /* @__PURE__ */ x.jsxDEV(
+), Hr = ({ className: e }) => /* @__PURE__ */ N.jsxDEV(
   "svg",
   {
     xmlns: "http://www.w3.org/2000/svg",
@@ -2113,7 +2115,7 @@ const ye = () => {
     strokeWidth: "1.5",
     stroke: "currentColor",
     className: e || "",
-    children: /* @__PURE__ */ x.jsxDEV("path", { strokeLinecap: "round", strokeLinejoin: "round", d: "M8.25 4.5l7.5 7.5-7.5 7.5" }, void 0, !1, {
+    children: /* @__PURE__ */ N.jsxDEV("path", { strokeLinecap: "round", strokeLinejoin: "round", d: "M8.25 4.5l7.5 7.5-7.5 7.5" }, void 0, !1, {
       fileName: "/Users/puncoz/Workspace/web/projects/nepali-datepicker-reactjs/NepaliDatePicker/src/components/icons/right-arrow.tsx",
       lineNumber: 15,
       columnNumber: 5
@@ -2127,7 +2129,7 @@ const ye = () => {
     columnNumber: 3
   },
   globalThis
-), qr = ({ date: e, className: t }) => /* @__PURE__ */ x.jsxDEV("span", { className: `
+), qr = ({ date: e, className: t }) => /* @__PURE__ */ N.jsxDEV("span", { className: `
       ndp-border ndp-border-gray-200 dark:ndp-border-slate-700
       ndp-px-1 ndp-py-0.5 ndp-text-xs
       ndp-text-gray-400 ndp-inset-2 ndp-rounded-full
@@ -2146,8 +2148,8 @@ const ye = () => {
   "onSelect",
   "options"
 ], Xr = (e) => {
-  const { state: t } = fe(), { numberTrans: n } = ye(), { omitKeys: r } = ze(), o = r([...Gr, "type", "readOnly"], e);
-  return /* @__PURE__ */ x.jsxDEV(
+  const { state: t } = ce(), { numberTrans: n } = ye(), { omitKeys: r } = ze(), o = r([...Gr, "type", "readOnly"], e);
+  return /* @__PURE__ */ N.jsxDEV(
     "input",
     {
       type: "text",
@@ -2245,28 +2247,28 @@ const ye = () => {
   en: Jr,
   ne: Zr
 };
-function xe(e) {
-  return jn(e) ? (e.nodeName || "").toLowerCase() : "#document";
+function Ne(e) {
+  return Rn(e) ? (e.nodeName || "").toLowerCase() : "#document";
 }
-function ue(e) {
+function de(e) {
   var t;
   return (e == null || (t = e.ownerDocument) == null ? void 0 : t.defaultView) || window;
 }
 function we(e) {
   var t;
-  return (t = (jn(e) ? e.ownerDocument : e.document) || window.document) == null ? void 0 : t.documentElement;
+  return (t = (Rn(e) ? e.ownerDocument : e.document) || window.document) == null ? void 0 : t.documentElement;
 }
-function jn(e) {
-  return e instanceof Node || e instanceof ue(e).Node;
+function Rn(e) {
+  return e instanceof Node || e instanceof de(e).Node;
 }
-function ne(e) {
-  return e instanceof Element || e instanceof ue(e).Element;
+function re(e) {
+  return e instanceof Element || e instanceof de(e).Element;
 }
 function se(e) {
-  return e instanceof HTMLElement || e instanceof ue(e).HTMLElement;
+  return e instanceof HTMLElement || e instanceof de(e).HTMLElement;
 }
 function St(e) {
-  return typeof ShadowRoot > "u" ? !1 : e instanceof ShadowRoot || e instanceof ue(e).ShadowRoot;
+  return typeof ShadowRoot > "u" ? !1 : e instanceof ShadowRoot || e instanceof de(e).ShadowRoot;
 }
 function Xe(e) {
   const {
@@ -2274,14 +2276,14 @@ function Xe(e) {
     overflowX: n,
     overflowY: r,
     display: o
-  } = de(e);
+  } = fe(e);
   return /auto|scroll|overlay|hidden|clip/.test(t + r + n) && !["inline", "contents"].includes(o);
 }
 function eo(e) {
-  return ["table", "td", "th"].includes(xe(e));
+  return ["table", "td", "th"].includes(Ne(e));
 }
 function At(e) {
-  const t = Ot(), n = de(e);
+  const t = Ot(), n = fe(e);
   return n.transform !== "none" || n.perspective !== "none" || (n.containerType ? n.containerType !== "normal" : !1) || !t && (n.backdropFilter ? n.backdropFilter !== "none" : !1) || !t && (n.filter ? n.filter !== "none" : !1) || ["transform", "perspective", "filter"].some((r) => (n.willChange || "").includes(r)) || ["paint", "layout", "strict", "content"].some((r) => (n.contain || "").includes(r));
 }
 function to(e) {
@@ -2297,13 +2299,13 @@ function Ot() {
   return typeof CSS > "u" || !CSS.supports ? !1 : CSS.supports("-webkit-backdrop-filter", "none");
 }
 function Je(e) {
-  return ["html", "body", "#document"].includes(xe(e));
+  return ["html", "body", "#document"].includes(Ne(e));
 }
-function de(e) {
-  return ue(e).getComputedStyle(e);
+function fe(e) {
+  return de(e).getComputedStyle(e);
 }
 function pt(e) {
-  return ne(e) ? {
+  return re(e) ? {
     scrollLeft: e.scrollLeft,
     scrollTop: e.scrollTop
   } : {
@@ -2312,7 +2314,7 @@ function pt(e) {
   };
 }
 function Ae(e) {
-  if (xe(e) === "html")
+  if (Ne(e) === "html")
     return e;
   const t = (
     // Step into the shadow DOM of the parent of a slotted node.
@@ -2323,14 +2325,14 @@ function Ae(e) {
   );
   return St(t) ? t.host : t;
 }
-function Cn(e) {
+function jn(e) {
   const t = Ae(e);
-  return Je(t) ? e.ownerDocument ? e.ownerDocument.body : e.body : se(t) && Xe(t) ? t : Cn(t);
+  return Je(t) ? e.ownerDocument ? e.ownerDocument.body : e.body : se(t) && Xe(t) ? t : jn(t);
 }
 function Ee(e, t, n) {
   var r;
   t === void 0 && (t = []), n === void 0 && (n = !0);
-  const o = Cn(e), a = o === ((r = e.ownerDocument) == null ? void 0 : r.body), s = ue(o);
+  const o = jn(e), a = o === ((r = e.ownerDocument) == null ? void 0 : r.body), s = de(o);
   return a ? t.concat(s, s.visualViewport || [], Xe(o) ? o : [], s.frameElement && n ? Ee(s.frameElement) : []) : t.concat(o, Ee(o, [], n));
 }
 function Ve(e) {
@@ -2341,7 +2343,7 @@ function Ve(e) {
   }
   return t;
 }
-function le(e, t) {
+function ue(e, t) {
   if (!e || !t)
     return !1;
   const n = t.getRootNode && t.getRootNode();
@@ -2372,16 +2374,16 @@ function ro() {
   }).join(" ") : navigator.userAgent;
 }
 function oo(e) {
-  return e.mozInputSource === 0 && e.isTrusted ? !0 : Pn() && e.pointerType ? e.type === "click" && e.buttons === 1 : e.detail === 0 && !e.pointerType;
+  return e.mozInputSource === 0 && e.isTrusted ? !0 : Cn() && e.pointerType ? e.type === "click" && e.buttons === 1 : e.detail === 0 && !e.pointerType;
 }
 function ao(e) {
-  return !Pn() && e.width === 0 && e.height === 0 || e.width === 1 && e.height === 1 && e.pressure === 0 && e.detail === 0 && e.pointerType === "mouse" || // iOS VoiceOver returns 0.333• for width/height.
+  return !Cn() && e.width === 0 && e.height === 0 || e.width === 1 && e.height === 1 && e.pressure === 0 && e.detail === 0 && e.pointerType === "mouse" || // iOS VoiceOver returns 0.333• for width/height.
   e.width < 1 && e.height < 1 && e.pressure === 0 && e.detail === 0;
 }
 function so() {
   return /apple/i.test(navigator.vendor);
 }
-function Pn() {
+function Cn() {
   const e = /android/i;
   return e.test(no()) || e.test(ro());
 }
@@ -2410,20 +2412,20 @@ function Fe(e) {
   return "composedPath" in e ? e.composedPath()[0] : e.target;
 }
 const lo = "input:not([type='hidden']):not([disabled]),[contenteditable]:not([contenteditable='false']),textarea:not([disabled])";
-function An(e) {
+function Pn(e) {
   return se(e) && e.matches(lo);
 }
 function Et(e) {
   e.preventDefault(), e.stopPropagation();
 }
-const $e = Math.min, Pe = Math.max, ct = Math.round, rt = Math.floor, Ne = (e) => ({
+const $e = Math.min, Pe = Math.max, ct = Math.round, rt = Math.floor, xe = (e) => ({
   x: e,
   y: e
 });
 function uo(e, t, n) {
   return Pe(e, $e(t, n));
 }
-function On(e, t) {
+function An(e, t) {
   return typeof e == "function" ? e(t) : e;
 }
 function _t(e) {
@@ -2435,14 +2437,14 @@ function Mt(e) {
 function fo(e) {
   return e === "x" ? "y" : "x";
 }
-function _n(e) {
+function On(e) {
   return e === "y" ? "height" : "width";
 }
-function It(e) {
+function Lt(e) {
   return ["top", "bottom"].includes(_t(e)) ? "y" : "x";
 }
-function Mn(e) {
-  return fo(It(e));
+function _n(e) {
+  return fo(Lt(e));
 }
 function po(e) {
   return {
@@ -2461,7 +2463,7 @@ function mo(e) {
     left: e
   };
 }
-function In(e) {
+function Mn(e) {
   return {
     ...e,
     top: e.y,
@@ -2475,7 +2477,7 @@ function nn(e, t, n) {
     reference: r,
     floating: o
   } = e;
-  const a = It(t), s = Mn(t), c = _n(s), u = _t(t), l = a === "y", p = r.x + r.width / 2 - o.width / 2, f = r.y + r.height / 2 - o.height / 2, m = r[c] / 2 - o[c] / 2;
+  const a = Lt(t), s = _n(t), c = On(s), u = _t(t), l = a === "y", p = r.x + r.width / 2 - o.width / 2, f = r.y + r.height / 2 - o.height / 2, h = r[c] / 2 - o[c] / 2;
   let d;
   switch (u) {
     case "top":
@@ -2510,10 +2512,10 @@ function nn(e, t, n) {
   }
   switch (Mt(t)) {
     case "start":
-      d[s] -= m * (n && l ? -1 : 1);
+      d[s] -= h * (n && l ? -1 : 1);
       break;
     case "end":
-      d[s] += m * (n && l ? -1 : 1);
+      d[s] += h * (n && l ? -1 : 1);
       break;
   }
   return d;
@@ -2532,21 +2534,21 @@ const ho = async (e, t, n) => {
   }), {
     x: p,
     y: f
-  } = nn(l, r, u), m = r, d = {}, h = 0;
-  for (let D = 0; D < c.length; D++) {
+  } = nn(l, r, u), h = r, d = {}, v = 0;
+  for (let y = 0; y < c.length; y++) {
     const {
       name: k,
-      fn: y
-    } = c[D], {
-      x: v,
+      fn: w
+    } = c[y], {
+      x: b,
       y: C,
       data: S,
-      reset: N
-    } = await y({
+      reset: x
+    } = await w({
       x: p,
       y: f,
       initialPlacement: r,
-      placement: m,
+      placement: h,
       strategy: o,
       middlewareData: d,
       rects: l,
@@ -2556,28 +2558,28 @@ const ho = async (e, t, n) => {
         floating: t
       }
     });
-    if (p = v ?? p, f = C ?? f, d = {
+    if (p = b ?? p, f = C ?? f, d = {
       ...d,
       [k]: {
         ...d[k],
         ...S
       }
-    }, N && h <= 50) {
-      h++, typeof N == "object" && (N.placement && (m = N.placement), N.rects && (l = N.rects === !0 ? await s.getElementRects({
+    }, x && v <= 50) {
+      v++, typeof x == "object" && (x.placement && (h = x.placement), x.rects && (l = x.rects === !0 ? await s.getElementRects({
         reference: e,
         floating: t,
         strategy: o
-      }) : N.rects), {
+      }) : x.rects), {
         x: p,
         y: f
-      } = nn(l, m, u)), D = -1;
+      } = nn(l, h, u)), y = -1;
       continue;
     }
   }
   return {
     x: p,
     y: f,
-    placement: m,
+    placement: h,
     strategy: o,
     middlewareData: d
   };
@@ -2596,18 +2598,18 @@ const ho = async (e, t, n) => {
     } = t, {
       element: l,
       padding: p = 0
-    } = On(e, t) || {};
+    } = An(e, t) || {};
     if (l == null)
       return {};
-    const f = mo(p), m = {
+    const f = mo(p), h = {
       x: n,
       y: r
-    }, d = Mn(o), h = _n(d), D = await s.getDimensions(l), k = d === "y", y = k ? "top" : "left", v = k ? "bottom" : "right", C = k ? "clientHeight" : "clientWidth", S = a.reference[h] + a.reference[d] - m[d] - a.floating[h], N = m[d] - a.reference[d], A = await (s.getOffsetParent == null ? void 0 : s.getOffsetParent(l));
-    let E = A ? A[C] : 0;
-    (!E || !await (s.isElement == null ? void 0 : s.isElement(A))) && (E = c.floating[C] || a.floating[h]);
-    const K = S / 2 - N / 2, G = E / 2 - D[h] / 2 - 1, X = $e(f[y], G), R = $e(f[v], G), Z = X, $ = E - D[h] - R, _ = E / 2 - D[h] / 2 + K, J = uo(Z, _, $), U = !u.arrow && Mt(o) != null && _ != J && a.reference[h] / 2 - (_ < Z ? X : R) - D[h] / 2 < 0, j = U ? _ < Z ? _ - Z : _ - $ : 0;
+    }, d = _n(o), v = On(d), y = await s.getDimensions(l), k = d === "y", w = k ? "top" : "left", b = k ? "bottom" : "right", C = k ? "clientHeight" : "clientWidth", S = a.reference[v] + a.reference[d] - h[d] - a.floating[v], x = h[d] - a.reference[d], P = await (s.getOffsetParent == null ? void 0 : s.getOffsetParent(l));
+    let D = P ? P[C] : 0;
+    (!D || !await (s.isElement == null ? void 0 : s.isElement(P))) && (D = c.floating[C] || a.floating[v]);
+    const K = S / 2 - x / 2, G = D / 2 - y[v] / 2 - 1, X = $e(f[w], G), R = $e(f[b], G), Q = X, $ = D - y[v] - R, _ = D / 2 - y[v] / 2 + K, J = uo(Q, _, $), U = !u.arrow && Mt(o) != null && _ != J && a.reference[v] / 2 - (_ < Q ? X : R) - y[v] / 2 < 0, j = U ? _ < Q ? _ - Q : _ - $ : 0;
     return {
-      [d]: m[d] + j,
+      [d]: h[d] + j,
       data: {
         [d]: J,
         centerOffset: _ - J - j,
@@ -2624,11 +2626,11 @@ async function bo(e, t) {
     placement: n,
     platform: r,
     elements: o
-  } = e, a = await (r.isRTL == null ? void 0 : r.isRTL(o.floating)), s = _t(n), c = Mt(n), u = It(n) === "y", l = ["left", "top"].includes(s) ? -1 : 1, p = a && u ? -1 : 1, f = On(t, e);
+  } = e, a = await (r.isRTL == null ? void 0 : r.isRTL(o.floating)), s = _t(n), c = Mt(n), u = Lt(n) === "y", l = ["left", "top"].includes(s) ? -1 : 1, p = a && u ? -1 : 1, f = An(t, e);
   let {
-    mainAxis: m,
+    mainAxis: h,
     crossAxis: d,
-    alignmentAxis: h
+    alignmentAxis: v
   } = typeof f == "number" ? {
     mainAxis: f,
     crossAxis: 0,
@@ -2639,11 +2641,11 @@ async function bo(e, t) {
     alignmentAxis: null,
     ...f
   };
-  return c && typeof h == "number" && (d = c === "end" ? h * -1 : h), u ? {
+  return c && typeof v == "number" && (d = c === "end" ? v * -1 : v), u ? {
     x: d * p,
-    y: m * l
+    y: h * l
   } : {
-    x: m * l,
+    x: h * l,
     y: d * p
   };
 }
@@ -2665,7 +2667,7 @@ const vo = function(e) {
   };
 };
 function Ln(e) {
-  const t = de(e);
+  const t = fe(e);
   let n = parseFloat(t.width) || 0, r = parseFloat(t.height) || 0;
   const o = se(e), a = o ? e.offsetWidth : n, s = o ? e.offsetHeight : r, c = ct(n) !== a || ct(r) !== s;
   return c && (n = a, r = s), {
@@ -2674,13 +2676,13 @@ function Ln(e) {
     $: c
   };
 }
-function Lt(e) {
-  return ne(e) ? e : e.contextElement;
+function It(e) {
+  return re(e) ? e : e.contextElement;
 }
 function Ye(e) {
-  const t = Lt(e);
+  const t = It(e);
   if (!se(t))
-    return Ne(1);
+    return xe(1);
   const n = t.getBoundingClientRect(), {
     width: r,
     height: o,
@@ -2692,33 +2694,33 @@ function Ye(e) {
     y: c
   };
 }
-const go = /* @__PURE__ */ Ne(0);
-function Bn(e) {
-  const t = ue(e);
+const go = /* @__PURE__ */ xe(0);
+function In(e) {
+  const t = de(e);
   return !Ot() || !t.visualViewport ? go : {
     x: t.visualViewport.offsetLeft,
     y: t.visualViewport.offsetTop
   };
 }
 function yo(e, t, n) {
-  return t === void 0 && (t = !1), !n || t && n !== ue(e) ? !1 : t;
+  return t === void 0 && (t = !1), !n || t && n !== de(e) ? !1 : t;
 }
 function Oe(e, t, n, r) {
   t === void 0 && (t = !1), n === void 0 && (n = !1);
-  const o = e.getBoundingClientRect(), a = Lt(e);
-  let s = Ne(1);
-  t && (r ? ne(r) && (s = Ye(r)) : s = Ye(e));
-  const c = yo(a, n, r) ? Bn(a) : Ne(0);
+  const o = e.getBoundingClientRect(), a = It(e);
+  let s = xe(1);
+  t && (r ? re(r) && (s = Ye(r)) : s = Ye(e));
+  const c = yo(a, n, r) ? In(a) : xe(0);
   let u = (o.left + c.x) / s.x, l = (o.top + c.y) / s.y, p = o.width / s.x, f = o.height / s.y;
   if (a) {
-    const m = ue(a), d = r && ne(r) ? ue(r) : r;
-    let h = m.frameElement;
-    for (; h && r && d !== m; ) {
-      const D = Ye(h), k = h.getBoundingClientRect(), y = de(h), v = k.left + (h.clientLeft + parseFloat(y.paddingLeft)) * D.x, C = k.top + (h.clientTop + parseFloat(y.paddingTop)) * D.y;
-      u *= D.x, l *= D.y, p *= D.x, f *= D.y, u += v, l += C, h = ue(h).frameElement;
+    const h = de(a), d = r && re(r) ? de(r) : r;
+    let v = h.frameElement;
+    for (; v && r && d !== h; ) {
+      const y = Ye(v), k = v.getBoundingClientRect(), w = fe(v), b = k.left + (v.clientLeft + parseFloat(w.paddingLeft)) * y.x, C = k.top + (v.clientTop + parseFloat(w.paddingTop)) * y.y;
+      u *= y.x, l *= y.y, p *= y.x, f *= y.y, u += b, l += C, v = de(v).frameElement;
     }
   }
-  return In({
+  return Mn({
     width: p,
     height: f,
     x: u,
@@ -2737,9 +2739,9 @@ function wo(e) {
   let s = {
     scrollLeft: 0,
     scrollTop: 0
-  }, c = Ne(1);
-  const u = Ne(0);
-  if ((o || !o && r !== "fixed") && ((xe(n) !== "body" || Xe(a)) && (s = pt(n)), se(n))) {
+  }, c = xe(1);
+  const u = xe(0);
+  if ((o || !o && r !== "fixed") && ((Ne(n) !== "body" || Xe(a)) && (s = pt(n)), se(n))) {
     const l = Oe(n);
     c = Ye(n), u.x = l.x + n.clientLeft, u.y = l.y + n.clientTop;
   }
@@ -2753,22 +2755,22 @@ function wo(e) {
 function Eo(e) {
   return Array.from(e.getClientRects());
 }
-function Vn(e) {
+function Bn(e) {
   return Oe(we(e)).left + pt(e).scrollLeft;
 }
 function Do(e) {
   const t = we(e), n = pt(e), r = e.ownerDocument.body, o = Pe(t.scrollWidth, t.clientWidth, r.scrollWidth, r.clientWidth), a = Pe(t.scrollHeight, t.clientHeight, r.scrollHeight, r.clientHeight);
-  let s = -n.scrollLeft + Vn(e);
+  let s = -n.scrollLeft + Bn(e);
   const c = -n.scrollTop;
-  return de(r).direction === "rtl" && (s += Pe(t.clientWidth, r.clientWidth) - o), {
+  return fe(r).direction === "rtl" && (s += Pe(t.clientWidth, r.clientWidth) - o), {
     width: o,
     height: a,
     x: s,
     y: c
   };
 }
-function xo(e, t) {
-  const n = ue(e), r = we(e), o = n.visualViewport;
+function No(e, t) {
+  const n = de(e), r = we(e), o = n.visualViewport;
   let a = r.clientWidth, s = r.clientHeight, c = 0, u = 0;
   if (o) {
     a = o.width, s = o.height;
@@ -2782,8 +2784,8 @@ function xo(e, t) {
     y: u
   };
 }
-function No(e, t) {
-  const n = Oe(e, !0, t === "fixed"), r = n.top + e.clientTop, o = n.left + e.clientLeft, a = se(e) ? Ye(e) : Ne(1), s = e.clientWidth * a.x, c = e.clientHeight * a.y, u = o * a.x, l = r * a.y;
+function xo(e, t) {
+  const n = Oe(e, !0, t === "fixed"), r = n.top + e.clientTop, o = n.left + e.clientLeft, a = se(e) ? Ye(e) : xe(1), s = e.clientWidth * a.x, c = e.clientHeight * a.y, u = o * a.x, l = r * a.y;
   return {
     width: s,
     height: c,
@@ -2794,35 +2796,35 @@ function No(e, t) {
 function on(e, t, n) {
   let r;
   if (t === "viewport")
-    r = xo(e, n);
+    r = No(e, n);
   else if (t === "document")
     r = Do(we(e));
-  else if (ne(t))
-    r = No(t, n);
+  else if (re(t))
+    r = xo(t, n);
   else {
-    const o = Bn(e);
+    const o = In(e);
     r = {
       ...t,
       x: t.x - o.x,
       y: t.y - o.y
     };
   }
-  return In(r);
+  return Mn(r);
 }
-function Fn(e, t) {
+function Vn(e, t) {
   const n = Ae(e);
-  return n === t || !ne(n) || Je(n) ? !1 : de(n).position === "fixed" || Fn(n, t);
+  return n === t || !re(n) || Je(n) ? !1 : fe(n).position === "fixed" || Vn(n, t);
 }
 function ko(e, t) {
   const n = t.get(e);
   if (n)
     return n;
-  let r = Ee(e, [], !1).filter((c) => ne(c) && xe(c) !== "body"), o = null;
-  const a = de(e).position === "fixed";
+  let r = Ee(e, [], !1).filter((c) => re(c) && Ne(c) !== "body"), o = null;
+  const a = fe(e).position === "fixed";
   let s = a ? Ae(e) : e;
-  for (; ne(s) && !Je(s); ) {
-    const c = de(s), u = At(s);
-    !u && c.position === "fixed" && (o = null), (a ? !u && !o : !u && c.position === "static" && !!o && ["absolute", "fixed"].includes(o.position) || Xe(s) && !u && Fn(e, s)) ? r = r.filter((p) => p !== s) : o = c, s = Ae(s);
+  for (; re(s) && !Je(s); ) {
+    const c = fe(s), u = At(s);
+    !u && c.position === "fixed" && (o = null), (a ? !u && !o : !u && c.position === "static" && !!o && ["absolute", "fixed"].includes(o.position) || Xe(s) && !u && Vn(e, s)) ? r = r.filter((p) => p !== s) : o = c, s = Ae(s);
   }
   return t.set(e, r), r;
 }
@@ -2853,13 +2855,13 @@ function Ro(e, t, n) {
     scrollLeft: 0,
     scrollTop: 0
   };
-  const u = Ne(0);
+  const u = xe(0);
   if (r || !r && !a)
-    if ((xe(t) !== "body" || Xe(o)) && (c = pt(t)), r) {
+    if ((Ne(t) !== "body" || Xe(o)) && (c = pt(t)), r) {
       const l = Oe(t, !0, a, t);
       u.x = l.x + t.clientLeft, u.y = l.y + t.clientTop;
     } else
-      o && (u.x = Vn(o));
+      o && (u.x = Bn(o));
   return {
     x: s.left + c.scrollLeft - u.x,
     y: s.top + c.scrollTop - u.y,
@@ -2868,16 +2870,16 @@ function Ro(e, t, n) {
   };
 }
 function an(e, t) {
-  return !se(e) || de(e).position === "fixed" ? null : t ? t(e) : e.offsetParent;
+  return !se(e) || fe(e).position === "fixed" ? null : t ? t(e) : e.offsetParent;
 }
-function Wn(e, t) {
-  const n = ue(e);
+function Fn(e, t) {
+  const n = de(e);
   if (!se(e))
     return n;
   let r = an(e, t);
-  for (; r && eo(r) && de(r).position === "static"; )
+  for (; r && eo(r) && fe(r).position === "static"; )
     r = an(r, t);
-  return r && (xe(r) === "html" || xe(r) === "body" && de(r).position === "static" && !At(r)) ? n : r || to(e) || n;
+  return r && (Ne(r) === "html" || Ne(r) === "body" && fe(r).position === "static" && !At(r)) ? n : r || to(e) || n;
 }
 const jo = async function(e) {
   let {
@@ -2885,7 +2887,7 @@ const jo = async function(e) {
     floating: n,
     strategy: r
   } = e;
-  const o = this.getOffsetParent || Wn, a = this.getDimensions;
+  const o = this.getOffsetParent || Fn, a = this.getDimensions;
   return {
     reference: Ro(t, await o(n), r),
     floating: {
@@ -2896,18 +2898,18 @@ const jo = async function(e) {
   };
 };
 function Co(e) {
-  return de(e).direction === "rtl";
+  return fe(e).direction === "rtl";
 }
-const Un = {
+const Wn = {
   convertOffsetParentRelativeRectToViewportRelativeRect: wo,
   getDocumentElement: we,
   getClippingRect: To,
-  getOffsetParent: Wn,
+  getOffsetParent: Fn,
   getElementRects: jo,
   getClientRects: Eo,
   getDimensions: So,
   getScale: Ye,
-  isElement: ne,
+  isElement: re,
   isRTL: Co
 };
 function Po(e, t) {
@@ -2922,21 +2924,21 @@ function Po(e, t) {
       left: l,
       top: p,
       width: f,
-      height: m
+      height: h
     } = e.getBoundingClientRect();
-    if (c || t(), !f || !m)
+    if (c || t(), !f || !h)
       return;
-    const d = rt(p), h = rt(o.clientWidth - (l + f)), D = rt(o.clientHeight - (p + m)), k = rt(l), v = {
-      rootMargin: -d + "px " + -h + "px " + -D + "px " + -k + "px",
+    const d = rt(p), v = rt(o.clientWidth - (l + f)), y = rt(o.clientHeight - (p + h)), k = rt(l), b = {
+      rootMargin: -d + "px " + -v + "px " + -y + "px " + -k + "px",
       threshold: Pe(0, $e(1, u)) || 1
     };
     let C = !0;
-    function S(N) {
-      const A = N[0].intersectionRatio;
-      if (A !== u) {
+    function S(x) {
+      const P = x[0].intersectionRatio;
+      if (P !== u) {
         if (!C)
           return s();
-        A ? s(!1, A) : r = setTimeout(() => {
+        P ? s(!1, P) : r = setTimeout(() => {
           s(!1, 1e-7);
         }, 100);
       }
@@ -2944,12 +2946,12 @@ function Po(e, t) {
     }
     try {
       n = new IntersectionObserver(S, {
-        ...v,
+        ...b,
         // Handle <iframe>s
         root: o.ownerDocument
       });
     } catch {
-      n = new IntersectionObserver(S, v);
+      n = new IntersectionObserver(S, b);
     }
     n.observe(e);
   }
@@ -2963,35 +2965,35 @@ function Ao(e, t, n, r) {
     elementResize: s = typeof ResizeObserver == "function",
     layoutShift: c = typeof IntersectionObserver == "function",
     animationFrame: u = !1
-  } = r, l = Lt(e), p = o || a ? [...l ? Ee(l) : [], ...Ee(t)] : [];
-  p.forEach((y) => {
-    o && y.addEventListener("scroll", n, {
+  } = r, l = It(e), p = o || a ? [...l ? Ee(l) : [], ...Ee(t)] : [];
+  p.forEach((w) => {
+    o && w.addEventListener("scroll", n, {
       passive: !0
-    }), a && y.addEventListener("resize", n);
+    }), a && w.addEventListener("resize", n);
   });
   const f = l && c ? Po(l, n) : null;
-  let m = -1, d = null;
-  s && (d = new ResizeObserver((y) => {
-    let [v] = y;
-    v && v.target === l && d && (d.unobserve(t), cancelAnimationFrame(m), m = requestAnimationFrame(() => {
+  let h = -1, d = null;
+  s && (d = new ResizeObserver((w) => {
+    let [b] = w;
+    b && b.target === l && d && (d.unobserve(t), cancelAnimationFrame(h), h = requestAnimationFrame(() => {
       d && d.observe(t);
     })), n();
   }), l && !u && d.observe(l), d.observe(t));
-  let h, D = u ? Oe(e) : null;
+  let v, y = u ? Oe(e) : null;
   u && k();
   function k() {
-    const y = Oe(e);
-    D && (y.x !== D.x || y.y !== D.y || y.width !== D.width || y.height !== D.height) && n(), D = y, h = requestAnimationFrame(k);
+    const w = Oe(e);
+    y && (w.x !== y.x || w.y !== y.y || w.width !== y.width || w.height !== y.height) && n(), y = w, v = requestAnimationFrame(k);
   }
   return n(), () => {
-    p.forEach((y) => {
-      o && y.removeEventListener("scroll", n), a && y.removeEventListener("resize", n);
-    }), f && f(), d && d.disconnect(), d = null, u && cancelAnimationFrame(h);
+    p.forEach((w) => {
+      o && w.removeEventListener("scroll", n), a && w.removeEventListener("resize", n);
+    }), f && f(), d && d.disconnect(), d = null, u && cancelAnimationFrame(v);
   };
 }
 const Oo = (e, t, n) => {
   const r = /* @__PURE__ */ new Map(), o = {
-    platform: Un,
+    platform: Wn,
     ...n
   }, a = {
     ...o.platform,
@@ -3023,7 +3025,7 @@ const Oo = (e, t, n) => {
     }
   };
 };
-var st = typeof document < "u" ? Dn : je;
+var st = typeof document < "u" ? En : je;
 function lt(e, t) {
   if (e === t)
     return !0;
@@ -3055,11 +3057,11 @@ function lt(e, t) {
   }
   return e !== e && t !== t;
 }
-function Yn(e) {
+function Un(e) {
   return typeof window > "u" ? 1 : (e.ownerDocument.defaultView || window).devicePixelRatio || 1;
 }
 function sn(e, t) {
-  const n = Yn(e);
+  const n = Un(e);
   return Math.round(t * n) / n;
 }
 function cn(e) {
@@ -3089,55 +3091,55 @@ function Mo(e) {
     placement: t,
     middlewareData: {},
     isPositioned: !1
-  }), [m, d] = g.useState(r);
-  lt(m, r) || d(r);
-  const [h, D] = g.useState(null), [k, y] = g.useState(null), v = g.useCallback((U) => {
-    U != A.current && (A.current = U, D(U));
-  }, [D]), C = g.useCallback((U) => {
-    U !== E.current && (E.current = U, y(U));
-  }, [y]), S = a || h, N = s || k, A = g.useRef(null), E = g.useRef(null), K = g.useRef(p), G = cn(u), X = cn(o), R = g.useCallback(() => {
-    if (!A.current || !E.current)
+  }), [h, d] = g.useState(r);
+  lt(h, r) || d(r);
+  const [v, y] = g.useState(null), [k, w] = g.useState(null), b = g.useCallback((U) => {
+    U != P.current && (P.current = U, y(U));
+  }, [y]), C = g.useCallback((U) => {
+    U !== D.current && (D.current = U, w(U));
+  }, [w]), S = a || v, x = s || k, P = g.useRef(null), D = g.useRef(null), K = g.useRef(p), G = cn(u), X = cn(o), R = g.useCallback(() => {
+    if (!P.current || !D.current)
       return;
     const U = {
       placement: t,
       strategy: n,
-      middleware: m
+      middleware: h
     };
-    X.current && (U.platform = X.current), Oo(A.current, E.current, U).then((j) => {
+    X.current && (U.platform = X.current), Oo(P.current, D.current, U).then((j) => {
       const V = {
         ...j,
         isPositioned: !0
       };
-      Z.current && !lt(K.current, V) && (K.current = V, Nr.flushSync(() => {
+      Q.current && !lt(K.current, V) && (K.current = V, xr.flushSync(() => {
         f(V);
       }));
     });
-  }, [m, t, n, X]);
+  }, [h, t, n, X]);
   st(() => {
     l === !1 && K.current.isPositioned && (K.current.isPositioned = !1, f((U) => ({
       ...U,
       isPositioned: !1
     })));
   }, [l]);
-  const Z = g.useRef(!1);
-  st(() => (Z.current = !0, () => {
-    Z.current = !1;
+  const Q = g.useRef(!1);
+  st(() => (Q.current = !0, () => {
+    Q.current = !1;
   }), []), st(() => {
-    if (S && (A.current = S), N && (E.current = N), S && N) {
+    if (S && (P.current = S), x && (D.current = x), S && x) {
       if (G.current)
-        return G.current(S, N, R);
+        return G.current(S, x, R);
       R();
     }
-  }, [S, N, R, G]);
+  }, [S, x, R, G]);
   const $ = g.useMemo(() => ({
-    reference: A,
-    floating: E,
-    setReference: v,
+    reference: P,
+    floating: D,
+    setReference: b,
     setFloating: C
-  }), [v, C]), _ = g.useMemo(() => ({
+  }), [b, C]), _ = g.useMemo(() => ({
     reference: S,
-    floating: N
-  }), [S, N]), J = g.useMemo(() => {
+    floating: x
+  }), [S, x]), J = g.useMemo(() => {
     const U = {
       position: n,
       left: 0,
@@ -3149,7 +3151,7 @@ function Mo(e) {
     return c ? {
       ...U,
       transform: "translate(" + j + "px, " + V + "px)",
-      ...Yn(_.floating) >= 1.5 && {
+      ...Un(_.floating) >= 1.5 && {
         willChange: "transform"
       }
     } : {
@@ -3170,8 +3172,8 @@ function Mo(e) {
 * tabbable 6.2.0
 * @license MIT, https://github.com/focus-trap/tabbable/blob/master/LICENSE
 */
-var Io = ["input:not([inert])", "select:not([inert])", "textarea:not([inert])", "a[href]:not([inert])", "button:not([inert])", "[tabindex]:not(slot):not([inert])", "audio[controls]:not([inert])", "video[controls]:not([inert])", '[contenteditable]:not([contenteditable="false"]):not([inert])', "details>summary:first-of-type:not([inert])", "details:not([inert])"], Rt = /* @__PURE__ */ Io.join(","), $n = typeof Element > "u", qe = $n ? function() {
-} : Element.prototype.matches || Element.prototype.msMatchesSelector || Element.prototype.webkitMatchesSelector, ut = !$n && Element.prototype.getRootNode ? function(e) {
+var Lo = ["input:not([inert])", "select:not([inert])", "textarea:not([inert])", "a[href]:not([inert])", "button:not([inert])", "[tabindex]:not(slot):not([inert])", "audio[controls]:not([inert])", "video[controls]:not([inert])", '[contenteditable]:not([contenteditable="false"]):not([inert])', "details>summary:first-of-type:not([inert])", "details:not([inert])"], Rt = /* @__PURE__ */ Lo.join(","), Yn = typeof Element > "u", qe = Yn ? function() {
+} : Element.prototype.matches || Element.prototype.msMatchesSelector || Element.prototype.webkitMatchesSelector, ut = !Yn && Element.prototype.getRootNode ? function(e) {
   var t;
   return e == null || (t = e.getRootNode) === null || t === void 0 ? void 0 : t.call(e);
 } : function(e) {
@@ -3181,7 +3183,7 @@ var Io = ["input:not([inert])", "select:not([inert])", "textarea:not([inert])", 
   n === void 0 && (n = !0);
   var o = t == null || (r = t.getAttribute) === null || r === void 0 ? void 0 : r.call(t, "inert"), a = o === "" || o === "true", s = a || n && t && e(t.parentNode);
   return s;
-}, Lo = function(t) {
+}, Io = function(t) {
   var n, r = t == null || (n = t.getAttribute) === null || n === void 0 ? void 0 : n.call(t, "contenteditable");
   return r === "" || r === "true";
 }, Bo = function(t, n, r) {
@@ -3203,8 +3205,8 @@ var Io = ["input:not([inert])", "select:not([inert])", "textarea:not([inert])", 
         var p = qe.call(s, Rt);
         p && r.filter(s) && (n || !t.includes(s)) && o.push(s);
         var f = s.shadowRoot || // check for an undisclosed shadow
-        typeof r.getShadowRoot == "function" && r.getShadowRoot(s), m = !dt(f, !1) && (!r.shadowRootFilter || r.shadowRootFilter(s));
-        if (f && m) {
+        typeof r.getShadowRoot == "function" && r.getShadowRoot(s), h = !dt(f, !1) && (!r.shadowRootFilter || r.shadowRootFilter(s));
+        if (f && h) {
           var d = e(f === !0 ? s.children : f.children, !0, r);
           r.flatten ? o.push.apply(o, d) : o.push({
             scopeParent: s,
@@ -3215,21 +3217,21 @@ var Io = ["input:not([inert])", "select:not([inert])", "textarea:not([inert])", 
       }
   }
   return o;
-}, zn = function(t) {
+}, $n = function(t) {
   return !isNaN(parseInt(t.getAttribute("tabindex"), 10));
-}, Kn = function(t) {
+}, zn = function(t) {
   if (!t)
     throw new Error("No node provided");
-  return t.tabIndex < 0 && (/^(AUDIO|VIDEO|DETAILS)$/.test(t.tagName) || Lo(t)) && !zn(t) ? 0 : t.tabIndex;
+  return t.tabIndex < 0 && (/^(AUDIO|VIDEO|DETAILS)$/.test(t.tagName) || Io(t)) && !$n(t) ? 0 : t.tabIndex;
 }, Fo = function(t, n) {
-  var r = Kn(t);
-  return r < 0 && n && !zn(t) ? 0 : r;
+  var r = zn(t);
+  return r < 0 && n && !$n(t) ? 0 : r;
 }, Wo = function(t, n) {
   return t.tabIndex === n.tabIndex ? t.documentOrder - n.documentOrder : t.tabIndex - n.tabIndex;
-}, Hn = function(t) {
+}, Kn = function(t) {
   return t.tagName === "INPUT";
 }, Uo = function(t) {
-  return Hn(t) && t.type === "hidden";
+  return Kn(t) && t.type === "hidden";
 }, Yo = function(t) {
   var n = t.tagName === "DETAILS" && Array.prototype.slice.apply(t.children).some(function(r) {
     return r.tagName === "SUMMARY";
@@ -3256,7 +3258,7 @@ var Io = ["input:not([inert])", "select:not([inert])", "textarea:not([inert])", 
   var a = $o(o, t.form);
   return !a || a === t;
 }, Ko = function(t) {
-  return Hn(t) && t.type === "radio";
+  return Kn(t) && t.type === "radio";
 }, Ho = function(t) {
   return Ko(t) && !zo(t);
 }, qo = function(t) {
@@ -3317,7 +3319,7 @@ var Io = ["input:not([inert])", "select:not([inert])", "textarea:not([inert])", 
   dt(n) || Uo(n) || Go(n, t) || // For a details element with a summary, the summary element gets the focus
   Yo(n) || Xo(n));
 }, un = function(t, n) {
-  return !(Ho(n) || Kn(n) < 0 || !Jo(t, n));
+  return !(Ho(n) || zn(n) < 0 || !Jo(t, n));
 }, Zo = function(t) {
   var n = parseInt(t.getAttribute("tabindex"), 10);
   return !!(isNaN(n) || n >= 0);
@@ -3335,7 +3337,7 @@ var Io = ["input:not([inert])", "select:not([inert])", "textarea:not([inert])", 
   }), r.sort(Wo).reduce(function(o, a) {
     return a.isScope ? o.push.apply(o, a.content) : o.push(a.content), o;
   }, []).concat(n);
-}, qn = function(t, n) {
+}, Hn = function(t, n) {
   n = n || {};
   var r;
   return n.getShadowRoot ? r = Vo([t], n.includeContainer, {
@@ -3373,7 +3375,7 @@ function Se(e, t) {
   });
   o ? a() : dn = requestAnimationFrame(a);
 }
-var he = typeof document < "u" ? Dn : je;
+var he = typeof document < "u" ? En : je;
 function Ge() {
   return Ge = Object.assign ? Object.assign.bind() : function(e) {
     for (var t = 1; t < arguments.length; t++) {
@@ -3411,56 +3413,56 @@ const oa = g[/* @__PURE__ */ "useId".toString()], mt = oa || ra, aa = /* @__PURE
     strokeWidth: l = 0,
     staticOffset: p,
     stroke: f,
-    d: m,
+    d: h,
     style: {
       transform: d,
-      ...h
+      ...v
     } = {},
-    ...D
+    ...y
   } = t;
   process.env.NODE_ENV !== "production" && (n || console.warn("Floating UI: The `ref` prop is required for the `FloatingArrow`", "component."));
   const k = mt();
   if (!o)
     return null;
   l *= 2;
-  const y = l / 2, v = s / 2 * (u / -8 + 1), C = c / 2 * u / 4, [S, N] = r.split("-"), A = Un.isRTL(o), E = !!m, K = S === "top" || S === "bottom", G = p && N === "end" ? "bottom" : "top";
-  let X = p && N === "end" ? "right" : "left";
-  p && A && (X = N === "end" ? "left" : "right");
-  const R = (a == null ? void 0 : a.x) != null ? p || a.x : "", Z = (a == null ? void 0 : a.y) != null ? p || a.y : "", $ = m || "M0,0" + (" H" + s) + (" L" + (s - v) + "," + (c - C)) + (" Q" + s / 2 + "," + c + " " + v + "," + (c - C)) + " Z", _ = {
-    top: E ? "rotate(180deg)" : "",
-    left: E ? "rotate(90deg)" : "rotate(-90deg)",
-    bottom: E ? "" : "rotate(180deg)",
-    right: E ? "rotate(-90deg)" : "rotate(90deg)"
+  const w = l / 2, b = s / 2 * (u / -8 + 1), C = c / 2 * u / 4, [S, x] = r.split("-"), P = Wn.isRTL(o), D = !!h, K = S === "top" || S === "bottom", G = p && x === "end" ? "bottom" : "top";
+  let X = p && x === "end" ? "right" : "left";
+  p && P && (X = x === "end" ? "left" : "right");
+  const R = (a == null ? void 0 : a.x) != null ? p || a.x : "", Q = (a == null ? void 0 : a.y) != null ? p || a.y : "", $ = h || "M0,0" + (" H" + s) + (" L" + (s - b) + "," + (c - C)) + (" Q" + s / 2 + "," + c + " " + b + "," + (c - C)) + " Z", _ = {
+    top: D ? "rotate(180deg)" : "",
+    left: D ? "rotate(90deg)" : "rotate(-90deg)",
+    bottom: D ? "" : "rotate(180deg)",
+    right: D ? "rotate(-90deg)" : "rotate(90deg)"
   }[S];
-  return /* @__PURE__ */ g.createElement("svg", Ge({}, D, {
+  return /* @__PURE__ */ g.createElement("svg", Ge({}, y, {
     "aria-hidden": !0,
     ref: n,
-    width: E ? s : s + l,
+    width: D ? s : s + l,
     height: s,
     viewBox: "0 0 " + s + " " + (c > s ? c : s),
     style: {
       position: "absolute",
       pointerEvents: "none",
       [X]: R,
-      [G]: Z,
-      [S]: K || E ? "100%" : "calc(100% - " + l / 2 + "px)",
+      [G]: Q,
+      [S]: K || D ? "100%" : "calc(100% - " + l / 2 + "px)",
       transform: "" + _ + (d ?? ""),
-      ...h
+      ...v
     }
   }), l > 0 && /* @__PURE__ */ g.createElement("path", {
     clipPath: "url(#" + k + ")",
     fill: "none",
     stroke: f,
-    strokeWidth: l + (m ? 0 : 1),
+    strokeWidth: l + (h ? 0 : 1),
     d: $
   }), /* @__PURE__ */ g.createElement("path", {
-    stroke: l && !m ? D.fill : "none",
+    stroke: l && !h ? y.fill : "none",
     d: $
   }), /* @__PURE__ */ g.createElement("clipPath", {
     id: k
   }, /* @__PURE__ */ g.createElement("rect", {
-    x: -y,
-    y: y * (E ? -1 : 1),
+    x: -w,
+    y: w * (D ? -1 : 1),
     width: s + l,
     height: s
   })));
@@ -3489,7 +3491,7 @@ function ft(e) {
   return "data-floating-ui-" + e;
 }
 function Ce(e) {
-  const t = xn(e);
+  const t = Dn(e);
   return he(() => {
     t.current = e;
   }), t;
@@ -3518,36 +3520,36 @@ function He(e, t) {
     }), n = n.concat(r);
   return n;
 }
-let Le = /* @__PURE__ */ new WeakMap(), ot = /* @__PURE__ */ new WeakSet(), at = {}, xt = 0;
-const da = () => typeof HTMLElement < "u" && "inert" in HTMLElement.prototype, Gn = (e) => e && (e.host || Gn(e.parentNode)), fa = (e, t) => t.map((n) => {
+let Ie = /* @__PURE__ */ new WeakMap(), ot = /* @__PURE__ */ new WeakSet(), at = {}, Nt = 0;
+const da = () => typeof HTMLElement < "u" && "inert" in HTMLElement.prototype, qn = (e) => e && (e.host || qn(e.parentNode)), fa = (e, t) => t.map((n) => {
   if (e.contains(n))
     return n;
-  const r = Gn(n);
+  const r = qn(n);
   return e.contains(r) ? r : null;
 }).filter((n) => n != null);
 function pa(e, t, n, r) {
   const o = "data-floating-ui-inert", a = r ? "inert" : n ? "aria-hidden" : null, s = fa(t, e), c = /* @__PURE__ */ new Set(), u = new Set(s), l = [];
   at[o] || (at[o] = /* @__PURE__ */ new WeakMap());
   const p = at[o];
-  s.forEach(f), m(t), c.clear();
+  s.forEach(f), h(t), c.clear();
   function f(d) {
     !d || c.has(d) || (c.add(d), d.parentNode && f(d.parentNode));
   }
-  function m(d) {
-    !d || u.has(d) || Array.prototype.forEach.call(d.children, (h) => {
-      if (c.has(h))
-        m(h);
+  function h(d) {
+    !d || u.has(d) || Array.prototype.forEach.call(d.children, (v) => {
+      if (c.has(v))
+        h(v);
       else {
-        const D = a ? h.getAttribute(a) : null, k = D !== null && D !== "false", y = (Le.get(h) || 0) + 1, v = (p.get(h) || 0) + 1;
-        Le.set(h, y), p.set(h, v), l.push(h), y === 1 && k && ot.add(h), v === 1 && h.setAttribute(o, ""), !k && a && h.setAttribute(a, "true");
+        const y = a ? v.getAttribute(a) : null, k = y !== null && y !== "false", w = (Ie.get(v) || 0) + 1, b = (p.get(v) || 0) + 1;
+        Ie.set(v, w), p.set(v, b), l.push(v), w === 1 && k && ot.add(v), b === 1 && v.setAttribute(o, ""), !k && a && v.setAttribute(a, "true");
       }
     });
   }
-  return xt++, () => {
+  return Nt++, () => {
     l.forEach((d) => {
-      const h = (Le.get(d) || 0) - 1, D = (p.get(d) || 0) - 1;
-      Le.set(d, h), p.set(d, D), h || (!ot.has(d) && a && d.removeAttribute(a), ot.delete(d)), D || d.removeAttribute(o);
-    }), xt--, xt || (Le = /* @__PURE__ */ new WeakMap(), Le = /* @__PURE__ */ new WeakMap(), ot = /* @__PURE__ */ new WeakSet(), at = {});
+      const v = (Ie.get(d) || 0) - 1, y = (p.get(d) || 0) - 1;
+      Ie.set(d, v), p.set(d, y), v || (!ot.has(d) && a && d.removeAttribute(a), ot.delete(d)), y || d.removeAttribute(o);
+    }), Nt--, Nt || (Ie = /* @__PURE__ */ new WeakMap(), Ie = /* @__PURE__ */ new WeakMap(), ot = /* @__PURE__ */ new WeakSet(), at = {});
   };
 }
 function pn(e, t, n) {
@@ -3555,7 +3557,7 @@ function pn(e, t, n) {
   const r = be(e[0]).body;
   return pa(e.concat(Array.from(r.querySelectorAll("[aria-live]"))), r, t, n);
 }
-const Xn = () => ({
+const Gn = () => ({
   getShadowRoot: !0,
   displayCheck: (
     // JSDOM does not support the `tabbable` library. To solve this we can
@@ -3564,23 +3566,23 @@ const Xn = () => ({
     typeof ResizeObserver == "function" && ResizeObserver.toString().includes("[native code]") ? "full" : "none"
   )
 });
-function Jn(e, t) {
-  const n = qn(e, Xn());
+function Xn(e, t) {
+  const n = Hn(e, Gn());
   t === "prev" && n.reverse();
   const r = n.indexOf(Ve(be(e)));
   return n.slice(r + 1)[0];
 }
 function ma() {
-  return Jn(document.body, "next");
+  return Xn(document.body, "next");
 }
 function ha() {
-  return Jn(document.body, "prev");
+  return Xn(document.body, "prev");
 }
 function mn(e, t) {
   const n = t || e.currentTarget, r = e.relatedTarget;
-  return !r || !le(n, r);
+  return !r || !ue(n, r);
 }
-const Zn = {
+const Jn = {
   border: 0,
   clip: "rect(0 0 0 0)",
   height: "1px",
@@ -3609,7 +3611,7 @@ const bn = /* @__PURE__ */ g.forwardRef(function(t, n) {
     role: r,
     "aria-hidden": r ? void 0 : !0,
     [ft("focus-guard")]: "",
-    style: Zn
+    style: Jn
   };
   return /* @__PURE__ */ g.createElement("span", Ge({}, t, a));
 }), va = /* @__PURE__ */ g.createContext(null), ga = () => g.useContext(va), ya = /* @__PURE__ */ g.forwardRef(function(t, n) {
@@ -3617,7 +3619,7 @@ const bn = /* @__PURE__ */ g.forwardRef(function(t, n) {
     type: "button",
     ref: n,
     tabIndex: -1,
-    style: Zn
+    style: Jn
   }));
 });
 function wa(e) {
@@ -3634,39 +3636,39 @@ function wa(e) {
     closeOnFocusOut: p = !0
   } = e, {
     open: f,
-    refs: m,
+    refs: h,
     nodeId: d,
-    onOpenChange: h,
-    events: D,
+    onOpenChange: v,
+    events: y,
     dataRef: k,
     elements: {
-      domReference: y,
-      floating: v
+      domReference: w,
+      floating: b
     }
-  } = t, C = typeof s == "number" && s < 0, S = (y == null ? void 0 : y.getAttribute("role")) === "combobox" && An(y) && C, N = S ? !1 : u, A = da() ? a : !0, E = Ce(o), K = Ce(s), G = Ce(c), X = Bt(), R = ga(), Z = g.useRef(null), $ = g.useRef(null), _ = g.useRef(!1), J = g.useRef(null), U = g.useRef(!1), j = R != null, V = g.useCallback(function(L) {
-    return L === void 0 && (L = v), L ? qn(L, Xn()) : [];
-  }, [v]), Y = g.useCallback((L) => {
-    const M = V(L);
-    return E.current.map((O) => y && O === "reference" ? y : v && O === "floating" ? v : M).filter(Boolean).flat();
-  }, [y, v, E, V]);
+  } = t, C = typeof s == "number" && s < 0, S = (w == null ? void 0 : w.getAttribute("role")) === "combobox" && Pn(w) && C, x = S ? !1 : u, P = da() ? a : !0, D = Ce(o), K = Ce(s), G = Ce(c), X = Bt(), R = ga(), Q = g.useRef(null), $ = g.useRef(null), _ = g.useRef(!1), J = g.useRef(null), U = g.useRef(!1), j = R != null, V = g.useCallback(function(I) {
+    return I === void 0 && (I = b), I ? Hn(I, Gn()) : [];
+  }, [b]), Y = g.useCallback((I) => {
+    const M = V(I);
+    return D.current.map((O) => w && O === "reference" ? w : b && O === "floating" ? b : M).filter(Boolean).flat();
+  }, [w, b, D, V]);
   g.useEffect(() => {
-    if (r || !N)
+    if (r || !x)
       return;
-    function L(O) {
+    function I(O) {
       if (O.key === "Tab") {
-        le(v, Ve(be(v))) && V().length === 0 && !S && Et(O);
+        ue(b, Ve(be(b))) && V().length === 0 && !S && Et(O);
         const F = Y(), z = Fe(O);
-        E.current[0] === "reference" && z === y && (Et(O), O.shiftKey ? Se(F[F.length - 1]) : Se(F[1])), E.current[1] === "floating" && z === v && O.shiftKey && (Et(O), Se(F[0]));
+        D.current[0] === "reference" && z === w && (Et(O), O.shiftKey ? Se(F[F.length - 1]) : Se(F[1])), D.current[1] === "floating" && z === b && O.shiftKey && (Et(O), Se(F[0]));
       }
     }
-    const M = be(v);
-    return M.addEventListener("keydown", L), () => {
-      M.removeEventListener("keydown", L);
+    const M = be(b);
+    return M.addEventListener("keydown", I), () => {
+      M.removeEventListener("keydown", I);
     };
-  }, [r, y, v, N, E, m, S, V, Y]), g.useEffect(() => {
+  }, [r, w, b, x, D, h, S, V, Y]), g.useEffect(() => {
     if (r || !p)
       return;
-    function L() {
+    function I() {
       U.current = !0, setTimeout(() => {
         U.current = !1;
       });
@@ -3674,130 +3676,130 @@ function wa(e) {
     function M(O) {
       const F = O.relatedTarget;
       queueMicrotask(() => {
-        const z = !(le(y, F) || le(v, F) || le(F, v) || le(R == null ? void 0 : R.portalNode, F) || F != null && F.hasAttribute(ft("focus-guard")) || X && (He(X.nodesRef.current, d).find((H) => {
-          var Q, pe;
-          return le((Q = H.context) == null ? void 0 : Q.elements.floating, F) || le((pe = H.context) == null ? void 0 : pe.elements.domReference, F);
+        const z = !(ue(w, F) || ue(b, F) || ue(F, b) || ue(R == null ? void 0 : R.portalNode, F) || F != null && F.hasAttribute(ft("focus-guard")) || X && (He(X.nodesRef.current, d).find((H) => {
+          var ee, pe;
+          return ue((ee = H.context) == null ? void 0 : ee.elements.floating, F) || ue((pe = H.context) == null ? void 0 : pe.elements.domReference, F);
         }) || ua(X.nodesRef.current, d).find((H) => {
-          var Q, pe;
-          return ((Q = H.context) == null ? void 0 : Q.elements.floating) === F || ((pe = H.context) == null ? void 0 : pe.elements.domReference) === F;
+          var ee, pe;
+          return ((ee = H.context) == null ? void 0 : ee.elements.floating) === F || ((pe = H.context) == null ? void 0 : pe.elements.domReference) === F;
         })));
         F && z && !U.current && // Fix React 18 Strict Mode returnFocus due to double rendering.
-        F !== J.current && (_.current = !0, h(!1, O));
+        F !== J.current && (_.current = !0, v(!1, O));
       });
     }
-    if (v && se(y))
-      return y.addEventListener("focusout", M), y.addEventListener("pointerdown", L), !N && v.addEventListener("focusout", M), () => {
-        y.removeEventListener("focusout", M), y.removeEventListener("pointerdown", L), !N && v.removeEventListener("focusout", M);
+    if (b && se(w))
+      return w.addEventListener("focusout", M), w.addEventListener("pointerdown", I), !x && b.addEventListener("focusout", M), () => {
+        w.removeEventListener("focusout", M), w.removeEventListener("pointerdown", I), !x && b.removeEventListener("focusout", M);
       };
-  }, [r, y, v, N, d, X, R, h, p]), g.useEffect(() => {
-    var L;
+  }, [r, w, b, x, d, X, R, v, p]), g.useEffect(() => {
+    var I;
     if (r)
       return;
-    const M = Array.from((R == null || (L = R.portalNode) == null ? void 0 : L.querySelectorAll("[" + ft("portal") + "]")) || []);
-    if (v) {
-      const O = [v, ...M, Z.current, $.current, E.current.includes("reference") || S ? y : null].filter((z) => z != null), F = u || S ? pn(O, A, !A) : pn(O);
+    const M = Array.from((R == null || (I = R.portalNode) == null ? void 0 : I.querySelectorAll("[" + ft("portal") + "]")) || []);
+    if (b) {
+      const O = [b, ...M, Q.current, $.current, D.current.includes("reference") || S ? w : null].filter((z) => z != null), F = u || S ? pn(O, P, !P) : pn(O);
       return () => {
         F();
       };
     }
-  }, [r, y, v, u, E, R, S, A]), he(() => {
-    if (r || !v)
+  }, [r, w, b, u, D, R, S, P]), he(() => {
+    if (r || !b)
       return;
-    const L = be(v), M = Ve(L);
+    const I = be(b), M = Ve(I);
     queueMicrotask(() => {
-      const O = Y(v), F = K.current, z = (typeof F == "number" ? O[F] : F.current) || v, H = le(v, M);
+      const O = Y(b), F = K.current, z = (typeof F == "number" ? O[F] : F.current) || b, H = ue(b, M);
       !C && !H && f && Se(z, {
-        preventScroll: z === v
+        preventScroll: z === b
       });
     });
-  }, [r, f, v, C, Y, K]), he(() => {
-    if (r || !v)
+  }, [r, f, b, C, Y, K]), he(() => {
+    if (r || !b)
       return;
-    let L = !1;
-    const M = be(v), O = Ve(M), F = k.current;
+    let I = !1;
+    const M = be(b), O = Ve(M), F = k.current;
     J.current = O;
     function z(H) {
-      if (H.type === "escapeKey" && m.domReference.current && (J.current = m.domReference.current), ["referencePress", "escapeKey"].includes(H.type))
+      if (H.type === "escapeKey" && h.domReference.current && (J.current = h.domReference.current), ["referencePress", "escapeKey"].includes(H.type))
         return;
-      const Q = H.data.returnFocus;
-      typeof Q == "object" ? (_.current = !1, L = Q.preventScroll) : _.current = !Q;
+      const ee = H.data.returnFocus;
+      typeof ee == "object" ? (_.current = !1, I = ee.preventScroll) : _.current = !ee;
     }
-    return D.on("dismiss", z), () => {
-      D.off("dismiss", z);
+    return y.on("dismiss", z), () => {
+      y.off("dismiss", z);
       const H = Ve(M);
-      (le(v, H) || X && He(X.nodesRef.current, d).some((pe) => {
+      (ue(b, H) || X && He(X.nodesRef.current, d).some((pe) => {
         var ke;
-        return le((ke = pe.context) == null ? void 0 : ke.elements.floating, H);
-      }) || F.openEvent && ["click", "mousedown"].includes(F.openEvent.type)) && m.domReference.current && (J.current = m.domReference.current), // eslint-disable-next-line react-hooks/exhaustive-deps
+        return ue((ke = pe.context) == null ? void 0 : ke.elements.floating, H);
+      }) || F.openEvent && ["click", "mousedown"].includes(F.openEvent.type)) && h.domReference.current && (J.current = h.domReference.current), // eslint-disable-next-line react-hooks/exhaustive-deps
       G.current && se(J.current) && !_.current && Se(J.current, {
         // When dismissing nested floating elements, by the time the rAF has
         // executed, the menus will all have been unmounted. When they try
         // to get focused, the calls get ignored — leaving the root
         // reference focused as desired.
         cancelPrevious: !1,
-        preventScroll: L
+        preventScroll: I
       });
     };
-  }, [r, v, G, k, m, D, X, d]), he(() => {
+  }, [r, b, G, k, h, y, X, d]), he(() => {
     if (!(r || !R))
       return R.setFocusManagerState({
-        modal: N,
+        modal: x,
         closeOnFocusOut: p,
         open: f,
-        onOpenChange: h,
-        refs: m
+        onOpenChange: v,
+        refs: h
       }), () => {
         R.setFocusManagerState(null);
       };
-  }, [r, R, N, f, h, m, p]), he(() => {
-    if (r || !v || typeof MutationObserver != "function" || C)
+  }, [r, R, x, f, v, h, p]), he(() => {
+    if (r || !b || typeof MutationObserver != "function" || C)
       return;
-    const L = () => {
-      const O = v.getAttribute("tabindex");
-      E.current.includes("floating") || Ve(be(v)) !== m.domReference.current && V().length === 0 ? O !== "0" && v.setAttribute("tabindex", "0") : O !== "-1" && v.setAttribute("tabindex", "-1");
+    const I = () => {
+      const O = b.getAttribute("tabindex");
+      D.current.includes("floating") || Ve(be(b)) !== h.domReference.current && V().length === 0 ? O !== "0" && b.setAttribute("tabindex", "0") : O !== "-1" && b.setAttribute("tabindex", "-1");
     };
-    L();
-    const M = new MutationObserver(L);
-    return M.observe(v, {
+    I();
+    const M = new MutationObserver(I);
+    return M.observe(b, {
       childList: !0,
       subtree: !0,
       attributes: !0
     }), () => {
       M.disconnect();
     };
-  }, [r, v, m, E, V, C]);
-  function P(L) {
-    return r || !l || !N ? null : /* @__PURE__ */ g.createElement(ya, {
-      ref: L === "start" ? Z : $,
-      onClick: (M) => h(!1, M.nativeEvent)
+  }, [r, b, h, D, V, C]);
+  function A(I) {
+    return r || !l || !x ? null : /* @__PURE__ */ g.createElement(ya, {
+      ref: I === "start" ? Q : $,
+      onClick: (M) => v(!1, M.nativeEvent)
     }, typeof l == "string" ? l : "Dismiss");
   }
-  const ce = !r && A && (j || N);
-  return /* @__PURE__ */ g.createElement(g.Fragment, null, ce && /* @__PURE__ */ g.createElement(bn, {
+  const le = !r && P && (j || x);
+  return /* @__PURE__ */ g.createElement(g.Fragment, null, le && /* @__PURE__ */ g.createElement(bn, {
     "data-type": "inside",
     ref: R == null ? void 0 : R.beforeInsideRef,
-    onFocus: (L) => {
-      if (N) {
+    onFocus: (I) => {
+      if (x) {
         const O = Y();
         Se(o[0] === "reference" ? O[0] : O[O.length - 1]);
       } else if (R != null && R.preserveTabOrder && R.portalNode)
-        if (_.current = !1, mn(L, R.portalNode)) {
-          const O = ma() || y;
+        if (_.current = !1, mn(I, R.portalNode)) {
+          const O = ma() || w;
           O == null || O.focus();
         } else {
           var M;
           (M = R.beforeOutsideRef.current) == null || M.focus();
         }
     }
-  }), !S && P("start"), n, P("end"), ce && /* @__PURE__ */ g.createElement(bn, {
+  }), !S && A("start"), n, A("end"), le && /* @__PURE__ */ g.createElement(bn, {
     "data-type": "inside",
     ref: R == null ? void 0 : R.afterInsideRef,
-    onFocus: (L) => {
-      if (N)
+    onFocus: (I) => {
+      if (x)
         Se(Y()[0]);
       else if (R != null && R.preserveTabOrder && R.portalNode)
-        if (p && (_.current = !0), mn(L, R.portalNode)) {
-          const O = ha() || y;
+        if (p && (_.current = !0), mn(I, R.portalNode)) {
+          const O = ha() || w;
           O == null || O.focus();
         } else {
           var M;
@@ -3810,7 +3812,7 @@ function vn(e) {
   return se(e.target) && e.target.tagName === "BUTTON";
 }
 function gn(e) {
-  return An(e);
+  return Pn(e);
 }
 function Ea(e, t) {
   t === void 0 && (t = {});
@@ -3827,7 +3829,7 @@ function Ea(e, t) {
     toggle: u = !0,
     ignoreMouse: l = !1,
     keyboardHandlers: p = !0
-  } = t, f = g.useRef(), m = g.useRef(!1);
+  } = t, f = g.useRef(), h = g.useRef(!1);
   return g.useMemo(() => s ? {
     reference: {
       onPointerDown(d) {
@@ -3844,10 +3846,10 @@ function Ea(e, t) {
         tn(f.current, !0) && l || (n && u && (!o.current.openEvent || o.current.openEvent.type === "click") ? r(!1, d.nativeEvent) : r(!0, d.nativeEvent));
       },
       onKeyDown(d) {
-        f.current = void 0, !(d.defaultPrevented || !p || vn(d)) && (d.key === " " && !gn(a) && (d.preventDefault(), m.current = !0), d.key === "Enter" && r(!(n && u), d.nativeEvent));
+        f.current = void 0, !(d.defaultPrevented || !p || vn(d)) && (d.key === " " && !gn(a) && (d.preventDefault(), h.current = !0), d.key === "Enter" && r(!(n && u), d.nativeEvent));
       },
       onKeyUp(d) {
-        d.defaultPrevented || !p || vn(d) || gn(a) || d.key === " " && m.current && (m.current = !1, r(!(n && u), d.nativeEvent));
+        d.defaultPrevented || !p || vn(d) || gn(a) || d.key === " " && h.current && (h.current = !1, r(!(n && u), d.nativeEvent));
       }
     }
   } : {}, [s, o, c, l, p, a, u, n, r]);
@@ -3856,7 +3858,7 @@ const Da = {
   pointerdown: "onPointerDown",
   mousedown: "onMouseDown",
   click: "onClick"
-}, xa = {
+}, Na = {
   pointerdown: "onPointerDownCapture",
   mousedown: "onMouseDownCapture",
   click: "onClickCapture"
@@ -3867,7 +3869,7 @@ const Da = {
     outsidePress: typeof e == "boolean" ? e : (n = e == null ? void 0 : e.outsidePress) != null ? n : !0
   };
 };
-function Na(e, t) {
+function xa(e, t) {
   t === void 0 && (t = {});
   const {
     open: n,
@@ -3883,28 +3885,28 @@ function Na(e, t) {
   } = e, {
     enabled: p = !0,
     escapeKey: f = !0,
-    outsidePress: m = !0,
+    outsidePress: h = !0,
     outsidePressEvent: d = "pointerdown",
-    referencePress: h = !1,
-    referencePressEvent: D = "pointerdown",
+    referencePress: v = !1,
+    referencePressEvent: y = "pointerdown",
     ancestorScroll: k = !1,
-    bubbles: y,
-    capture: v
-  } = t, C = Bt(), S = la() != null, N = We(typeof m == "function" ? m : () => !1), A = typeof m == "function" ? N : m, E = g.useRef(!1), K = g.useRef(!1), {
+    bubbles: w,
+    capture: b
+  } = t, C = Bt(), S = la() != null, x = We(typeof h == "function" ? h : () => !1), P = typeof h == "function" ? x : h, D = g.useRef(!1), K = g.useRef(!1), {
     escapeKey: G,
     outsidePress: X
-  } = yn(y), {
+  } = yn(w), {
     escapeKey: R,
-    outsidePress: Z
-  } = yn(v), $ = We((j) => {
+    outsidePress: Q
+  } = yn(b), $ = We((j) => {
     if (!n || !p || !f || j.key !== "Escape")
       return;
     const V = C ? He(C.nodesRef.current, a) : [];
     if (!G && (j.stopPropagation(), V.length > 0)) {
       let Y = !0;
-      if (V.forEach((P) => {
-        var ce;
-        if ((ce = P.context) != null && ce.open && !P.context.dataRef.current.__escapeKeyBubbles) {
+      if (V.forEach((A) => {
+        var le;
+        if ((le = A.context) != null && le.open && !A.context.dataRef.current.__escapeKeyBubbles) {
           Y = !1;
           return;
         }
@@ -3922,33 +3924,33 @@ function Na(e, t) {
   }), _ = We((j) => {
     var V;
     const Y = () => {
-      var P;
-      $(j), (P = Fe(j)) == null || P.removeEventListener("keydown", Y);
+      var A;
+      $(j), (A = Fe(j)) == null || A.removeEventListener("keydown", Y);
     };
     (V = Fe(j)) == null || V.addEventListener("keydown", Y);
   }), J = We((j) => {
-    const V = E.current;
-    E.current = !1;
+    const V = D.current;
+    D.current = !1;
     const Y = K.current;
-    if (K.current = !1, d === "click" && Y || V || typeof A == "function" && !A(j))
+    if (K.current = !1, d === "click" && Y || V || typeof P == "function" && !P(j))
       return;
-    const P = Fe(j), ce = "[" + ft("inert") + "]", L = be(u).querySelectorAll(ce);
-    let M = ne(P) ? P : null;
+    const A = Fe(j), le = "[" + ft("inert") + "]", I = be(u).querySelectorAll(le);
+    let M = re(A) ? A : null;
     for (; M && !Je(M); ) {
       const z = Ae(M);
-      if (z === be(u).body || !ne(z))
+      if (z === be(u).body || !re(z))
         break;
       M = z;
     }
-    if (L.length && ne(P) && !co(P) && // Clicked on a direct ancestor (e.g. FloatingOverlay).
-    !le(P, u) && // If the target root element contains none of the markers, then the
+    if (I.length && re(A) && !co(A) && // Clicked on a direct ancestor (e.g. FloatingOverlay).
+    !ue(A, u) && // If the target root element contains none of the markers, then the
     // element was injected after the floating element rendered.
-    Array.from(L).every((z) => !le(M, z)))
+    Array.from(I).every((z) => !ue(M, z)))
       return;
-    if (se(P) && u) {
-      const z = P.clientWidth > 0 && P.scrollWidth > P.clientWidth, H = P.clientHeight > 0 && P.scrollHeight > P.clientHeight;
-      let Q = H && j.offsetX > P.clientWidth;
-      if (H && de(P).direction === "rtl" && (Q = j.offsetX <= P.offsetWidth - P.clientWidth), Q || z && j.offsetY > P.clientHeight)
+    if (se(A) && u) {
+      const z = A.clientWidth > 0 && A.scrollWidth > A.clientWidth, H = A.clientHeight > 0 && A.scrollHeight > A.clientHeight;
+      let ee = H && j.offsetX > A.clientWidth;
+      if (H && fe(A).direction === "rtl" && (ee = j.offsetX <= A.offsetWidth - A.clientWidth), ee || z && j.offsetY > A.clientHeight)
         return;
     }
     const O = C && He(C.nodesRef.current, a).some((z) => {
@@ -3961,8 +3963,8 @@ function Na(e, t) {
     if (F.length > 0) {
       let z = !0;
       if (F.forEach((H) => {
-        var Q;
-        if ((Q = H.context) != null && Q.open && !H.context.dataRef.current.__outsidePressBubbles) {
+        var ee;
+        if ((ee = H.context) != null && ee.open && !H.context.dataRef.current.__outsidePressBubbles) {
           z = !1;
           return;
         }
@@ -3980,8 +3982,8 @@ function Na(e, t) {
   }), U = We((j) => {
     var V;
     const Y = () => {
-      var P;
-      J(j), (P = Fe(j)) == null || P.removeEventListener(d, Y);
+      var A;
+      J(j), (A = Fe(j)) == null || A.removeEventListener(d, Y);
     };
     (V = Fe(j)) == null || V.addEventListener(d, Y);
   });
@@ -3989,31 +3991,31 @@ function Na(e, t) {
     if (!n || !p)
       return;
     l.current.__escapeKeyBubbles = G, l.current.__outsidePressBubbles = X;
-    function j(P) {
-      r(!1, P);
+    function j(A) {
+      r(!1, A);
     }
     const V = be(u);
-    f && V.addEventListener("keydown", R ? _ : $, R), A && V.addEventListener(d, Z ? U : J, Z);
+    f && V.addEventListener("keydown", R ? _ : $, R), P && V.addEventListener(d, Q ? U : J, Q);
     let Y = [];
-    return k && (ne(c) && (Y = Ee(c)), ne(u) && (Y = Y.concat(Ee(u))), !ne(s) && s && s.contextElement && (Y = Y.concat(Ee(s.contextElement)))), Y = Y.filter((P) => {
-      var ce;
-      return P !== ((ce = V.defaultView) == null ? void 0 : ce.visualViewport);
-    }), Y.forEach((P) => {
-      P.addEventListener("scroll", j, {
+    return k && (re(c) && (Y = Ee(c)), re(u) && (Y = Y.concat(Ee(u))), !re(s) && s && s.contextElement && (Y = Y.concat(Ee(s.contextElement)))), Y = Y.filter((A) => {
+      var le;
+      return A !== ((le = V.defaultView) == null ? void 0 : le.visualViewport);
+    }), Y.forEach((A) => {
+      A.addEventListener("scroll", j, {
         passive: !0
       });
     }), () => {
-      f && V.removeEventListener("keydown", R ? _ : $, R), A && V.removeEventListener(d, Z ? U : J, Z), Y.forEach((P) => {
-        P.removeEventListener("scroll", j);
+      f && V.removeEventListener("keydown", R ? _ : $, R), P && V.removeEventListener(d, Q ? U : J, Q), Y.forEach((A) => {
+        A.removeEventListener("scroll", j);
       });
     };
-  }, [l, u, c, s, f, A, d, n, r, k, p, G, X, $, R, _, J, Z, U]), g.useEffect(() => {
-    E.current = !1;
-  }, [A, d]), g.useMemo(() => p ? {
+  }, [l, u, c, s, f, P, d, n, r, k, p, G, X, $, R, _, J, Q, U]), g.useEffect(() => {
+    D.current = !1;
+  }, [P, d]), g.useMemo(() => p ? {
     reference: {
       onKeyDown: $,
-      [Da[D]]: (j) => {
-        h && (o.emit("dismiss", {
+      [Da[y]]: (j) => {
+        v && (o.emit("dismiss", {
           type: "referencePress",
           data: {
             returnFocus: !1
@@ -4029,11 +4031,11 @@ function Na(e, t) {
       onMouseUp() {
         K.current = !0;
       },
-      [xa[d]]: () => {
-        E.current = !0;
+      [Na[d]]: () => {
+        D.current = !0;
       }
     }
-  } : {}, [p, o, h, d, D, r, $]);
+  } : {}, [p, o, v, d, y, r, $]);
 }
 let jt;
 process.env.NODE_ENV !== "production" && (jt = /* @__PURE__ */ new Set());
@@ -4047,58 +4049,58 @@ function ka(e) {
   } = e;
   if (process.env.NODE_ENV !== "production") {
     var a;
-    const E = "Floating UI: Cannot pass a virtual element to the `elements.reference` option, as it must be a real DOM element. Use `refs.setPositionReference` instead.";
-    if ((a = e.elements) != null && a.reference && !ne(e.elements.reference)) {
+    const D = "Floating UI: Cannot pass a virtual element to the `elements.reference` option, as it must be a real DOM element. Use `refs.setPositionReference` instead.";
+    if ((a = e.elements) != null && a.reference && !re(e.elements.reference)) {
       var s;
-      if (!((s = jt) != null && s.has(E))) {
+      if (!((s = jt) != null && s.has(D))) {
         var c;
-        (c = jt) == null || c.add(E), console.error(E);
+        (c = jt) == null || c.add(D), console.error(D);
       }
     }
   }
-  const [u, l] = g.useState(null), p = ((t = e.elements) == null ? void 0 : t.reference) || u, f = Mo(e), m = Bt(), d = We((E, K) => {
-    E && (D.current.openEvent = K), r == null || r(E, K);
-  }), h = g.useRef(null), D = g.useRef({}), k = g.useState(() => sa())[0], y = mt(), v = g.useCallback((E) => {
-    const K = ne(E) ? {
-      getBoundingClientRect: () => E.getBoundingClientRect(),
-      contextElement: E
-    } : E;
+  const [u, l] = g.useState(null), p = ((t = e.elements) == null ? void 0 : t.reference) || u, f = Mo(e), h = Bt(), d = We((D, K) => {
+    D && (y.current.openEvent = K), r == null || r(D, K);
+  }), v = g.useRef(null), y = g.useRef({}), k = g.useState(() => sa())[0], w = mt(), b = g.useCallback((D) => {
+    const K = re(D) ? {
+      getBoundingClientRect: () => D.getBoundingClientRect(),
+      contextElement: D
+    } : D;
     f.refs.setReference(K);
-  }, [f.refs]), C = g.useCallback((E) => {
-    (ne(E) || E === null) && (h.current = E, l(E)), (ne(f.refs.reference.current) || f.refs.reference.current === null || // Don't allow setting virtual elements using the old technique back to
+  }, [f.refs]), C = g.useCallback((D) => {
+    (re(D) || D === null) && (v.current = D, l(D)), (re(f.refs.reference.current) || f.refs.reference.current === null || // Don't allow setting virtual elements using the old technique back to
     // `null` to support `positionReference` + an unstable `reference`
     // callback ref.
-    E !== null && !ne(E)) && f.refs.setReference(E);
+    D !== null && !re(D)) && f.refs.setReference(D);
   }, [f.refs]), S = g.useMemo(() => ({
     ...f.refs,
     setReference: C,
-    setPositionReference: v,
-    domReference: h
-  }), [f.refs, C, v]), N = g.useMemo(() => ({
+    setPositionReference: b,
+    domReference: v
+  }), [f.refs, C, b]), x = g.useMemo(() => ({
     ...f.elements,
     domReference: p
-  }), [f.elements, p]), A = g.useMemo(() => ({
+  }), [f.elements, p]), P = g.useMemo(() => ({
     ...f,
     refs: S,
-    elements: N,
-    dataRef: D,
+    elements: x,
+    dataRef: y,
     nodeId: o,
-    floatingId: y,
+    floatingId: w,
     events: k,
     open: n,
     onOpenChange: d
-  }), [f, o, y, k, n, d, S, N]);
+  }), [f, o, w, k, n, d, S, x]);
   return he(() => {
-    const E = m == null ? void 0 : m.nodesRef.current.find((K) => K.id === o);
-    E && (E.context = A);
+    const D = h == null ? void 0 : h.nodesRef.current.find((K) => K.id === o);
+    D && (D.context = P);
   }), g.useMemo(() => ({
     ...f,
-    context: A,
+    context: P,
     refs: S,
-    elements: N
-  }), [f, S, N, A]);
+    elements: x
+  }), [f, S, x, P]);
 }
-function Nt(e, t, n) {
+function xt(e, t, n) {
   const r = /* @__PURE__ */ new Map();
   return {
     ...n === "floating" && {
@@ -4111,9 +4113,9 @@ function Nt(e, t, n) {
         if (r.has(c) || r.set(c, []), typeof u == "function") {
           var l;
           (l = r.get(c)) == null || l.push(u), o[c] = function() {
-            for (var p, f = arguments.length, m = new Array(f), d = 0; d < f; d++)
-              m[d] = arguments[d];
-            return (p = r.get(c)) == null ? void 0 : p.map((h) => h(...m)).find((h) => h !== void 0);
+            for (var p, f = arguments.length, h = new Array(f), d = 0; d < f; d++)
+              h[d] = arguments[d];
+            return (p = r.get(c)) == null ? void 0 : p.map((v) => v(...h)).find((v) => v !== void 0);
           };
         }
       } else
@@ -4124,15 +4126,15 @@ function Nt(e, t, n) {
 function Ta(e) {
   e === void 0 && (e = []);
   const t = e, n = g.useCallback(
-    (a) => Nt(a, e, "reference"),
+    (a) => xt(a, e, "reference"),
     // eslint-disable-next-line react-hooks/exhaustive-deps
     t
   ), r = g.useCallback(
-    (a) => Nt(a, e, "floating"),
+    (a) => xt(a, e, "floating"),
     // eslint-disable-next-line react-hooks/exhaustive-deps
     t
   ), o = g.useCallback(
-    (a) => Nt(a, e, "item"),
+    (a) => xt(a, e, "item"),
     // Granularly check for `item` changes, because the `getItemProps` getter
     // should be as referentially stable as possible since it may be passed as
     // a prop to many components. All `item` key values must therefore be
@@ -4215,11 +4217,11 @@ function ja(e, t) {
     if (r)
       if (n) {
         p("initial");
-        const m = requestAnimationFrame(() => {
+        const h = requestAnimationFrame(() => {
           p("open");
         });
         return () => {
-          cancelAnimationFrame(m);
+          cancelAnimationFrame(h);
         };
       } else
         u(!0), p("close");
@@ -4241,50 +4243,52 @@ function Ca(e, t) {
   } = t, c = e.placement, u = c.split("-")[0], l = g.useMemo(() => ({
     side: u,
     placement: c
-  }), [u, c]), p = typeof s == "number", f = (p ? s : s.open) || 0, m = (p ? s : s.close) || 0, [d, h] = g.useState(() => ({
+  }), [u, c]), p = typeof s == "number", f = (p ? s : s.open) || 0, h = (p ? s : s.close) || 0, [d, v] = g.useState(() => ({
     ...Be(a, l),
     ...Be(n, l)
   })), {
-    isMounted: D,
+    isMounted: y,
     status: k
   } = ja(e, {
     duration: s
-  }), y = Ce(n), v = Ce(r), C = Ce(o), S = Ce(a);
+  }), w = Ce(n), b = Ce(r), C = Ce(o), S = Ce(a);
   return he(() => {
-    const N = Be(y.current, l), A = Be(C.current, l), E = Be(S.current, l), K = Be(v.current, l) || Object.keys(N).reduce((G, X) => (G[X] = "", G), {});
-    if (k === "initial" && h((G) => ({
+    const x = Be(w.current, l), P = Be(C.current, l), D = Be(S.current, l), K = Be(b.current, l) || Object.keys(x).reduce((G, X) => (G[X] = "", G), {});
+    if (k === "initial" && v((G) => ({
       transitionProperty: G.transitionProperty,
-      ...E,
-      ...N
-    })), k === "open" && h({
+      ...D,
+      ...x
+    })), k === "open" && v({
       transitionProperty: Object.keys(K).map(wn).join(","),
       transitionDuration: f + "ms",
-      ...E,
+      ...D,
       ...K
     }), k === "close") {
-      const G = A || N;
-      h({
+      const G = P || x;
+      v({
         transitionProperty: Object.keys(G).map(wn).join(","),
-        transitionDuration: m + "ms",
-        ...E,
+        transitionDuration: h + "ms",
+        ...D,
         ...G
       });
     }
-  }, [m, C, y, v, S, f, k, l]), {
-    isMounted: D,
+  }, [h, C, w, b, S, f, k, l]), {
+    isMounted: y,
     styles: d
   };
 }
 const Re = 7, Pa = 2, Aa = (e) => {
-  var S, N;
-  const [t, n] = En(!0), r = xn(null), {
+  var S, x;
+  const { state: t, setData: n } = ce(), r = Dn(null), {
     refs: o,
     context: a,
     floatingStyles: s,
     middlewareData: c
   } = ka({
-    open: t,
-    onOpenChange: n,
+    open: t.isCalendarOpen,
+    onOpenChange: (P) => {
+      n({ type: Z.SET_CALENDAR_OPEN, isOpen: P });
+    },
     middleware: [
       _o({
         element: r
@@ -4292,27 +4296,27 @@ const Re = 7, Pa = 2, Aa = (e) => {
       vo(Re + Pa)
     ],
     whileElementsMounted: Ao
-  }), u = ((S = c.arrow) == null ? void 0 : S.x) ?? 0, l = ((N = c.arrow) == null ? void 0 : N.y) ?? 0, p = u + Re / 2, f = l + Re, { isMounted: m, styles: d } = Ca(a, {
+  }), u = ((S = c.arrow) == null ? void 0 : S.x) ?? 0, l = ((x = c.arrow) == null ? void 0 : x.y) ?? 0, p = u + Re / 2, f = l + Re, { isMounted: h, styles: d } = Ca(a, {
     initial: {
       transform: "scale(0)"
     },
-    common: ({ side: A }) => ({
+    common: ({ side: P }) => ({
       transformOrigin: {
         top: `${p}px calc(100% + ${Re}px)`,
         bottom: `${p}px ${-Re}px`,
         left: `calc(100% + ${Re}px) ${f}px`,
         right: `${-Re}px ${f}px`
-      }[A]
+      }[P]
     })
-  }), h = Ea(a), D = Na(a), k = Sa(a), { getReferenceProps: y, getFloatingProps: v } = Ta([h, D, k]), C = mt();
-  return /* @__PURE__ */ x.jsxDEV(x.Fragment, { children: [
-    /* @__PURE__ */ x.jsxDEV("div", { ref: o.setReference, ...y(), children: e.input }, void 0, !1, {
+  }), v = Ea(a), y = xa(a), k = Sa(a), { getReferenceProps: w, getFloatingProps: b } = Ta([v, y, k]), C = mt();
+  return /* @__PURE__ */ N.jsxDEV(N.Fragment, { children: [
+    /* @__PURE__ */ N.jsxDEV("div", { ref: o.setReference, ...w(), children: e.input }, void 0, !1, {
       fileName: "/Users/puncoz/Workspace/web/projects/nepali-datepicker-reactjs/NepaliDatePicker/src/components/wrapper/floating-container.tsx",
-      lineNumber: 75,
+      lineNumber: 80,
       columnNumber: 7
     }, globalThis),
-    t && /* @__PURE__ */ x.jsxDEV(wa, { context: a, modal: !1, children: m ? /* @__PURE__ */ x.jsxDEV("div", { ref: o.setFloating, style: s, "aria-labelledby": C, ...v(), children: /* @__PURE__ */ x.jsxDEV("div", { style: d, children: [
-      /* @__PURE__ */ x.jsxDEV(
+    t.isCalendarOpen && /* @__PURE__ */ N.jsxDEV(wa, { context: a, modal: !1, children: h ? /* @__PURE__ */ N.jsxDEV("div", { ref: o.setFloating, style: s, "aria-labelledby": C, ...b(), children: /* @__PURE__ */ N.jsxDEV("div", { style: d, children: [
+      /* @__PURE__ */ N.jsxDEV(
         aa,
         {
           ref: r,
@@ -4325,7 +4329,7 @@ const Re = 7, Pa = 2, Aa = (e) => {
         !1,
         {
           fileName: "/Users/puncoz/Workspace/web/projects/nepali-datepicker-reactjs/NepaliDatePicker/src/components/wrapper/floating-container.tsx",
-          lineNumber: 84,
+          lineNumber: 89,
           columnNumber: 17
         },
         globalThis
@@ -4333,35 +4337,35 @@ const Re = 7, Pa = 2, Aa = (e) => {
       e.calendar
     ] }, void 0, !0, {
       fileName: "/Users/puncoz/Workspace/web/projects/nepali-datepicker-reactjs/NepaliDatePicker/src/components/wrapper/floating-container.tsx",
-      lineNumber: 83,
+      lineNumber: 88,
       columnNumber: 15
     }, globalThis) }, void 0, !1, {
       fileName: "/Users/puncoz/Workspace/web/projects/nepali-datepicker-reactjs/NepaliDatePicker/src/components/wrapper/floating-container.tsx",
-      lineNumber: 82,
+      lineNumber: 87,
       columnNumber: 13
-    }, globalThis) : /* @__PURE__ */ x.jsxDEV("div", {}, void 0, !1, {
+    }, globalThis) : /* @__PURE__ */ N.jsxDEV("div", {}, void 0, !1, {
       fileName: "/Users/puncoz/Workspace/web/projects/nepali-datepicker-reactjs/NepaliDatePicker/src/components/wrapper/floating-container.tsx",
-      lineNumber: 92,
+      lineNumber: 97,
       columnNumber: 15
     }, globalThis) }, void 0, !1, {
       fileName: "/Users/puncoz/Workspace/web/projects/nepali-datepicker-reactjs/NepaliDatePicker/src/components/wrapper/floating-container.tsx",
-      lineNumber: 80,
+      lineNumber: 85,
       columnNumber: 9
     }, globalThis)
   ] }, void 0, !0, {
     fileName: "/Users/puncoz/Workspace/web/projects/nepali-datepicker-reactjs/NepaliDatePicker/src/components/wrapper/floating-container.tsx",
-    lineNumber: 74,
+    lineNumber: 79,
     columnNumber: 5
   }, globalThis);
 }, Oa = ({ ...e }) => {
-  const { state: t, setData: n } = fe(), { parseBsDate: r } = _e();
+  const { state: t, setData: n } = ce(), { parseBsDate: r } = _e();
   return je(() => {
-    n({ type: re.SET_VALUE, value: e.value || "" });
+    n({ type: Z.SET_VALUE, value: e.value || "" });
     const o = e.value ? r(e.value) : void 0, a = r(e.value || De(/* @__PURE__ */ new Date()));
-    n({ type: re.SET_CALENDAR_DATE, date: a }), n({ type: re.SET_SELECTED_DATE, date: o });
+    n({ type: Z.SET_CALENDAR_DATE, date: a }), n({ type: Z.SET_SELECTED_DATE, date: o });
   }, [e.value]), je(() => {
     n({
-      type: re.SET_CLASSES,
+      type: Z.SET_CLASSES,
       classNames: {
         wrapper: e.wrapperClassName,
         input: e.className
@@ -4369,21 +4373,21 @@ const Re = 7, Pa = 2, Aa = (e) => {
     });
   }, [e.className, e.wrapperClassName]), je(() => {
     n({
-      type: re.SET_THEME,
+      type: Z.SET_THEME,
       theme: e.dark ? it.DARK : it.LIGHT
     });
   }, [e.dark]), je(() => {
     n({
-      type: re.SET_EVENTS,
+      type: Z.SET_EVENTS,
       events: {
         onChange: e.onChange || t.events.onChange,
         onSelect: e.onSelect || t.events.onSelect
       }
     });
   }, [e.onChange, e.onSelect]), je(() => {
-    var o, a, s, c, u, l, p;
+    var o, a, s, c, u, l, p, f;
     n({
-      type: re.SET_OPTIONS,
+      type: Z.SET_OPTIONS,
       options: {
         colors: {
           primary: ((a = (o = e.options) == null ? void 0 : o.colors) == null ? void 0 : a.primary) || t.options.colors.primary,
@@ -4391,10 +4395,11 @@ const Re = 7, Pa = 2, Aa = (e) => {
         },
         dateSeparator: ((u = e.options) == null ? void 0 : u.dateSeparator) || t.options.dateSeparator,
         currentLocale: ((l = e.options) == null ? void 0 : l.locale) || t.options.currentLocale,
-        valueLocale: ((p = e.options) == null ? void 0 : p.valueLocale) || t.options.valueLocale
+        valueLocale: ((p = e.options) == null ? void 0 : p.valueLocale) || t.options.valueLocale,
+        closeOnSelect: ((f = e.options) == null ? void 0 : f.closeOnSelect) || t.options.closeOnSelect
       }
     });
-  }, [e.options]), /* @__PURE__ */ x.jsxDEV(
+  }, [e.options]), /* @__PURE__ */ N.jsxDEV(
     "div",
     {
       className: `nepali-datepicker ${t.classNames.wrapper || ""}`,
@@ -4403,17 +4408,17 @@ const Re = 7, Pa = 2, Aa = (e) => {
         "--ndp-primary": t.options.colors.primary,
         "--ndp-secondary": t.options.colors.secondary
       },
-      children: /* @__PURE__ */ x.jsxDEV(Aa, { input: /* @__PURE__ */ x.jsxDEV(Xr, { ...e }, void 0, !1, {
+      children: /* @__PURE__ */ N.jsxDEV(Aa, { input: /* @__PURE__ */ N.jsxDEV(Xr, { ...e }, void 0, !1, {
         fileName: "/Users/puncoz/Workspace/web/projects/nepali-datepicker-reactjs/NepaliDatePicker/src/components/wrapper/wrapper.tsx",
-        lineNumber: 75,
+        lineNumber: 76,
         columnNumber: 33
-      }, globalThis), calendar: /* @__PURE__ */ x.jsxDEV(Fr, {}, void 0, !1, {
+      }, globalThis), calendar: /* @__PURE__ */ N.jsxDEV(Fr, {}, void 0, !1, {
         fileName: "/Users/puncoz/Workspace/web/projects/nepali-datepicker-reactjs/NepaliDatePicker/src/components/wrapper/wrapper.tsx",
-        lineNumber: 75,
+        lineNumber: 76,
         columnNumber: 69
       }, globalThis) }, void 0, !1, {
         fileName: "/Users/puncoz/Workspace/web/projects/nepali-datepicker-reactjs/NepaliDatePicker/src/components/wrapper/wrapper.tsx",
-        lineNumber: 75,
+        lineNumber: 76,
         columnNumber: 7
       }, globalThis)
     },
@@ -4421,12 +4426,12 @@ const Re = 7, Pa = 2, Aa = (e) => {
     !1,
     {
       fileName: "/Users/puncoz/Workspace/web/projects/nepali-datepicker-reactjs/NepaliDatePicker/src/components/wrapper/wrapper.tsx",
-      lineNumber: 69,
+      lineNumber: 70,
       columnNumber: 5
     },
     globalThis
   );
-}, Ma = (e) => /* @__PURE__ */ x.jsxDEV($r, { children: /* @__PURE__ */ x.jsxDEV(Oa, { ...e }, void 0, !1, {
+}, Ma = (e) => /* @__PURE__ */ N.jsxDEV($r, { children: /* @__PURE__ */ N.jsxDEV(Oa, { ...e }, void 0, !1, {
   fileName: "/Users/puncoz/Workspace/web/projects/nepali-datepicker-reactjs/NepaliDatePicker/src/nepali-date-picker.tsx",
   lineNumber: 13,
   columnNumber: 7

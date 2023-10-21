@@ -17,6 +17,7 @@ export const DataState: IData = {
     calendar: Language.NEPALI,
     value: Language.NEPALI,
   },
+  isCalendarOpen: false,
   options: {
     colors: {
       primary: "#2096f5",
@@ -25,6 +26,7 @@ export const DataState: IData = {
     dateSeparator: "-",
     currentLocale: Language.NEPALI,
     valueLocale: Language.ENGLISH,
+    closeOnSelect: true,
   },
   calendarData: {
     minBsYear: 1970,
@@ -39,6 +41,10 @@ export const DataState: IData = {
 }
 
 export const DataReducer = (state: IData = DataState, action: DataAction) => {
+  if (action.type === Types.SET_CALENDAR_OPEN) {
+    return { ...state, isCalendarOpen: action.isOpen }
+  }
+
   if (action.type === Types.SET_VALUE) {
     return { ...state, value: action.value }
   }
