@@ -14,13 +14,19 @@ export default function Home() {
       <div className="w-full sm:w-1/2">
         <label className="mb-2 inline-block">Date</label>
         <NepaliDatePicker dark={theme === "dark"}
-                          value={dateEnglish} />
+                          value={dateEnglish}
+                          placeholder={"Select date"}
+                          options={{
+                            locale: "en",
+                          }}
+                          onChange={setDateEnglish} />
       </div>
 
       <div className="w-full sm:w-1/2">
         <label className="mb-2 inline-block">मिति</label>
         <NepaliDatePicker dark={theme === "dark"}
-                          value={dateNepali} />
+                          value={dateNepali}
+                          onChange={setDateNepali} />
       </div>
     </main>
   )

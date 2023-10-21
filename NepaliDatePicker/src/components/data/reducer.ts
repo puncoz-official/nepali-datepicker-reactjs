@@ -10,8 +10,8 @@ export const DataState: IData = {
   theme: Theme.LIGHT,
   value: "",
   events: {
-    onChange: undefined,
-    onSelect: undefined,
+    onChange: (date: string) => date,
+    onSelect: (date: string) => date,
   },
   locale: {
     calendar: Language.NEPALI,
@@ -24,10 +24,11 @@ export const DataState: IData = {
     },
     dateSeparator: "-",
     currentLocale: Language.NEPALI,
+    valueLocale: Language.ENGLISH,
   },
   calendarData: {
     minBsYear: 1970,
-    maxBsYear: 2100,
+    maxBsYear: 2099,
     bsMonthMaxDays,
     bsMonthCalculatedData,
   },

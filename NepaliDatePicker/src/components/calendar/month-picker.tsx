@@ -1,23 +1,35 @@
+import { ADToBS } from "bikram-sambat-js"
 import React, { FunctionComponent, useCallback, useMemo } from "react"
 
 import { DropDown, Option } from "@/components/dropdown"
-import { useData, useTrans } from "@/hooks"
+import { useData, useDateUtils, useTrans } from "@/hooks"
+import { ParsedDate, Types } from "#/Data.ts"
 import { Months } from "#/Translations.ts"
 
 const MonthPicker: FunctionComponent = () => {
   const { trans } = useTrans()
-  const { state } = useData()
+  const { state, setData } = useData()
+  const dateUtils = useDateUtils()
+
+  const calendarDate = useMemo<ParsedDate>(() => {
+    return state.date.calendar || dateUtils.parseBsDate(ADToBS(new Date()))
+  }, [state.date.calendar])
 
   const monthList = useMemo<Option[]>(() => {
     return Months.map((month, index) => ({
       label: trans(`months.${month}`),
       value: index,
     }))
-  }, [])
+  }, [state.options.currentLocale])
 
-  const handleOnSelect = useCallback((month: Option) => {
-    console.log(month)
-  }, [])
+  const handleOnSelect = useCallback((month: number) => {
+    const date = dateUtils.stitchDate({
+      year: calendarDate.bsYear,
+      month: month + 1,
+      day: 1,
+    })
+    setData({ type: Types.SET_CALENDAR_DATE, date: dateUtils.parseBsDate(date) })
+  }, [calendarDate])
 
   return (
     <DropDown options={monthList}

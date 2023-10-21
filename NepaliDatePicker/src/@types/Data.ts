@@ -21,8 +21,8 @@ export interface ClassNames {
 }
 
 export interface Events {
-  onChange?: () => void
-  onSelect?: () => void
+  onChange: (date: string) => void
+  onSelect: (date: string) => void
 }
 
 export interface Locale {
@@ -37,6 +37,7 @@ export interface Options {
   }
   dateSeparator: string
   currentLocale: Language
+  valueLocale: Language
 }
 
 export interface CalendarData {

@@ -36,11 +36,13 @@ export const useDateValidator = () => {
   }
 
   const validateAdYear = (year: number): void => {
-    const minAdYear = state.calendarData.minBsYear - 57
-    const maxAdYear = state.calendarData.maxBsYear - 57
+    const minBsYear = state.calendarData.minBsYear
+    const maxBsYear = state.calendarData.maxBsYear
+    const minAdYear = minBsYear - 57
+    const maxAdYear = maxBsYear - 57
 
     if (year < minAdYear || year > maxAdYear) {
-      throw new RangeError(`Date between ${minAdYear} AD to ${maxAdYear} AD is only supported.`)
+      throw new RangeError(`Date between ${minAdYear} AD (${minBsYear} BS) to ${maxAdYear} AD (${maxBsYear} BS) is only supported.`)
     }
   }
 

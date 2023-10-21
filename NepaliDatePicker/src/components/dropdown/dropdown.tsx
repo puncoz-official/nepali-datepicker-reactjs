@@ -11,7 +11,7 @@ export interface Option {
 type Props = {
   options: Option[]
   value: number
-  onSelect: (selected: Option) => void
+  onSelect: (value: number) => void
   title: string
   className?: ClassName
   dropdownClass?: ClassName
@@ -29,16 +29,14 @@ const DropDown: FunctionComponent<Props> = ({ options, onSelect, value, title, c
 
   const handleOnSelect = useCallback((option: Option) => {
     setShow(false)
-    onSelect(option)
+    onSelect(option.value)
   }, [onSelect])
 
   return (
     <div className="ndp-relative">
       <ActionBtn onClick={toggleDropdown}
                  onKeyDown={toggleDropdown}
-                 className={`
-                    ${className || ""}
-                 `}
+                 className={className}
                  title={title}>
         {selected?.label}
       </ActionBtn>

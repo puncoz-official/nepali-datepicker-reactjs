@@ -7,7 +7,7 @@ export interface Option {
 type Props = {
     options: Option[];
     value: number;
-    onSelect: (selected: Option) => void;
+    onSelect: (value: number) => void;
     title: string;
     className?: ClassName;
     dropdownClass?: ClassName;

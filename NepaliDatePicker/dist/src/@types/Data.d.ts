@@ -16,8 +16,8 @@ export interface ClassNames {
     input: ClassName;
 }
 export interface Events {
-    onChange?: () => void;
-    onSelect?: () => void;
+    onChange: (date: string) => void;
+    onSelect: (date: string) => void;
 }
 export interface Locale {
     calendar: Language;
@@ -30,6 +30,7 @@ export interface Options {
     };
     dateSeparator: string;
     currentLocale: Language;
+    valueLocale: Language;
 }
 export interface CalendarData {
     minBsYear: number;

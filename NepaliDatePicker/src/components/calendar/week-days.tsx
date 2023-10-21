@@ -1,18 +1,19 @@
 import React, { FunctionComponent, useMemo } from "react"
 
 import { Option } from "@/components"
-import { useTrans } from "@/hooks"
+import { useData, useTrans } from "@/hooks"
 import { Weeks } from "#/Translations.ts"
 
 const WeekDays: FunctionComponent = () => {
   const { trans } = useTrans()
+  const { state } = useData()
 
   const weekList = useMemo<Option[]>(() => {
     return Weeks.map((week, index) => ({
       label: trans(`weeks.${week}`),
       value: index,
     }))
-  }, [])
+  }, [state.options.currentLocale])
 
   return (
     <thead>

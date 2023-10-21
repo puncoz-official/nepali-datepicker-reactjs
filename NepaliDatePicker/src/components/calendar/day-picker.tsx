@@ -71,6 +71,20 @@ const DayPicker: FunctionComponent = () => {
     return { day, month, year, isCurrentMonth, isToday, isSelected }
   }, [calendarDate, selectedDate, daysInPreviousMonth])
 
+  const handleOnDaySelect = useCallback((dayInfo: DayInfo) => {
+    if (!dayInfo.isCurrentMonth) {
+      return
+    }
+
+    const date = dateUtils.stitchDate({
+      year: dayInfo.year,
+      month: dayInfo.month,
+      day: dayInfo.day,
+    })
+    state.events.onSelect(date)
+    state.events.onChange(date)
+  }, [calendarDate])
+
   return (
     <tbody>
       {range(0, weeksInMonth).map((weekNum) => (
@@ -80,11 +94,13 @@ const DayPicker: FunctionComponent = () => {
 
             return (
               <td key={weekDayNum}
-                  className={`
-                  ndp-border-0 ndp-h-10 ndp-w-10  ndp-rounded-full
+                  className={`ndp-border-0`}
+                  title={numberTrans(dayInfo.day)}>
+                <button className={`
+                  ndp-rounded-full ndp-h-9 ndp-w-9
                   ndp-relative ndp-cursor-pointer hover-transition
                   ${dayInfo.isSelected ? `
-                    ndp-bg-primary ndp-text-secondary ndp-m-2
+                    ndp-bg-primary ndp-text-secondary
                     hover:ndp-opacity-80
                   ` : `
                     hover:ndp-bg-gray-200 dark:hover:ndp-bg-slate-900
@@ -96,15 +112,17 @@ const DayPicker: FunctionComponent = () => {
                     ndp-cursor-not-allowed ndp-select-none
                   `}
                 `}
-                  title={numberTrans(dayInfo.day)}>
-                {numberTrans(dayInfo.day)}
+                        onClick={() => handleOnDaySelect(dayInfo)}
+                        onKeyDown={() => handleOnDaySelect(dayInfo)}>
+                  {numberTrans(dayInfo.day)}
 
-                {dayInfo.isToday && (
-                  <div className={`
-                  ndp-content-[""] ndp-w-1 ndp-h-1 ndp-bg-primary ndp-rounded-full
-                  ndp-absolute ndp-left-[50%] ndp-bottom-1 -ndp-translate-x-[50%]
-                `} />
-                )}
+                  {dayInfo.isToday && (
+                    <div className={`
+                      ndp-content-[""] ndp-w-1 ndp-h-1 ndp-bg-primary ndp-rounded-full
+                      ndp-absolute ndp-left-[50%] ndp-bottom-1 -ndp-translate-x-[50%]
+                    `} />
+                  )}
+                </button>
               </td>
             )
           })}

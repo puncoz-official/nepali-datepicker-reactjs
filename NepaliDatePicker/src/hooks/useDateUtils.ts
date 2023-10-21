@@ -25,7 +25,7 @@ export const useDateUtils = () => {
   const stitchDate = (date: SplitDate, separator?: string): string => {
     const dateSep = separator || state.options.dateSeparator
 
-    return `${date.year}${dateSep}${common.zeroPad(date.month)}${dateSep}${common.zeroPad(date.day)}${dateSep}`
+    return `${date.year}${dateSep}${common.zeroPad(date.month)}${dateSep}${common.zeroPad(date.day)}`
   }
 
   const getNumberOfDaysInBSMonth = (year: number, month: number): number => {
@@ -81,6 +81,7 @@ export const useDateUtils = () => {
 
   return {
     splitDate,
+    stitchDate,
     parseBsDate,
     getNumberOfDaysInBSMonth
   }
