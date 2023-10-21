@@ -83,7 +83,7 @@ const DayPicker: FunctionComponent = () => {
     })
     state.events.onSelect(date)
     state.events.onChange(date)
-  }, [calendarDate])
+  }, [state.events.onSelect, state.events.onChange])
 
   return (
     <tbody>

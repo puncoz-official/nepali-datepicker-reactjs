@@ -51,6 +51,7 @@ export interface ParsedDate {
     adDate: Date;
     numberOfDaysInBsMonth: number;
     firstAdDayInBsMonth: Date;
+    dateString: string;
 }
 export interface DateObject {
     calendar?: ParsedDate;

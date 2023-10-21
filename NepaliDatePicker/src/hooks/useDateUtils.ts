@@ -76,6 +76,7 @@ export const useDateUtils = () => {
       adDate,
       firstAdDayInBsMonth,
       numberOfDaysInBsMonth,
+      dateString: date,
     }
   }
 
@@ -83,6 +84,6 @@ export const useDateUtils = () => {
     splitDate,
     stitchDate,
     parseBsDate,
-    getNumberOfDaysInBSMonth
+    getNumberOfDaysInBSMonth,
   }
 }
