@@ -1535,7 +1535,7 @@ const ye = () => {
   const { trans: e } = ye(), { state: t } = fe(), n = ve(() => {
     t.events.onChange("");
   }, [t.events.onChange]);
-  return /* @__PURE__ */ x.jsxDEV(
+  return t.date.selected ? /* @__PURE__ */ x.jsxDEV(
     Ct,
     {
       className: "ndp-font-medium ndp-border hover:ndp-text-red-500",
@@ -1545,12 +1545,12 @@ const ye = () => {
       children: [
         /* @__PURE__ */ x.jsxDEV(zr, { className: "ndp-w-4 ndp-h-4" }, void 0, !1, {
           fileName: "/Users/puncoz/Workspace/web/projects/nepali-datepicker-reactjs/NepaliDatePicker/src/components/calendar/clear-btn.tsx",
-          lineNumber: 19,
+          lineNumber: 23,
           columnNumber: 7
         }, globalThis),
         /* @__PURE__ */ x.jsxDEV("span", { className: "ndp-ml-2", children: e("labels.clear") }, void 0, !1, {
           fileName: "/Users/puncoz/Workspace/web/projects/nepali-datepicker-reactjs/NepaliDatePicker/src/components/calendar/clear-btn.tsx",
-          lineNumber: 20,
+          lineNumber: 24,
           columnNumber: 7
         }, globalThis)
       ]
@@ -1559,11 +1559,11 @@ const ye = () => {
     !0,
     {
       fileName: "/Users/puncoz/Workspace/web/projects/nepali-datepicker-reactjs/NepaliDatePicker/src/components/calendar/clear-btn.tsx",
-      lineNumber: 15,
+      lineNumber: 19,
       columnNumber: 5
     },
     globalThis
-  );
+  ) : null;
 }, Pr = () => {
   const { numberTrans: e } = ye(), { range: t } = ze(), { state: n } = fe(), r = _e(), o = ae(() => n.date.calendar || r.parseBsDate(De(/* @__PURE__ */ new Date())), [n.date.calendar]), a = ae(() => n.date.selected, [n.date.selected]), s = ae(() => Math.ceil((o.firstAdDayInBsMonth.getDay() + o.numberOfDaysInBsMonth) / 7) - 1, [o]), c = ae(() => o.bsMonth - 1 === 0 ? 12 : o.bsMonth - 1, [o]), u = ae(() => c === 12 ? o.bsYear - 1 : o.bsYear, [c, o]), l = ae(() => u >= n.calendarData.minBsYear ? r.getNumberOfDaysInBSMonth(u, c) : 30, [u, c]), p = ve((m, d) => {
     let h = m * 7 + d - o.firstAdDayInBsMonth.getDay();

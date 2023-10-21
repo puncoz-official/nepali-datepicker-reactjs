@@ -11,6 +11,10 @@ const ClearBtn: FunctionComponent = () => {
     state.events.onChange("")
   }, [state.events.onChange])
 
+  if (!state.date.selected) {
+    return null
+  }
+
   return (
     <ActionBtn className="ndp-font-medium ndp-border hover:ndp-text-red-500"
                title={trans("labels.clear")}
