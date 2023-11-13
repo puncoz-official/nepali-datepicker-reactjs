@@ -53,6 +53,7 @@ export interface ClassNames {
 
   navBtn?: ClassName
   actionBtn?: ClassName
+  actionBtnDisabled?: ClassName
   navBtnIcon?: ClassName
   previousBtn?: ClassName
   nextBtn?: ClassName
@@ -77,6 +78,7 @@ export interface ClassNames {
   dayPickerDay?: ClassName
   dayPickerDayWeekend?: ClassName
   dayPickerDayHoliday?: ClassName
+  dayPickerDayDisabled?: ClassName
   dayPickerDaySelected?: ClassName
   dayPickerDayOtherMonth?: ClassName
   dayPickerToday?: ClassName

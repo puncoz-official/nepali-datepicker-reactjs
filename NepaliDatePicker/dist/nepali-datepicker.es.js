@@ -1,5 +1,5 @@
 import * as y from "react";
-import wr, { useContext as Er, useCallback as ve, useMemo as ae, useState as Dr, createContext as Nr, useReducer as xr, useLayoutEffect as Dn, useEffect as me, useRef as Nn } from "react";
+import wr, { useContext as Er, useCallback as ve, useMemo as oe, useState as Dr, createContext as Nr, useReducer as xr, useLayoutEffect as Dn, useEffect as me, useRef as Nn } from "react";
 import * as kr from "react-dom";
 var St = { exports: {} }, tt = {};
 /**
@@ -251,14 +251,14 @@ function Tr() {
       } catch (ge) {
         if (ge && C && typeof ge.stack == "string") {
           for (var W = ge.stack.split(`
-`), oe = C.stack.split(`
-`), X = W.length - 1, Z = oe.length - 1; X >= 1 && Z >= 0 && W[X] !== oe[Z]; )
+`), ae = C.stack.split(`
+`), X = W.length - 1, Z = ae.length - 1; X >= 1 && Z >= 0 && W[X] !== ae[Z]; )
             Z--;
           for (; X >= 1 && Z >= 0; X--, Z--)
-            if (W[X] !== oe[Z]) {
+            if (W[X] !== ae[Z]) {
               if (X !== 1 || Z !== 1)
                 do
-                  if (X--, Z--, Z < 0 || W[X] !== oe[Z]) {
+                  if (X--, Z--, Z < 0 || W[X] !== ae[Z]) {
                     var fe = `
 ` + W[X].replace(" at new ", " at ");
                     return i.displayName && fe.includes("<anonymous>") && (fe = fe.replace("<anonymous>", i.displayName)), typeof i == "function" && De.set(i, fe), fe;
@@ -325,8 +325,8 @@ function Tr() {
             var W = void 0;
             try {
               if (typeof i[$] != "function") {
-                var oe = Error((C || "React class") + ": " + E + " type `" + $ + "` is invalid; it must be a function, usually from the `prop-types` package, but received `" + typeof i[$] + "`.This often happens because of typos such as `PropTypes.function` instead of `PropTypes.func`.");
-                throw oe.name = "Invariant Violation", oe;
+                var ae = Error((C || "React class") + ": " + E + " type `" + $ + "` is invalid; it must be a function, usually from the `prop-types` package, but received `" + typeof i[$] + "`.This often happens because of typos such as `PropTypes.function` instead of `PropTypes.func`.");
+                throw ae.name = "Invariant Violation", ae;
               }
               W = i[$](b, $, C, E, null, "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED");
             } catch (X) {
@@ -442,8 +442,8 @@ function Tr() {
     };
     function pr(i, b, E, C, Y) {
       {
-        var K, $ = {}, W = null, oe = null;
-        E !== void 0 && (Yt(E), W = "" + E), cr(b) && (Yt(b.key), W = "" + b.key), ir(b) && (oe = b.ref, lr(b, Y));
+        var K, $ = {}, W = null, ae = null;
+        E !== void 0 && (Yt(E), W = "" + E), cr(b) && (Yt(b.key), W = "" + b.key), ir(b) && (ae = b.ref, lr(b, Y));
         for (K in b)
           Qe.call(b, K) && !sr.hasOwnProperty(K) && ($[K] = b[K]);
         if (i && i.defaultProps) {
@@ -451,11 +451,11 @@ function Tr() {
           for (K in X)
             $[K] === void 0 && ($[K] = X[K]);
         }
-        if (W || oe) {
+        if (W || ae) {
           var Z = typeof i == "function" ? i.displayName || i.name || "Unknown" : i;
-          W && ur($, Z), oe && dr($, Z);
+          W && ur($, Z), ae && dr($, Z);
         }
-        return fr(i, W, oe, Y, C, ze.current, $);
+        return fr(i, W, ae, Y, C, ze.current, $);
       }
     }
     var gt = w.ReactCurrentOwner, Kt = w.ReactDebugCurrentFrame;
@@ -582,8 +582,8 @@ Check the top-level render call using <` + E + ">.");
         if (!$) {
           var W = "";
           (i === void 0 || typeof i == "object" && i !== null && Object.keys(i).length === 0) && (W += " You likely forgot to export your component from the file it's defined in, or you might have mixed up default and named imports.");
-          var oe = mr(Y);
-          oe ? W += oe : W += qt();
+          var ae = mr(Y);
+          ae ? W += ae : W += qt();
           var X;
           i === null ? X = "null" : bt(i) ? X = "array" : i !== void 0 && i.$$typeof === t ? (X = "<" + (q(i.type) || "Unknown") + " />", W = " Did you accidentally export a JSX literal instead of a component?") : X = typeof i, h("React.jsx: type is invalid -- expected a string (for built-in components) or a class/function (for composite components) but got: %s.%s", X, W);
         }
@@ -1480,12 +1480,12 @@ const ye = () => {
     numberTrans: (n, r) => ct.ENGLISH === (r ?? e.locale.calendar) ? Sn(n) : _r(n)
   };
 }, jt = (e) => {
-  const { children: t, className: n, type: r = "button", ...o } = e, { state: a } = te();
+  const { children: t, className: n, type: r = "button", isDisabled: o, ...a } = e, { state: s } = te();
   return /* @__PURE__ */ D.jsxDEV(
     "button",
     {
       className: `
-          ${a.options.classNames.actionBtn ?? `
+          ${s.options.classNames.actionBtn ?? `
             ndp__action_btn
             ndp-bg-white dark:ndp-bg-slate-800
             hover:ndp-bg-gray-100 dark:hover:ndp-bg-gray-700
@@ -1495,17 +1495,22 @@ const ye = () => {
             ndp-text-sm ndp-px-3 ndp-py-1.5 hover-transition
             ndp-flex ndp-items-center
           `}
+          ${e.isDisabled && (s.options.classNames.actionBtnDisabled ?? `
+            ndp__action_btn-disabled
+            ndp-cursor-not-allowed ndp-select-none
+          `)}
           ${n ?? ""}
         `,
+      disabled: o,
       type: r,
-      ...o,
+      ...a,
       children: t
     },
     void 0,
     !1,
     {
       fileName: "/Users/puncoz/Workspace/web/projects/nepali-datepicker-reactjs/NepaliDatePicker/src/components/buttons/action-btn.tsx",
-      lineNumber: 16,
+      lineNumber: 17,
       columnNumber: 5
     },
     globalThis
@@ -1573,7 +1578,7 @@ const ye = () => {
     globalThis
   ) : null;
 }, jr = () => {
-  const { numberTrans: e } = ye(), { range: t } = Ye(), { state: n, setData: r } = te(), o = Ae(), a = ae(() => n.date.calendar ?? o.parseBsDate(xe(/* @__PURE__ */ new Date())), [n.date.calendar]), s = ae(() => n.date.selected, [n.date.selected]), c = ae(() => Math.ceil((a.firstAdDayInBsMonth.getDay() + a.numberOfDaysInBsMonth) / 7) - 1, [a]), u = ae(() => a.bsMonth - 1 === 0 ? 12 : a.bsMonth - 1, [a]), l = ae(() => u === 12 ? a.bsYear - 1 : a.bsYear, [u, a]), f = ae(() => l >= n.calendarData.minBsYear ? o.getNumberOfDaysInBSMonth(l, u) : 30, [l, u]), p = ve((d, v) => {
+  const { numberTrans: e } = ye(), { range: t } = Ye(), { state: n, setData: r } = te(), o = Ae(), a = oe(() => n.date.calendar ?? o.parseBsDate(xe(/* @__PURE__ */ new Date())), [n.date.calendar]), s = oe(() => n.date.selected, [n.date.selected]), c = oe(() => Math.ceil((a.firstAdDayInBsMonth.getDay() + a.numberOfDaysInBsMonth) / 7) - 1, [a]), u = oe(() => a.bsMonth - 1 === 0 ? 12 : a.bsMonth - 1, [a]), l = oe(() => u === 12 ? a.bsYear - 1 : a.bsYear, [u, a]), f = oe(() => l >= n.calendarData.minBsYear ? o.getNumberOfDaysInBSMonth(l, u) : 30, [l, u]), p = ve((d, v) => {
     let g = d * 7 + v - a.firstAdDayInBsMonth.getDay();
     const T = a.bsMonth, w = a.bsYear;
     let h = !0;
@@ -1581,7 +1586,7 @@ const ye = () => {
     const M = o.splitDate(xe(/* @__PURE__ */ new Date())), R = h ? M.day === g && M.month === T && M.year === w : !1, N = h ? (s == null ? void 0 : s.bsDay) === g && s.bsMonth === T && s.bsYear === w : !1, A = o.stitchDate({ year: w, month: T, day: g });
     return { day: g, month: T, year: w, weekDay: v, isCurrentMonth: h, isToday: R, isSelected: N, dateString: A };
   }, [a, s, f]), m = ve((d) => {
-    if (!d.isCurrentMonth)
+    if (!d.isCurrentMonth || n.modifiers.isDisabled(d))
       return;
     const v = o.stitchDate({
       year: d.year,
@@ -1589,7 +1594,7 @@ const ye = () => {
       day: d.day
     });
     n.events.onSelect(d), n.events.onChange(e(v, n.locale.value)), n.options.closeOnSelect && r({ type: z.SET_CALENDAR_OPEN, isOpen: !1 });
-  }, [n.events.onSelect, n.events.onChange, n.options.closeOnSelect, n.locale.value]);
+  }, [n.events.onSelect, n.events.onChange, n.modifiers.isDisabled, n.options.closeOnSelect, n.locale.value]);
   return /* @__PURE__ */ D.jsxDEV("tbody", { children: t(0, c).map((d) => /* @__PURE__ */ D.jsxDEV("tr", { className: n.options.classNames.dayPickerTr ?? "ndp__day_picker-tr ndp-border-0", children: t(1, 7).map((v) => {
     const g = p(d, v);
     return /* @__PURE__ */ D.jsxDEV(
@@ -1604,7 +1609,7 @@ const ye = () => {
                   ${n.options.classNames.dayPickerDay ?? `
                     ndp__day_picker-day
                     ndp-rounded-full ndp-h-9 ndp-w-9
-                    ndp-relative ndp-cursor-pointer hover-transition
+                    ndp-relative  hover-transition
                     hover:ndp-bg-gray-200 dark:hover:ndp-bg-slate-900
                   `}
                   ${g.isSelected && (n.options.classNames.dayPickerDaySelected ?? `
@@ -1623,6 +1628,13 @@ const ye = () => {
                   ${!g.isSelected && g.isCurrentMonth && n.modifiers.isHoliday(g) && (n.options.classNames.dayPickerDayHoliday ?? "ndp__day_picker-day-holiday ndp-text-red-500")}
 
                   ${!g.isSelected && g.isCurrentMonth && !n.modifiers.isHoliday(g) && n.modifiers.isWeekend(g.weekDay) && (n.options.classNames.dayPickerDayWeekend ?? "ndp__day_picker-day-weekend ndp-text-red-500")}
+
+                  ${n.modifiers.isDisabled(g) && (n.options.classNames.dayPickerDayDisabled ?? `
+                    ndp__day_picker-day-disabled
+                    ndp-opacity-30
+                    hover:ndp-bg-transparent dark:hover:ndp-bg-transparent
+                    ndp-cursor-not-allowed ndp-select-none
+                  `)}
                 `,
             onClick: () => {
               m(g);
@@ -1638,7 +1650,7 @@ const ye = () => {
                       ndp-absolute ndp-left-[50%] ndp-bottom-1 -ndp-translate-x-[50%]
                     ` }, void 0, !1, {
                 fileName: "/Users/puncoz/Workspace/web/projects/nepali-datepicker-reactjs/NepaliDatePicker/src/components/calendar/day-picker.tsx",
-                lineNumber: 142,
+                lineNumber: 149,
                 columnNumber: 21
               }, globalThis)
             ]
@@ -1672,7 +1684,7 @@ const ye = () => {
     columnNumber: 5
   }, globalThis);
 }, Rn = ({ options: e, onSelect: t, value: n, title: r, className: o, dropdownClass: a }) => {
-  const { state: s } = te(), [c, u] = Dr(!1), l = ae(() => e.find((m) => m.value === n) ?? {}, [n]), f = ve(() => {
+  const { state: s } = te(), [c, u] = Dr(!1), l = oe(() => e.find((m) => m.value === n) ?? {}, [n]), f = ve(() => {
     u((m) => !m);
   }, []), p = ve((m) => {
     u(!1), t(m.value);
@@ -1764,7 +1776,7 @@ const ye = () => {
   "chaitra"
 ], Or = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"], Ar = () => {
   var c;
-  const { trans: e } = ye(), { state: t, setData: n } = te(), r = Ae(), o = ae(() => t.date.calendar ?? r.parseBsDate(xe(/* @__PURE__ */ new Date())), [t.date.calendar]), a = ae(() => Pr.map((u, l) => ({
+  const { trans: e } = ye(), { state: t, setData: n } = te(), r = Ae(), o = oe(() => t.date.calendar ?? r.parseBsDate(xe(/* @__PURE__ */ new Date())), [t.date.calendar]), a = oe(() => Pr.map((u, l) => ({
     label: e(`months.${u}`),
     value: l
   })), [t.locale.calendar]), s = ve((u) => {
@@ -1799,7 +1811,7 @@ const ye = () => {
     globalThis
   );
 }, Mr = () => {
-  const { trans: e } = ye(), { state: t, setData: n } = te(), r = Ae(), o = ae(() => t.date.calendar ?? r.parseBsDate(xe(/* @__PURE__ */ new Date())), [t.date.calendar]), a = ve(() => {
+  const { trans: e } = ye(), { state: t, setData: n } = te(), r = Ae(), o = oe(() => t.date.calendar ?? r.parseBsDate(xe(/* @__PURE__ */ new Date())), [t.date.calendar]), a = ve(() => {
     let s = o.bsYear, c = o.bsMonth + 1;
     if (c > 12 && (c = 1, s++), s < t.calendarData.minBsYear || s > t.calendarData.maxBsYear)
       return;
@@ -1831,7 +1843,7 @@ const ye = () => {
     globalThis
   );
 }, Ir = () => {
-  const { trans: e } = ye(), { state: t, setData: n } = te(), r = Ae(), o = ae(() => t.date.calendar ?? r.parseBsDate(xe(/* @__PURE__ */ new Date())), [t.date.calendar]), a = ve(() => {
+  const { trans: e } = ye(), { state: t, setData: n } = te(), r = Ae(), o = oe(() => t.date.calendar ?? r.parseBsDate(xe(/* @__PURE__ */ new Date())), [t.date.calendar]), a = ve(() => {
     let s = o.bsYear, c = o.bsMonth - 1;
     if (c === 0 && (c = 12, s--), s < t.calendarData.minBsYear || s > t.calendarData.maxBsYear)
       return;
@@ -1861,35 +1873,37 @@ const ye = () => {
     globalThis
   );
 }, Lr = () => {
-  const { trans: e, numberTrans: t } = ye(), n = Ae(), { zeroPad: r } = Ye(), { state: o, setData: a } = te(), s = ae(() => n.parseBsDate(xe(/* @__PURE__ */ new Date())), []), c = ve(() => {
-    o.events.onSelect({
-      day: s.bsDay,
-      month: s.bsMonth,
-      year: s.bsYear,
-      isToday: !0,
-      isCurrentMonth: !0,
-      isSelected: !0,
-      dateString: s.dateString
-    }), o.events.onChange(t(s.dateString, o.locale.value)), o.options.closeOnSelect && a({ type: z.SET_CALENDAR_OPEN, isOpen: !1 });
-  }, [s, o.events.onChange, o.options.closeOnSelect, o.locale.value]);
+  const { trans: e, numberTrans: t } = ye(), n = Ae(), { zeroPad: r } = Ye(), { state: o, setData: a } = te(), s = oe(() => n.parseBsDate(xe(/* @__PURE__ */ new Date())), []), c = oe(() => ({
+    day: s.bsDay,
+    month: s.bsMonth,
+    year: s.bsYear,
+    isToday: !0,
+    isCurrentMonth: !0,
+    isSelected: !0,
+    dateString: s.dateString,
+    weekDay: s.weekDay
+  }), [s]), u = ve(() => {
+    o.modifiers.isDisabled(c) || (o.events.onSelect(c), o.events.onChange(t(s.dateString, o.locale.value)), o.options.closeOnSelect && a({ type: z.SET_CALENDAR_OPEN, isOpen: !1 }));
+  }, [s, c, o.events.onSelect, o.events.onChange, o.modifiers.isDisabled, o.options.closeOnSelect, o.locale.value]);
   return /* @__PURE__ */ D.jsxDEV(
     jt,
     {
       className: o.options.classNames.todayBtn ?? `
                 ndp__today_btn ndp-font-medium ndp-border hover:ndp-text-primary ndp-group
               `,
+      isDisabled: o.modifiers.isDisabled(c),
       title: e("labels.today"),
-      onClick: c,
-      onKeyDown: c,
+      onClick: u,
+      onKeyDown: u,
       children: [
         /* @__PURE__ */ D.jsxDEV(qr, { date: t(r(s.bsDay)) }, void 0, !1, {
           fileName: "/Users/puncoz/Workspace/web/projects/nepali-datepicker-reactjs/NepaliDatePicker/src/components/calendar/today-btn.tsx",
-          lineNumber: 40,
+          lineNumber: 47,
           columnNumber: 7
         }, globalThis),
         /* @__PURE__ */ D.jsxDEV("span", { className: o.options.classNames.todayBtnText ?? "ndp__today_btn-text ndp-ml-2", children: e("labels.today") }, void 0, !1, {
           fileName: "/Users/puncoz/Workspace/web/projects/nepali-datepicker-reactjs/NepaliDatePicker/src/components/calendar/today-btn.tsx",
-          lineNumber: 41,
+          lineNumber: 48,
           columnNumber: 7
         }, globalThis)
       ]
@@ -1898,13 +1912,13 @@ const ye = () => {
     !0,
     {
       fileName: "/Users/puncoz/Workspace/web/projects/nepali-datepicker-reactjs/NepaliDatePicker/src/components/calendar/today-btn.tsx",
-      lineNumber: 34,
+      lineNumber: 40,
       columnNumber: 5
     },
     globalThis
   );
 }, Br = () => {
-  const { trans: e } = ye(), { state: t } = te(), n = ae(() => Or.map((r, o) => ({
+  const { trans: e } = ye(), { state: t } = te(), n = oe(() => Or.map((r, o) => ({
     label: e(`weeks.${r}`),
     value: o
   })), [t.locale.calendar]);
@@ -1940,7 +1954,7 @@ const ye = () => {
   }, globalThis);
 }, Wr = () => {
   var l;
-  const { state: e, setData: t } = te(), { numberTrans: n, trans: r } = ye(), { range: o } = Ye(), a = Ae(), s = ae(() => e.date.calendar ?? a.parseBsDate(xe(/* @__PURE__ */ new Date())), [e.date.calendar]), c = ae(() => o(e.calendarData.minBsYear, e.calendarData.maxBsYear).reverse().map((f) => ({
+  const { state: e, setData: t } = te(), { numberTrans: n, trans: r } = ye(), { range: o } = Ye(), a = Ae(), s = oe(() => e.date.calendar ?? a.parseBsDate(xe(/* @__PURE__ */ new Date())), [e.date.calendar]), c = oe(() => o(e.calendarData.minBsYear, e.calendarData.maxBsYear).reverse().map((f) => ({
     label: n(f),
     value: f
   })), [e.locale.calendar]), u = ve((f) => {

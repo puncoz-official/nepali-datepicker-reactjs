@@ -65,7 +65,7 @@ const DayPicker: FunctionComponent = () => {
   }, [calendarDate, selectedDate, daysInPreviousMonth])
 
   const handleOnDaySelect = useCallback((dayInfo: DayInfo) => {
-    if (!dayInfo.isCurrentMonth) {
+    if (!dayInfo.isCurrentMonth || state.modifiers.isDisabled(dayInfo)) {
       return
     }
 
@@ -80,7 +80,7 @@ const DayPicker: FunctionComponent = () => {
     if (state.options.closeOnSelect) {
       setData({ type: Types.SET_CALENDAR_OPEN, isOpen: false })
     }
-  }, [state.events.onSelect, state.events.onChange, state.options.closeOnSelect, state.locale.value])
+  }, [state.events.onSelect, state.events.onChange, state.modifiers.isDisabled, state.options.closeOnSelect, state.locale.value])
 
   return (
     <tbody>
@@ -97,7 +97,7 @@ const DayPicker: FunctionComponent = () => {
                   ${state.options.classNames.dayPickerDay ?? `
                     ndp__day_picker-day
                     ndp-rounded-full ndp-h-9 ndp-w-9
-                    ndp-relative ndp-cursor-pointer hover-transition
+                    ndp-relative  hover-transition
                     hover:ndp-bg-gray-200 dark:hover:ndp-bg-slate-900
                   `}
                   ${dayInfo.isSelected && (state.options.classNames.dayPickerDaySelected ?? `
@@ -129,6 +129,13 @@ const DayPicker: FunctionComponent = () => {
                   && (
                     state.options.classNames.dayPickerDayWeekend ?? "ndp__day_picker-day-weekend ndp-text-red-500"
                   )}
+
+                  ${state.modifiers.isDisabled(dayInfo) && (state.options.classNames.dayPickerDayDisabled ?? `
+                    ndp__day_picker-day-disabled
+                    ndp-opacity-30
+                    hover:ndp-bg-transparent dark:hover:ndp-bg-transparent
+                    ndp-cursor-not-allowed ndp-select-none
+                  `)}
                 `}
                         onClick={() => {
                           handleOnDaySelect(dayInfo)

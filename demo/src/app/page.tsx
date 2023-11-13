@@ -6,7 +6,7 @@ import React, { useContext, useState } from "react"
 
 export default function Home() {
   const { theme } = useContext(ThemeContext)
-  const [dateEnglish, setDateEnglish] = useState<string>("2081-01-15")
+  const [dateEnglish, setDateEnglish] = useState<string>("2081-01-05")
   const [dateNepali, setDateNepali] = useState<string>("२०८०-०३-२०")
 
   const handleOnSelect = (data: any) => {
@@ -25,6 +25,7 @@ export default function Home() {
                           className="w-full text-black"
                           isWeekend={(weekDay) => weekDay === 1 || weekDay === 7}
                           isHoliday={(dayInfo) => dayInfo.day === 7}
+                          isDisabled={(dayInfo) => dayInfo.day < 14 || dayInfo.day > 20}
                           options={{
                             classNames: {
                               wrapper: "bg-green",

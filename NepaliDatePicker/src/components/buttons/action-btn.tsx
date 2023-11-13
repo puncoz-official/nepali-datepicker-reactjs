@@ -5,10 +5,11 @@ import { useData } from "@/hooks"
 interface Props extends HTMLProps<HTMLButtonElement> {
   children: ReactNode
   type?: "button"
+  isDisabled?: boolean
 }
 
 const ActionBtn: FunctionComponent<Props> = (props) => {
-  const { children, className, type = "button", ...buttonProps } = props
+  const { children, className, type = "button", isDisabled, ...buttonProps } = props
 
   const { state } = useData()
 
@@ -24,8 +25,13 @@ const ActionBtn: FunctionComponent<Props> = (props) => {
             ndp-text-sm ndp-px-3 ndp-py-1.5 hover-transition
             ndp-flex ndp-items-center
           `}
+          ${props.isDisabled && (state.options.classNames.actionBtnDisabled ?? `
+            ndp__action_btn-disabled
+            ndp-cursor-not-allowed ndp-select-none
+          `)}
           ${className ?? ""}
         `}
+            disabled={isDisabled}
             type={type}
             {...buttonProps}>
       {children}
