@@ -7,8 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "clean": "rimraf .next yarn-debug.log*, yarn-error.log*",
-    "clean:modules": "rimraf node_modules"
+    "clean": "del .next yarn-debug.log*, yarn-error.log*",
+    "clean:modules": "del node_modules"
   },
   "dependencies": {
     "nepali-datepicker-reactjs": "*",

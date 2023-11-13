@@ -11,7 +11,7 @@
     "lib": "yarn workspace nepali-datepicker-reactjs",
     "demo": "yarn workspace @puncoz/demo",
     "clean": "yarn demo clean && yarn lib clean",
-    "clean:modules": "yarn demo clean:modules && yarn lib clean:modules",
+    "clean:modules": "yarn demo clean:modules && yarn lib clean:modules && del node_modules",
     "dev:lib": "yarn lib lib:dev",
     "dev:demo": "yarn demo dev",
     "build": "yarn lib dist"
@@ -23,9 +23,9 @@
     ]
   },
   "devDependencies": {
+    "del-cli": "^5.1.0",
     "husky": "^8.0.3",
-    "lint-staged": "^14.0.1",
-    "rimraf": "^5.0.5",
+    "lint-staged": "^15.1.0",
     "typescript": "^5.2.2"
   },
   "husky": {
