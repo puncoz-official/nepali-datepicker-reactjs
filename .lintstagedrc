@@ -2,7 +2,7 @@
   "NepaliDatePicker/src/**/*.{ts,tsx}": [
     "yarn lib lint:eslint"
   ],
-  "NepaliDatePicker/src/**/*.{css}": [
+  "NepaliDatePicker/src/**/*.css": [
     "yarn lib lint:style"
   ]
 }
