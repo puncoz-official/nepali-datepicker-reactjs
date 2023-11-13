@@ -3,8 +3,10 @@ module.exports = {
   env: { browser: true, es2020: true },
   extends: [
     "eslint:recommended",
-    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/strict-type-checked",
+    "plugin:@typescript-eslint/stylistic-type-checked",
     "plugin:react/recommended",
+    "plugin:react/jsx-runtime",
     "plugin:jsx-a11y/recommended",
     "plugin:react-hooks/recommended",
   ],
@@ -15,8 +17,10 @@ module.exports = {
     },
     ecmaVersion: "latest",
     sourceType: "module",
+    project: ["./tsconfig.json", "./tsconfig.node.json"],
+    tsconfigRootDir: __dirname,
   },
-  plugins: ["react", "@typescript-eslint", "react-hooks", "react-refresh", "simple-import-sort"],
+  plugins: ["@typescript-eslint", "react-hooks", "react-refresh", "simple-import-sort", "react"],
   rules: {
     "no-console": process.env.NODE_ENV === "production" ? "error" : "off",
     "no-debugger": process.env.NODE_ENV === "production" ? "error" : "off",
@@ -24,10 +28,10 @@ module.exports = {
     "camelcase": "error",
     "no-duplicate-imports": "error",
     "jsx-a11y/accessible-emoji": "off",
-    'jsx-a11y/no-noninteractive-element-to-interactive-role': [
-      'error',
+    "jsx-a11y/no-noninteractive-element-to-interactive-role": [
+      "error",
       {
-        li: ['button'],
+        li: ["button"],
       },
     ],
     "react-refresh/only-export-components": ["warn", { allowConstantExport: true }],
@@ -35,6 +39,8 @@ module.exports = {
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/no-empty-function": "off",
     "react-hooks/exhaustive-deps": "off",
+    "react/jsx-uses-react": "error",
+    "react/jsx-uses-vars": "error",
     "react/react-in-jsx-scope": "off",
     "react/prop-types": 0,
     "react/display-name": 0,

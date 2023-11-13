@@ -14,7 +14,7 @@ const ActionBtn: FunctionComponent<Props> = (props) => {
 
   return (
     <button className={`
-          ${state.options.classNames.actionBtn || `
+          ${state.options.classNames.actionBtn ?? `
             ndp__action_btn
             ndp-bg-white dark:ndp-bg-slate-800
             hover:ndp-bg-gray-100 dark:hover:ndp-bg-gray-700
@@ -24,7 +24,7 @@ const ActionBtn: FunctionComponent<Props> = (props) => {
             ndp-text-sm ndp-px-3 ndp-py-1.5 hover-transition
             ndp-flex ndp-items-center
           `}
-          ${className || ""}
+          ${className ?? ""}
         `}
             type={type}
             {...buttonProps}>

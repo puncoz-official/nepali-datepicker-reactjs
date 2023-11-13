@@ -1,8 +1,8 @@
 import { FunctionComponent } from "react";
 import { ClassName } from '../../@types/Common.ts';
-type Props = {
+interface Props {
     className?: ClassName;
-};
+}
 declare const LeftArrow: FunctionComponent<Props>;
 export default LeftArrow;
 //# sourceMappingURL=left-arrow.d.ts.map

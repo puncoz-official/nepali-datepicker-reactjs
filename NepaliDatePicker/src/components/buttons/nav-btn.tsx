@@ -13,13 +13,13 @@ const NavBtn: FunctionComponent<Props> = (props) => {
 
   return (
     <button className={`
-              ${state.options.classNames.navBtn || `
+              ${state.options.classNames.navBtn ?? `
                 ndp__nav_button
                 ndp-flex ndp-justify-center ndp-items-center hover-transition
                 ndp-border-0 ndp-h-10 ndp-w-10 ndp-rounded-full
                 hover:ndp-bg-gray-200 dark:hover:ndp-bg-slate-900
               `}
-              ${className || ""}
+              ${className ?? ""}
             `}
             type={type}
             {...buttonProps}>

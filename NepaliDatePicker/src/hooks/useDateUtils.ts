@@ -13,7 +13,7 @@ export const useDateUtils = () => {
 
   const splitDate = (date: string, separator?: string): SplitDate => {
     dateValidator.validateInputDate(date, separator)
-    const [year, month, day] = date.split(separator || state.options.dateSeparator)
+    const [year, month, day] = date.split(separator ?? state.options.dateSeparator)
 
     return {
       year: parseInt(year),
@@ -23,7 +23,7 @@ export const useDateUtils = () => {
   }
 
   const stitchDate = (date: SplitDate, separator?: string): string => {
-    const dateSep = separator || state.options.dateSeparator
+    const dateSep = separator ?? state.options.dateSeparator
 
     return `${date.year}${dateSep}${common.zeroPad(date.month)}${dateSep}${common.zeroPad(date.day)}`
   }

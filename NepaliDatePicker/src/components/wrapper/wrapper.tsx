@@ -1,6 +1,6 @@
 import { ADToBS } from "bikram-sambat-js"
 import { nepaliToEnglishNumber } from "nepali-number"
-import React, { CSSProperties, FunctionComponent, useEffect } from "react"
+import React, { CSSProperties, FunctionComponent, HTMLProps, useEffect } from "react"
 
 import { Calendar, DateInput } from "@/components"
 import { useData, useDateUtils } from "@/hooks"
@@ -9,8 +9,7 @@ import { INepaliDatePicker } from "#/NepaliDatePicker.ts"
 
 import FloatingContainer from "./floating-container.tsx"
 
-interface Props extends INepaliDatePicker {
-}
+type Props = INepaliDatePicker & HTMLProps<HTMLInputElement>
 
 const Wrapper: FunctionComponent<Props> = ({ ...props }) => {
   const { state, setData } = useData()
@@ -20,7 +19,7 @@ const Wrapper: FunctionComponent<Props> = ({ ...props }) => {
     setData({
       type: Types.SET_CLASSES,
       classNames: {
-        input: props.className || state.options.classNames.input,
+        input: props.className ?? state.options.classNames.input,
         ...props.options?.classNames,
       },
     })
@@ -37,8 +36,8 @@ const Wrapper: FunctionComponent<Props> = ({ ...props }) => {
     setData({
       type: Types.SET_EVENTS,
       events: {
-        onChange: props.onChange || state.events.onChange,
-        onSelect: props.onSelect || state.events.onSelect,
+        onChange: props.onChange ?? state.events.onChange,
+        onSelect: props.onSelect ?? state.events.onSelect,
       },
     })
   }, [props.onChange, props.onSelect])
@@ -47,8 +46,8 @@ const Wrapper: FunctionComponent<Props> = ({ ...props }) => {
     setData({
       type: Types.SET_LOCALE,
       locale: {
-        calendar: (props.options?.locale || state.locale.calendar) as Language,
-        value: (props.options?.valueLocale || state.locale.value) as Language,
+        calendar: (props.options?.locale ?? state.locale.calendar) as Language,
+        value: (props.options?.valueLocale ?? state.locale.value) as Language,
       },
     })
   }, [props.options?.locale, props.options?.valueLocale])
@@ -63,19 +62,19 @@ const Wrapper: FunctionComponent<Props> = ({ ...props }) => {
   useEffect(() => {
     setData({
       type: Types.SET_SEPARATOR,
-      separator: props.options?.dateSeparator || state.options.dateSeparator,
+      separator: props.options?.dateSeparator ?? state.options.dateSeparator,
     })
   }, [props.options?.dateSeparator])
 
   useEffect(() => {
     setData({
       type: Types.SET_CLOSE_ON_SELECT,
-      closeOnSelect: typeof props.options?.closeOnSelect === "undefined" ? state.options.closeOnSelect : props.options?.closeOnSelect,
+      closeOnSelect: typeof props.options?.closeOnSelect === "undefined" ? state.options.closeOnSelect : props.options.closeOnSelect,
     })
   }, [props.options?.closeOnSelect])
 
   useEffect(() => {
-    const value = nepaliToEnglishNumber(props.value || "")
+    const value = nepaliToEnglishNumber(props.value ?? "")
     const selectedDate = value ? parseBsDate(value) : undefined
     const calendarDate = parseBsDate(value || ADToBS(new Date()))
 
@@ -84,7 +83,7 @@ const Wrapper: FunctionComponent<Props> = ({ ...props }) => {
   }, [props.value])
 
   return (
-    <div className={`nepali-datepicker ${state.options.classNames.wrapper || ""}`}
+    <div className={`nepali-datepicker ${state.options.classNames.wrapper ?? ""}`}
          data-theme={state.options.theme}
          style={{
            "--ndp-primary": state.options.colors.primary,

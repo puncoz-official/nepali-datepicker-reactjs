@@ -20,7 +20,7 @@ import { Types } from "#/Data.ts"
 const ARROW_HEIGHT = 7
 const GAP = 2
 
-type Props = {
+interface Props {
   input: ReactNode
   calendar: ReactNode
 }

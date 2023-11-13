@@ -7,7 +7,13 @@
   },
   "description": "Nepali Datepicker (Bikram Sambat) as a ReactJS component",
   "keywords": [
-    "nepali date picker", "nepali", "datepicker", "bikram", "sambat", "bikramsambat", "calender"
+    "nepali date picker",
+    "nepali",
+    "datepicker",
+    "bikram",
+    "sambat",
+    "bikramsambat",
+    "calender"
   ],
   "author": {
     "name": "Puncoz Nepal",
@@ -26,11 +32,12 @@
     "clean": "del dist yarn-debug.log*, yarn-error.log* tsconfig.tsbuildinfo",
     "clean:modules": "del node_modules",
     "lint:type-check": "vue-tsc --noEmit -p ./tsconfig.json",
-    "lint:eslint": "eslint ./src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "lint:fix": "eslint --fix ./src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "lint": "yarn lint:eslint && yarn lint:type-check",
+    "lint:eslint": "eslint --ext ts,tsx --report-unused-disable-directives --max-warnings 0 ./src",
+    "lint:fix": "yarn lint:eslint --fix",
+    "lint:style": "stylelint ./src/**/*.css",
+    "lint": "yarn lint:style && yarn lint:eslint && yarn lint:type-check",
     "lib:dev": "NODE_ENV=development vite build --watch --config vite.config.ts",
-    "lib:build": "tsc && vite NODE_ENV=production build --config vite.config.ts",
+    "lib:build": "tsc && NODE_ENV=production vite build --config vite.config.ts",
     "tsc": "tsc",
     "predist": "yarn clean && yarn lint",
     "dist": "yarn lib:build"
@@ -38,9 +45,6 @@
   "peerDependencies": {
     "react": "^18",
     "react-dom": "^18"
-  },
-  "resolutions": {
-    "strip-ansi": "^7.1.0"
   },
   "devDependencies": {
     "@floating-ui/react": "^0.26.1",
@@ -60,6 +64,9 @@
     "eslint-plugin-simple-import-sort": "^10.0.0",
     "nepali-number": "^1.0.3",
     "postcss": "^8.4.31",
+    "stylelint": "^15.11.0",
+    "stylelint-config-recommended": "^13.0.0",
+    "stylelint-config-standard": "^34.0.0",
     "tailwindcss": "^3.3.3",
     "vite": "^4.4.5",
     "vite-plugin-dts": "^3.6.0",

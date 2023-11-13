@@ -11,7 +11,7 @@ export const DataContext = createContext<{
   dispatch: () => null,
 })
 
-type Props = {
+interface Props {
   children: ReactNode
 }
 

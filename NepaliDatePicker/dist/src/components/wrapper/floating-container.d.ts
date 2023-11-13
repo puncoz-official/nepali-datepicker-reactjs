@@ -1,8 +1,8 @@
 import { FunctionComponent, ReactNode } from "react";
-type Props = {
+interface Props {
     input: ReactNode;
     calendar: ReactNode;
-};
+}
 declare const FloatingContainer: FunctionComponent<Props>;
 export default FloatingContainer;
 //# sourceMappingURL=floating-container.d.ts.map

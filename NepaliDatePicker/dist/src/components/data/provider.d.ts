@@ -4,9 +4,9 @@ export declare const DataContext: React.Context<{
     state: IData;
     dispatch: Dispatch<DataAction>;
 }>;
-type Props = {
+interface Props {
     children: ReactNode;
-};
+}
 export declare const DataProvider: FunctionComponent<Props>;
 export {};
 //# sourceMappingURL=provider.d.ts.map

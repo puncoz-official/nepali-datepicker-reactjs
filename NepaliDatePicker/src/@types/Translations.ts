@@ -24,9 +24,7 @@ export interface Translation {
   weeks: {
     [week in typeof Weeks[number]]: string
   }
-  labels: {
-    [key: string]: string
-  }
+  labels: Record<string, string>
 }
 
 export type Translations = {

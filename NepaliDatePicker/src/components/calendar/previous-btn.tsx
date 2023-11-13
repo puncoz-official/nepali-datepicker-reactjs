@@ -11,7 +11,7 @@ const PreviousBtn: FunctionComponent = () => {
   const dateUtils = useDateUtils()
 
   const calendarDate = useMemo<ParsedDate>(() => {
-    return state.date.calendar || dateUtils.parseBsDate(ADToBS(new Date()))
+    return state.date.calendar ?? dateUtils.parseBsDate(ADToBS(new Date()))
   }, [state.date.calendar])
 
   const handleOnClick = useCallback(() => {
@@ -34,10 +34,10 @@ const PreviousBtn: FunctionComponent = () => {
 
   return (
     <NavBtn title={trans("labels.previous")}
-            onClick={() => handleOnClick()}
-            onKeyDown={() => handleOnClick()}
-            className={state.options.classNames.previousBtn || `ndp__nav_button-previous`}>
-      <LeftArrow className={state.options.classNames.navBtnIcon || "ndp__nav_btn_icon ndp-w-5 ndp-h-5"} />
+            onClick={handleOnClick}
+            onKeyDown={handleOnClick}
+            className={state.options.classNames.previousBtn ?? `ndp__nav_button-previous`}>
+      <LeftArrow className={state.options.classNames.navBtnIcon ?? "ndp__nav_btn_icon ndp-w-5 ndp-h-5"} />
     </NavBtn>
   )
 }

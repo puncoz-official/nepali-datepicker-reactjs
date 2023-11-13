@@ -12,7 +12,7 @@ const YearPicker: FunctionComponent = () => {
   const dateUtils = useDateUtils()
 
   const calendarDate = useMemo<ParsedDate>(() => {
-    return state.date.calendar || dateUtils.parseBsDate(ADToBS(new Date()))
+    return state.date.calendar ?? dateUtils.parseBsDate(ADToBS(new Date()))
   }, [state.date.calendar])
 
   const yearList = useMemo<Option[]>(() => {
@@ -31,12 +31,12 @@ const YearPicker: FunctionComponent = () => {
 
   return (
     <DropDown options={yearList}
-              value={state.date.calendar?.bsYear || 0}
+              value={state.date.calendar?.bsYear ?? 0}
               onSelect={handleOnSelect}
-              className={state.options.classNames.yearPicker || `
+              className={state.options.classNames.yearPicker ?? `
                 ndp__year_picker ndp-border-y ndp-border-l ndp-rounded-l-sm
               `}
-              dropdownClass={state.options.classNames.yearPickerDropDown || `
+              dropdownClass={state.options.classNames.yearPickerDropDown ?? `
                 ndp__year_picker-dropdown ndp-rounded-l-sm ndp-rounded-br-sm
               `}
               title={trans("labels.select-year")} />

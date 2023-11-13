@@ -1,10 +1,9 @@
-import React, { FunctionComponent } from "react"
+import React, { FunctionComponent, HTMLProps } from "react"
 
 import { useCommon, useData, useTrans } from "@/hooks"
 import { INepaliDatePickerKeys } from "#/NepaliDatePicker.ts"
 
-interface Props {
-}
+type Props = HTMLProps<HTMLInputElement>
 
 const DateInput: FunctionComponent<Props> = (props) => {
   const { state } = useData()
@@ -15,7 +14,7 @@ const DateInput: FunctionComponent<Props> = (props) => {
 
   return (
     <input type="text"
-           className={state.options.classNames.input || `
+           className={state.options.classNames.input ?? `
                 ndp__input
                 ndp-inline-block ndp-w-full ndp-py-2 ndp-px-3 ndp-rounded
                 ndp-shadow-sm dark:ndp-shadow-slate-800
@@ -29,7 +28,7 @@ const DateInput: FunctionComponent<Props> = (props) => {
                 focus:ndp-ring-blue-500 dark:focus:ndp-ring-blue-500
              `}
            readOnly={true}
-           value={numberTrans(state.date.selected?.dateString || "")}
+           value={numberTrans(state.date.selected?.dateString ?? "")}
            {...inputProps} />
   )
 }

@@ -15,7 +15,7 @@ const Calendar: FunctionComponent = () => {
   const { state } = useData()
 
   return (
-    <div className={state.options.classNames.calendar || `
+    <div className={state.options.classNames.calendar ?? `
       ndp__calendar
       ndp-bg-white dark:ndp-bg-slate-800
       ndp-rounded ndp-shadow ndp-box-border
@@ -24,11 +24,11 @@ const Calendar: FunctionComponent = () => {
       ndp-p-4
     `}>
       <div
-        className={state.options.classNames.calendarHeader || `
+        className={state.options.classNames.calendarHeader ?? `
           ndp__calendar-header ndp-flex ndp-items-center ndp-justify-between
         `}>
         <PreviousBtn />
-        <div className={state.options.classNames.yearMonthPicker || `
+        <div className={state.options.classNames.yearMonthPicker ?? `
           ndp__year_month_picker ndp-flex
         `}>
           <YearPicker />
@@ -37,14 +37,14 @@ const Calendar: FunctionComponent = () => {
         <NextBtn />
       </div>
 
-      <table className={state.options.classNames.calendarBody || `
+      <table className={state.options.classNames.calendarBody ?? `
         ndp__calendar-body ndp-text-center ndp-w-full ndp-border-0
       `}>
         <WeekDays />
         <DayPicker />
       </table>
 
-      <div className={state.options.classNames.calendarFooter || `
+      <div className={state.options.classNames.calendarFooter ?? `
         ndp__calendar-footer
         ndp-flex ndp-justify-between ndp-border-t ndp-border-gray-100 dark:ndp-border-gray-700 ndp-pt-2
       `}>

@@ -12,7 +12,7 @@ const MonthPicker: FunctionComponent = () => {
   const dateUtils = useDateUtils()
 
   const calendarDate = useMemo<ParsedDate>(() => {
-    return state.date.calendar || dateUtils.parseBsDate(ADToBS(new Date()))
+    return state.date.calendar ?? dateUtils.parseBsDate(ADToBS(new Date()))
   }, [state.date.calendar])
 
   const monthList = useMemo<Option[]>(() => {
@@ -33,12 +33,12 @@ const MonthPicker: FunctionComponent = () => {
 
   return (
     <DropDown options={monthList}
-              value={(state.date.calendar?.bsMonth || 1) - 1}
+              value={(state.date.calendar?.bsMonth ?? 1) - 1}
               onSelect={handleOnSelect}
-              className={state.options.classNames.monthPicker || `
+              className={state.options.classNames.monthPicker ?? `
                 ndp__month_picker ndp-border ndp-rounded-r-sm ndp-w-20 ndp-justify-center
               `}
-              dropdownClass={state.options.classNames.monthPickerDropDown || `
+              dropdownClass={state.options.classNames.monthPickerDropDown ?? `
                 ndp__month_picker-dropdown ndp-rounded-r-sm ndp-rounded-bl-sm
               `}
               title={trans("labels.select-month")} />

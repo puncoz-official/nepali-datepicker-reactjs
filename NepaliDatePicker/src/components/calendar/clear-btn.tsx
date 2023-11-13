@@ -21,14 +21,14 @@ const ClearBtn: FunctionComponent = () => {
   }
 
   return (
-    <ActionBtn className={state.options.classNames.clearBtn || `
+    <ActionBtn className={state.options.classNames.clearBtn ?? `
                 ndp__clear_btn ndp-font-medium ndp-border hover:ndp-text-red-500
                `}
                title={trans("labels.clear")}
-               onClick={() => handleOnClick()}
-               onKeyDown={() => handleOnClick()}>
-      <CrossIcon className={state.options.classNames.clearBtnIcon || `ndp__today_btn-icon ndp-w-4 ndp-h-4`} />
-      <span className={state.options.classNames.clearBtnText || `ndp__today_btn-text ndp-ml-2`}>
+               onClick={handleOnClick}
+               onKeyDown={handleOnClick}>
+      <CrossIcon className={state.options.classNames.clearBtnIcon ?? `ndp__today_btn-icon ndp-w-4 ndp-h-4`} />
+      <span className={state.options.classNames.clearBtnText ?? `ndp__today_btn-text ndp-ml-2`}>
         {trans("labels.clear")}
       </span>
     </ActionBtn>

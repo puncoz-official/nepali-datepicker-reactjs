@@ -11,7 +11,7 @@ const NextBtn: FunctionComponent = () => {
   const dateUtils = useDateUtils()
 
   const calendarDate = useMemo<ParsedDate>(() => {
-    return state.date.calendar || dateUtils.parseBsDate(ADToBS(new Date()))
+    return state.date.calendar ?? dateUtils.parseBsDate(ADToBS(new Date()))
   }, [state.date.calendar])
 
   const handleOnClick = useCallback(() => {
@@ -34,10 +34,10 @@ const NextBtn: FunctionComponent = () => {
 
   return (
     <NavBtn title={trans("labels.next")}
-            onClick={() => handleOnClick()}
-            onKeyDown={() => handleOnClick()}
-            className={state.options.classNames.nextBtn || `ndp__nav_button-next`}>
-      <RightArrow className={state.options.classNames.navBtnIcon || `
+            onClick={handleOnClick}
+            onKeyDown={handleOnClick}
+            className={state.options.classNames.nextBtn ?? `ndp__nav_button-next`}>
+      <RightArrow className={state.options.classNames.navBtnIcon ?? `
         ndp__nav_btn_icon ndp-w-5 ndp-h-5
       `} />
     </NavBtn>

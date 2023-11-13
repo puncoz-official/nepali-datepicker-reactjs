@@ -35,49 +35,44 @@ export const DataState: IData = {
 }
 
 export const DataReducer = (state: IData = DataState, action: DataAction) => {
-  if (action.type === Types.SET_CALENDAR_OPEN) {
-    return { ...state, isCalendarOpen: action.isOpen }
-  }
+  switch (action.type) {
+    case Types.SET_CALENDAR_OPEN:
+      return { ...state, isCalendarOpen: action.isOpen }
 
-  if (action.type === Types.SET_CLASSES) {
-    return { ...state, options: { ...state.options, classNames: { ...state.options.classNames, ...action.classNames } } }
-  }
+    case Types.SET_CLASSES:
+      return {
+        ...state,
+        options: { ...state.options, classNames: { ...state.options.classNames, ...action.classNames } },
+      }
 
-  if (action.type === Types.SET_THEME) {
-    return { ...state, options: { ...state.options, theme: action.theme } }
-  }
+    case Types.SET_THEME:
+      return { ...state, options: { ...state.options, theme: action.theme } }
 
-  if (action.type === Types.SET_EVENTS) {
-    return { ...state, events: action.events }
-  }
+    case Types.SET_EVENTS:
+      return { ...state, events: action.events }
 
-  if (action.type === Types.SET_LOCALE) {
-    return { ...state, locale: { ...state.locale, ...action.locale } }
-  }
+    case Types.SET_LOCALE:
+      return { ...state, locale: { ...state.locale, ...action.locale } }
 
-  if (action.type === Types.SET_COLORS) {
-    return { ...state, options: { ...state.options, colors: { ...state.options.colors, ...action.colors } } }
-  }
+    case Types.SET_COLORS:
+      return { ...state, options: { ...state.options, colors: { ...state.options.colors, ...action.colors } } }
 
-  if (action.type === Types.SET_SEPARATOR) {
-    return { ...state, options: { ...state.options, dateSeparator: action.separator } }
-  }
+    case Types.SET_SEPARATOR:
+      return { ...state, options: { ...state.options, dateSeparator: action.separator } }
 
-  if (action.type === Types.SET_CLOSE_ON_SELECT) {
-    return { ...state, options: { ...state.options, closeOnSelect: action.closeOnSelect } }
-  }
+    case Types.SET_CLOSE_ON_SELECT:
+      return { ...state, options: { ...state.options, closeOnSelect: action.closeOnSelect } }
 
-  if (action.type === Types.SET_OPTIONS) {
-    return { ...state, options: action.options }
-  }
+    case Types.SET_OPTIONS:
+      return { ...state, options: action.options }
 
-  if (action.type === Types.SET_CALENDAR_DATE) {
-    return { ...state, date: { ...state.date, calendar: action.date } }
-  }
+    case Types.SET_CALENDAR_DATE:
+      return { ...state, date: { ...state.date, calendar: action.date } }
 
-  if (action.type === Types.SET_SELECTED_DATE) {
-    return { ...state, date: { ...state.date, selected: action.date } }
-  }
+    case Types.SET_SELECTED_DATE:
+      return { ...state, date: { ...state.date, selected: action.date } }
 
-  return state
+    default:
+      return state
+  }
 }
