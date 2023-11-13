@@ -4,4 +4,3 @@ export declare const useCommon: () => {
     range: (start: number, end: number, step?: number) => number[];
     zeroPad: (num: number | string, length?: number) => string;
 };
-//# sourceMappingURL=useCommon.d.ts.map

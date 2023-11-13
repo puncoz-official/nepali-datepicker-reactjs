@@ -6,4 +6,3 @@ interface Props {
 }
 declare const TodayIcon: FunctionComponent<Props>;
 export default TodayIcon;
-//# sourceMappingURL=today-icon.d.ts.map

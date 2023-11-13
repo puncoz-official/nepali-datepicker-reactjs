@@ -1,1 +1,0 @@
-{"version":3,"file":"useCommon.d.ts","sourceRoot":"","sources":["../../../src/hooks/useCommon.ts"],"names":[],"mappings":"AAAA,eAAO,MAAM,SAAS;qBACI,MAAM,EAAE,OAAO,OAAO,MAAM,EAAE,GAAG,CAAC;wBAS/B,OAAO,MAAM,EAAE,GAAG,CAAC,OAAO,MAAM;mBAsBrC,MAAM,OAAO,MAAM,oBAAa,MAAM,EAAE;mBAUxC,MAAM,GAAG,MAAM,sBAAe,MAAM;CAG3D,CAAA"}

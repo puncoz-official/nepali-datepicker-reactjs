@@ -1,1 +1,0 @@
-{"version":3,"file":"today-icon.d.ts","sourceRoot":"","sources":["../../../../src/components/icons/today-icon.tsx"],"names":[],"mappings":"AAAA,OAAc,EAAE,iBAAiB,EAAE,MAAM,OAAO,CAAA;AAGhD,OAAO,EAAE,SAAS,EAAE,MAAM,aAAa,CAAA;AAEvC,UAAU,KAAK;IACb,IAAI,EAAE,MAAM,CAAA;IACZ,SAAS,CAAC,EAAE,SAAS,CAAA;CACtB;AACD,QAAA,MAAM,SAAS,EAAE,iBAAiB,CAAC,KAAK,CAiBvC,CAAA;AAED,eAAe,SAAS,CAAA"}

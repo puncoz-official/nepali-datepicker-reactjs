@@ -5,4 +5,3 @@ interface Props {
 }
 declare const FloatingContainer: FunctionComponent<Props>;
 export default FloatingContainer;
-//# sourceMappingURL=floating-container.d.ts.map

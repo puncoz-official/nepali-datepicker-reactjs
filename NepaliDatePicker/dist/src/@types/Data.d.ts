@@ -170,4 +170,3 @@ export type DataAction = {
     type: Types.SET_SELECTED_DATE;
     date?: ParsedDate;
 };
-//# sourceMappingURL=Data.d.ts.map

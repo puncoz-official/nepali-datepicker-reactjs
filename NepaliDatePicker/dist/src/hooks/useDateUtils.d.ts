@@ -5,4 +5,3 @@ export declare const useDateUtils: () => {
     parseBsDate: (date: string, separator?: string) => ParsedDate;
     getNumberOfDaysInBSMonth: (year: number, month: number) => number;
 };
-//# sourceMappingURL=useDateUtils.d.ts.map

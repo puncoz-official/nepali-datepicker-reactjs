@@ -6,4 +6,3 @@ export * from "./icons";
 export * from "./input";
 export * from "./lang";
 export * from "./wrapper";
-//# sourceMappingURL=index.d.ts.map

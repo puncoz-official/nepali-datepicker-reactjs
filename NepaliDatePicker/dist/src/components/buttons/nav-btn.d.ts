@@ -5,4 +5,3 @@ interface Props extends HTMLProps<HTMLButtonElement> {
 }
 declare const NavBtn: FunctionComponent<Props>;
 export default NavBtn;
-//# sourceMappingURL=nav-btn.d.ts.map

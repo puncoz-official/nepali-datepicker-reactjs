@@ -14,4 +14,3 @@ interface Props {
 }
 declare const DropDown: FunctionComponent<Props>;
 export default DropDown;
-//# sourceMappingURL=dropdown.d.ts.map

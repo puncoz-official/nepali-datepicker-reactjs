@@ -19,7 +19,7 @@
     "declaration": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
-    "declarationMap": true,
+    "declarationMap": false,
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"],

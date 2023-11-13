@@ -9,4 +9,3 @@ interface Props {
 }
 export declare const DataProvider: FunctionComponent<Props>;
 export {};
-//# sourceMappingURL=provider.d.ts.map

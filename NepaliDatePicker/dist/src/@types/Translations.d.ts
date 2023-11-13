@@ -13,4 +13,3 @@ export interface Translation {
 export type Translations = {
     [locale in Language]: Translation;
 };
-//# sourceMappingURL=Translations.d.ts.map

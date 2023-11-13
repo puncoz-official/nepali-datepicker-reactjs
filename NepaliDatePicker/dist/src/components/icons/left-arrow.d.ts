@@ -5,4 +5,3 @@ interface Props {
 }
 declare const LeftArrow: FunctionComponent<Props>;
 export default LeftArrow;
-//# sourceMappingURL=left-arrow.d.ts.map

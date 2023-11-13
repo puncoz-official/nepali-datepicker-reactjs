@@ -6,4 +6,3 @@ interface Props extends HTMLProps<HTMLButtonElement> {
 }
 declare const ActionBtn: FunctionComponent<Props>;
 export default ActionBtn;
-//# sourceMappingURL=action-btn.d.ts.map

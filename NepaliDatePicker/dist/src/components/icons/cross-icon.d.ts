@@ -5,4 +5,3 @@ interface Props {
 }
 declare const CrossIcon: FunctionComponent<Props>;
 export default CrossIcon;
-//# sourceMappingURL=cross-icon.d.ts.map

@@ -24,4 +24,3 @@ export interface INepaliDatePicker extends DatePickerInput {
     options?: NepaliDatePickerOptions;
 }
 export declare const INepaliDatePickerKeys: string[];
-//# sourceMappingURL=NepaliDatePicker.d.ts.map

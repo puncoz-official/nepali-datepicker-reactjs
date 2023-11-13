@@ -9,4 +9,3 @@ export declare const useDateValidator: () => {
     validateBsDay: (day: number) => void;
     validateAdDay: (day: number) => void;
 };
-//# sourceMappingURL=useDateValidator.d.ts.map
