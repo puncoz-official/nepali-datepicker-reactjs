@@ -20,7 +20,13 @@ const WeekDays: FunctionComponent = () => {
       <tr className={state.options.classNames.weekDaysTr ?? `ndp__weekdays-tr ndp-border-0`}>
         {weekList.map((weekDay) => (
           <td key={weekDay.value}
-              className={state.options.classNames.weekDaysTd ?? `ndp__weekdays-td ndp-border-0 ndp-h-10 ndp-w-10`}
+              className={`
+                ${state.options.classNames.weekDaysTd ?? "ndp__weekdays-td ndp-border-0 ndp-h-10 ndp-w-10"}
+
+                ${state.modifiers.isWeekend(weekDay.value + 1) && (state.options.classNames.weekDaysTdWeekend ?? `
+                  ndp__weekdays-td-weekend ndp-text-red-500
+                `)}
+              `}
               title={weekDay.label}>
             {weekDay.label}
           </td>

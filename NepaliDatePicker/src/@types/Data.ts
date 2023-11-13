@@ -19,6 +19,7 @@ export interface DayInfo {
   day: number
   month: number
   year: number
+  weekDay: number
   dateString: string
   isCurrentMonth: boolean
   isToday: boolean
@@ -28,6 +29,12 @@ export interface DayInfo {
 export interface Events {
   onChange: (date: string) => void
   onSelect: (dayInfo: DayInfo) => void
+}
+
+export interface Modifiers {
+  isHoliday: (dayInfo: DayInfo) => boolean
+  isDisabled: (dayInfo: DayInfo) => boolean
+  isWeekend: (weekDay: number) => boolean
 }
 
 export interface Locale {
@@ -63,10 +70,12 @@ export interface ClassNames {
 
   weekDaysTr?: ClassName
   weekDaysTd?: ClassName
+  weekDaysTdWeekend?: ClassName
 
   dayPickerTr?: ClassName
   dayPickerTd?: ClassName
   dayPickerDay?: ClassName
+  dayPickerDayWeekend?: ClassName
   dayPickerDaySelected?: ClassName
   dayPickerDayOtherMonth?: ClassName
   dayPickerToday?: ClassName
@@ -124,6 +133,7 @@ export interface IData {
   isCalendarOpen: boolean
   calendarData: CalendarData
   events: Events
+  modifiers: Modifiers
   locale: Locale
   options: Options
   date: DateObject
@@ -134,6 +144,7 @@ export enum Types {
   SET_CLASSES = "SET_CLASSES",
   SET_THEME = "SET_THEME",
   SET_EVENTS = "SET_EVENTS",
+  SET_MODIFIERS = "SET_MODIFIERS",
   SET_LOCALE = "SET_LOCALE",
   SET_COLORS = "SET_COLORS",
   SET_SEPARATOR = "SET_SEPARATOR",
@@ -148,6 +159,7 @@ export type DataAction =
   | { type: Types.SET_CLASSES, classNames: ClassNames }
   | { type: Types.SET_THEME, theme: Theme }
   | { type: Types.SET_EVENTS, events: Events }
+  | { type: Types.SET_MODIFIERS, modifiers: Modifiers }
   | { type: Types.SET_LOCALE, locale: Locale }
   | { type: Types.SET_COLORS, colors: Options["colors"] }
   | { type: Types.SET_SEPARATOR, separator: Options["dateSeparator"] }

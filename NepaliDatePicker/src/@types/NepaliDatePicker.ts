@@ -22,6 +22,9 @@ export interface INepaliDatePicker extends DatePickerInput {
   className?: IData["options"]["classNames"]["input"]
   onChange?: IData["events"]["onChange"]
   onSelect?: IData["events"]["onSelect"]
+  isHoliday?: IData["modifiers"]["isHoliday"]
+  isDisabled?: IData["modifiers"]["isDisabled"]
+  isWeekend?: IData["modifiers"]["isWeekend"]
   options?: NepaliDatePickerOptions
 }
 
@@ -32,4 +35,7 @@ export const INepaliDatePickerKeys = [
   "onChange",
   "onSelect",
   "options",
+  "isHoliday",
+  "isDisabled",
+  "isWeekend"
 ]

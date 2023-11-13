@@ -44,6 +44,17 @@ const Wrapper: FunctionComponent<Props> = ({ ...props }) => {
 
   useEffect(() => {
     setData({
+      type: Types.SET_MODIFIERS,
+      modifiers: {
+        isHoliday: props.isHoliday ?? state.modifiers.isHoliday,
+        isDisabled: props.isDisabled ?? state.modifiers.isDisabled,
+        isWeekend: props.isWeekend ?? state.modifiers.isWeekend,
+      },
+    })
+  }, [props.isHoliday, props.isDisabled, props.isWeekend])
+
+  useEffect(() => {
+    setData({
       type: Types.SET_LOCALE,
       locale: {
         calendar: (props.options?.locale ?? state.locale.calendar) as Language,

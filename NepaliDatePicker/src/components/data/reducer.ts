@@ -8,6 +8,11 @@ export const DataState: IData = {
     onChange: (date: string) => date,
     onSelect: (dayInfo: DayInfo) => dayInfo,
   },
+  modifiers: {
+    isHoliday: () => false,
+    isDisabled: () => false,
+    isWeekend: (weekDay: number) => weekDay === 7,
+  },
   locale: {
     calendar: Language.NEPALI,
     value: Language.ENGLISH,
@@ -50,6 +55,9 @@ export const DataReducer = (state: IData = DataState, action: DataAction) => {
 
     case Types.SET_EVENTS:
       return { ...state, events: action.events }
+
+    case Types.SET_MODIFIERS:
+      return { ...state, modifiers: action.modifiers }
 
     case Types.SET_LOCALE:
       return { ...state, locale: { ...state.locale, ...action.locale } }

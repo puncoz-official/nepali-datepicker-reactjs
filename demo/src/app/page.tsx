@@ -23,6 +23,7 @@ export default function Home() {
                           onChange={setDateEnglish}
                           onSelect={handleOnSelect}
                           className="w-full text-black"
+                          isWeekend={(weekDay) => weekDay === 1 || weekDay === 7}
                           options={{
                             classNames: {
                               wrapper: "bg-green",

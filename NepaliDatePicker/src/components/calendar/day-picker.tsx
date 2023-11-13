@@ -61,7 +61,7 @@ const DayPicker: FunctionComponent = () => {
 
     const dateString = dateUtils.stitchDate({ year, month, day })
 
-    return { day, month, year, isCurrentMonth, isToday, isSelected, dateString }
+    return { day, month, year, weekDay: weekDayNum, isCurrentMonth, isToday, isSelected, dateString }
   }, [calendarDate, selectedDate, daysInPreviousMonth])
 
   const handleOnDaySelect = useCallback((dayInfo: DayInfo) => {
@@ -112,9 +112,21 @@ const DayPicker: FunctionComponent = () => {
                     hover:ndp-bg-transparent dark:hover:ndp-bg-transparent
                     ndp-cursor-not-allowed ndp-select-none
                   `)}
+
+                  ${
+                  !dayInfo.isSelected
+                  && dayInfo.isCurrentMonth
+                  && state.modifiers.isWeekend(dayInfo.weekDay)
+                  && (
+                    state.options.classNames.dayPickerDayWeekend ?? "ndp__day_picker-day-weekend ndp-text-red-500"
+                  )}
                 `}
-                        onClick={() => { handleOnDaySelect(dayInfo); }}
-                        onKeyDown={() => { handleOnDaySelect(dayInfo); }}>
+                        onClick={() => {
+                          handleOnDaySelect(dayInfo)
+                        }}
+                        onKeyDown={() => {
+                          handleOnDaySelect(dayInfo)
+                        }}>
                   {numberTrans(dayInfo.day)}
 
                   {dayInfo.isToday && (
