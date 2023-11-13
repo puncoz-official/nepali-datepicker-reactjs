@@ -1,6 +1,6 @@
 import { ADToBS } from "bikram-sambat-js"
 import { nepaliToEnglishNumber } from "nepali-number"
-import React, { CSSProperties, FunctionComponent, HTMLProps, useEffect } from "react"
+import React, { CSSProperties, FunctionComponent, useEffect } from "react"
 
 import { Calendar, DateInput } from "@/components"
 import { useData, useDateUtils } from "@/hooks"
@@ -9,7 +9,7 @@ import { INepaliDatePicker } from "#/NepaliDatePicker.ts"
 
 import FloatingContainer from "./floating-container.tsx"
 
-type Props = INepaliDatePicker & HTMLProps<HTMLInputElement>
+type Props = INepaliDatePicker
 
 const Wrapper: FunctionComponent<Props> = ({ ...props }) => {
   const { state, setData } = useData()

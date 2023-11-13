@@ -1,9 +1,9 @@
-import React, { FunctionComponent, HTMLProps } from "react"
+import React, { FunctionComponent } from "react"
 
 import { useCommon, useData, useTrans } from "@/hooks"
-import { INepaliDatePickerKeys } from "#/NepaliDatePicker.ts"
+import { DatePickerInput, INepaliDatePickerKeys } from "#/NepaliDatePicker.ts"
 
-type Props = HTMLProps<HTMLInputElement>
+type Props = DatePickerInput
 
 const DateInput: FunctionComponent<Props> = (props) => {
   const { state } = useData()

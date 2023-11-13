@@ -14,7 +14,9 @@ export interface NepaliDatePickerOptions {
   closeOnSelect?: IData["options"]["closeOnSelect"]
 }
 
-export interface INepaliDatePicker extends Omit<HTMLProps<HTMLInputElement>, "onChange" | "onSelect"> {
+export type DatePickerInput = Omit<HTMLProps<HTMLInputElement>, "onChange" | "onSelect">
+
+export interface INepaliDatePicker extends DatePickerInput {
   dark?: boolean
   value?: string
   className?: IData["options"]["classNames"]["input"]
