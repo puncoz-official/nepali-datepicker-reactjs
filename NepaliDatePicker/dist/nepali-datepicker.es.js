@@ -1,5 +1,5 @@
 import * as b from "react";
-import xn, { useContext as Dr, useCallback as ye, useMemo as oe, useState as Rr, createContext as _r, useReducer as Tr, useLayoutEffect as Dn, useEffect as he, useRef as Rn } from "react";
+import Sn, { useContext as Dr, useCallback as ye, useMemo as oe, useState as Rr, createContext as _r, useReducer as Tr, useLayoutEffect as Dn, useEffect as he, useRef as Rn } from "react";
 import * as Cr from "react-dom";
 var _t = { exports: {} }, Ke = {};
 /**
@@ -16,7 +16,7 @@ function kr() {
   if (en)
     return Ke;
   en = 1;
-  var e = xn, t = Symbol.for("react.element"), n = Symbol.for("react.fragment"), r = Object.prototype.hasOwnProperty, o = e.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner, a = { key: !0, ref: !0, __self: !0, __source: !0 };
+  var e = Sn, t = Symbol.for("react.element"), n = Symbol.for("react.fragment"), r = Object.prototype.hasOwnProperty, o = e.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner, a = { key: !0, ref: !0, __self: !0, __source: !0 };
   function s(c, u, l) {
     var d, p = {}, h = null, f = null;
     l !== void 0 && (h = "" + l), u.key !== void 0 && (h = "" + u.key), u.ref !== void 0 && (f = u.ref);
@@ -42,7 +42,7 @@ var ze = {};
 var tn;
 function Or() {
   return tn || (tn = 1, process.env.NODE_ENV !== "production" && function() {
-    var e = xn, t = Symbol.for("react.element"), n = Symbol.for("react.portal"), r = Symbol.for("react.fragment"), o = Symbol.for("react.strict_mode"), a = Symbol.for("react.profiler"), s = Symbol.for("react.provider"), c = Symbol.for("react.context"), u = Symbol.for("react.forward_ref"), l = Symbol.for("react.suspense"), d = Symbol.for("react.suspense_list"), p = Symbol.for("react.memo"), h = Symbol.for("react.lazy"), f = Symbol.for("react.offscreen"), y = Symbol.iterator, g = "@@iterator";
+    var e = Sn, t = Symbol.for("react.element"), n = Symbol.for("react.portal"), r = Symbol.for("react.fragment"), o = Symbol.for("react.strict_mode"), a = Symbol.for("react.profiler"), s = Symbol.for("react.provider"), c = Symbol.for("react.context"), u = Symbol.for("react.forward_ref"), l = Symbol.for("react.suspense"), d = Symbol.for("react.suspense_list"), p = Symbol.for("react.memo"), h = Symbol.for("react.lazy"), f = Symbol.for("react.offscreen"), y = Symbol.iterator, g = "@@iterator";
     function T(i) {
       if (i === null || typeof i != "object")
         return null;
@@ -67,10 +67,10 @@ function Or() {
         z.unshift("Warning: " + v), Function.prototype.apply.call(console[i], console, z);
       }
     }
-    var C = !1, x = !1, M = !1, N = !1, A = !1, j;
+    var C = !1, S = !1, M = !1, N = !1, A = !1, j;
     j = Symbol.for("react.module.reference");
     function K(i) {
-      return !!(typeof i == "string" || typeof i == "function" || i === r || i === a || A || i === o || i === l || i === d || N || i === f || C || x || M || typeof i == "object" && i !== null && (i.$$typeof === h || i.$$typeof === p || i.$$typeof === s || i.$$typeof === c || i.$$typeof === u || // This needs to include all possible module reference object
+      return !!(typeof i == "string" || typeof i == "function" || i === r || i === a || A || i === o || i === l || i === d || N || i === f || C || S || M || typeof i == "object" && i !== null && (i.$$typeof === h || i.$$typeof === p || i.$$typeof === s || i.$$typeof === c || i.$$typeof === u || // This needs to include all possible module reference object
       // types supported by any Flight configuration anywhere since
       // we don't know which Flight build this will end up being used
       // with.
@@ -207,16 +207,16 @@ function Or() {
 ` + ee + i;
       }
     }
-    var ie = !1, Se;
+    var ie = !1, xe;
     {
       var Qe = typeof WeakMap == "function" ? WeakMap : Map;
-      Se = new Qe();
+      xe = new Qe();
     }
     function $t(i, v) {
       if (!i || ie)
         return "";
       {
-        var w = Se.get(i);
+        var w = xe.get(i);
         if (w !== void 0)
           return w;
       }
@@ -271,7 +271,7 @@ function Or() {
                   if (X--, Z--, Z < 0 || F[X] !== ae[Z]) {
                     var fe = `
 ` + F[X].replace(" at new ", " at ");
-                    return i.displayName && fe.includes("<anonymous>") && (fe = fe.replace("<anonymous>", i.displayName)), typeof i == "function" && Se.set(i, fe), fe;
+                    return i.displayName && fe.includes("<anonymous>") && (fe = fe.replace("<anonymous>", i.displayName)), typeof i == "function" && xe.set(i, fe), fe;
                   }
                 while (X >= 1 && Z >= 0);
               break;
@@ -281,7 +281,7 @@ function Or() {
         ie = !1, G.current = z, B(), Error.prepareStackTrace = H;
       }
       var Le = i ? i.displayName || i.name : "", Qt = Le ? re(Le) : "";
-      return typeof i == "function" && Se.set(i, Qt), Qt;
+      return typeof i == "function" && xe.set(i, Qt), Qt;
     }
     function nr(i, v, w) {
       return $t(i, !1);
@@ -622,12 +622,12 @@ Check the top-level render call using <` + w + ">.");
     function wr(i, v, w) {
       return Zt(i, v, w, !1);
     }
-    var Sr = wr, xr = Er;
-    ze.Fragment = r, ze.jsx = Sr, ze.jsxs = xr;
+    var xr = wr, Sr = Er;
+    ze.Fragment = r, ze.jsx = xr, ze.jsxs = Sr;
   }()), ze;
 }
 process.env.NODE_ENV === "production" ? _t.exports = kr() : _t.exports = Or();
-var S = _t.exports;
+var x = _t.exports;
 const He = () => ({ omitKeys: (o, a) => Object.entries(a).reduce((s, [c, u]) => o.includes(c) ? { ...s } : { ...s, [c]: u }, {}), getObject: (o, a, s = null) => {
   let c = { ...o };
   try {
@@ -1497,7 +1497,7 @@ const be = () => {
   };
 }, Nt = (e) => {
   const { children: t, className: n, type: r = "button", isDisabled: o, ...a } = e, { state: s } = te();
-  return /* @__PURE__ */ S.jsx(
+  return /* @__PURE__ */ x.jsx(
     "button",
     {
       className: `
@@ -1525,7 +1525,7 @@ const be = () => {
   );
 }, kn = (e) => {
   const { children: t, className: n, type: r = "button", ...o } = e, { state: a } = te();
-  return /* @__PURE__ */ S.jsx(
+  return /* @__PURE__ */ x.jsx(
     "button",
     {
       className: `
@@ -1546,7 +1546,7 @@ const be = () => {
   const { trans: e } = be(), { state: t, setData: n } = te(), r = ye(() => {
     t.events.onChange(""), t.options.closeOnSelect && n({ type: U.SET_CALENDAR_OPEN, isOpen: !1 });
   }, [t.events.onChange, t.options.closeOnSelect]);
-  return t.date.selected ? /* @__PURE__ */ S.jsxs(
+  return t.date.selected ? /* @__PURE__ */ x.jsxs(
     Nt,
     {
       className: t.options.classNames.clearBtn ?? `
@@ -1556,8 +1556,8 @@ const be = () => {
       onClick: r,
       onKeyDown: r,
       children: [
-        /* @__PURE__ */ S.jsx(qr, { className: t.options.classNames.clearBtnIcon ?? "ndp__today_btn-icon ndp-w-4 ndp-h-4" }),
-        /* @__PURE__ */ S.jsx("span", { className: t.options.classNames.clearBtnText ?? "ndp__today_btn-text ndp-ml-2", children: e("labels.clear") })
+        /* @__PURE__ */ x.jsx(qr, { className: t.options.classNames.clearBtnIcon ?? "ndp__today_btn-icon ndp-w-4 ndp-h-4" }),
+        /* @__PURE__ */ x.jsx("span", { className: t.options.classNames.clearBtnText ?? "ndp__today_btn-text ndp-ml-2", children: e("labels.clear") })
       ]
     }
   ) : null;
@@ -1567,8 +1567,8 @@ const be = () => {
     const T = a.bsMonth, E = a.bsYear;
     let m = !0;
     g <= 0 ? (g = d + g, m = !1) : g > a.numberOfDaysInBsMonth && (g -= a.numberOfDaysInBsMonth, m = !1);
-    const I = o.splitDate(De(/* @__PURE__ */ new Date())), C = m ? I.day === g && I.month === T && I.year === E : !1, x = m ? (s == null ? void 0 : s.bsDay) === g && s.bsMonth === T && s.bsYear === E : !1, M = o.stitchDate({ year: E, month: T, day: g });
-    return { day: g, month: T, year: E, weekDay: y, isCurrentMonth: m, isToday: C, isSelected: x, dateString: M };
+    const I = o.splitDate(De(/* @__PURE__ */ new Date())), C = m ? I.day === g && I.month === T && I.year === E : !1, S = m ? (s == null ? void 0 : s.bsDay) === g && s.bsMonth === T && s.bsYear === E : !1, M = o.stitchDate({ year: E, month: T, day: g });
+    return { day: g, month: T, year: E, weekDay: y, isCurrentMonth: m, isToday: C, isSelected: S, dateString: M };
   }, [a, s, d]), h = ye((f) => {
     if (!f.isCurrentMonth || n.modifiers.isDisabled(f))
       return;
@@ -1579,26 +1579,28 @@ const be = () => {
     });
     n.events.onSelect(f), n.events.onChange(e(y, n.locale.value)), n.options.closeOnSelect && r({ type: U.SET_CALENDAR_OPEN, isOpen: !1 });
   }, [n.events.onSelect, n.events.onChange, n.modifiers.isDisabled, n.options.closeOnSelect, n.locale.value]);
-  return /* @__PURE__ */ S.jsx("tbody", { children: t(0, c).map((f) => /* @__PURE__ */ S.jsx("tr", { className: n.options.classNames.dayPickerTr ?? "ndp__day_picker-tr ndp-border-0", children: t(1, 7).map((y) => {
+  return /* @__PURE__ */ x.jsx("tbody", { children: t(0, c).map((f) => /* @__PURE__ */ x.jsx("tr", { className: n.options.classNames.dayPickerTr ?? "ndp__day_picker-tr ndp-border-0", children: t(1, 7).map((y) => {
     const g = p(f, y);
-    return /* @__PURE__ */ S.jsx(
+    return /* @__PURE__ */ x.jsx(
       "td",
       {
         className: n.options.classNames.dayPickerTd ?? "ndp__day_picker-td ndp-border-0",
         title: e(g.day),
-        children: /* @__PURE__ */ S.jsxs(
+        children: /* @__PURE__ */ x.jsxs(
           "button",
           {
             className: `
                   ${n.options.classNames.dayPickerDay ?? `
                     ndp__day_picker-day
                     ndp-rounded-full ndp-h-9 ndp-w-9
-                    ndp-relative  hover-transition
+                    ndp-relative hover-transition
                     hover:ndp-bg-gray-200 dark:hover:ndp-bg-slate-900
                   `}
                   ${g.isSelected && (n.options.classNames.dayPickerDaySelected ?? `
                     ndp__day_picker-day-selected
                     ndp-bg-primary ndp-text-secondary
+                    hover:ndp-bg-primary hover:ndp-text-secondary
+                    dark:hover:ndp-bg-primary dark:hover:ndp-text-secondary
                     hover:ndp-opacity-80
                   `)}
 
@@ -1628,7 +1630,7 @@ const be = () => {
             },
             children: [
               e(g.day),
-              g.isToday && /* @__PURE__ */ S.jsx("span", { className: n.options.classNames.dayPickerToday ?? `
+              g.isToday && /* @__PURE__ */ x.jsx("span", { className: n.options.classNames.dayPickerToday ?? `
                       ndp__day_picker-today
                       ndp-inline-block ndp-content-[""] ndp-w-1 ndp-h-1 ndp-bg-primary ndp-rounded-full
                       ndp-absolute ndp-left-[50%] ndp-bottom-1 -ndp-translate-x-[50%]
@@ -1646,10 +1648,10 @@ const be = () => {
   }, []), p = ye((h) => {
     u(!1), t(h.value);
   }, [t]);
-  return /* @__PURE__ */ S.jsxs("div", { className: s.options.classNames.dropDownWrapper ?? `
+  return /* @__PURE__ */ x.jsxs("div", { className: s.options.classNames.dropDownWrapper ?? `
       ndp__dropdown-wrapper ndp-relative
     `, children: [
-    /* @__PURE__ */ S.jsx(
+    /* @__PURE__ */ x.jsx(
       Nt,
       {
         onClick: d,
@@ -1659,7 +1661,7 @@ const be = () => {
         children: l.label
       }
     ),
-    c && /* @__PURE__ */ S.jsx("ul", { className: `
+    c && /* @__PURE__ */ x.jsx("ul", { className: `
           ${s.options.classNames.dropDown ?? `
             ndp__dropdown
             ndp-max-h-[12rem] ndp-shadow ndp-overflow-y-auto no-scrollbar
@@ -1669,7 +1671,7 @@ const be = () => {
             ndp-border ndp-border-gray-300 dark:ndp-border-gray-600
           `}
           ${a ?? ""}
-        `, children: e.map((h) => /* @__PURE__ */ S.jsx(
+        `, children: e.map((h) => /* @__PURE__ */ x.jsx(
       "li",
       {
         onClick: () => {
@@ -1721,7 +1723,7 @@ const be = () => {
     });
     n({ type: U.SET_CALENDAR_DATE, date: r.parseBsDate(l) });
   }, [o]);
-  return /* @__PURE__ */ S.jsx(
+  return /* @__PURE__ */ x.jsx(
     On,
     {
       options: a,
@@ -1744,14 +1746,14 @@ const be = () => {
     const u = r.stitchDate({ year: s, month: c, day: 1 });
     n({ type: U.SET_CALENDAR_DATE, date: r.parseBsDate(u) });
   }, [o]);
-  return /* @__PURE__ */ S.jsx(
+  return /* @__PURE__ */ x.jsx(
     kn,
     {
       title: e("labels.next"),
       onClick: a,
       onKeyDown: a,
       className: t.options.classNames.nextBtn ?? "ndp__nav_button-next",
-      children: /* @__PURE__ */ S.jsx(Xr, { className: t.options.classNames.navBtnIcon ?? `
+      children: /* @__PURE__ */ x.jsx(Xr, { className: t.options.classNames.navBtnIcon ?? `
         ndp__nav_btn_icon ndp-w-5 ndp-h-5
       ` })
     }
@@ -1764,14 +1766,14 @@ const be = () => {
     const u = r.stitchDate({ year: s, month: c, day: 1 });
     n({ type: U.SET_CALENDAR_DATE, date: r.parseBsDate(u) });
   }, [o]);
-  return /* @__PURE__ */ S.jsx(
+  return /* @__PURE__ */ x.jsx(
     kn,
     {
       title: e("labels.previous"),
       onClick: a,
       onKeyDown: a,
       className: t.options.classNames.previousBtn ?? "ndp__nav_button-previous",
-      children: /* @__PURE__ */ S.jsx(Gr, { className: t.options.classNames.navBtnIcon ?? "ndp__nav_btn_icon ndp-w-5 ndp-h-5" })
+      children: /* @__PURE__ */ x.jsx(Gr, { className: t.options.classNames.navBtnIcon ?? "ndp__nav_btn_icon ndp-w-5 ndp-h-5" })
     }
   );
 }, $r = () => {
@@ -1787,7 +1789,7 @@ const be = () => {
   }), [s]), u = ye(() => {
     o.modifiers.isDisabled(c) || (o.events.onSelect(c), o.events.onChange(t(s.dateString, o.locale.value)), o.options.closeOnSelect && a({ type: U.SET_CALENDAR_OPEN, isOpen: !1 }));
   }, [s, c, o.events.onSelect, o.events.onChange, o.modifiers.isDisabled, o.options.closeOnSelect, o.locale.value]);
-  return /* @__PURE__ */ S.jsxs(
+  return /* @__PURE__ */ x.jsxs(
     Nt,
     {
       className: o.options.classNames.todayBtn ?? `
@@ -1798,8 +1800,8 @@ const be = () => {
       onClick: u,
       onKeyDown: u,
       children: [
-        /* @__PURE__ */ S.jsx(Jr, { date: t(r(s.bsDay)) }),
-        /* @__PURE__ */ S.jsx("span", { className: o.options.classNames.todayBtnText ?? "ndp__today_btn-text ndp-ml-2", children: e("labels.today") })
+        /* @__PURE__ */ x.jsx(Jr, { date: t(r(s.bsDay)) }),
+        /* @__PURE__ */ x.jsx("span", { className: o.options.classNames.todayBtnText ?? "ndp__today_btn-text ndp-ml-2", children: e("labels.today") })
       ]
     }
   );
@@ -1808,7 +1810,7 @@ const be = () => {
     label: e(`weeks.${r}`),
     value: o
   })), [t.locale.calendar]);
-  return /* @__PURE__ */ S.jsx("thead", { children: /* @__PURE__ */ S.jsx("tr", { className: t.options.classNames.weekDaysTr ?? "ndp__weekdays-tr ndp-border-0", children: n.map((r) => /* @__PURE__ */ S.jsx(
+  return /* @__PURE__ */ x.jsx("thead", { children: /* @__PURE__ */ x.jsx("tr", { className: t.options.classNames.weekDaysTr ?? "ndp__weekdays-tr ndp-border-0", children: n.map((r) => /* @__PURE__ */ x.jsx(
     "td",
     {
       className: `
@@ -1832,7 +1834,7 @@ const be = () => {
     const p = a.stitchDate({ year: d, month: s.bsMonth, day: 1 });
     t({ type: U.SET_CALENDAR_DATE, date: a.parseBsDate(p) });
   }, [s]);
-  return /* @__PURE__ */ S.jsx(
+  return /* @__PURE__ */ x.jsx(
     On,
     {
       options: c,
@@ -1849,7 +1851,7 @@ const be = () => {
   );
 }, Vr = () => {
   const { state: e } = te();
-  return /* @__PURE__ */ S.jsxs("div", { className: e.options.classNames.calendar ?? `
+  return /* @__PURE__ */ x.jsxs("div", { className: e.options.classNames.calendar ?? `
       ndp__calendar
       ndp-bg-white dark:ndp-bg-slate-800
       ndp-rounded ndp-shadow ndp-box-border
@@ -1857,36 +1859,36 @@ const be = () => {
       ndp-leading-tight -ndp-tracking-tight
       ndp-p-4
     `, children: [
-    /* @__PURE__ */ S.jsxs(
+    /* @__PURE__ */ x.jsxs(
       "div",
       {
         className: e.options.classNames.calendarHeader ?? `
           ndp__calendar-header ndp-flex ndp-items-center ndp-justify-between
         `,
         children: [
-          /* @__PURE__ */ S.jsx(Fr, {}),
-          /* @__PURE__ */ S.jsxs("div", { className: e.options.classNames.yearMonthPicker ?? `
+          /* @__PURE__ */ x.jsx(Fr, {}),
+          /* @__PURE__ */ x.jsxs("div", { className: e.options.classNames.yearMonthPicker ?? `
           ndp__year_month_picker ndp-flex
         `, children: [
-            /* @__PURE__ */ S.jsx(Wr, {}),
-            /* @__PURE__ */ S.jsx(Br, {})
+            /* @__PURE__ */ x.jsx(Wr, {}),
+            /* @__PURE__ */ x.jsx(Br, {})
           ] }),
-          /* @__PURE__ */ S.jsx(jr, {})
+          /* @__PURE__ */ x.jsx(jr, {})
         ]
       }
     ),
-    /* @__PURE__ */ S.jsxs("table", { className: e.options.classNames.calendarBody ?? `
+    /* @__PURE__ */ x.jsxs("table", { className: e.options.classNames.calendarBody ?? `
         ndp__calendar-body ndp-text-center ndp-w-full ndp-border-0
       `, children: [
-      /* @__PURE__ */ S.jsx(Yr, {}),
-      /* @__PURE__ */ S.jsx(Mr, {})
+      /* @__PURE__ */ x.jsx(Yr, {}),
+      /* @__PURE__ */ x.jsx(Mr, {})
     ] }),
-    /* @__PURE__ */ S.jsxs("div", { className: e.options.classNames.calendarFooter ?? `
+    /* @__PURE__ */ x.jsxs("div", { className: e.options.classNames.calendarFooter ?? `
         ndp__calendar-footer
         ndp-flex ndp-justify-between ndp-border-t ndp-border-gray-100 dark:ndp-border-gray-700 ndp-pt-2
       `, children: [
-      /* @__PURE__ */ S.jsx($r, {}),
-      /* @__PURE__ */ S.jsx(Pr, {})
+      /* @__PURE__ */ x.jsx($r, {}),
+      /* @__PURE__ */ x.jsx(Pr, {})
     ] })
   ] });
 }, Hr = [
@@ -1987,8 +1989,8 @@ const be = () => {
   dispatch: () => null
 }), zr = ({ children: e }) => {
   const [t, n] = Tr(Kr, At);
-  return /* @__PURE__ */ S.jsx(Nn.Provider, { value: { state: t, dispatch: n }, children: e });
-}, qr = ({ className: e }) => /* @__PURE__ */ S.jsx(
+  return /* @__PURE__ */ x.jsx(Nn.Provider, { value: { state: t, dispatch: n }, children: e });
+}, qr = ({ className: e }) => /* @__PURE__ */ x.jsx(
   "svg",
   {
     xmlns: "http://www.w3.org/2000/svg",
@@ -1997,9 +1999,9 @@ const be = () => {
     strokeWidth: "1.5",
     stroke: "currentColor",
     className: e ?? "",
-    children: /* @__PURE__ */ S.jsx("path", { strokeLinecap: "round", strokeLinejoin: "round", d: "M6 18L18 6M6 6l12 12" })
+    children: /* @__PURE__ */ x.jsx("path", { strokeLinecap: "round", strokeLinejoin: "round", d: "M6 18L18 6M6 6l12 12" })
   }
-), Gr = ({ className: e }) => /* @__PURE__ */ S.jsx(
+), Gr = ({ className: e }) => /* @__PURE__ */ x.jsx(
   "svg",
   {
     xmlns: "http://www.w3.org/2000/svg",
@@ -2008,9 +2010,9 @@ const be = () => {
     strokeWidth: "1.5",
     stroke: "currentColor",
     className: e ?? "",
-    children: /* @__PURE__ */ S.jsx("path", { strokeLinecap: "round", strokeLinejoin: "round", d: "M15.75 19.5L8.25 12l7.5-7.5" })
+    children: /* @__PURE__ */ x.jsx("path", { strokeLinecap: "round", strokeLinejoin: "round", d: "M15.75 19.5L8.25 12l7.5-7.5" })
   }
-), Xr = ({ className: e }) => /* @__PURE__ */ S.jsx(
+), Xr = ({ className: e }) => /* @__PURE__ */ x.jsx(
   "svg",
   {
     xmlns: "http://www.w3.org/2000/svg",
@@ -2019,11 +2021,11 @@ const be = () => {
     strokeWidth: "1.5",
     stroke: "currentColor",
     className: e ?? "",
-    children: /* @__PURE__ */ S.jsx("path", { strokeLinecap: "round", strokeLinejoin: "round", d: "M8.25 4.5l7.5 7.5-7.5 7.5" })
+    children: /* @__PURE__ */ x.jsx("path", { strokeLinecap: "round", strokeLinejoin: "round", d: "M8.25 4.5l7.5 7.5-7.5 7.5" })
   }
 ), Jr = ({ date: e, className: t }) => {
   const { state: n } = te();
-  return /* @__PURE__ */ S.jsx("span", { className: `
+  return /* @__PURE__ */ x.jsx("span", { className: `
       ${n.options.classNames.todayBtnIcon ?? `
         ndp__today_btn-icon
         ndp-border ndp-border-gray-200 dark:ndp-border-slate-700
@@ -2046,7 +2048,7 @@ const be = () => {
 ], Qr = (e) => {
   var a;
   const { state: t } = te(), { numberTrans: n } = be(), { omitKeys: r } = He(), o = r([...Zr, "type", "readOnly"], e);
-  return /* @__PURE__ */ S.jsx(
+  return /* @__PURE__ */ x.jsx(
     "input",
     {
       type: "text",
@@ -2218,11 +2220,11 @@ function Pn(e) {
   const t = Ae(e);
   return Ze(t) ? e.ownerDocument ? e.ownerDocument.body : e.body : se(t) && Je(t) ? t : Pn(t);
 }
-function xe(e, t, n) {
+function Se(e, t, n) {
   var r;
   t === void 0 && (t = []), n === void 0 && (n = !0);
   const o = Pn(e), a = o === ((r = e.ownerDocument) == null ? void 0 : r.body), s = ue(o);
-  return a ? t.concat(s, s.visualViewport || [], Je(o) ? o : [], s.frameElement && n ? xe(s.frameElement) : []) : t.concat(o, xe(o, [], n));
+  return a ? t.concat(s, s.visualViewport || [], Je(o) ? o : [], s.frameElement && n ? Se(s.frameElement) : []) : t.concat(o, Se(o, [], n));
 }
 function Fe(e) {
   let t = e.activeElement;
@@ -2304,7 +2306,7 @@ const po = "input:not([type='hidden']):not([disabled]),[contenteditable]:not([co
 function In(e) {
   return se(e) && e.matches(po);
 }
-function St(e) {
+function xt(e) {
   e.preventDefault(), e.stopPropagation();
 }
 const Ve = Math.min, Ne = Math.max, lt = Math.round, rt = Math.floor, _e = (e) => ({
@@ -2432,7 +2434,7 @@ const go = async (e, t, n) => {
       x: m,
       y: I,
       data: C,
-      reset: x
+      reset: S
     } = await E({
       x: d,
       y: p,
@@ -2453,12 +2455,12 @@ const go = async (e, t, n) => {
         ...f[T],
         ...C
       }
-    }, x && y <= 50) {
-      y++, typeof x == "object" && (x.placement && (h = x.placement), x.rects && (l = x.rects === !0 ? await s.getElementRects({
+    }, S && y <= 50) {
+      y++, typeof S == "object" && (S.placement && (h = S.placement), S.rects && (l = S.rects === !0 ? await s.getElementRects({
         reference: e,
         floating: t,
         strategy: o
-      }) : x.rects), {
+      }) : S.rects), {
         x: d,
         y: p
       } = on(l, h, u)), g = -1;
@@ -2493,10 +2495,10 @@ const go = async (e, t, n) => {
     const p = yo(d), h = {
       x: n,
       y: r
-    }, f = jn(o), y = Bn(f), g = await s.getDimensions(l), T = f === "y", E = T ? "top" : "left", m = T ? "bottom" : "right", I = T ? "clientHeight" : "clientWidth", C = a.reference[y] + a.reference[f] - h[f] - a.floating[y], x = h[f] - a.reference[f], M = await (s.getOffsetParent == null ? void 0 : s.getOffsetParent(l));
+    }, f = jn(o), y = Bn(f), g = await s.getDimensions(l), T = f === "y", E = T ? "top" : "left", m = T ? "bottom" : "right", I = T ? "clientHeight" : "clientWidth", C = a.reference[y] + a.reference[f] - h[f] - a.floating[y], S = h[f] - a.reference[f], M = await (s.getOffsetParent == null ? void 0 : s.getOffsetParent(l));
     let N = M ? M[I] : 0;
     (!N || !await (s.isElement == null ? void 0 : s.isElement(M))) && (N = c.floating[I] || a.floating[y]);
-    const A = C / 2 - x / 2, j = N / 2 - g[y] / 2 - 1, K = Ve(p[E], j), k = Ve(p[m], j), J = K, q = N - g[y] - k, L = N / 2 - g[y] / 2 + A, _ = ho(J, L, q), P = !u.arrow && Lt(o) != null && L != _ && a.reference[y] / 2 - (L < J ? K : k) - g[y] / 2 < 0, $ = P ? L < J ? L - J : L - q : 0;
+    const A = C / 2 - S / 2, j = N / 2 - g[y] / 2 - 1, K = Ve(p[E], j), k = Ve(p[m], j), J = K, q = N - g[y] - k, L = N / 2 - g[y] / 2 + A, _ = ho(J, L, q), P = !u.arrow && Lt(o) != null && L != _ && a.reference[y] / 2 - (L < J ? K : k) - g[y] / 2 < 0, $ = P ? L < J ? L - J : L - q : 0;
     return {
       [f]: h[f] + $,
       data: {
@@ -2591,7 +2593,7 @@ function Yn(e) {
     y: t.visualViewport.offsetTop
   };
 }
-function So(e, t, n) {
+function xo(e, t, n) {
   return t === void 0 && (t = !1), !n || t && n !== ue(e) ? !1 : t;
 }
 function Pe(e, t, n, r) {
@@ -2599,7 +2601,7 @@ function Pe(e, t, n, r) {
   const o = e.getBoundingClientRect(), a = jt(e);
   let s = _e(1);
   t && (r ? Q(r) && (s = We(r)) : s = We(e));
-  const c = So(a, n, r) ? Yn(a) : _e(0);
+  const c = xo(a, n, r) ? Yn(a) : _e(0);
   let u = (o.left + c.x) / s.x, l = (o.top + c.y) / s.y, d = o.width / s.x, p = o.height / s.y;
   if (a) {
     const h = ue(a), f = r && Q(r) ? ue(r) : r;
@@ -2616,7 +2618,7 @@ function Pe(e, t, n, r) {
     y: l
   });
 }
-function xo(e) {
+function So(e) {
   let {
     rect: t,
     offsetParent: n,
@@ -2708,7 +2710,7 @@ function Co(e, t) {
   const n = t.get(e);
   if (n)
     return n;
-  let r = xe(e, [], !1).filter((c) => Q(c) && Re(c) !== "body"), o = null;
+  let r = Se(e, [], !1).filter((c) => Q(c) && Re(c) !== "body"), o = null;
   const a = de(e).position === "fixed";
   let s = a ? Ae(e) : e;
   for (; Q(s) && !Ze(s); ) {
@@ -2790,7 +2792,7 @@ function Po(e) {
   return de(e).direction === "rtl";
 }
 const Un = {
-  convertOffsetParentRelativeRectToViewportRelativeRect: xo,
+  convertOffsetParentRelativeRectToViewportRelativeRect: So,
   getDocumentElement: Ee,
   getClippingRect: ko,
   getOffsetParent: Hn,
@@ -2822,8 +2824,8 @@ function Mo(e, t) {
       threshold: Ne(0, Ve(1, u)) || 1
     };
     let I = !0;
-    function C(x) {
-      const M = x[0].intersectionRatio;
+    function C(S) {
+      const M = S[0].intersectionRatio;
       if (M !== u) {
         if (!I)
           return s();
@@ -2854,7 +2856,7 @@ function Io(e, t, n, r) {
     elementResize: s = typeof ResizeObserver == "function",
     layoutShift: c = typeof IntersectionObserver == "function",
     animationFrame: u = !1
-  } = r, l = jt(e), d = o || a ? [...l ? xe(l) : [], ...xe(t)] : [];
+  } = r, l = jt(e), d = o || a ? [...l ? Se(l) : [], ...Se(t)] : [];
   d.forEach((E) => {
     o && E.addEventListener("scroll", n, {
       passive: !0
@@ -2986,7 +2988,7 @@ function jo(e) {
     P != M.current && (M.current = P, g(P));
   }, [g]), I = b.useCallback((P) => {
     P !== N.current && (N.current = P, E(P));
-  }, [E]), C = a || y, x = s || T, M = b.useRef(null), N = b.useRef(null), A = b.useRef(d), j = un(u), K = un(o), k = b.useCallback(() => {
+  }, [E]), C = a || y, S = s || T, M = b.useRef(null), N = b.useRef(null), A = b.useRef(d), j = un(u), K = un(o), k = b.useCallback(() => {
     if (!M.current || !N.current)
       return;
     const P = {
@@ -3014,12 +3016,12 @@ function jo(e) {
   st(() => (J.current = !0, () => {
     J.current = !1;
   }), []), st(() => {
-    if (C && (M.current = C), x && (N.current = x), C && x) {
+    if (C && (M.current = C), S && (N.current = S), C && S) {
       if (j.current)
-        return j.current(C, x, k);
+        return j.current(C, S, k);
       k();
     }
-  }, [C, x, k, j]);
+  }, [C, S, k, j]);
   const q = b.useMemo(() => ({
     reference: M,
     floating: N,
@@ -3027,8 +3029,8 @@ function jo(e) {
     setFloating: I
   }), [m, I]), L = b.useMemo(() => ({
     reference: C,
-    floating: x
-  }), [C, x]), _ = b.useMemo(() => {
+    floating: S
+  }), [C, S]), _ = b.useMemo(() => {
     const P = {
       position: n,
       left: 0,
@@ -3275,14 +3277,14 @@ function Xe() {
     return e;
   }, Xe.apply(this, arguments);
 }
-let xt = !1, aa = 0;
+let St = !1, aa = 0;
 const hn = () => "floating-ui-" + aa++;
 function sa() {
-  const [e, t] = b.useState(() => xt ? hn() : void 0);
+  const [e, t] = b.useState(() => St ? hn() : void 0);
   return me(() => {
     e == null && t(hn());
   }, []), b.useEffect(() => {
-    xt || (xt = !0);
+    St || (St = !0);
   }, []), e;
 }
 const ia = b[/* @__PURE__ */ "useId".toString()], mt = ia || sa, ca = /* @__PURE__ */ b.forwardRef(function(t, n) {
@@ -3314,9 +3316,9 @@ const ia = b[/* @__PURE__ */ "useId".toString()], mt = ia || sa, ca = /* @__PURE
   if (!o)
     return null;
   l *= 2;
-  const E = l / 2, m = s / 2 * (u / -8 + 1), I = c / 2 * u / 4, [C, x] = r.split("-"), M = Un.isRTL(o), N = !!h, A = C === "top" || C === "bottom", j = d && x === "end" ? "bottom" : "top";
-  let K = d && x === "end" ? "right" : "left";
-  d && M && (K = x === "end" ? "left" : "right");
+  const E = l / 2, m = s / 2 * (u / -8 + 1), I = c / 2 * u / 4, [C, S] = r.split("-"), M = Un.isRTL(o), N = !!h, A = C === "top" || C === "bottom", j = d && S === "end" ? "bottom" : "top";
+  let K = d && S === "end" ? "right" : "left";
+  d && M && (K = S === "end" ? "left" : "right");
   const k = (a == null ? void 0 : a.x) != null ? d || a.x : "", J = (a == null ? void 0 : a.y) != null ? d || a.y : "", q = h || "M0,0" + (" H" + s) + (" L" + (s - m) + "," + (c - I)) + (" Q" + s / 2 + "," + c + " " + m + "," + (c - I)) + " Z", L = {
     top: N ? "rotate(180deg)" : "",
     left: N ? "rotate(90deg)" : "rotate(-90deg)",
@@ -3503,7 +3505,7 @@ const gn = /* @__PURE__ */ b.forwardRef(function(t, n) {
     style: tr
   };
   return /* @__PURE__ */ b.createElement("span", Xe({}, t, a));
-}), Ea = /* @__PURE__ */ b.createContext(null), wa = () => b.useContext(Ea), Sa = /* @__PURE__ */ b.forwardRef(function(t, n) {
+}), Ea = /* @__PURE__ */ b.createContext(null), wa = () => b.useContext(Ea), xa = /* @__PURE__ */ b.forwardRef(function(t, n) {
   return /* @__PURE__ */ b.createElement("button", Xe({}, t, {
     type: "button",
     ref: n,
@@ -3511,7 +3513,7 @@ const gn = /* @__PURE__ */ b.forwardRef(function(t, n) {
     style: tr
   }));
 });
-function xa(e) {
+function Sa(e) {
   const {
     context: t,
     children: n,
@@ -3534,27 +3536,27 @@ function xa(e) {
       domReference: E,
       floating: m
     }
-  } = t, I = typeof s == "number" && s < 0, C = (E == null ? void 0 : E.getAttribute("role")) === "combobox" && In(E) && I, x = C ? !1 : u, M = ha() ? a : !0, N = Oe(o), A = Oe(s), j = Oe(c), K = Ft(), k = wa(), J = b.useRef(null), q = b.useRef(null), L = b.useRef(!1), _ = b.useRef(null), P = b.useRef(!1), $ = k != null, D = b.useCallback(function(Y) {
+  } = t, I = typeof s == "number" && s < 0, C = (E == null ? void 0 : E.getAttribute("role")) === "combobox" && In(E) && I, S = C ? !1 : u, M = ha() ? a : !0, N = Oe(o), A = Oe(s), j = Oe(c), K = Ft(), k = wa(), J = b.useRef(null), q = b.useRef(null), L = b.useRef(!1), _ = b.useRef(null), P = b.useRef(!1), $ = k != null, D = b.useCallback(function(Y) {
     return Y === void 0 && (Y = m), Y ? Jn(Y, Qn()) : [];
   }, [m]), ne = b.useCallback((Y) => {
     const W = D(Y);
     return N.current.map((R) => E && R === "reference" ? E : m && R === "floating" ? m : W).filter(Boolean).flat();
   }, [E, m, N, D]);
   b.useEffect(() => {
-    if (r || !x)
+    if (r || !S)
       return;
     function Y(R) {
       if (R.key === "Tab") {
-        le(m, Fe(ve(m))) && D().length === 0 && !C && St(R);
+        le(m, Fe(ve(m))) && D().length === 0 && !C && xt(R);
         const B = ne(), G = $e(R);
-        N.current[0] === "reference" && G === E && (St(R), R.shiftKey ? Ce(B[B.length - 1]) : Ce(B[1])), N.current[1] === "floating" && G === m && R.shiftKey && (St(R), Ce(B[0]));
+        N.current[0] === "reference" && G === E && (xt(R), R.shiftKey ? Ce(B[B.length - 1]) : Ce(B[1])), N.current[1] === "floating" && G === m && R.shiftKey && (xt(R), Ce(B[0]));
       }
     }
     const W = ve(m);
     return W.addEventListener("keydown", Y), () => {
       W.removeEventListener("keydown", Y);
     };
-  }, [r, E, m, x, N, h, C, D, ne]), b.useEffect(() => {
+  }, [r, E, m, S, N, h, C, D, ne]), b.useEffect(() => {
     if (r || !d)
       return;
     function Y() {
@@ -3577,10 +3579,10 @@ function xa(e) {
       });
     }
     if (m && se(E))
-      return E.addEventListener("focusout", W), E.addEventListener("pointerdown", Y), !x && m.addEventListener("focusout", W), () => {
-        E.removeEventListener("focusout", W), E.removeEventListener("pointerdown", Y), !x && m.removeEventListener("focusout", W);
+      return E.addEventListener("focusout", W), E.addEventListener("pointerdown", Y), !S && m.addEventListener("focusout", W), () => {
+        E.removeEventListener("focusout", W), E.removeEventListener("pointerdown", Y), !S && m.removeEventListener("focusout", W);
       };
-  }, [r, E, m, x, f, K, k, y, d]), b.useEffect(() => {
+  }, [r, E, m, S, f, K, k, y, d]), b.useEffect(() => {
     var Y;
     if (r)
       return;
@@ -3611,15 +3613,15 @@ function xa(e) {
       let {
         reason: re,
         event: ie,
-        nested: Se
+        nested: xe
       } = ee;
-      re === "escape-key" && h.domReference.current && (_.current = h.domReference.current), re === "hover" && ie.type === "mouseleave" && (L.current = !0), re === "outside-press" && (Se ? (L.current = !1, Y = !0) : L.current = !(io(ie) || co(ie)));
+      re === "escape-key" && h.domReference.current && (_.current = h.domReference.current), re === "hover" && ie.type === "mouseleave" && (L.current = !0), re === "outside-press" && (xe ? (L.current = !1, Y = !0) : L.current = !(io(ie) || co(ie)));
     }
     return g.on("openchange", G), () => {
       g.off("openchange", G);
-      const ee = Fe(W), re = le(m, ee) || K && qe(K.nodesRef.current, f).some((Se) => {
+      const ee = Fe(W), re = le(m, ee) || K && qe(K.nodesRef.current, f).some((xe) => {
         var Qe;
-        return le((Qe = Se.context) == null ? void 0 : Qe.elements.floating, ee);
+        return le((Qe = xe.context) == null ? void 0 : Qe.elements.floating, ee);
       });
       (re || B.openEvent && ["click", "mousedown"].includes(B.openEvent.type)) && h.domReference.current && (_.current = h.domReference.current), // eslint-disable-next-line react-hooks/exhaustive-deps
       j.current && se(_.current) && !L.current && // If the focus moved somewhere else after mount, avoid returning focus
@@ -3637,7 +3639,7 @@ function xa(e) {
   }, [r, m, j, T, h, g, K, f]), me(() => {
     if (!(r || !k))
       return k.setFocusManagerState({
-        modal: x,
+        modal: S,
         closeOnFocusOut: d,
         open: p,
         onOpenChange: y,
@@ -3645,7 +3647,7 @@ function xa(e) {
       }), () => {
         k.setFocusManagerState(null);
       };
-  }, [r, k, x, p, y, h, d]), me(() => {
+  }, [r, k, S, p, y, h, d]), me(() => {
     if (r || !m || typeof MutationObserver != "function" || I)
       return;
     const Y = () => {
@@ -3663,17 +3665,17 @@ function xa(e) {
     };
   }, [r, m, h, N, D, I]);
   function we(Y) {
-    return r || !l || !x ? null : /* @__PURE__ */ b.createElement(Sa, {
+    return r || !l || !S ? null : /* @__PURE__ */ b.createElement(xa, {
       ref: Y === "start" ? J : q,
       onClick: (W) => y(!1, W.nativeEvent)
     }, typeof l == "string" ? l : "Dismiss");
   }
-  const pe = !r && M && ($ || x);
+  const pe = !r && M && ($ || S);
   return /* @__PURE__ */ b.createElement(b.Fragment, null, pe && /* @__PURE__ */ b.createElement(gn, {
     "data-type": "inside",
     ref: k == null ? void 0 : k.beforeInsideRef,
     onFocus: (Y) => {
-      if (x) {
+      if (S) {
         const R = ne();
         Ce(o[0] === "reference" ? R[0] : R[R.length - 1]);
       } else if (k != null && k.preserveTabOrder && k.portalNode)
@@ -3689,7 +3691,7 @@ function xa(e) {
     "data-type": "inside",
     ref: k == null ? void 0 : k.afterInsideRef,
     onFocus: (Y) => {
-      if (x)
+      if (S)
         Ce(ne()[0]);
       else if (k != null && k.preserveTabOrder && k.portalNode)
         if (d && (L.current = !0), vn(Y, k.portalNode)) {
@@ -3785,7 +3787,7 @@ function Ta(e, t) {
     ancestorScroll: g = !1,
     bubbles: T,
     capture: E
-  } = t, m = Ft(), I = Ye(typeof p == "function" ? p : () => !1), C = typeof p == "function" ? I : p, x = b.useRef(!1), M = b.useRef(!1), {
+  } = t, m = Ft(), I = Ye(typeof p == "function" ? p : () => !1), C = typeof p == "function" ? I : p, S = b.useRef(!1), M = b.useRef(!1), {
     escapeKey: N,
     outsidePress: A
   } = wn(T), {
@@ -3815,8 +3817,8 @@ function Ta(e, t) {
     };
     (P = $e(_)) == null || P.addEventListener("keydown", $);
   }), q = Ye((_) => {
-    const P = x.current;
-    x.current = !1;
+    const P = S.current;
+    S.current = !1;
     const $ = M.current;
     if (M.current = !1, h === "click" && $ || P || typeof C == "function" && !C(_))
       return;
@@ -3876,7 +3878,7 @@ function Ta(e, t) {
     const P = ve(c);
     d && P.addEventListener("keydown", j ? J : k, j), C && P.addEventListener(h, K ? L : q, K);
     let $ = [];
-    return g && (Q(s) && ($ = xe(s)), Q(c) && ($ = $.concat(xe(c))), !Q(a) && a && a.contextElement && ($ = $.concat(xe(a.contextElement)))), $ = $.filter((D) => {
+    return g && (Q(s) && ($ = Se(s)), Q(c) && ($ = $.concat(Se(c))), !Q(a) && a && a.contextElement && ($ = $.concat(Se(a.contextElement)))), $ = $.filter((D) => {
       var ne;
       return D !== ((ne = P.defaultView) == null ? void 0 : ne.visualViewport);
     }), $.forEach((D) => {
@@ -3889,7 +3891,7 @@ function Ta(e, t) {
       });
     };
   }, [u, c, s, a, d, C, h, n, r, g, l, N, A, k, j, J, q, K, L]), b.useEffect(() => {
-    x.current = !1;
+    S.current = !1;
   }, [C, h]), b.useMemo(() => l ? {
     reference: {
       onKeyDown: k,
@@ -3906,7 +3908,7 @@ function Ta(e, t) {
         M.current = !0;
       },
       [_a[h]]: () => {
-        x.current = !0;
+        S.current = !0;
       }
     }
   } : {}, [l, f, h, y, r, k]);
@@ -3950,7 +3952,7 @@ function Ca(e) {
     // `null` to support `positionReference` + an unstable `reference`
     // callback ref.
     A !== null && !Q(A)) && p.refs.setReference(A);
-  }, [p.refs]), x = b.useMemo(() => ({
+  }, [p.refs]), S = b.useMemo(() => ({
     ...p.refs,
     setReference: C,
     setPositionReference: I,
@@ -3960,7 +3962,7 @@ function Ca(e) {
     domReference: d
   }), [p.elements, d]), N = b.useMemo(() => ({
     ...p,
-    refs: x,
+    refs: S,
     elements: M,
     dataRef: T,
     nodeId: o,
@@ -3968,16 +3970,16 @@ function Ca(e) {
     events: E,
     open: n,
     onOpenChange: y
-  }), [p, o, m, E, n, y, x, M]);
+  }), [p, o, m, E, n, y, S, M]);
   return me(() => {
     const A = h == null ? void 0 : h.nodesRef.current.find((j) => j.id === o);
     A && (A.context = N);
   }), b.useMemo(() => ({
     ...p,
     context: N,
-    refs: x,
+    refs: S,
     elements: M
-  }), [p, x, M, N]);
+  }), [p, S, M, N]);
 }
 function Rt(e, t, n) {
   const r = /* @__PURE__ */ new Map();
@@ -4071,7 +4073,7 @@ function Oa(e, t) {
     };
   }, [o, a, n, r, s]);
 }
-const Sn = (e) => e.replace(/[A-Z]+(?![a-z])|[A-Z]/g, (t, n) => (n ? "-" : "") + t.toLowerCase());
+const xn = (e) => e.replace(/[A-Z]+(?![a-z])|[A-Z]/g, (t, n) => (n ? "-" : "") + t.toLowerCase());
 function je(e, t) {
   return typeof e == "function" ? e(t) : e;
 }
@@ -4136,20 +4138,20 @@ function Pa(e, t) {
     duration: s
   }), E = Oe(n), m = Oe(r), I = Oe(o), C = Oe(a);
   return me(() => {
-    const x = je(E.current, l), M = je(I.current, l), N = je(C.current, l), A = je(m.current, l) || Object.keys(x).reduce((j, K) => (j[K] = "", j), {});
+    const S = je(E.current, l), M = je(I.current, l), N = je(C.current, l), A = je(m.current, l) || Object.keys(S).reduce((j, K) => (j[K] = "", j), {});
     if (T === "initial" && y((j) => ({
       transitionProperty: j.transitionProperty,
       ...N,
-      ...x
+      ...S
     })), T === "open" && y({
-      transitionProperty: Object.keys(A).map(Sn).join(","),
+      transitionProperty: Object.keys(A).map(xn).join(","),
       transitionDuration: p + "ms",
       ...N,
       ...A
     }), T === "close") {
-      const j = M || x;
+      const j = M || S;
       y({
-        transitionProperty: Object.keys(j).map(Sn).join(","),
+        transitionProperty: Object.keys(j).map(xn).join(","),
         transitionDuration: h + "ms",
         ...N,
         ...j
@@ -4161,7 +4163,7 @@ function Pa(e, t) {
   };
 }
 const ke = 7, Ma = 2, Ia = (e) => {
-  var C, x;
+  var C, S;
   const { state: t, setData: n } = te(), r = Rn(null), {
     refs: o,
     context: a,
@@ -4179,7 +4181,7 @@ const ke = 7, Ma = 2, Ia = (e) => {
       Eo(ke + Ma)
     ],
     whileElementsMounted: Io
-  }), u = ((C = c.arrow) == null ? void 0 : C.x) ?? 0, l = ((x = c.arrow) == null ? void 0 : x.y) ?? 0, d = u + ke / 2, p = l + ke, { isMounted: h, styles: f } = Pa(a, {
+  }), u = ((C = c.arrow) == null ? void 0 : C.x) ?? 0, l = ((S = c.arrow) == null ? void 0 : S.y) ?? 0, d = u + ke / 2, p = l + ke, { isMounted: h, styles: f } = Pa(a, {
     initial: {
       transform: "scale(0)"
     },
@@ -4192,10 +4194,10 @@ const ke = 7, Ma = 2, Ia = (e) => {
       }[M]
     })
   }), y = Da(a), g = Ta(a), T = Oa(a), { getReferenceProps: E, getFloatingProps: m } = ka([y, g, T]), I = mt();
-  return /* @__PURE__ */ S.jsxs(S.Fragment, { children: [
-    /* @__PURE__ */ S.jsx("div", { ref: o.setReference, ...E(), children: e.input }),
-    t.isCalendarOpen && /* @__PURE__ */ S.jsx(xa, { context: a, modal: !1, children: h ? /* @__PURE__ */ S.jsx("div", { ref: o.setFloating, style: s, "aria-labelledby": I, ...m(), children: /* @__PURE__ */ S.jsxs("div", { style: f, children: [
-      /* @__PURE__ */ S.jsx(
+  return /* @__PURE__ */ x.jsxs(x.Fragment, { children: [
+    /* @__PURE__ */ x.jsx("div", { ref: o.setReference, ...E(), children: e.input }),
+    t.isCalendarOpen && /* @__PURE__ */ x.jsx(Sa, { context: a, modal: !1, children: h ? /* @__PURE__ */ x.jsx("div", { ref: o.setFloating, style: s, "aria-labelledby": I, ...m(), children: /* @__PURE__ */ x.jsxs("div", { style: f, children: [
+      /* @__PURE__ */ x.jsx(
         ca,
         {
           ref: r,
@@ -4206,7 +4208,7 @@ const ke = 7, Ma = 2, Ia = (e) => {
         }
       ),
       e.calendar
-    ] }) }) : /* @__PURE__ */ S.jsx("div", {}) })
+    ] }) }) : /* @__PURE__ */ x.jsx("div", {}) })
   ] });
 }, La = ({ ...e }) => {
   var o, a, s, c, u, l;
@@ -4272,7 +4274,7 @@ const ke = 7, Ma = 2, Ia = (e) => {
   }, [(l = e.options) == null ? void 0 : l.closeOnSelect]), he(() => {
     const d = Cn(e.value ?? ""), p = d ? r(d) : void 0, h = r(d || De(/* @__PURE__ */ new Date()));
     n({ type: U.SET_CALENDAR_DATE, date: h }), n({ type: U.SET_SELECTED_DATE, date: p });
-  }, [e.value]), /* @__PURE__ */ S.jsx(
+  }, [e.value]), /* @__PURE__ */ x.jsx(
     "div",
     {
       className: `nepali-datepicker ${t.options.classNames.wrapper ?? ""}`,
@@ -4281,10 +4283,10 @@ const ke = 7, Ma = 2, Ia = (e) => {
         "--ndp-primary": t.options.colors.primary,
         "--ndp-secondary": t.options.colors.secondary
       },
-      children: /* @__PURE__ */ S.jsx(Ia, { input: /* @__PURE__ */ S.jsx(Qr, { ...e }), calendar: /* @__PURE__ */ S.jsx(Vr, {}) })
+      children: /* @__PURE__ */ x.jsx(Ia, { input: /* @__PURE__ */ x.jsx(Qr, { ...e }), calendar: /* @__PURE__ */ x.jsx(Vr, {}) })
     }
   );
-}, ja = (e) => /* @__PURE__ */ S.jsx(zr, { children: /* @__PURE__ */ S.jsx(La, { ...e }) });
+}, ja = (e) => /* @__PURE__ */ x.jsx(zr, { children: /* @__PURE__ */ x.jsx(La, { ...e }) });
 export {
   ja as NepaliDatePicker
 };

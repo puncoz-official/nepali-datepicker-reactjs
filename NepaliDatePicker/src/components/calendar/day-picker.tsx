@@ -97,12 +97,14 @@ const DayPicker: FunctionComponent = () => {
                   ${state.options.classNames.dayPickerDay ?? `
                     ndp__day_picker-day
                     ndp-rounded-full ndp-h-9 ndp-w-9
-                    ndp-relative  hover-transition
+                    ndp-relative hover-transition
                     hover:ndp-bg-gray-200 dark:hover:ndp-bg-slate-900
                   `}
                   ${dayInfo.isSelected && (state.options.classNames.dayPickerDaySelected ?? `
                     ndp__day_picker-day-selected
                     ndp-bg-primary ndp-text-secondary
+                    hover:ndp-bg-primary hover:ndp-text-secondary
+                    dark:hover:ndp-bg-primary dark:hover:ndp-text-secondary
                     hover:ndp-opacity-80
                   `)}
 
