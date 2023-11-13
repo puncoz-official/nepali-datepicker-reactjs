@@ -1,4 +1,4 @@
-import * as g from "react";
+import * as y from "react";
 import wr, { useContext as Er, useCallback as ve, useMemo as ae, useState as Dr, createContext as Nr, useReducer as xr, useLayoutEffect as Dn, useEffect as me, useRef as Nn } from "react";
 import * as kr from "react-dom";
 var St = { exports: {} }, tt = {};
@@ -32,11 +32,11 @@ var nt = {};
 var en;
 function Tr() {
   return en || (en = 1, process.env.NODE_ENV !== "production" && function() {
-    var e = wr, t = Symbol.for("react.element"), n = Symbol.for("react.portal"), r = Symbol.for("react.fragment"), o = Symbol.for("react.strict_mode"), a = Symbol.for("react.profiler"), s = Symbol.for("react.provider"), c = Symbol.for("react.context"), u = Symbol.for("react.forward_ref"), l = Symbol.for("react.suspense"), f = Symbol.for("react.suspense_list"), p = Symbol.for("react.memo"), m = Symbol.for("react.lazy"), d = Symbol.for("react.offscreen"), v = Symbol.iterator, y = "@@iterator";
+    var e = wr, t = Symbol.for("react.element"), n = Symbol.for("react.portal"), r = Symbol.for("react.fragment"), o = Symbol.for("react.strict_mode"), a = Symbol.for("react.profiler"), s = Symbol.for("react.provider"), c = Symbol.for("react.context"), u = Symbol.for("react.forward_ref"), l = Symbol.for("react.suspense"), f = Symbol.for("react.suspense_list"), p = Symbol.for("react.memo"), m = Symbol.for("react.lazy"), d = Symbol.for("react.offscreen"), v = Symbol.iterator, g = "@@iterator";
     function T(i) {
       if (i === null || typeof i != "object")
         return null;
-      var b = v && i[v] || i[y];
+      var b = v && i[v] || i[g];
       return typeof b == "function" ? b : null;
     }
     var w = e.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
@@ -1397,8 +1397,8 @@ const Rr = () => {
     return n.calendarData.bsMonthCalculatedData[u - 1].reduce((m, d, v) => {
       if (d === 0 || m !== 0)
         return m;
-      const y = v % 2;
-      return l += d, f > l ? m : c === 2085 && u === 5 || c === 2088 && u === 5 ? n.calendarData.bsMonthMaxDays[u - 1][y] - 2 : n.calendarData.bsMonthMaxDays[u - 1][y];
+      const g = v % 2;
+      return l += d, f > l ? m : c === 2085 && u === 5 || c === 2088 && u === 5 ? n.calendarData.bsMonthMaxDays[u - 1][g] - 2 : n.calendarData.bsMonthMaxDays[u - 1][g];
     }, 0);
   };
   return {
@@ -1407,7 +1407,7 @@ const Rr = () => {
     parseBsDate: (c, u) => {
       const { year: l, month: f, day: p } = r(c, u);
       e.validateDateObject({ year: l, month: f, day: p });
-      const m = o({ year: l, month: f, day: 1 }), d = tn(m), v = new Date(d), y = a(l, f), T = new Date(tn(c));
+      const m = o({ year: l, month: f, day: 1 }), d = tn(m), v = new Date(d), g = a(l, f), T = new Date(tn(c));
       return {
         bsDay: p,
         bsMonth: f,
@@ -1415,7 +1415,7 @@ const Rr = () => {
         weekDay: T.getDay(),
         adDate: T,
         firstAdDayInBsMonth: v,
-        numberOfDaysInBsMonth: y,
+        numberOfDaysInBsMonth: g,
         dateString: c
       };
     },
@@ -1574,12 +1574,12 @@ const ye = () => {
   ) : null;
 }, jr = () => {
   const { numberTrans: e } = ye(), { range: t } = Ye(), { state: n, setData: r } = te(), o = Ae(), a = ae(() => n.date.calendar ?? o.parseBsDate(xe(/* @__PURE__ */ new Date())), [n.date.calendar]), s = ae(() => n.date.selected, [n.date.selected]), c = ae(() => Math.ceil((a.firstAdDayInBsMonth.getDay() + a.numberOfDaysInBsMonth) / 7) - 1, [a]), u = ae(() => a.bsMonth - 1 === 0 ? 12 : a.bsMonth - 1, [a]), l = ae(() => u === 12 ? a.bsYear - 1 : a.bsYear, [u, a]), f = ae(() => l >= n.calendarData.minBsYear ? o.getNumberOfDaysInBSMonth(l, u) : 30, [l, u]), p = ve((d, v) => {
-    let y = d * 7 + v - a.firstAdDayInBsMonth.getDay();
+    let g = d * 7 + v - a.firstAdDayInBsMonth.getDay();
     const T = a.bsMonth, w = a.bsYear;
     let h = !0;
-    y <= 0 ? (y = f + y, h = !1) : y > a.numberOfDaysInBsMonth && (y -= a.numberOfDaysInBsMonth, h = !1);
-    const M = o.splitDate(xe(/* @__PURE__ */ new Date())), R = h ? M.day === y && M.month === T && M.year === w : !1, N = h ? (s == null ? void 0 : s.bsDay) === y && s.bsMonth === T && s.bsYear === w : !1, A = o.stitchDate({ year: w, month: T, day: y });
-    return { day: y, month: T, year: w, weekDay: v, isCurrentMonth: h, isToday: R, isSelected: N, dateString: A };
+    g <= 0 ? (g = f + g, h = !1) : g > a.numberOfDaysInBsMonth && (g -= a.numberOfDaysInBsMonth, h = !1);
+    const M = o.splitDate(xe(/* @__PURE__ */ new Date())), R = h ? M.day === g && M.month === T && M.year === w : !1, N = h ? (s == null ? void 0 : s.bsDay) === g && s.bsMonth === T && s.bsYear === w : !1, A = o.stitchDate({ year: w, month: T, day: g });
+    return { day: g, month: T, year: w, weekDay: v, isCurrentMonth: h, isToday: R, isSelected: N, dateString: A };
   }, [a, s, f]), m = ve((d) => {
     if (!d.isCurrentMonth)
       return;
@@ -1591,12 +1591,12 @@ const ye = () => {
     n.events.onSelect(d), n.events.onChange(e(v, n.locale.value)), n.options.closeOnSelect && r({ type: z.SET_CALENDAR_OPEN, isOpen: !1 });
   }, [n.events.onSelect, n.events.onChange, n.options.closeOnSelect, n.locale.value]);
   return /* @__PURE__ */ D.jsxDEV("tbody", { children: t(0, c).map((d) => /* @__PURE__ */ D.jsxDEV("tr", { className: n.options.classNames.dayPickerTr ?? "ndp__day_picker-tr ndp-border-0", children: t(1, 7).map((v) => {
-    const y = p(d, v);
+    const g = p(d, v);
     return /* @__PURE__ */ D.jsxDEV(
       "td",
       {
         className: n.options.classNames.dayPickerTd ?? "ndp__day_picker-td ndp-border-0",
-        title: e(y.day),
+        title: e(g.day),
         children: /* @__PURE__ */ D.jsxDEV(
           "button",
           {
@@ -1607,36 +1607,38 @@ const ye = () => {
                     ndp-relative ndp-cursor-pointer hover-transition
                     hover:ndp-bg-gray-200 dark:hover:ndp-bg-slate-900
                   `}
-                  ${y.isSelected && (n.options.classNames.dayPickerDaySelected ?? `
+                  ${g.isSelected && (n.options.classNames.dayPickerDaySelected ?? `
                     ndp__day_picker-day-selected
                     ndp-bg-primary ndp-text-secondary
                     hover:ndp-opacity-80
                   `)}
 
-                  ${!y.isCurrentMonth && (n.options.classNames.dayPickerDayOtherMonth ?? `
+                  ${!g.isCurrentMonth && (n.options.classNames.dayPickerDayOtherMonth ?? `
                     ndp__day_picker-day-other_month
                     ndp-text-gray-200 dark:ndp-text-slate-700
                     hover:ndp-bg-transparent dark:hover:ndp-bg-transparent
                     ndp-cursor-not-allowed ndp-select-none
                   `)}
 
-                  ${!y.isSelected && y.isCurrentMonth && n.modifiers.isWeekend(y.weekDay) && (n.options.classNames.dayPickerDayWeekend ?? "ndp__day_picker-day-weekend ndp-text-red-500")}
+                  ${!g.isSelected && g.isCurrentMonth && n.modifiers.isHoliday(g) && (n.options.classNames.dayPickerDayHoliday ?? "ndp__day_picker-day-holiday ndp-text-red-500")}
+
+                  ${!g.isSelected && g.isCurrentMonth && !n.modifiers.isHoliday(g) && n.modifiers.isWeekend(g.weekDay) && (n.options.classNames.dayPickerDayWeekend ?? "ndp__day_picker-day-weekend ndp-text-red-500")}
                 `,
             onClick: () => {
-              m(y);
+              m(g);
             },
             onKeyDown: () => {
-              m(y);
+              m(g);
             },
             children: [
-              e(y.day),
-              y.isToday && /* @__PURE__ */ D.jsxDEV("span", { className: n.options.classNames.dayPickerToday ?? `
+              e(g.day),
+              g.isToday && /* @__PURE__ */ D.jsxDEV("span", { className: n.options.classNames.dayPickerToday ?? `
                       ndp__day_picker-today
                       ndp-inline-block ndp-content-[""] ndp-w-1 ndp-h-1 ndp-bg-primary ndp-rounded-full
                       ndp-absolute ndp-left-[50%] ndp-bottom-1 -ndp-translate-x-[50%]
                     ` }, void 0, !1, {
                 fileName: "/Users/puncoz/Workspace/web/projects/nepali-datepicker-reactjs/NepaliDatePicker/src/components/calendar/day-picker.tsx",
-                lineNumber: 133,
+                lineNumber: 142,
                 columnNumber: 21
               }, globalThis)
             ]
@@ -2653,11 +2655,11 @@ const ho = async (e, t, n) => {
     x: f,
     y: p
   } = rn(l, r, u), m = r, d = {}, v = 0;
-  for (let y = 0; y < c.length; y++) {
+  for (let g = 0; g < c.length; g++) {
     const {
       name: T,
       fn: w
-    } = c[y], {
+    } = c[g], {
       x: h,
       y: M,
       data: R,
@@ -2690,7 +2692,7 @@ const ho = async (e, t, n) => {
       }) : N.rects), {
         x: f,
         y: p
-      } = rn(l, m, u)), y = -1;
+      } = rn(l, m, u)), g = -1;
       continue;
     }
   }
@@ -2722,10 +2724,10 @@ const ho = async (e, t, n) => {
     const p = mo(f), m = {
       x: n,
       y: r
-    }, d = In(o), v = Mn(d), y = await s.getDimensions(l), T = d === "y", w = T ? "top" : "left", h = T ? "bottom" : "right", M = T ? "clientHeight" : "clientWidth", R = a.reference[v] + a.reference[d] - m[d] - a.floating[v], N = m[d] - a.reference[d], A = await (s.getOffsetParent == null ? void 0 : s.getOffsetParent(l));
+    }, d = In(o), v = Mn(d), g = await s.getDimensions(l), T = d === "y", w = T ? "top" : "left", h = T ? "bottom" : "right", M = T ? "clientHeight" : "clientWidth", R = a.reference[v] + a.reference[d] - m[d] - a.floating[v], N = m[d] - a.reference[d], A = await (s.getOffsetParent == null ? void 0 : s.getOffsetParent(l));
     let j = A ? A[M] : 0;
     (!j || !await (s.isElement == null ? void 0 : s.isElement(A))) && (j = c.floating[M] || a.floating[v]);
-    const P = R / 2 - N / 2, B = j / 2 - y[v] / 2 - 1, H = $e(p[w], B), _ = $e(p[h], B), J = H, q = j - y[v] - _, I = j / 2 - y[v] / 2 + P, S = uo(J, I, q), O = !u.arrow && It(o) != null && I != S && a.reference[v] / 2 - (I < J ? H : _) - y[v] / 2 < 0, F = O ? I < J ? I - J : I - q : 0;
+    const P = R / 2 - N / 2, B = j / 2 - g[v] / 2 - 1, H = $e(p[w], B), _ = $e(p[h], B), J = H, q = j - g[v] - _, I = j / 2 - g[v] / 2 + P, S = uo(J, I, q), O = !u.arrow && It(o) != null && I != S && a.reference[v] / 2 - (I < J ? H : _) - g[v] / 2 < 0, F = O ? I < J ? I - J : I - q : 0;
     return {
       [d]: m[d] + F,
       data: {
@@ -2834,8 +2836,8 @@ function Oe(e, t, n, r) {
     const m = ue(a), d = r && Q(r) ? ue(r) : r;
     let v = m.frameElement;
     for (; v && r && d !== m; ) {
-      const y = Ue(v), T = v.getBoundingClientRect(), w = de(v), h = T.left + (v.clientLeft + parseFloat(w.paddingLeft)) * y.x, M = T.top + (v.clientTop + parseFloat(w.paddingTop)) * y.y;
-      u *= y.x, l *= y.y, f *= y.x, p *= y.y, u += h, l += M, v = ue(v).frameElement;
+      const g = Ue(v), T = v.getBoundingClientRect(), w = de(v), h = T.left + (v.clientLeft + parseFloat(w.paddingLeft)) * g.x, M = T.top + (v.clientTop + parseFloat(w.paddingTop)) * g.y;
+      u *= g.x, l *= g.y, f *= g.x, p *= g.y, u += h, l += M, v = ue(v).frameElement;
     }
   }
   return Ln({
@@ -3046,8 +3048,8 @@ function jo(e, t) {
     } = e.getBoundingClientRect();
     if (c || t(), !p || !m)
       return;
-    const d = rt(f), v = rt(o.clientWidth - (l + p)), y = rt(o.clientHeight - (f + m)), T = rt(l), h = {
-      rootMargin: -d + "px " + -v + "px " + -y + "px " + -T + "px",
+    const d = rt(f), v = rt(o.clientWidth - (l + p)), g = rt(o.clientHeight - (f + m)), T = rt(l), h = {
+      rootMargin: -d + "px " + -v + "px " + -g + "px " + -T + "px",
       threshold: je(0, $e(1, u)) || 1
     };
     let M = !0;
@@ -3097,11 +3099,11 @@ function Po(e, t, n, r) {
       d && d.observe(t);
     })), n();
   }), l && !u && d.observe(l), d.observe(t));
-  let v, y = u ? Oe(e) : null;
+  let v, g = u ? Oe(e) : null;
   u && T();
   function T() {
     const w = Oe(e);
-    y && (w.x !== y.x || w.y !== y.y || w.width !== y.width || w.height !== y.height) && n(), y = w, v = requestAnimationFrame(T);
+    g && (w.x !== g.x || w.y !== g.y || w.width !== g.width || w.height !== g.height) && n(), g = w, v = requestAnimationFrame(T);
   }
   return n(), () => {
     f.forEach((w) => {
@@ -3183,7 +3185,7 @@ function cn(e, t) {
   return Math.round(t * n) / n;
 }
 function ln(e) {
-  const t = g.useRef(e);
+  const t = y.useRef(e);
   return st(() => {
     t.current = e;
   }), t;
@@ -3202,20 +3204,20 @@ function Mo(e) {
     transform: c = !0,
     whileElementsMounted: u,
     open: l
-  } = e, [f, p] = g.useState({
+  } = e, [f, p] = y.useState({
     x: 0,
     y: 0,
     strategy: n,
     placement: t,
     middlewareData: {},
     isPositioned: !1
-  }), [m, d] = g.useState(r);
+  }), [m, d] = y.useState(r);
   ut(m, r) || d(r);
-  const [v, y] = g.useState(null), [T, w] = g.useState(null), h = g.useCallback((O) => {
-    O != A.current && (A.current = O, y(O));
-  }, [y]), M = g.useCallback((O) => {
+  const [v, g] = y.useState(null), [T, w] = y.useState(null), h = y.useCallback((O) => {
+    O != A.current && (A.current = O, g(O));
+  }, [g]), M = y.useCallback((O) => {
     O !== j.current && (j.current = O, w(O));
-  }, [w]), R = a || v, N = s || T, A = g.useRef(null), j = g.useRef(null), P = g.useRef(f), B = ln(u), H = ln(o), _ = g.useCallback(() => {
+  }, [w]), R = a || v, N = s || T, A = y.useRef(null), j = y.useRef(null), P = y.useRef(f), B = ln(u), H = ln(o), _ = y.useCallback(() => {
     if (!A.current || !j.current)
       return;
     const O = {
@@ -3239,7 +3241,7 @@ function Mo(e) {
       isPositioned: !1
     })));
   }, [l]);
-  const J = g.useRef(!1);
+  const J = y.useRef(!1);
   st(() => (J.current = !0, () => {
     J.current = !1;
   }), []), st(() => {
@@ -3249,15 +3251,15 @@ function Mo(e) {
       _();
     }
   }, [R, N, _, B]);
-  const q = g.useMemo(() => ({
+  const q = y.useMemo(() => ({
     reference: A,
     floating: j,
     setReference: h,
     setFloating: M
-  }), [h, M]), I = g.useMemo(() => ({
+  }), [h, M]), I = y.useMemo(() => ({
     reference: R,
     floating: N
-  }), [R, N]), S = g.useMemo(() => {
+  }), [R, N]), S = y.useMemo(() => {
     const O = {
       position: n,
       left: 0,
@@ -3278,7 +3280,7 @@ function Mo(e) {
       top: x
     };
   }, [n, c, I.floating, f.x, f.y]);
-  return g.useMemo(() => ({
+  return y.useMemo(() => ({
     ...f,
     update: _,
     refs: q,
@@ -3465,15 +3467,15 @@ var Io = ["input:not([inert])", "select:not([inert])", "textarea:not([inert])", 
     shadowRootFilter: Zo
   }) : r = Bo(t, n.includeContainer, dn.bind(null, n)), Qo(r);
 };
-const ea = g[/* @__PURE__ */ "useInsertionEffect".toString()], ta = ea || ((e) => e());
+const ea = y[/* @__PURE__ */ "useInsertionEffect".toString()], ta = ea || ((e) => e());
 function Ve(e) {
-  const t = g.useRef(() => {
+  const t = y.useRef(() => {
     if (process.env.NODE_ENV !== "production")
       throw new Error("Cannot call an event handler while rendering.");
   });
   return ta(() => {
     t.current = e;
-  }), g.useCallback(function() {
+  }), y.useCallback(function() {
     for (var n = arguments.length, r = new Array(n), o = 0; o < n; o++)
       r[o] = arguments[o];
     return t.current == null ? void 0 : t.current(...r);
@@ -3507,14 +3509,14 @@ function qe() {
 let Nt = !1, na = 0;
 const pn = () => "floating-ui-" + na++;
 function ra() {
-  const [e, t] = g.useState(() => Nt ? pn() : void 0);
+  const [e, t] = y.useState(() => Nt ? pn() : void 0);
   return he(() => {
     e == null && t(pn());
-  }, []), g.useEffect(() => {
+  }, []), y.useEffect(() => {
     Nt || (Nt = !0);
   }, []), e;
 }
-const oa = g[/* @__PURE__ */ "useId".toString()], ht = oa || ra, aa = /* @__PURE__ */ g.forwardRef(function(t, n) {
+const oa = y[/* @__PURE__ */ "useId".toString()], ht = oa || ra, aa = /* @__PURE__ */ y.forwardRef(function(t, n) {
   let {
     context: {
       placement: r,
@@ -3536,7 +3538,7 @@ const oa = g[/* @__PURE__ */ "useId".toString()], ht = oa || ra, aa = /* @__PURE
       transform: d,
       ...v
     } = {},
-    ...y
+    ...g
   } = t;
   process.env.NODE_ENV !== "production" && (n || console.warn("Floating UI: The `ref` prop is required for the `FloatingArrow`", "component."));
   const T = ht();
@@ -3552,7 +3554,7 @@ const oa = g[/* @__PURE__ */ "useId".toString()], ht = oa || ra, aa = /* @__PURE
     bottom: j ? "" : "rotate(180deg)",
     right: j ? "rotate(-90deg)" : "rotate(90deg)"
   }[R];
-  return /* @__PURE__ */ g.createElement("svg", qe({}, y, {
+  return /* @__PURE__ */ y.createElement("svg", qe({}, g, {
     "aria-hidden": !0,
     ref: n,
     width: j ? s : s + l,
@@ -3567,18 +3569,18 @@ const oa = g[/* @__PURE__ */ "useId".toString()], ht = oa || ra, aa = /* @__PURE
       transform: "" + I + (d ?? ""),
       ...v
     }
-  }), l > 0 && /* @__PURE__ */ g.createElement("path", {
+  }), l > 0 && /* @__PURE__ */ y.createElement("path", {
     clipPath: "url(#" + T + ")",
     fill: "none",
     stroke: p,
     strokeWidth: l + (m ? 0 : 1),
     d: q
-  }), /* @__PURE__ */ g.createElement("path", {
-    stroke: l && !m ? y.fill : "none",
+  }), /* @__PURE__ */ y.createElement("path", {
+    stroke: l && !m ? g.fill : "none",
     d: q
-  }), /* @__PURE__ */ g.createElement("clipPath", {
+  }), /* @__PURE__ */ y.createElement("clipPath", {
     id: T
-  }, /* @__PURE__ */ g.createElement("rect", {
+  }, /* @__PURE__ */ y.createElement("rect", {
     x: -w,
     y: w * (j ? -1 : 1),
     width: s + l,
@@ -3601,10 +3603,10 @@ function sa() {
     }
   };
 }
-const ia = /* @__PURE__ */ g.createContext(null), ca = /* @__PURE__ */ g.createContext(null), la = () => {
+const ia = /* @__PURE__ */ y.createContext(null), ca = /* @__PURE__ */ y.createContext(null), la = () => {
   var e;
-  return ((e = g.useContext(ia)) == null ? void 0 : e.id) || null;
-}, Wt = () => g.useContext(ca);
+  return ((e = y.useContext(ia)) == null ? void 0 : e.id) || null;
+}, Wt = () => y.useContext(ca);
 function pt(e) {
   return "data-floating-ui-" + e;
 }
@@ -3658,15 +3660,15 @@ function pa(e, t, n, r) {
       if (c.has(v))
         m(v);
       else {
-        const y = a ? v.getAttribute(a) : null, T = y !== null && y !== "false", w = (Le.get(v) || 0) + 1, h = (f.get(v) || 0) + 1;
+        const g = a ? v.getAttribute(a) : null, T = g !== null && g !== "false", w = (Le.get(v) || 0) + 1, h = (f.get(v) || 0) + 1;
         Le.set(v, w), f.set(v, h), l.push(v), w === 1 && T && ot.add(v), h === 1 && v.setAttribute(o, ""), !T && a && v.setAttribute(a, "true");
       }
     });
   }
   return xt++, () => {
     l.forEach((d) => {
-      const v = (Le.get(d) || 0) - 1, y = (f.get(d) || 0) - 1;
-      Le.set(d, v), f.set(d, y), v || (!ot.has(d) && a && d.removeAttribute(a), ot.delete(d)), y || d.removeAttribute(o);
+      const v = (Le.get(d) || 0) - 1, g = (f.get(d) || 0) - 1;
+      Le.set(d, v), f.set(d, g), v || (!ot.has(d) && a && d.removeAttribute(a), ot.delete(d)), g || d.removeAttribute(o);
     }), xt--, xt || (Le = /* @__PURE__ */ new WeakMap(), Le = /* @__PURE__ */ new WeakMap(), ot = /* @__PURE__ */ new WeakSet(), at = {});
   };
 }
@@ -3717,8 +3719,8 @@ let ba;
 function bn(e) {
   e.key === "Tab" && (e.target, clearTimeout(ba));
 }
-const vn = /* @__PURE__ */ g.forwardRef(function(t, n) {
-  const [r, o] = g.useState();
+const vn = /* @__PURE__ */ y.forwardRef(function(t, n) {
+  const [r, o] = y.useState();
   he(() => (so() && o("button"), document.addEventListener("keydown", bn), () => {
     document.removeEventListener("keydown", bn);
   }), []);
@@ -3731,9 +3733,9 @@ const vn = /* @__PURE__ */ g.forwardRef(function(t, n) {
     [pt("focus-guard")]: "",
     style: Qn
   };
-  return /* @__PURE__ */ g.createElement("span", qe({}, t, a));
-}), va = /* @__PURE__ */ g.createContext(null), ga = () => g.useContext(va), ya = /* @__PURE__ */ g.forwardRef(function(t, n) {
-  return /* @__PURE__ */ g.createElement("button", qe({}, t, {
+  return /* @__PURE__ */ y.createElement("span", qe({}, t, a));
+}), va = /* @__PURE__ */ y.createContext(null), ga = () => y.useContext(va), ya = /* @__PURE__ */ y.forwardRef(function(t, n) {
+  return /* @__PURE__ */ y.createElement("button", qe({}, t, {
     type: "button",
     ref: n,
     tabIndex: -1,
@@ -3757,19 +3759,19 @@ function wa(e) {
     refs: m,
     nodeId: d,
     onOpenChange: v,
-    events: y,
+    events: g,
     dataRef: T,
     elements: {
       domReference: w,
       floating: h
     }
-  } = t, M = typeof s == "number" && s < 0, R = (w == null ? void 0 : w.getAttribute("role")) === "combobox" && On(w) && M, N = R ? !1 : u, A = da() ? a : !0, j = Ce(o), P = Ce(s), B = Ce(c), H = Wt(), _ = ga(), J = g.useRef(null), q = g.useRef(null), I = g.useRef(!1), S = g.useRef(null), O = g.useRef(!1), F = _ != null, x = g.useCallback(function(V) {
+  } = t, M = typeof s == "number" && s < 0, R = (w == null ? void 0 : w.getAttribute("role")) === "combobox" && On(w) && M, N = R ? !1 : u, A = da() ? a : !0, j = Ce(o), P = Ce(s), B = Ce(c), H = Wt(), _ = ga(), J = y.useRef(null), q = y.useRef(null), I = y.useRef(!1), S = y.useRef(null), O = y.useRef(!1), F = _ != null, x = y.useCallback(function(V) {
     return V === void 0 && (V = h), V ? Gn(V, Jn()) : [];
-  }, [h]), ne = g.useCallback((V) => {
+  }, [h]), ne = y.useCallback((V) => {
     const U = x(V);
     return j.current.map((k) => w && k === "reference" ? w : h && k === "floating" ? h : U).filter(Boolean).flat();
   }, [w, h, j, x]);
-  g.useEffect(() => {
+  y.useEffect(() => {
     if (r || !N)
       return;
     function V(k) {
@@ -3783,7 +3785,7 @@ function wa(e) {
     return U.addEventListener("keydown", V), () => {
       U.removeEventListener("keydown", V);
     };
-  }, [r, w, h, N, j, m, R, x, ne]), g.useEffect(() => {
+  }, [r, w, h, N, j, m, R, x, ne]), y.useEffect(() => {
     if (r || !f)
       return;
     function V() {
@@ -3809,7 +3811,7 @@ function wa(e) {
       return w.addEventListener("focusout", U), w.addEventListener("pointerdown", V), !N && h.addEventListener("focusout", U), () => {
         w.removeEventListener("focusout", U), w.removeEventListener("pointerdown", V), !N && h.removeEventListener("focusout", U);
       };
-  }, [r, w, h, N, d, H, _, v, f]), g.useEffect(() => {
+  }, [r, w, h, N, d, H, _, v, f]), y.useEffect(() => {
     var V;
     if (r)
       return;
@@ -3844,8 +3846,8 @@ function wa(e) {
       } = ee;
       re === "escape-key" && m.domReference.current && (S.current = m.domReference.current), re === "hover" && ie.type === "mouseleave" && (I.current = !0), re === "outside-press" && (De ? (I.current = !1, V = !0) : I.current = !(oo(ie) || ao(ie)));
     }
-    return y.on("openchange", G), () => {
-      y.off("openchange", G);
+    return g.on("openchange", G), () => {
+      g.off("openchange", G);
       const ee = We(U), re = le(h, ee) || H && He(H.nodesRef.current, d).some((De) => {
         var Je;
         return le((Je = De.context) == null ? void 0 : Je.elements.floating, ee);
@@ -3863,7 +3865,7 @@ function wa(e) {
         preventScroll: V
       });
     };
-  }, [r, h, B, T, m, y, H, d]), he(() => {
+  }, [r, h, B, T, m, g, H, d]), he(() => {
     if (!(r || !_))
       return _.setFocusManagerState({
         modal: N,
@@ -3892,13 +3894,13 @@ function wa(e) {
     };
   }, [r, h, m, j, x, M]);
   function Ee(V) {
-    return r || !l || !N ? null : /* @__PURE__ */ g.createElement(ya, {
+    return r || !l || !N ? null : /* @__PURE__ */ y.createElement(ya, {
       ref: V === "start" ? J : q,
       onClick: (U) => v(!1, U.nativeEvent)
     }, typeof l == "string" ? l : "Dismiss");
   }
   const pe = !r && A && (F || N);
-  return /* @__PURE__ */ g.createElement(g.Fragment, null, pe && /* @__PURE__ */ g.createElement(vn, {
+  return /* @__PURE__ */ y.createElement(y.Fragment, null, pe && /* @__PURE__ */ y.createElement(vn, {
     "data-type": "inside",
     ref: _ == null ? void 0 : _.beforeInsideRef,
     onFocus: (V) => {
@@ -3914,7 +3916,7 @@ function wa(e) {
           (U = _.beforeOutsideRef.current) == null || U.focus();
         }
     }
-  }), !R && Ee("start"), n, Ee("end"), pe && /* @__PURE__ */ g.createElement(vn, {
+  }), !R && Ee("start"), n, Ee("end"), pe && /* @__PURE__ */ y.createElement(vn, {
     "data-type": "inside",
     ref: _ == null ? void 0 : _.afterInsideRef,
     onFocus: (V) => {
@@ -3952,8 +3954,8 @@ function Ea(e, t) {
     toggle: u = !0,
     ignoreMouse: l = !1,
     keyboardHandlers: f = !0
-  } = t, p = g.useRef(), m = g.useRef(!1);
-  return g.useMemo(() => s ? {
+  } = t, p = y.useRef(), m = y.useRef(!1);
+  return y.useMemo(() => s ? {
     reference: {
       onPointerDown(d) {
         p.current = d.pointerType;
@@ -4011,10 +4013,10 @@ function xa(e, t) {
     outsidePressEvent: m = "pointerdown",
     referencePress: d = !1,
     referencePressEvent: v = "pointerdown",
-    ancestorScroll: y = !1,
+    ancestorScroll: g = !1,
     bubbles: T,
     capture: w
-  } = t, h = Wt(), M = Ve(typeof p == "function" ? p : () => !1), R = typeof p == "function" ? M : p, N = g.useRef(!1), A = g.useRef(!1), {
+  } = t, h = Wt(), M = Ve(typeof p == "function" ? p : () => !1), R = typeof p == "function" ? M : p, N = y.useRef(!1), A = y.useRef(!1), {
     escapeKey: j,
     outsidePress: P
   } = wn(T), {
@@ -4095,7 +4097,7 @@ function xa(e, t) {
     };
     (O = Fe(S)) == null || O.addEventListener(m, F);
   });
-  return g.useEffect(() => {
+  return y.useEffect(() => {
     if (!n || !l)
       return;
     u.current.__escapeKeyBubbles = j, u.current.__outsidePressBubbles = P;
@@ -4105,7 +4107,7 @@ function xa(e, t) {
     const O = be(c);
     f && O.addEventListener("keydown", B ? J : _, B), R && O.addEventListener(m, H ? I : q, H);
     let F = [];
-    return y && (Q(s) && (F = Ne(s)), Q(c) && (F = F.concat(Ne(c))), !Q(a) && a && a.contextElement && (F = F.concat(Ne(a.contextElement)))), F = F.filter((x) => {
+    return g && (Q(s) && (F = Ne(s)), Q(c) && (F = F.concat(Ne(c))), !Q(a) && a && a.contextElement && (F = F.concat(Ne(a.contextElement)))), F = F.filter((x) => {
       var ne;
       return x !== ((ne = O.defaultView) == null ? void 0 : ne.visualViewport);
     }), F.forEach((x) => {
@@ -4117,9 +4119,9 @@ function xa(e, t) {
         x.removeEventListener("scroll", S);
       });
     };
-  }, [u, c, s, a, f, R, m, n, r, y, l, j, P, _, B, J, q, H, I]), g.useEffect(() => {
+  }, [u, c, s, a, f, R, m, n, r, g, l, j, P, _, B, J, q, H, I]), y.useEffect(() => {
     N.current = !1;
-  }, [R, m]), g.useMemo(() => l ? {
+  }, [R, m]), y.useMemo(() => l ? {
     reference: {
       onKeyDown: _,
       [Da[v]]: (S) => {
@@ -4161,33 +4163,33 @@ function ka(e) {
       }
     }
   }
-  const [u, l] = g.useState(null), f = ((t = e.elements) == null ? void 0 : t.reference) || u, p = Mo(e), m = Wt(), d = la() != null, v = Ve((P, B, H) => {
+  const [u, l] = y.useState(null), f = ((t = e.elements) == null ? void 0 : t.reference) || u, p = Mo(e), m = Wt(), d = la() != null, v = Ve((P, B, H) => {
     P && (T.current.openEvent = B), w.emit("openchange", {
       open: P,
       event: B,
       reason: H,
       nested: d
     }), r == null || r(P, B, H);
-  }), y = g.useRef(null), T = g.useRef({}), w = g.useState(() => sa())[0], h = ht(), M = g.useCallback((P) => {
+  }), g = y.useRef(null), T = y.useRef({}), w = y.useState(() => sa())[0], h = ht(), M = y.useCallback((P) => {
     const B = Q(P) ? {
       getBoundingClientRect: () => P.getBoundingClientRect(),
       contextElement: P
     } : P;
     p.refs.setReference(B);
-  }, [p.refs]), R = g.useCallback((P) => {
-    (Q(P) || P === null) && (y.current = P, l(P)), (Q(p.refs.reference.current) || p.refs.reference.current === null || // Don't allow setting virtual elements using the old technique back to
+  }, [p.refs]), R = y.useCallback((P) => {
+    (Q(P) || P === null) && (g.current = P, l(P)), (Q(p.refs.reference.current) || p.refs.reference.current === null || // Don't allow setting virtual elements using the old technique back to
     // `null` to support `positionReference` + an unstable `reference`
     // callback ref.
     P !== null && !Q(P)) && p.refs.setReference(P);
-  }, [p.refs]), N = g.useMemo(() => ({
+  }, [p.refs]), N = y.useMemo(() => ({
     ...p.refs,
     setReference: R,
     setPositionReference: M,
-    domReference: y
-  }), [p.refs, R, M]), A = g.useMemo(() => ({
+    domReference: g
+  }), [p.refs, R, M]), A = y.useMemo(() => ({
     ...p.elements,
     domReference: f
-  }), [p.elements, f]), j = g.useMemo(() => ({
+  }), [p.elements, f]), j = y.useMemo(() => ({
     ...p,
     refs: N,
     elements: A,
@@ -4201,7 +4203,7 @@ function ka(e) {
   return he(() => {
     const P = m == null ? void 0 : m.nodesRef.current.find((B) => B.id === o);
     P && (P.context = j);
-  }), g.useMemo(() => ({
+  }), y.useMemo(() => ({
     ...p,
     context: j,
     refs: N,
@@ -4233,15 +4235,15 @@ function kt(e, t, n) {
 }
 function Sa(e) {
   e === void 0 && (e = []);
-  const t = e, n = g.useCallback(
+  const t = e, n = y.useCallback(
     (a) => kt(a, e, "reference"),
     // eslint-disable-next-line react-hooks/exhaustive-deps
     t
-  ), r = g.useCallback(
+  ), r = y.useCallback(
     (a) => kt(a, e, "floating"),
     // eslint-disable-next-line react-hooks/exhaustive-deps
     t
-  ), o = g.useCallback(
+  ), o = y.useCallback(
     (a) => kt(a, e, "item"),
     // Granularly check for `item` changes, because the `getItemProps` getter
     // should be as referentially stable as possible since it may be passed as
@@ -4250,7 +4252,7 @@ function Sa(e) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     e.map((a) => a == null ? void 0 : a.item)
   );
-  return g.useMemo(() => ({
+  return y.useMemo(() => ({
     getReferenceProps: n,
     getFloatingProps: r,
     getItemProps: o
@@ -4265,7 +4267,7 @@ function Ta(e, t) {
     enabled: o = !0,
     role: a = "dialog"
   } = t, s = ht();
-  return g.useMemo(() => {
+  return y.useMemo(() => {
     if (!o)
       return {};
     const c = {
@@ -4305,8 +4307,8 @@ function Be(e, t) {
   return typeof e == "function" ? e(t) : e;
 }
 function Ra(e, t) {
-  const [n, r] = g.useState(e);
-  return e && !n && r(!0), g.useEffect(() => {
+  const [n, r] = y.useState(e);
+  return e && !n && r(!0), y.useEffect(() => {
     if (!e) {
       const o = setTimeout(() => r(!1), t);
       return () => clearTimeout(o);
@@ -4322,7 +4324,7 @@ function _a(e, t) {
     }
   } = e, {
     duration: o = 250
-  } = t, s = (typeof o == "number" ? o : o.close) || 0, [c, u] = g.useState(!1), [l, f] = g.useState("unmounted"), p = Ra(n, s);
+  } = t, s = (typeof o == "number" ? o : o.close) || 0, [c, u] = y.useState(!1), [l, f] = y.useState("unmounted"), p = Ra(n, s);
   return he(() => {
     c && !p && f("unmounted");
   }, [c, p]), he(() => {
@@ -4352,14 +4354,14 @@ function Ca(e, t) {
     close: o,
     common: a,
     duration: s = 250
-  } = t, c = e.placement, u = c.split("-")[0], l = g.useMemo(() => ({
+  } = t, c = e.placement, u = c.split("-")[0], l = y.useMemo(() => ({
     side: u,
     placement: c
-  }), [u, c]), f = typeof s == "number", p = (f ? s : s.open) || 0, m = (f ? s : s.close) || 0, [d, v] = g.useState(() => ({
+  }), [u, c]), f = typeof s == "number", p = (f ? s : s.open) || 0, m = (f ? s : s.close) || 0, [d, v] = y.useState(() => ({
     ...Be(a, l),
     ...Be(n, l)
   })), {
-    isMounted: y,
+    isMounted: g,
     status: T
   } = _a(e, {
     duration: s
@@ -4385,7 +4387,7 @@ function Ca(e, t) {
       });
     }
   }, [m, M, w, h, R, p, T, l]), {
-    isMounted: y,
+    isMounted: g,
     styles: d
   };
 }
@@ -4420,7 +4422,7 @@ const _e = 7, ja = 2, Pa = (e) => {
         right: `${-_e}px ${p}px`
       }[A]
     })
-  }), v = Ea(a), y = xa(a), T = Ta(a), { getReferenceProps: w, getFloatingProps: h } = Sa([v, y, T]), M = ht();
+  }), v = Ea(a), g = xa(a), T = Ta(a), { getReferenceProps: w, getFloatingProps: h } = Sa([v, g, T]), M = ht();
   return /* @__PURE__ */ D.jsxDEV(D.Fragment, { children: [
     /* @__PURE__ */ D.jsxDEV("div", { ref: o.setReference, ...w(), children: e.input }, void 0, !1, {
       fileName: "/Users/puncoz/Workspace/web/projects/nepali-datepicker-reactjs/NepaliDatePicker/src/components/wrapper/floating-container.tsx",

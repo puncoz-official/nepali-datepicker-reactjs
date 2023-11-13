@@ -62,6 +62,7 @@ export interface ClassNames {
     dayPickerTd?: ClassName;
     dayPickerDay?: ClassName;
     dayPickerDayWeekend?: ClassName;
+    dayPickerDayHoliday?: ClassName;
     dayPickerDaySelected?: ClassName;
     dayPickerDayOtherMonth?: ClassName;
     dayPickerToday?: ClassName;

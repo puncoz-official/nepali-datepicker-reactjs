@@ -116,6 +116,15 @@ const DayPicker: FunctionComponent = () => {
                   ${
                   !dayInfo.isSelected
                   && dayInfo.isCurrentMonth
+                  && state.modifiers.isHoliday(dayInfo)
+                  && (
+                    state.options.classNames.dayPickerDayHoliday ?? "ndp__day_picker-day-holiday ndp-text-red-500"
+                  )}
+
+                  ${
+                  !dayInfo.isSelected
+                  && dayInfo.isCurrentMonth
+                  && !state.modifiers.isHoliday(dayInfo)
                   && state.modifiers.isWeekend(dayInfo.weekDay)
                   && (
                     state.options.classNames.dayPickerDayWeekend ?? "ndp__day_picker-day-weekend ndp-text-red-500"
