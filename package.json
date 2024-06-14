@@ -16,7 +16,7 @@
         "url": "https://github.com/puncoz"
     },
     "license": "MIT",
-    "repository": "https://github.com/puncoz/nepali-datepicker-reactjs",
+    "repository": "https://github.com/puncoz-official/nepali-datepicker-reactjs",
     "homepage": "https://puncoz-official.github.io/nepali-datepicker-reactjs",
     "main": "dist/index.js",
     "module": "dist/index.modern.js",
