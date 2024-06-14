@@ -5,7 +5,7 @@ import Footer from "./components/Footer"
 import Header from "./components/Header"
 
 const App: FunctionComponent = () => {
-    const [dateEnglish, setDateEnglish] = useState<string>("2077-03-15")
+    const [dateEnglish, setDateEnglish] = useState<string>("")
     const [dateNepali, setDateNepali] = useState<string>("")
 
     return (

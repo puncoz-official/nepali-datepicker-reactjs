@@ -1,6 +1,6 @@
 {
     "name": "nepali-datepicker-reactjs",
-    "version": "1.1.4",
+    "version": "1.1.5",
     "description": "Nepali Datepicker (Bikram Sambat) as a ReactJS component",
     "keywords": [
         "nepali date picker",
@@ -41,6 +41,11 @@
         "start": "microbundle-crl watch --no-compress --format modern,cjs --css-modules false",
         "prebuild": "yarn clean && yarn format",
         "build": "microbundle-crl --no-compress --format modern,cjs --css-modules false",
+        "prepare": "yarn build",
+        "prepublishOnly": "yarn test && yarn lint",
+        "preversion": "yarn lint",
+        "version": "yarn format && git add -A src",
+        "postversion": "git push && git push --tags",
         "predeploy": "cd example && yarn install && yarn run build",
         "deploy": "gh-pages -d example/build"
     },
@@ -78,13 +83,13 @@
         "husky": "^4.2.5",
         "lint-staged": "^10.2.11",
         "microbundle-crl": "^0.13.10",
-        "node-sass": "^6.0.1",
         "npm-run-all": "^4.1.5",
         "prettier": "^2.0.4",
         "prettier-stylelint": "^0.4.2",
         "react": "^18.2.0",
         "react-scripts": "^5.0.1",
         "rimraf": "^3.0.2",
+        "sass": "^1.77.5",
         "stylelint": "^13.6.1",
         "stylelint-config-standard": "^20.0.0",
         "stylelint-declaration-block-no-ignored-properties": "^2.3.0",
@@ -98,7 +103,7 @@
         "src/NepaliDatePicker.scss"
     ],
     "dependencies": {
-        "bikram-sambat-js": "^1.0.1",
+        "bikram-sambat-js": "^1.0.2",
         "nepali-number": "^1.0.3"
     }
 }
