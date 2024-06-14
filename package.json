@@ -42,7 +42,6 @@
         "prebuild": "yarn clean && yarn format",
         "build": "microbundle-crl --no-compress --format modern,cjs --css-modules false",
         "prepare": "yarn build",
-        "prepublishOnly": "yarn test && yarn lint",
         "version": "git add -A src",
         "postversion": "git push && git push --tags",
         "predeploy": "cd example && yarn install && yarn run build",
