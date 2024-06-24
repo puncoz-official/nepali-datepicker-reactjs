@@ -23,6 +23,7 @@ yarn add nepali-datepicker-reactjs
 
 ## Usage
 
+#### For Typescript
 ```tsx
 import React, { useState } from "react"
 import { NepaliDatePicker } from "nepali-datepicker-reactjs"
@@ -38,6 +39,30 @@ const App = () => {
                               className=""
                               value={date}
                               onChange={(value: string) => setDate(value)}
+                              options={{ calenderLocale: "ne", valueLocale: "en" }} />
+        </form>
+    )
+}
+
+export default App
+```
+
+#### For JavaScript
+```jsx
+import React, { useState } from "react"
+import { NepaliDatePicker } from "nepali-datepicker-reactjs"
+import "nepali-datepicker-reactjs/dist/index.css"
+
+const App = () => {
+    const [date, setDate] = useState("")
+
+    return (
+        <form>
+            <label htmlFor="date">Date</label>
+            <NepaliDatePicker inputClassName="form-control"
+                              className=""
+                              value={date}
+                              onChange={(value) => setDate(value)}
                               options={{ calenderLocale: "ne", valueLocale: "en" }} />
         </form>
     )
