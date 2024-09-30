@@ -6,7 +6,7 @@ import { localeType, ParsedDate, SplittedDate } from "../../../Types"
 import { getNumberOfDaysInBSMonth, range, splitDate } from "../../../Utils/common"
 
 interface DayPickerBodyProps {
-    selectedDate: ParsedDate
+    selectedDate: ParsedDate | null
     calenderDate: ParsedDate
     onSelect: (date: SplittedDate) => void
 }
@@ -62,11 +62,12 @@ const DayPickerBody: FunctionComponent<DayPickerBodyProps> = ({ selectedDate, ca
             const isToday = isCurrentMonth
                 ? today.day === day && today.month === date.bsMonth && today.year === date.bsYear
                 : false
-            const isSelected = isCurrentMonth
-                ? selectedDate.bsDay === day &&
-                  selectedDate.bsMonth === date.bsMonth &&
-                  selectedDate.bsYear === date.bsYear
-                : false
+            const isSelected =
+                selectedDate && isCurrentMonth
+                    ? selectedDate.bsDay === day &&
+                      selectedDate.bsMonth === date.bsMonth &&
+                      selectedDate.bsYear === date.bsYear
+                    : false
 
             return { day, month, year, isCurrentMonth, isToday, isSelected }
         },

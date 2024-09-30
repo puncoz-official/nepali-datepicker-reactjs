@@ -29,6 +29,7 @@ NepaliDatePickerWrapper.defaultProps = {
     onChange: () => null,
     onSelect: () => null,
     options: {},
+    todayIfEmpty: false,
 }
 
 export default NepaliDatePickerWrapper

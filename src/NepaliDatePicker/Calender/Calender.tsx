@@ -7,25 +7,33 @@ import { DayPicker } from "./components/DayPicker"
 import { useConfig } from "../Config"
 
 interface CalenderProps {
-    value: string
+    value: string | null
     events: NepaliDatepickerEvents
 }
 
 const Calender: FunctionComponent<CalenderProps> = ({ value, events }) => {
     const [isInitialized, setIsInitialized] = useState<boolean>(false)
-    const [selectedDate, setSelectedDate] = useState<ParsedDate>(parsedDateInitialValue)
+    const [selectedDate, setSelectedDate] = useState<ParsedDate | null>(null)
     const [calenderDate, setCalenderDate] = useState<ParsedDate>(parsedDateInitialValue)
     const { getConfig } = useConfig()
-    useEffect(() => {
-        const parsedDateValue = parseBSDate(value)
 
-        setSelectedDate(parsedDateValue)
-        setCalenderDate(parsedDateValue)
+    useEffect(() => {
+        const parsedDateValue = value ? parseBSDate(value) : null
+
+        if (parsedDateValue) {
+            setSelectedDate(parsedDateValue)
+            setCalenderDate(parsedDateValue)
+        } else {
+            // Set to current date if no valid value is provided
+            const today = parseBSDate(ADToBS(new Date()))
+            setCalenderDate(today)
+            setSelectedDate(null)
+        }
         setIsInitialized(true)
     }, [value])
 
     useEffect(() => {
-        if (isInitialized) {
+        if (isInitialized && selectedDate) {
             events.change(
                 stitchDate({
                     year: selectedDate.bsYear,
