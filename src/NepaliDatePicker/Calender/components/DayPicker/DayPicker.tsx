@@ -4,7 +4,7 @@ import DayPickerBody from "./DayPickerBody"
 import DayPickerHeader from "./DayPickerHeader"
 
 interface DayPickerProps {
-    selectedDate: ParsedDate
+    selectedDate: ParsedDate | null
     calenderDate: ParsedDate
     onDaySelect: (date: SplittedDate) => void
 }

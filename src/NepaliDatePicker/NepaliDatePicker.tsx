@@ -7,7 +7,7 @@ import { ENGLISH, INepaliDatePicker, localeType, NepaliDatepickerEvents } from "
 import { childOf, executionDelegation, stitchDate } from "./Utils/common"
 
 const NepaliDatePicker: FunctionComponent<INepaliDatePicker> = (props) => {
-    const { className, inputClassName, value, onChange, onSelect, options } = props
+    const { className, inputClassName, value, onChange, onSelect, options, todayIfEmpty } = props
 
     const nepaliDatePickerWrapper = useRef<HTMLDivElement>(null)
     const nepaliDatePickerInput = useRef<HTMLInputElement>(null)
@@ -28,7 +28,7 @@ const NepaliDatePicker: FunctionComponent<INepaliDatePicker> = (props) => {
     }, [options.calenderLocale])
 
     useEffect(() => {
-        setDate(toEnglish(value || ADToBS(new Date())))
+        setDate(toEnglish(value || (todayIfEmpty ? ADToBS(new Date()) : "")))
     }, [value])
 
     const handleClickOutside = useCallback((event: any) => {
@@ -119,7 +119,7 @@ const NepaliDatePicker: FunctionComponent<INepaliDatePicker> = (props) => {
                 value={numberTrans(date)}
                 onClick={() => setShowCalendar((visible) => !visible)}
             />
-            {showCalendar && date && <Calender value={date} events={datepickerEvents} />}
+            {showCalendar && <Calender value={date && date} events={datepickerEvents} />}
         </div>
     )
 }
