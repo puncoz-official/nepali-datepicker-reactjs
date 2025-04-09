@@ -8,7 +8,7 @@ export const months = {
         "Asoj",
         "Kartik",
         "Mangsir",
-        "Pouse",
+        "Poush",
         "Magh",
         "Falgun",
         "Chaitra",
