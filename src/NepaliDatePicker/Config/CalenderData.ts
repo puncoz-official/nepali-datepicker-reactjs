@@ -5,7 +5,7 @@ export const months = {
         "Asar",
         "Shrawan",
         "Bhadra",
-        "Asoj",
+        "Ashoj",
         "Kartik",
         "Mangsir",
         "Poush",
