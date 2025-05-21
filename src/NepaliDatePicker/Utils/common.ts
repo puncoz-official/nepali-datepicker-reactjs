@@ -96,7 +96,39 @@ export const getNumberOfDaysInBSMonth = (yearMonth: { year: number; month: numbe
         if (year === 2081 && month === 12) {
             return CalenderData.bsMonthMaxDays[month - 1][bsMonthUpperDaysIndex] + 1
         }
+        
+        if (year === 2082 && month === 1) {
+            return CalenderData.bsMonthMaxDays[month - 1][bsMonthUpperDaysIndex] + 1
+        }
 
+        if (year === 2082 && month === 2) {
+            return CalenderData.bsMonthMaxDays[month - 1][bsMonthUpperDaysIndex] - 1
+        }
+
+        if (year === 2082 && month === 3) {
+            return CalenderData.bsMonthMaxDays[month - 1][bsMonthUpperDaysIndex] + 1
+        }
+
+        if (year === 2082 && month === 4) {
+            return CalenderData.bsMonthMaxDays[month - 1][bsMonthUpperDaysIndex] - 1
+        }
+        
+        if (year === 2082 && month === 6) {
+            return CalenderData.bsMonthMaxDays[month - 1][bsMonthUpperDaysIndex] + 1
+        }
+
+        if (year === 2082 && month === 8) {
+            return CalenderData.bsMonthMaxDays[month - 1][bsMonthUpperDaysIndex] - 1
+        }
+
+        if (year === 2082 && month === 9) {
+            return CalenderData.bsMonthMaxDays[month - 1][bsMonthUpperDaysIndex] + 1
+        }
+
+        if (year === 2082 && month === 10) {
+            return CalenderData.bsMonthMaxDays[month - 1][bsMonthUpperDaysIndex] - 1
+        }
+        
         if ((year === 2085 && month === 5) || (year === 2088 && month === 5)) {
             return CalenderData.bsMonthMaxDays[month - 1][bsMonthUpperDaysIndex] - 2
         }
