@@ -101,7 +101,7 @@
         "src/NepaliDatePicker.scss"
     ],
     "dependencies": {
-        "bikram-sambat-js": "^1.0.2",
+        "bikram-sambat-js": "^1.0.3",
         "nepali-number": "^1.0.3"
     }
 }
