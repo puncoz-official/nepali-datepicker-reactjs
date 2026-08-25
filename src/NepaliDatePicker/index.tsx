@@ -16,7 +16,7 @@ const NepaliDatePickerWrapper: FunctionComponent<NepaliDatePickerProps> = (props
     )
 
     return (
-        <ConfigProvider maxYear={props.maxYear} minYear={props.minYear}>
+        <ConfigProvider maxYear={props.maxYear} minYear={props.minYear} minDate={props.minDate} maxDate={props.maxDate}>
             <NepaliDatePicker {...({ ...props, options: calenderOptions } as INepaliDatePicker)} />
         </ConfigProvider>
     )

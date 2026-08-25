@@ -26,12 +26,15 @@ $text-disabled: #d8d8d8;
         text-align: right;
         user-select: none;
         left: 0;
+        width: 320px;
+        max-width: calc(100vw - 32px);
         z-index: 9999;
 
         .calendar-controller {
             align-items: center;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
+            gap: 8px;
             position: relative;
 
             .date-indicator {
@@ -42,6 +45,28 @@ $text-disabled: #d8d8d8;
                 cursor: pointer;
                 position: relative;
                 text-align: center;
+
+                &.icon {
+                    background: none;
+                    border: none;
+                    padding: 4px;
+                    border-radius: 4px;
+                    color: inherit;
+                    font: inherit;
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    transition: background-color 0.15s ease;
+
+                    &:hover:not(:disabled) {
+                        background-color: rgba($primary, 0.08);
+                    }
+
+                    &:disabled {
+                        cursor: not-allowed;
+                        opacity: 0.35;
+                    }
+                }
 
                 &.icon-today {
                     position: absolute;

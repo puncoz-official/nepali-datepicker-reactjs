@@ -19,6 +19,8 @@ export interface IContextProviderProps {
     minYear?: number
     children: React.ReactNode
     maxYear?: number
+    minDate?: string
+    maxDate?: string
 }
 export interface INepaliDatePicker {
     value: string
@@ -29,6 +31,10 @@ export interface INepaliDatePicker {
     options: NepaliDatePickerOptions
     minYear?: number
     maxYear?: number
+    /** Earliest selectable date, as an AD date string (YYYY-MM-DD). */
+    minDate?: string
+    /** Latest selectable date, as an AD date string (YYYY-MM-DD). */
+    maxDate?: string
     todayIfEmpty?: boolean
 }
 
@@ -45,6 +51,8 @@ export interface NepaliDatePickerProps {
     }
     minYear?: INepaliDatePicker["minYear"]
     maxYear?: INepaliDatePicker["maxYear"]
+    minDate?: INepaliDatePicker["minDate"]
+    maxDate?: INepaliDatePicker["maxDate"]
     todayIfEmpty?: boolean
 }
 

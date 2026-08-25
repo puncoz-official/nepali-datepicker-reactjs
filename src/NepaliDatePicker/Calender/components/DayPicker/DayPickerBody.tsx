@@ -18,6 +18,15 @@ interface DayInfo {
     isCurrentMonth: boolean
     isToday: boolean
     isSelected: boolean
+    isOutOfRange: boolean
+}
+
+// Lexicographic year/month/day comparison; works directly on the BS
+// calendar since, like AD, its y/m/d values increase monotonically.
+const compareYMD = (a: SplittedDate, b: SplittedDate): number => {
+    if (a.year !== b.year) return a.year - b.year
+    if (a.month !== b.month) return a.month - b.month
+    return a.day - b.day
 }
 
 const DayPickerBody: FunctionComponent<DayPickerBodyProps> = ({ selectedDate, calenderDate: date, onSelect }) => {
@@ -40,6 +49,8 @@ const DayPickerBody: FunctionComponent<DayPickerBodyProps> = ({ selectedDate, ca
 
     const { getConfig } = useConfig()
     const { numberTrans } = useTrans(getConfig<localeType>("currentLocale"))
+    const minDateBS = getConfig<SplittedDate | null>("minDateBS")
+    const maxDateBS = getConfig<SplittedDate | null>("maxDateBS")
 
     const getDayInfo = useCallback(
         (weekNum, weekDayNum): DayInfo => {
@@ -69,14 +80,19 @@ const DayPickerBody: FunctionComponent<DayPickerBodyProps> = ({ selectedDate, ca
                       selectedDate.bsYear === date.bsYear
                     : false
 
-            return { day, month, year, isCurrentMonth, isToday, isSelected }
+            const cellDate: SplittedDate = { year, month, day }
+            const isOutOfRange =
+                (!!minDateBS && compareYMD(cellDate, minDateBS) < 0) ||
+                (!!maxDateBS && compareYMD(cellDate, maxDateBS) > 0)
+
+            return { day, month, year, isCurrentMonth, isToday, isSelected, isOutOfRange }
         },
-        [date, selectedDate, previousMonthDays],
+        [date, selectedDate, previousMonthDays, minDateBS, maxDateBS],
     )
 
     const onDateSelectHandler = useCallback(
         (dayInfo: DayInfo) => {
-            if (dayInfo.isCurrentMonth) {
+            if (dayInfo.isCurrentMonth && !dayInfo.isOutOfRange) {
                 onSelect({ year: dayInfo.year, month: dayInfo.month, day: dayInfo.day })
             }
         },
@@ -89,14 +105,26 @@ const DayPickerBody: FunctionComponent<DayPickerBodyProps> = ({ selectedDate, ca
                 <tr key={weekNum}>
                     {range(1, 7).map((weekDayNum) => {
                         const dayInfo = getDayInfo(weekNum, weekDayNum)
+                        const isSelectable = dayInfo.isCurrentMonth && !dayInfo.isOutOfRange
 
                         return (
                             <td
                                 key={weekDayNum}
-                                className={`month-day ${dayInfo.isCurrentMonth ? "current" : "disabled"} ${
-                                    dayInfo.isToday ? "today" : ""
-                                } ${dayInfo.isSelected ? "selected" : ""}`}
+                                className={`month-day ${
+                                    dayInfo.isCurrentMonth && !dayInfo.isOutOfRange ? "current" : "disabled"
+                                } ${dayInfo.isToday ? "today" : ""} ${dayInfo.isSelected ? "selected" : ""}`}
+                                role={isSelectable ? "button" : undefined}
+                                tabIndex={isSelectable ? 0 : undefined}
+                                aria-current={dayInfo.isToday ? "date" : undefined}
+                                aria-selected={dayInfo.isSelected}
+                                aria-disabled={dayInfo.isCurrentMonth && dayInfo.isOutOfRange ? true : undefined}
                                 onClick={() => onDateSelectHandler(dayInfo)}
+                                onKeyDown={(event) => {
+                                    if (isSelectable && (event.key === "Enter" || event.key === " ")) {
+                                        event.preventDefault()
+                                        onDateSelectHandler(dayInfo)
+                                    }
+                                }}
                             >
                                 {numberTrans(dayInfo.day)}
                             </td>

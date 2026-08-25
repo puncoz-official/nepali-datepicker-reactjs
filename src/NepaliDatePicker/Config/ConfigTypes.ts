@@ -1,4 +1,4 @@
-import { localeType } from "../Types"
+import { localeType, SplittedDate } from "../Types"
 
 export const SET_CONFIG: string = "set_config"
 
@@ -6,6 +6,8 @@ export interface ConfigState {
     currentLocale: localeType
     minYear: number
     maxYear: number
+    minDateBS: SplittedDate | null
+    maxDateBS: SplittedDate | null
 }
 
 export type ConfigValue = localeType

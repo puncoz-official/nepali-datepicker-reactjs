@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useMemo, useState } from "react"
+import React, { FunctionComponent, useMemo } from "react"
 import { CalenderData, useConfig } from "../../Config"
 import { DropDown, OptionType } from "../../DropDown"
 import { localeType, ParsedDate } from "../../Types"
@@ -6,11 +6,11 @@ import { localeType, ParsedDate } from "../../Types"
 interface MonthPickerProps {
     date: ParsedDate
     onSelect: (year: number) => void
+    isOpen: boolean
+    onToggle: () => void
 }
 
-const MonthPicker: FunctionComponent<MonthPickerProps> = ({ date, onSelect }) => {
-    const [showDropdown, setShowDropdown] = useState(false)
-
+const MonthPicker: FunctionComponent<MonthPickerProps> = ({ date, onSelect, isOpen, onToggle }) => {
     const { getConfig } = useConfig()
     const currentLocale: localeType = useMemo(() => getConfig<localeType>("currentLocale"), [getConfig])
 
@@ -31,16 +31,38 @@ const MonthPicker: FunctionComponent<MonthPickerProps> = ({ date, onSelect }) =>
     }, [currentLocale])
 
     const handleDropdownView = (selected: OptionType) => {
-        setShowDropdown(!showDropdown)
+        onToggle()
         onSelect(selected.value)
     }
 
     return (
         <div className='control month'>
-            <span className='current-month' onClick={() => setShowDropdown(!showDropdown)}>
+            <span
+                className='current-month'
+                role='button'
+                tabIndex={0}
+                aria-haspopup='listbox'
+                aria-expanded={isOpen}
+                onClick={onToggle}
+                onKeyDown={(event) => {
+                    if (event.key === "Enter" || event.key === " ") {
+                        event.preventDefault()
+                        onToggle()
+                    } else if (event.key === "Escape" && isOpen) {
+                        onToggle()
+                    }
+                }}
+            >
                 {currentMonth.label}
             </span>
-            {showDropdown && <DropDown options={monthList} value={currentMonth.value} onSelect={handleDropdownView} />}
+            {isOpen && (
+                <DropDown
+                    options={monthList}
+                    value={currentMonth.value}
+                    onSelect={handleDropdownView}
+                    onClose={onToggle}
+                />
+            )}
         </div>
     )
 }
