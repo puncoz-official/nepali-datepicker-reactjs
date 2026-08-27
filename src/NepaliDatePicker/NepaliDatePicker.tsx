@@ -16,7 +16,7 @@ const NepaliDatePicker: FunctionComponent<INepaliDatePicker> = (props) => {
     const [showCalendar, setShowCalendar] = useState<boolean>(false)
 
     const { setConfig, getConfig } = useConfig()
-    const { numberTrans } = useTrans(getConfig<localeType>("currentLocale"))
+    const { numberTrans, trans } = useTrans(getConfig<localeType>("currentLocale"))
 
     const toEnglish = useCallback((val: string): string => numberTrans(val, ENGLISH), [])
     const returnDateValue = useCallback((val: string): string => numberTrans(val, options.valueLocale), [
@@ -31,13 +31,36 @@ const NepaliDatePicker: FunctionComponent<INepaliDatePicker> = (props) => {
         setDate(toEnglish(value || (todayIfEmpty ? ADToBS(new Date()) : "")))
     }, [value])
 
-    const handleClickOutside = useCallback((event: any) => {
+    const handleClickOutside = useCallback((event: MouseEvent) => {
         if (nepaliDatePickerWrapper.current && childOf(event.target, nepaliDatePickerWrapper.current)) {
             return
         }
 
         setShowCalendar(false)
     }, [])
+
+    const closeAndRefocus = useCallback(() => {
+        setShowCalendar(false)
+        nepaliDatePickerInput.current?.focus()
+    }, [])
+
+    useLayoutEffect(() => {
+        if (!showCalendar) {
+            return
+        }
+
+        const handleEscape = (event: KeyboardEvent) => {
+            if (event.key === "Escape") {
+                closeAndRefocus()
+            }
+        }
+
+        document.addEventListener("keydown", handleEscape)
+
+        return () => {
+            document.removeEventListener("keydown", handleEscape)
+        }
+    }, [showCalendar, closeAndRefocus])
 
     useLayoutEffect(() => {
         if (showCalendar) {
@@ -117,9 +140,24 @@ const NepaliDatePicker: FunctionComponent<INepaliDatePicker> = (props) => {
                 className={inputClassName}
                 readOnly={true}
                 value={numberTrans(date)}
+                role='combobox'
+                aria-haspopup='dialog'
+                aria-expanded={showCalendar}
                 onClick={() => setShowCalendar((visible) => !visible)}
+                onKeyDown={(event) => {
+                    if (event.key === "Enter" || event.key === " ") {
+                        event.preventDefault()
+                        setShowCalendar((visible) => !visible)
+                    } else if (event.key === "Escape" && showCalendar) {
+                        closeAndRefocus()
+                    }
+                }}
             />
-            {showCalendar && <Calender value={date && date} events={datepickerEvents} />}
+            {showCalendar && (
+                <div role='dialog' aria-modal='false' aria-label={trans("chooseDate")}>
+                    <Calender value={date && date} events={datepickerEvents} />
+                </div>
+            )}
         </div>
     )
 }

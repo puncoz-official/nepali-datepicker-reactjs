@@ -1,5 +1,5 @@
 import { ADToBS } from "bikram-sambat-js"
-import React, { Fragment, FunctionComponent, useCallback, useEffect, useState } from "react"
+import React, { Fragment, FunctionComponent, useCallback, useEffect, useMemo, useState } from "react"
 import { NepaliDatepickerEvents, ParsedDate, parsedDateInitialValue, SplittedDate } from "../Types"
 import { executionDelegation, parseBSDate, stitchDate } from "../Utils/common"
 import CalenderController from "./components/CalenderController"
@@ -16,6 +16,24 @@ const Calender: FunctionComponent<CalenderProps> = ({ value, events }) => {
     const [selectedDate, setSelectedDate] = useState<ParsedDate | null>(null)
     const [calenderDate, setCalenderDate] = useState<ParsedDate>(parsedDateInitialValue)
     const { getConfig } = useConfig()
+    const minDateBS = getConfig<SplittedDate | null>("minDateBS")
+    const maxDateBS = getConfig<SplittedDate | null>("maxDateBS")
+
+    const isPreviousDisabled = useMemo(() => {
+        if (!minDateBS) return false
+        return (
+            calenderDate.bsYear < minDateBS.year ||
+            (calenderDate.bsYear === minDateBS.year && calenderDate.bsMonth <= minDateBS.month)
+        )
+    }, [calenderDate, minDateBS])
+
+    const isNextDisabled = useMemo(() => {
+        if (!maxDateBS) return false
+        return (
+            calenderDate.bsYear > maxDateBS.year ||
+            (calenderDate.bsYear === maxDateBS.year && calenderDate.bsMonth >= maxDateBS.month)
+        )
+    }, [calenderDate, maxDateBS])
 
     useEffect(() => {
         const parsedDateValue = value ? parseBSDate(value) : null
@@ -203,6 +221,8 @@ const Calender: FunctionComponent<CalenderProps> = ({ value, events }) => {
                             onToday={onTodayClickHandler}
                             onYearSelect={onYearSelectHandler}
                             onMonthSelect={onMonthSelectHandler}
+                            isPreviousDisabled={isPreviousDisabled}
+                            isNextDisabled={isNextDisabled}
                         />
 
                         <DayPicker

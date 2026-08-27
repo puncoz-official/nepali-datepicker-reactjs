@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useMemo, useState } from "react"
+import React, { FunctionComponent, useMemo } from "react"
 import { useConfig } from "../../Config"
 import { DropDown, OptionType } from "../../DropDown"
 import { useTrans } from "../../Locale"
@@ -8,10 +8,11 @@ import { range } from "../../Utils/common"
 interface YearPickerProps {
     date: ParsedDate
     onSelect: (year: number) => void
+    isOpen: boolean
+    onToggle: () => void
 }
 
-const YearPicker: FunctionComponent<YearPickerProps> = ({ date, onSelect }) => {
-    const [showDropdown, setShowDropdown] = useState(false)
+const YearPicker: FunctionComponent<YearPickerProps> = ({ date, onSelect, isOpen, onToggle }) => {
     const { getConfig } = useConfig()
     const { numberTrans } = useTrans(getConfig<localeType>("currentLocale"))
 
@@ -38,16 +39,33 @@ const YearPicker: FunctionComponent<YearPickerProps> = ({ date, onSelect }) => {
     )
 
     const handleDropdownView = (selected: OptionType) => {
-        setShowDropdown(!showDropdown)
+        onToggle()
         onSelect(selected.value)
     }
 
     return (
         <div className='control year'>
-            <span className='current-year' onClick={() => setShowDropdown(!showDropdown)}>
+            <span
+                className='current-year'
+                role='button'
+                tabIndex={0}
+                aria-haspopup='listbox'
+                aria-expanded={isOpen}
+                onClick={onToggle}
+                onKeyDown={(event) => {
+                    if (event.key === "Enter" || event.key === " ") {
+                        event.preventDefault()
+                        onToggle()
+                    } else if (event.key === "Escape" && isOpen) {
+                        onToggle()
+                    }
+                }}
+            >
                 {currentYear.label}
             </span>
-            {showDropdown && <DropDown options={years} value={currentYear.value} onSelect={handleDropdownView} />}
+            {isOpen && (
+                <DropDown options={years} value={currentYear.value} onSelect={handleDropdownView} onClose={onToggle} />
+            )}
         </div>
     )
 }
